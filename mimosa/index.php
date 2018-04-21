@@ -50,9 +50,9 @@
 			<!-- slider-area-start -->
 			<div class="slider-area">
 				<div id="slider">
-					<img src="img/slider/1.jpg" alt="slider-img" title="#caption1" />
-					<img src="img/slider/2.jpg" alt="slider-img" title="#caption2" />
-					<img src="img/slider/3.jpg" alt="slider-img" title="#caption3" />
+					<img src="img/slider/slider1.jpg" alt="slider-img" title="#caption1" />
+					<img src="img/slider/slider2.jpg" alt="slider-img" title="#caption2" />
+					<img src="img/slider/slider3.jpg" alt="slider-img" title="#caption3" />
 				</div>
 				<div class="nivo-html-caption" id="caption1" >
 					<div class="container">
