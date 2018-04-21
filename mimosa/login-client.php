@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['id'])){
   header("location: index.php");
 }
-require "config.php";
+require_once "../config.php";
 $conn=Config::getConnexion();
 if(isset($_POST['MotDePasse'])){
 $user = $_POST['email'];

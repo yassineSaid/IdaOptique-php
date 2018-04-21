@@ -122,14 +122,21 @@
 										<!-- product-wrapper-start -->
 											<?php
 
-                                        include_once 'produit.php';
-                                        
-
-                                        
-                                        
+                                        include_once '../core/produitC.php';
+                                        include '../core/imageC.php';
+                                       // include_once 'header.php';
                                         
                                         $pro= new ProduitManage();
-                                        $result=$pro->afficherProduit();
+                                        
+                                        if(isset($_POST['rech'])&&$_POST['rech']!="")
+                                        {
+                                            $result=$pro->rechercherProduit($_POST['rech']);
+                                        }
+                                        else
+                                        $result=$pro->afficherProduitCategorie($_GET['categorie']);
+                                        
+                                        
+                                        
                                         
 
                                     ?>
@@ -137,19 +144,14 @@
 
                                     foreach ($result as $row) 
                                     {
-                                    	$p=new ImagesManage();
-                                        $list=$p->afficherImage($row['produit_id']);
-                                    	?>
-                                    <?php
-                                    foreach ($list as $val) 
-                                    {
                                     	?>
                                     	
 										<div class="product-wrapper product-wrapper-3 mb-40">
 											<div class="product-img">
 												<a href="#">
-													<img src="<?php echo  "img/product/".$val['nom'] ?>" alt="product" class="primary"/>
-													<img src="<?php echo  "img/product/".$val['nom'] ?>" alt="product" class="secondary"/>
+													
+													<img src="<?php echo  "img/tsawer/".$row['nom'] ?>" alt="product" class="primary"/>
+													<img src="<?php echo  "img/tsawer/".$row['nom'] ?>" alt="product" class="secondary"/>
 												</a>
 												<div class="product-icon">
 													<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
@@ -174,7 +176,7 @@
 												<div class="price">
 													<ul>
 														<li class="new-price"><?php echo $row['produit_prix'];echo " DT" ?></li><br>
-														<li class="new-price"><?php echo $row['produit_qte']." En Stock";?></li>
+														<li class="new-price"><?php echo " En Stock";?></li>
 													</ul>
 												</div>
 												<p><?php echo $row['produit_description']?></p>
@@ -183,7 +185,6 @@
 												<p>-----------------------------------------------------------------------------------------------------------</p>
 											</div>
 										</div>
-										<?php } ?>
 										<?php } ?>
 
 										<!-- product-wrapper-end -->

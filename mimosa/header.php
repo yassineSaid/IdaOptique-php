@@ -24,7 +24,7 @@
 								<div class="menu-area">
 									<nav>
 										<ul>
-											<li class="active"><a href="index.html">Accueil</a>
+											<li class="active"><a href="index.php">Accueil</a>
 												<ul class="sub-menu">
 													<li><a href="index-2.html">Home-2</a></li>
 													<li><a href="index-3.html">Home-3</a></li>
@@ -247,9 +247,10 @@
 												<div class="single-shapping">
 													<span>Mon compte</span>
 													<ul>
-														<li><a href="listeCommandes.php">Mes commandes</a></li>
 														<?php
 														if(isset($_SESSION['id'])) { ?>
+														<li><a href="listeCommandes.php">Mes commandes</a></li>
+														
 														<li><a href="logout-client.php">Déconnexion</a></li>
 														<?php } else { ?>
 														<li><a href="register.html">Register</a></li>
