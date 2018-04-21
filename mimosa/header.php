@@ -33,7 +33,7 @@
 													<li><a href="index-6.html">Home-6</a></li>
 												</ul>
 											</li>
-											<li><a href="listeProduits.php">Montures solaires</a>
+											<li><a href="<?php echo "listeProduits.php?categorie=optique"; ?>">Montures de vue</a>
 												<ul class="mega-menu">
 													<li><a href="#">Integer vestib</a>
 														<ul class="sub-menu-2">
@@ -69,7 +69,7 @@
 													</li>
 												</ul>
 											</li>
-											<li><a href="shop.html">Accessories</a>
+											<li><a href="<?php echo "listeProduits.php?categorie=solaire"; ?>">Monture Solaire</a>
 												<ul class="mega-menu mega-menu-2">
 													<li><a href="#">suscipit mauris</a>
 														<ul class="sub-menu-2">
