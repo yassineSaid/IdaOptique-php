@@ -1,9 +1,9 @@
 <?php
-include_once 'produit.php';
+include_once '../entities/produit.php';
 class PanierC {
     function afficherPanier ($id_client)
     {
-        $sql="SELECT * From images i,panier p,produit p1 where id_client=$id_client and p1.produit_id=id_produit and i.produit_id=id_produit";
+        $sql="SELECT * From images i,panier p,produit p1 where id_client=$id_client and p1.produit_id=id_produit and i.produit_id=id_produit and i.type='principal'";
         $db = config::getConnexion();
         try{
         $liste=$db->query($sql);
@@ -15,7 +15,7 @@ class PanierC {
     }
     function afficherPanierSession($id_produit)
     {
-        $sql="SELECT * From images i,produit p1 where p1.produit_id=$id_produit and i.produit_id=p1.produit_id";
+        $sql="SELECT * From images i,produit p1 where p1.produit_id=$id_produit and i.produit_id=p1.produit_id and i.type='principal'";
         $db = config::getConnexion();
         try{
         $liste=$db->query($sql);
