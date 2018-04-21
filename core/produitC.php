@@ -171,6 +171,22 @@ public function afficherComparateur()
 		
 		return $sql;
 	}
+	public function afficherProduitFiltre($min,$max,$cat)
+	{
+		$db=config::getConnexion();
+		$req="SELECT * from produit p,images i where p.produit_id=i.produit_id and i.type='principal' and p.produit_categorie='$cat' and produit_prix between $min and $max";
+		$sql=$db->query($req);
+		
+		return $sql;
+	}
+	public function recupererFiltre($filtre)
+	{
+		$db=config::getConnexion();
+		$req="SELECT * from filtre where id_filtre=$filtre";
+		$sql=$db->query($req);
+		
+		return $sql;
+	}
 
 
 

@@ -127,7 +127,26 @@
                                        // include_once 'header.php';
                                         
                                         $pro= new ProduitManage();
+                                        if (isset($_GET['filtre'])) {
+                                        $filtre=$pro->recupererFiltre($_GET['filtre']);
+
+
+//                                        $results=$pro->afficherProduitCategorie($_GET['categorie']);
+                                        foreach ($filtre as $fil) {
+                                       $min=$fil['min'];
+                                       $max=$fil['max'];
+
+                                       
                                         
+                                        
+									}
+                                    ?>
+                                     <?php
+
+                                        $result=$pro->afficherProduitFiltre($min,$max,$_GET['categorie']);
+                                        	
+                                        }
+                                        else {
                                         if(isset($_POST['rech'])&&$_POST['rech']!="")
                                         {
                                             $result=$pro->rechercherProduit($_POST['rech']);
@@ -135,7 +154,7 @@
                                         else
                                         $result=$pro->afficherProduitCategorie($_GET['categorie']);
                                         
-                                        
+                                        }
                                         
                                         
 
