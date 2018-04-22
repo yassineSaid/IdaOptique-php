@@ -34,7 +34,7 @@
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
-    <body class="login">
+    <body class="register">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -44,7 +44,7 @@
 		<div id="page-wraper">
 			<!-- header-area-start -->
 			<header>
-				<?php include_once 'header.php'; ?>
+				<?php include 'header.php'; ?>
 			</header>
 			<!-- header-area-end -->
 			<!-- breadcrumbs-area-start -->
@@ -53,10 +53,10 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="breadcrumb-content text-center">
-								<h2>Connexion</h2>
+								<h2>register</h2>
 								<ul>
-									<li><a href="#">Accueil /</a></li>
-									<li class="active"><a href="#">Connexion</a></li>
+									<li><a href="#">Home /</a></li>
+									<li class="active"><a href="#">register</a></li>
 								</ul>
 							</div>
 						</div>
@@ -64,45 +64,149 @@
 				</div>
 			</div>
 			<!-- breadcrumbs-area-end -->
-			<!-- shop-main-area-start -->
 			
+			<!-- shop-main-area-start -->
 			<div class="shop-main-area">
 				<!-- user-login-area-start -->
+				<?php
+				include "../Core/ClientC.php";
+				$ClientManage=new ClientManage();
+$result=$ClientManage->recupererClient($_GET['id']);
+foreach($result as $row)
+{
+
+				?>
+				<form method="post" action="modifier-client.php">
 				<div class="user-login-area">
 					<div class="container">
 						<div class="row">
-							<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
-								<div class="login-form">
-									<form action="login-client.php" role="form" method="Post">
-									<div class="single-login">
-										<label>E-mail<span>*</span></label>
-										<input type="text" name="email"/>
+					
+					
+						<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+									<div class="checkbox-form">						
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											
+											<div class="checkout-form-list">
+													<label>ID<span>*</span></label>
+													<input type="text" name="id" value="<?php echo $row['id']; ?>"/>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+													<label>nom<span>*</span></label>
+													<input type="text" name="nom" value="<?php echo $row['nom']; ?>" />
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+												<label>Prenom</label>
+												<input type="text" name="prenom" value="<?php echo $row['prenom']; ?>" />
+											</div>
+										</div>
+									
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+													<label>Email Address<span>*</span></label>
+													<input type="text" name="email" value="<?php echo $row['email']; ?>" />
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+													<label>Mot de passe<span>*</span></label>
+													<input type="text" name="MotDePasse" value="<?php echo $row['MotDePasse']; ?>" />
+											</div>
+										</div>
+									<div class="col-lg-12">
+											<div class="country-select">
+												<label>Pays<span>*</span></label>
+												<select class="chosen-select" tabindex="1" style="width:100%;" name="pays" data-placeholder="Default Sorting">
+													<option value="Tunisie">Tunisie </option>
+												</select>
+										</div>
 									</div>
-									<div class="single-login">
-										<label>Mot de passe <span>*</span></label>
-										<input type="password" name="MotDePasse" />
+									<div class="col-lg-12">
+									<div class="country-select">
+										<label>Cite<span>*</span></label>
+										<select class="chosen-select"  name="cite" tabindex="1" style="width:100%;" data-placeholder="Default Sorting">
+										<option value="Select">Selectionner votre cite</option>
+													<option value="Tunis">Tunis</option>
+													<option value="Ariana">Ariana</option>
+													<option value="Ben Arous">Ben Arous</option>
+													<option value="Manouba">Manouba</option>
+													<option value="Nabeul">Nabeul</option>
+													<option value="Zaghouan">Zaghouan</option>
+													<option value="Bizerte">Bizerte</option>
+													<option value="Beja">Beja</option>
+													<option value="Kef">Kef</option>
+													<option value="Siliana">Siliana</option>
+													<option value="Sousse">Sousse</option>
+													<option value="Monastir">Monastir</option>
+													<option value="Mahdia">Mahdia</option>
+													<option value="Sfax">Sfax</option>
+													<option value="Kairouan">Kairouan</option>
+													<option value="Kasserine">Kasserine</option>
+													<option value="Sidi Bouzid">Sidi Bouzid</option>
+													<option value="Gabes">Gabes</option>
+													<option value="Mednine">Mednine</option>
+													<option value="Tataouine">Tataouine</option>
+													<option value="Gafsa">Gafsa</option>
+													<option value="Tozeur">Tozeur</option>
+													<option value="Kebili">Kebili</option>
+													
+												</select>
+										
 									</div>
-									<div>
-										<button type="submit"  class="single-login single-login-2">Connexion</button>
-										<input id="rememberme" type="checkbox" name="rememberme" value="forever">
-										<span>Remember me</span>
+								</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+													<label>Telephone<span>*</span></label>
+													<input type="text" name="telephone" value="<?php echo $row['telephone']; ?>" />
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+												<label>Fax<span>*</span></label>
+												<input type="text" name="fax" value="<?php echo $row['fax']; ?>" />
+												
+											</div>
+										</div>
+								
+								
+									
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+											<label>Adresse<span>*</span></label>
+											<input type="text" name="adresse" value="<?php echo $row['adresse']; ?>" placeholder="Street address"/>
+											
 									</div>
-									<?php if(isset($_GET['connect'])){ ?>
-									<p style="color:red">E-mail ou mot de passe incorrect ! </p>
-									<?php } ?>
-									<a href="#">Mot de passe oublié ?</a>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+												<label><span>Adresse (optionelle)</span></label>
+											<input type="text" name="adresse2" value="<?php echo $row['adresse2']; ?>" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional"/>
+									</div>
 
-									<?php include "google-login/index.php" ?>
-								</form>
+										
+									</div>
+									</div>
+										<?php 
+									}
+									?>
+									<div class="order-button-payment">
+												<input type="submit" name="modif" value="Modifier">
+											</div>
+									
 								</div>
 							</div>
+							
 						</div>
 					</div>
 				</div>
-			</div>
-		
+				</form>
+				
+			
 				<!-- user-login-area-end -->
-			</div>
+			
 			<!-- shop-main-area-end -->
 			<!-- newslatter-area-start -->
 			<div class="newslatter-area pt-80">

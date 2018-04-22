@@ -5,7 +5,10 @@
 	$pani=new PanierC();
 	if (isset($_SESSION['id']))
 	{
-		$pan=new Panier($_SESSION['id'],$_POST['id_produit'],$_POST['qte']);
+		if ($_GET['id_produit'])
+			$pan=new Panier($_SESSION['id'],$_GET['id_produit'],1);
+		else
+			$pan=new Panier($_SESSION['id'],$_POST['id_produit'],$_POST['qte']);
 		$pani->ajouterProduit($pan);
 	}
 	else

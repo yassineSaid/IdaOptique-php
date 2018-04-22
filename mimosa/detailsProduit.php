@@ -199,7 +199,7 @@
 
 									<button type="submit">Ajouter au panier</button>
 									<div class="product-icon">
-										<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
+										<a href="<?php echo "ajouterFavoris.php?id=".$_GET['id']; ?> " data-toggle="tooltip" title="Ajouter au favoris"><img src="img/star.png"></a>
 										<a href="<?php echo "comparateur.php?id=".$_GET['id']; ?>" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
 									</div>
 								</form>
