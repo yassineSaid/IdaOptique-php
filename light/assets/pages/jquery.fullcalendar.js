@@ -68,7 +68,7 @@
             $this.$modal.modal({
                 backdrop: 'static'
             });
-            var form = $("<form></form>");
+            var form = $("<form action='zebi.php' method='POST'></form>");
             form.append("<div class='row'></div>");
             form.find(".row")
                 .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Event Name</label><input class='form-control' placeholder='Insert Event Name' type='text' name='title'/></div></div>")
@@ -92,6 +92,8 @@
                 var categoryClass = form.find("select[name='category'] option:checked").val();
                 if (title !== null && title.length != 0) {
                     $this.$calendarObj.fullCalendar('renderEvent', {
+                        url:"insert.php",
+       type:"POST",
                         title: title,
                         start:start,
                         end: end,
@@ -172,7 +174,7 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            events: '../../load.php',
+            events: 'load.php',
           //  events: defaultEvents,
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!

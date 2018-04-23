@@ -1,3 +1,15 @@
+<?php
+require_once('../config.php');
+
+$db = config::getConnexion();
+$sql = "SELECT id, title, start_event, end_event, color FROM events ";
+
+$req = $db->prepare($sql);
+$req->execute();
+
+$events = $req->fetchAll();
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,24 +23,37 @@
         <title>Adminto - Responsive Admin Dashboard Template</title>
 
         <!--calendar css-->
-        <link href="assets/plugins/fullcalendar/css/fullcalendar.min.css" rel="stylesheet" />
+        
 
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap1.min.css" rel="stylesheet">
+    
+    <!-- FullCalendar -->
+    <link href='assets/css/fullcalendar.css' rel='stylesheet' />
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-
-        <script src="assets/js/modernizr.min.js"></script>
+<style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    #calendar {
+        max-width: 800px;
+    }
+    .col-centered{
+        float: none;
+        margin: 0 auto;
+    }
+    </style>
+     
 
     </head>
 
 
     <body class="fixed-left">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" type="text/javascript">
-         $("td").click(function() {
-         alert($(this).text());
-        });
-         </script>
+    
         <!-- Begin page -->
         <div id="wrapper">
 
@@ -258,47 +283,10 @@
                             <div class="col-lg-12">
 
                                 <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="widget">
-                                            <div class="widget-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                                        <a href="#" data-toggle="modal" data-target="#add-category" class="btn btn-lg btn-success btn-block waves-effect waves-light">
-                                                            <i class="fa fa-plus"></i> Create New
-                                                        </a>
-                                                        <div id="external-events" class="m-t-20">
-                                                            <br>
-                                                            <p>Drag and drop your event or click in the calendar</p>
-                                                            <div class="external-event bg-primary" data-class="bg-primary">
-                                                                <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>New Theme Release
-                                                            </div>
-                                                            <div class="external-event bg-pink" data-class="bg-pink">
-                                                                <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>My Event
-                                                            </div>
-                                                            <div class="external-event bg-warning" data-class="bg-warning">
-                                                                <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Meet manager
-                                                            </div>
-                                                            <div class="external-event bg-purple" data-class="bg-purple">
-                                                                <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Create New theme
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- checkbox -->
-                                                        <div class="checkbox m-t-40">
-                                                            <input id="drop-remove" type="checkbox">
-                                                            <label for="drop-remove">
-                                                                Remove after drop
-                                                            </label>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- end col-->
+                                    <!-- end col-->
                                     <div class="col-lg-9">
                                         <div class="card-box">
-                                            <div id="calendar"></div>
+                                         <?php   include ('agenda.php'); ?>
                                         </div>
                                     </div> <!-- end col -->
                                 </div>  <!-- end row -->
@@ -477,9 +465,119 @@
         <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 
         <!-- SCRIPTS -->
-        <script src="assets/plugins/moment/moment.js"></script>
-        <script src='assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
-        <script src="assets/pages/jquery.fullcalendar.js"></script>
+         <script src="assets/js/jquery.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap1.min.js"></script>
+    
+    <!-- FullCalendar -->
+    <script src='assets/js/moment.min.js'></script>
+    <script src='assets/js/fullcalendar.min.js'></script>
+    
+    <script>
+
+    $(document).ready(function() {
+        var date = new Date();
+ var d = new Date();
+var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
+
+        $('#calendar').fullCalendar({
+
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,basicWeek,basicDay'
+            },
+            defaultDate: strDate,
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            selectable: true,
+            selectHelper: true,
+
+            select: function(start, end) {
+                
+            
+                $('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
+                $('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
+                $('#ModalAdd').modal('show');
+            },
+            eventRender: function(event, element) {
+                element.bind('dblclick', function() {
+                    $('#ModalEdit #id').val(event.id);
+                    $('#ModalEdit #title').val(event.title);
+                    $('#ModalEdit #color').val(event.color);
+                    $('#ModalEdit').modal('show');
+                });
+            },
+            eventDrop: function(event, delta, revertFunc) { // si changement de position
+
+                edit(event);
+
+            },
+            eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
+
+                edit(event);
+
+            },
+            events: [
+            <?php foreach($events as $event): 
+            
+                $start = explode(" ", $event['start_event']);
+                $end = explode(" ", $event['end_event']);
+                if($start[1] == '00:00:00'){
+                    $start = $start[0];
+                }else{
+                    $start = $event['start_event'];
+                }
+                if($end[1] == '00:00:00'){
+                    $end = $end[0];
+                }else{
+                    $end = $event['end_event'];
+                }
+            ?>
+                {
+                    id: '<?php echo $event['id']; ?>',
+                    title: '<?php echo $event['title']; ?>',
+                    start: '<?php echo $start; ?>',
+                    end: '<?php echo $end; ?>',
+                    color: '<?php echo $event['color']; ?>',
+                },
+            <?php endforeach; ?>
+            ]
+        });
+        
+        function edit(event){
+            start = event.start.format('YYYY-MM-DD HH:mm:ss');
+            if(event.end){
+                end = event.end.format('YYYY-MM-DD HH:mm:ss');
+            }else{
+                end = start;
+            }
+            
+            id =  event.id;
+            
+            Event = [];
+            Event[0] = id;
+            Event[1] = start;
+            Event[2] = end;
+            
+            $.ajax({
+             url: 'editEventDate.php',
+             type: "POST",
+             data: {Event:Event},
+             success: function(rep) {
+                    if(rep == 'OK'){
+                        alert('Saved');
+                    }else{
+                        alert('Could not be saved. try again.'); 
+                    }
+                }
+            });
+        }
+        
+    });
+
+</script>
+        
     </body>
 </html>
