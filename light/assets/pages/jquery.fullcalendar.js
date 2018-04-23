@@ -137,7 +137,7 @@
         var form = '';
         var today = new Date($.now());
 
-        var defaultEvents =  [{
+        /*var defaultEvents =  [{
             title: 'Hey!',
             start: new Date($.now() + 158000000),
             className: 'bg-purple'
@@ -157,7 +157,7 @@
                 title: 'Buy a Theme',
                 start: new Date($.now() + 338000000),
                 className: 'bg-primary'
-            }];
+            }];*/
 
         var $this = this;
         $this.$calendarObj = $this.$calendar.fullCalendar({
@@ -172,7 +172,8 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            events: defaultEvents,
+            events: '../../load.php',
+          //  events: defaultEvents,
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             eventLimit: true, // allow "more" link when too many events
