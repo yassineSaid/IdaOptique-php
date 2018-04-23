@@ -2621,6 +2621,13 @@ a#scrollUp:hover{
   font-size: 15px;
   margin-bottom: 40px;
 }
+.page-not-found .entry-content .annuler {
+  border: 2px solid #aaa;
+  color: #333;
+  font-weight: 700;
+  padding: 10px 30px;
+  transition:.3s;
+}
 .page-not-found .entry-content a {
   border: 2px solid #aaa;
   color: #333;
@@ -2631,6 +2638,19 @@ a#scrollUp:hover{
 .page-not-found .entry-content a:hover{
 	background: #ee3333 none repeat scroll 0 0;
 	border-color: #ee3333;
+	color: #fff;
+}
+.page-not-found .entry-content button {
+  border: 2px solid #aaa;
+  background: #fff none repeat scroll 0 0;
+  color: #333;
+  font-weight: 700;
+  padding: 8px 30px;
+  transition:.3s;
+}
+.page-not-found .entry-content button:hover{
+	background: #39A3E2 none repeat scroll 0 0;
+	border-color: #39A3E2;
 	color: #fff;
 }
 /*----------------------------------------*/

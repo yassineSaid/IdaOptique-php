@@ -128,17 +128,38 @@ class CommandeC
                     {
                     if (CommandeC::supprimerPanier($commande->getId_client()))
                         {
-                            header('Location: confirmerCommande.php');
-                            return true;
+                            return $commande->getId_commande();
                         }
+                    else
+                    {
+                        return 0;
+                    }
                     }
             }
-               
             }
             catch (Exception $e){
                 echo 'Erreur: '.$e->getMessage();
             }
-        
+    }   
+    function ajouterPaiement($id_commande,$total,$token)
+    {
+        $sql="INSERT into paiement values (:id_commande,:token,:total)";
+        $db = config::getConnexion();
+            try{
+            $req=$db->prepare($sql);
+            $req->bindValue(':id_commande',$id_commande);
+            $req->bindValue(':token',$token);
+            $req->bindValue(':total',$total);
+            
+               if( $req->execute())
+               {
+                return true;
+            }
+            else return false;
+            }
+            catch (Exception $e){
+                echo 'Erreur: '.$e->getMessage();
+            }
     }
     
     function supprimerPanier($id_client){

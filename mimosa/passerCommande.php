@@ -183,7 +183,7 @@
 				<div class="checkout-area">
 					<div class="container">
 						<div class="row">
-							<form action="confirmationCommande.php" method="post" name="commande" onsubmit="return verif(this)">
+							<form action="paiement.php" method="post" name="commande" onsubmit="return verif(this)">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 									<div class="checkbox-form">						
 										<h3>Détails de facturation</h3>
@@ -420,21 +420,6 @@
 												</div>
 											</div>
 											<div class="order-button-payment">
-												<script
-																		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-																		    data-key="pk_test_q7Dy8VDhH4I9kRddnDfGQ842"
-																		    data-amount="<?php $total; echo $total ?>"
-																		    data-name="Demo Site"
-																		    data-description="Widget"
-																		    data-currency="usd"
-																		    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-																		    data-locale="fr">
-																		</script>
-																		<script>
-																	        // Hide default stripe button, be careful there if you
-																	        // have more than 1 button of that class
-																	        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
-																	    </script>
 												<input type="submit" value="Confirmer la commande" >
 											</div>
 										</div>
