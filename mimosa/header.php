@@ -35,12 +35,12 @@
 											</li>
 											<li><a href="listeProduits.php?categorie=optique">Montures de vue</a>
 												<ul class="mega-menu">
-													<li><a href="#">Integer vestib</a>
+													<li><a href="#">Filtre de prix</a>
 														<ul class="sub-menu-2">
-															<li><a href="shop.html">finibus iaculis</a></li>
-															<li><a href="shop.html">Integer rhoncus</a></li>
-															<li><a href="shop.html">purus elittincidu</a></li>
-															<li><a href="shop.html">tincidunt est</a></li>
+															<li><a href="<?php echo "listeProduits.php?filtre=1&categorie=optique"?>">de 0 a 150</a></li>
+															<li><a href="<?php echo "listeProduits.php?filtre=2&categorie=optique"?>">de 151 a 300</a></li>
+															<li><a href="<?php echo "listeProduits.php?filtre=3&categorie=optique"?>">de 301 a 450</a></li>
+															<li><a href="<?php echo "listeProduits.php?filtre=4&categorie=optique"?>l">de 451 a 600</a></li>
 														</ul>
 													</li>
 													<li><a href="#">Phasellus inviv</a>
@@ -71,12 +71,12 @@
 											</li>
 											<li><a href="listeProduits.php?categorie=solaire">Monture Solaire</a>
 												<ul class="mega-menu mega-menu-2">
-													<li><a href="#">suscipit mauris</a>
+													<li><a href="#">Filtre de prix</a>
 														<ul class="sub-menu-2">
-															<li><a href="shop.html">Integer rhoncus</a></li>
-															<li><a href="shop.html">ipsum ametus</a></li>
-															<li><a href="shop.html">Morbi vitae</a></li>
-															<li><a href="shop.html">semper vulputate</a></li>
+															<li><a href="<?php echo "listeProduits.php?filtre=1&categorie=solaire"?>">de 0 a 150</a></li>
+															<li><a href="<?php echo "listeProduits.php?filtre=2&categorie=solaire"?>">de 151 a 300</a></li>
+															<li><a href="<?php echo "listeProduits.php?filtre=3&categorie=solaire"?>">de 301 a 450</a></li>
+															<li><a href="<?php echo "listeProduits.php?filtre=4&categorie=solaire"?>l">de 451 a 600</a></li>
 														</ul>
 													</li>
 													<li><a href="#">viverra lacus</a>

@@ -36,7 +36,7 @@ class ProduitManage
 	public function afficherProduit()
 	{
 		$db=config::getConnexion();
-		$req="SELECT * from produit";
+		$req="SELECT * from produit p,images i where p.produit_id=i.produit_id and i.type='principal'";
 		$sql=$db->query($req);
 		
 		return $sql;
@@ -155,14 +155,14 @@ public function afficherProduitCategorie($cat)
             die('Erreur: '.$e->getMessage());
         }
 	}
-public function afficherComparateur()
+/*public function afficherComparateur()
 	{
 		$db=config::getConnexion();
 		$req="SELECT produit_id from comparateur";
 		$sql=$db->query($req);
 		
 		return $sql;
-	}
+	}*/
 	public function afficherProduitCmp($val)
 	{
 		$db=config::getConnexion();
@@ -171,6 +171,7 @@ public function afficherComparateur()
 		
 		return $sql;
 	}
+	
 	public function afficherProduitFiltre($min,$max,$cat)
 	{
 		$db=config::getConnexion();
@@ -185,6 +186,37 @@ public function afficherComparateur()
 		$req="SELECT * from filtre where id_filtre=$filtre";
 		$sql=$db->query($req);
 		
+		return $sql;
+	}
+	public function getRating($id)
+	{
+		$db=config::getConnexion();
+		$req="SELECT round(avg(rate)) r1 from rating where produit_id=$id";
+		$sql=$db->query($req);
+		return $sql;
+	}
+	public function addRating($id,$rate)
+	{
+		$db=config::getConnexion();
+		$req="INSERT INTO rating (produit_id,rate) VALUES (:id_produit,:rate)";
+		$sql=$db->prepare($req);
+		$sql->bindvalue(':id_produit',$id);
+        $sql->bindvalue(':rate',$rate);
+		if($sql->execute())
+        {
+        	
+           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=affichage-produit.php\">";
+         }
+        	else
+        {
+           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=affichage-produit.php\">";
+        }
+	}
+	public function getMinMaxPrice()
+	{
+		$db=config::getConnexion();
+		$req="SELECT min(produit_prix) min,max(produit_prix) max from produit";
+		$sql=$db->query($req);
 		return $sql;
 	}
 

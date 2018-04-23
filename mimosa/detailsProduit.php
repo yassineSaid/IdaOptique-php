@@ -169,7 +169,7 @@
 							
 								<div class="list-unstyled">
 									<ul>
-										<li>Categorie <a href="#"><?php echo $categorie ?></a></li>
+										<li>Categorie: <a href="#"><?php echo $categorie ?></a></li>
 										<li>ID-produit: <a href="#"><?php echo $id ?></a></li>
 										
 										
@@ -331,11 +331,9 @@
 												<a href="#"><?php echo $row['produit_categorie'] ?></a>
 												<div class="rating">
 													<ul>
+														<li><a href="#"><i class="fa fa-star-o"></i></a></li>
 														<li><a href="#"><i class="fa fa-star"></i></a></li>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>
+														<li><a href="#"><i class="fa fa-star"></i></a></li>	
 													</ul>
 												</div>
 											</div>
