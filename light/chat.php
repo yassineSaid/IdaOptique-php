@@ -268,7 +268,7 @@
                             <div class="col-lg-12">
                                 
                                      <?PHP
-                                                include "contactM.php";
+                                                include "../core/chatM.php";
                                                 $chat1=new ChatManage();
                                                 $listechat=$chat1->afficherChat($_GET['sid']);
                                                 $listechat2=$chat1->afficherChat($_GET['sid']);

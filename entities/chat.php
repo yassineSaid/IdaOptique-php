@@ -1,5 +1,5 @@
 <?php
-include '../config.php'
+include '../config.php';
 class chat
 {
     private $sender_id,$receiver_id,$message,$pseudo;
