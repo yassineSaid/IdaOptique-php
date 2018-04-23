@@ -3,9 +3,15 @@ session_start();
 	include_once '../entities/commande.php';
 	include_once '../core/commandeC.php';
 	require_once '/stripe/init.php';
-	$comm=new Commande($_SESSION['id'],$_POST['total'],$_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip']);
-	$commC= new CommandeC();
-	$commC->confirmerCommande($comm);
+	if ($_POST['paiement']=='livraison')
+	{	
+		$comm=new Commande($_SESSION['id'],$_POST['total'],$_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip']);
+		$commC= new CommandeC();
+		$commC->confirmerCommande($comm);
+	}
+	else if ($_POST['paiement']=='carte')
+	{
+	}
 	\Stripe\Stripe::setApiKey("sk_test_rkfr2kuDbj8a7LRmarLt40W7");
 
 // Token is created using Checkout or Elements!
