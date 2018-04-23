@@ -1,3 +1,5 @@
+<?php ob_start();?>
+<?php session_start(); ?>
 <head>
 	<script type="text/javascript">
 		function login()
@@ -7,7 +9,6 @@
 	</script>
 </head>
 <body>
-	<?php session_start(); ?>
 <!-- header-top-area-start -->
 				<div class="header-top-area" id="sticky-header">
 					<div class="container">
@@ -170,7 +171,6 @@
 											{
 												echo count($_SESSION['panier']['id_produit']);
 											}
-											
 											?>
 											</span>
 											<div class="mini-cart-sub">
@@ -217,7 +217,7 @@
 													?>
 												</div>
 												<div class="cart-totals">
-													<h5>Total <span><?php echo $total; ?> DT</span></h5>
+													<h5>Total <span><?php echo $total;?> DT</span></h5>
 												</div>
 													
 												<div class="cart-bottom">
@@ -247,7 +247,7 @@
 													<ul>
 														<?php
 														if(isset($_SESSION['id'])) { ?>
-														<li><a href="afficherProfil.php?id=<?php echo $_SESSION['id'] ?>">Mon compte</a></li>
+														<li><a href="afficherProfil.php?id=<?php echo $_SESSION['id']?>">Mon compte</a></li>
 														<li><a href="listeCommandes.php">Mes commandes</a></li>
 														
 														<li><a href="logout-client.php">Déconnexion</a></li>
@@ -359,3 +359,4 @@
 				</div>
 				<!-- mobile-menu-area-end -->
 </body>
+<?php ob_end_flush();?>

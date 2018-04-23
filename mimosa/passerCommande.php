@@ -1,4 +1,5 @@
 <!doctype html>
+<?php include 'header.php';?>
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
@@ -83,6 +84,52 @@
         		{
         			document.commande.zip.style.borderColor="e5e5e5";
         		}
+        		if (window.document.commande.livraison_nom.value.length<3)
+        		{
+        			document.commande.livraison_nom.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.livraison_nom.style.borderColor="#e5e5e5";
+        			
+        		}
+        		if (window.document.commande.livraison_prenom.value.length<3)
+        		{
+        			document.commande.livraison_prenom.style.borderColor="red";
+        			v=1;
+        		}
+        		else 
+        		{
+        			document.commande.livraison_prenom.style.borderColor="#e5e5e5";
+        		}
+        		if (window.document.commande.livraison_adresse1.value.length<8)
+        		{
+        			document.commande.livraison_adresse1.style.borderColor="red";
+        			v=1;
+        		}
+        		else 
+        		{
+        			document.commande.livraison_adresse1.style.borderColor="e5e5e5";
+        		}
+        		if (window.document.commande.livraison_ville.value.length<3)
+        		{
+        			document.commande.livraison_ville.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.livraison_ville.style.borderColor="e5e5e5";
+        		}
+        		if (window.document.commande.livraison_code_postal.value.length<4)
+        		{
+        			document.commande.livraison_code_postal.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.livraison_code_postal.style.borderColor="e5e5e5";
+        		}
         		if (v==1)
         		{
         			return false;
@@ -104,9 +151,7 @@
 		<div id="page-wraper">
 			<!-- header-area-start -->
 			<header>
-				<?php 
-					include 'header.php'; 
-					if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
+					<?php if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
 						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
 				?>
 			</header>
@@ -249,90 +294,83 @@
 										<div class="different-address">
 												<div class="ship-different-title">
 													<h3>
-														<label>Ship to a different address?</label>
-														<input type="checkbox" id="ship-box">
+														<label>Livrer à une autre adresse</label>
+														<input type="checkbox" id="ship-box" name="livraison" value="1">
 													</h3>
 												</div>
 											<div class="row" id="ship-box-info" style="display: none;">
 												<div class="col-lg-12">
 													<div class="country-select">
 														<label>Country <span class="required">*</span></label>
-														<select>
-														  <option value="volvo">bangladesh</option>
-														  <option value="saab">Algeria</option>
-														  <option value="mercedes">Afghanistan</option>
-														  <option value="audi">Ghana</option>
-														  <option value="audi2">Albania</option>
-														  <option value="audi3">Bahrain</option>
-														  <option value="audi4">Colombia</option>
-														  <option value="audi5">Dominican Republic</option>
+														<select name="livraison_pays">
+														  <option value="volvo">Tunisie</option>
 														</select> 										
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
-														<label>First Name <span class="required">*</span></label>										
-														<input type="text" placeholder="">
+														<label>Nom <span class="required">*</span></label>										
+														<input type="text" name="livraison_nom" placeholder="">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
-														<label>Last Name <span class="required">*</span></label>										
-														<input type="text" placeholder="">
+														<label>Prenom <span class="required">*</span></label>										
+														<input type="text" name="livraison_prenom" placeholder="">
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="checkout-form-list">
-														<label>Company Name</label>
-														<input type="text" placeholder="">
+														<label>Societe</label>
+														<input type="text" name="livraison_societe" placeholder="">
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="checkout-form-list">
-														<label>Address <span class="required">*</span></label>
-														<input type="text" placeholder="Street address">
+														<label>Addresse <span class="required">*</span></label>
+														<input type="text" name="livraison_adresse1"  placeholder="Street address">
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="checkout-form-list">									
-														<input type="text" placeholder="Apartment, suite, unit etc. (optional)">
+														<input type="text" name="livraison_adresse2" placeholder="Apartment, suite, unit etc. (optional)">
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="checkout-form-list">
-														<label>Town / City <span class="required">*</span></label>
-														<input type="text" placeholder="Town / City">
+														<label>Ville <span class="required">*</span></label>
+														<input type="text" name="livraison_ville"  placeholder="Town / City">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
-														<label>State / County <span class="required">*</span></label>										
-														<input type="text" placeholder="">
+														<label>Region <span class="required">*</span></label>										
+														<input type="text" name="livraison_region"  placeholder="">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
-														<label>Postcode / Zip <span class="required">*</span></label>										
-														<input type="text" placeholder="Postcode / Zip">
+														<label>Code Postal <span class="required">*</span></label>										
+														<input type="text" name="livraison_code_postal"  placeholder="Postcode / Zip">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
-														<label>Email Address <span class="required">*</span></label>										
-														<input type="email" placeholder="">
+														<label>Email <span class="required">*</span></label>										
+														<input type="email" name="livraison_email"  placeholder="">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
-														<label>Phone  <span class="required">*</span></label>										
-														<input type="text" placeholder="Postcode / Zip">
+														<label>Telephone  <span class="required">*</span></label>										
+														<input type="text" name="livraison_telephone"  placeholder="Postcode / Zip">
 													</div>
 												</div>								
 											</div>
 											<div class="order-notes">
 												<div class="checkout-form-list">
 													<label>Order Notes</label>
-													<textarea placeholder="Notes about your order, e.g. special notes for delivery." rows="10" cols="30" id="checkout-mess"></textarea>
+													<textarea placeholder="Notes about your order, e.g. special notes for delivery." rows="10" cols="30" id="checkout-mess" name="livraison_order_note"></textarea>
 												</div>									
 											</div>
 										</div>													
