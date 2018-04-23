@@ -1,0 +1,159 @@
+<?php
+
+include"../entities/Admin.php";
+
+class AdminManage
+{
+public function ajouterAdmin($admin) 
+    {
+        $db=config::getConnexion();
+        
+        $req="INSERT INTO `admin` (`nom`, `prenom` ,`pseudo`, `email`, `MotDePasse`,`verifPass`) VALUES ( :nom, :prenom, :pseudo, :email, :motDePasse, :verifPass);";
+      
+        $sql=$db->prepare($req);
+       // $sql->bindValue(':id',$admin->get_id());
+        $sql->bindValue(':nom',$admin->get_nom());
+        $sql->bindValue(':prenom',$admin->get_prenom());
+        $sql->bindValue(':pseudo',$admin->get_pseudo());
+        $sql->bindValue(':email',$admin->get_email());
+        $sql->bindValue(':motDePasse',$admin->get_motDePasse());
+        $sql->bindValue(':verifPass',$admin->get_verifPass());
+        if($sql->execute())
+        {
+        	
+            echo "<p style='text-align: center;'><img src='http://pluspng.com/imga-png/success-png-success-icon-image-23194-400.png' width='319' height='319' /></p>";
+             echo "<h2 style='text-align: center;'><span style='color: #3BB54A;'><strong>Ajout avec succes</strong></span></h2>";
+             header("Refresh:2;url=affichage-admin-back.php");
+             exit;
+         }
+        else
+        {
+            echo "<p style='text-align: center;'><img src='https://cdn1.iconfinder.com/data/icons/smallicons-controls/32/614338-.svg-512.png' width='319' height='319' /></p>";
+            echo "<h2 style='text-align: center;'><span style='color: #E2574C;'><strong>Erreur d'ajout !</strong></span></h2>";
+            header("Refresh:2;url=ajouterAdmin.php");
+            exit;
+        }
+
+        	
+       
+       
+    } 
+     public function afficherAdmins()
+    {
+        $db=config::getConnexion();
+        $result ="SELECT * FROM Admin;";
+        $sql=$db->query($result);
+        return $sql;
+       
+    
+
+    }
+      public function supprimerAdmin()
+    {
+         $db=config::getConnexion();
+        $sql=$db->prepare("DELETE FROM admin WHERE id= :id");
+        $sql->bindValue(':id',$_GET ['id']);
+        $sql->execute();
+
+    }
+public function modifierAdmin($admin)
+    {
+       
+       /* $sql=$db->prepare("UPDATE admin SET nom=:nom,prenom=:prenom,pseudo=:pseudo,email=:email,MotDePasse=:motDePasse,verifPass=:verifPass WHERE id=:id;");
+        $sql->bindValue(':id',$_GET ['id']);
+        $sql->bindValue(':cin',$admin->get_cin());
+        $sql->bindValue(':nom',$admin->get_nom());
+        $sql->bindValue(':prenom',$admin->get_prenom());
+        $sql->bindValue(':pseudo',$admin->get_pseudo());
+        $sql->bindValue(':email',$admin->get_email());
+        $sql->bindValue(':motDePasse',$admin->get_motDePasse());
+        $sql->bindValue(':verifPass',$admin->get_verifPass());
+        
+        $sql->execute();
+        */
+        $db =config::getConnexion();
+       $sql="UPDATE admin SET id=:idd,nom=:nom,prenom=:prenom,pseudo=:pseudo,email=:email,MotDePasse=:MotDePasse,verifPass=:verifPass WHERE id=:id";
+       // $sql="UPDATE admin SET id=:idd,nom=:nom WHERE id=:id";
+        
+        
+        //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+        //try{        
+        $req=$db->prepare($sql);
+
+        /*$idd=$admin->get_id();
+        $nom=$admin->get_nom();
+        $prenom=$admin->get_prenom();
+        $pseudo=$admin->get_pseudo();
+        $email=$admin->get_email();
+        $MotDePasse=$admin->get_motDePasse();
+        $verifPass=$admin->get_verifPass();*/
+       // $datas = array(':idd'=>$idd, ':id'=>$id, ':nom'=>$nom,':prenom'=>$prenom,':pseudo'=>$pseudo,':email'=>$email,':MotDePasse'=>$MotDePasse,':verifPass'=>$verifPass);
+        $req=$db->prepare($sql);
+      /* $req->bindValue(':idd',$idd);
+        $req->bindValue(':id',$idd);*/
+        $req->bindValue(':idd',18);
+        $req->bindValue(':id',18);
+        $req->bindValue(':nom',$admin->get_nom());
+        $req->bindValue(':prenom',$admin->get_prenom());
+        $req->bindValue(':pseudo',$admin->get_pseudo());
+       $req->bindValue(':email',$admin->get_email());
+       $req->bindValue(':MotDePasse',$admin->get_motDePasse());
+       $req->bindValue(':verifPass',$admin->get_verifPass());
+        
+        /*$req->bindValue(':idd',18);
+        $req->bindValue(':id',18);
+        $req->bindValue(':nom',"uauua");
+        $req->bindValue(':prenom',"habha");
+        $req->bindValue(':pseudo',"njan");
+        $req->bindValue(':email',"lyes@firas.nizar");
+        $req->bindValue(':MotDePasse',"yayaya");
+        $req->bindValue(':verifPass',"yayayay");*/
+
+
+     if ($req->execute())
+        
+        {
+            echo "bien";
+        }
+        else 
+        {
+            echo"erreur";
+        }
+            
+           // header('Location: index.php');
+       // }
+        /*catch (Exception $e){
+            echo " Erreur ! ".$e->getMessage();
+   echo " Les datas : " ;
+  print_r($datas);
+        }*/
+        
+    }
+    function recupererAdmin($id)
+    {
+        $db = config::getConnexion();
+        $sql="SELECT * from admin where id=$id";
+        
+        try{
+        $liste=$db->query($sql);
+        return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+?>
