@@ -282,15 +282,17 @@ $('.counter').counterUp({
 ------------------------------ */  
 	  $( "#slider-range" ).slider({
 	   range: true,
-	   min: 40,
-	   max: 600,
+	   min: 0,
+	   max: $( "#maxPrice" ).val(),
 	   values: [ 60, 570 ],
 	   slide: function( event, ui ) {
-		$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		$( "#amount" ).val( ui.values[ 0 ] + "DT - " + ui.values[ 1 ] + "DT");
+		$( "#minPriceSel" ).val(ui.values[ 0 ]);
+		$( "#maxPriceSel" ).val(ui.values[ 1 ]);
 	   }
 	  });
-	  $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-	   " - $" + $( "#slider-range" ).slider( "values", 1 ) );  
+	  $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+	   "DT - " + $( "#slider-range" ).slider( "values", 1 ) + "DT");  
 	   
 /*--------------------------
  scrollUp
