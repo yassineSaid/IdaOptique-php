@@ -15,7 +15,7 @@
       <?php 
       include_once '../core/TrackingC.php';
       $position=new PositionManage();
-      $liste=$position->afficher_Position(1);
+      $liste=$position->afficher_Position($_GET['id_commande']);
       $nbr=0;
       foreach ($liste as $row) { 
         $nbr++;?>
@@ -31,7 +31,7 @@
       function initMap() {
        var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
-    center: new google.maps.LatLng(35.137879, -82.836914),
+    center: new google.maps.LatLng(36.862, 10.165),
     mapTypeId: google.maps.MapTypeId.ROADMAP
 });
        var condition=document.getElementById('nbr').value;
