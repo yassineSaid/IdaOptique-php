@@ -25,7 +25,7 @@ class CouponC
 function changervalidite($coupon)
 {
  
-   $sql = "UPDATE clientfidele SET validite='0' WHERE codePromo= '$coupon'";
+   $sql = "UPDATE clientfidele SET validite=0 WHERE codePromo= '$coupon'";
         $db = config::getConnexion();
         $req=$db->prepare($sql);
         try{

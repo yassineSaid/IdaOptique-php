@@ -21,6 +21,24 @@
 			}
 			)
 	}
+	function checkCoupon()
+	{
+		console.log(document.getElementById('conf'));
+		$.post(
+			'checkCoupon.php',
+			{
+				coupon: document.getElementById('coup').coupon.value
+			},
+			function(data)
+			{
+				document.getElementById('coup').reduction.value=data;
+				if (data!=0)
+					document.getElementById('conf').textContent="Vous bénéficiez d'une réduction de "+data+"%";
+				else
+					document.getElementById('conf').textContent="Ce coupon n'est pas valable";
+			}
+			)
+	}
 </script>
 <html class="no-js" lang="en">
     <head>
@@ -176,12 +194,14 @@
 								</div>
 								<div class="coupon">
 									<h3>Coupon</h3>
-									<p>Enter your coupon code if you have one.</p>
-									<form action="#">
-										<input type="text" placeholder="Coupon code">
-										<a href="#">Apply Coupon</a>
+									<p>Enterez un coupon si vous en avez: </p>
+									<form action="" id="coup">
+										<input type="text" placeholder="Code coupon" name="coupon">
+										<a onclick="checkCoupon()">Appliquer</a>
+										<input type="hidden" name="reduction">
 									</form>
 								</div>
+										<span id="conf"></span>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 								<div class="cart_totals">
