@@ -31,13 +31,13 @@
     <script>
       function initMap() {
        var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 1,
-    center: new google.maps.LatLng(35.137879, -82.836914),
+    zoom: 15,
+    center: new google.maps.LatLng(36.862, 10.165),
     mapTypeId: google.maps.MapTypeId.ROADMAP
 });
 
 var myMarker = new google.maps.Marker({
-    position: new google.maps.LatLng(47.651968, 9.478485),
+    position: new google.maps.LatLng(36.862, 10.165),
     draggable: true
 });
 
