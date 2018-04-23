@@ -331,6 +331,7 @@
                     <div class="title">ID de la commande: <?php echo $_GET["id_commande"] ?></div>
                     <div class="date" style="font-size: 1.2em;">
                         Date de facturation: <?php echo $dateV ?><br>
+                        Methode de paiement: <?php echo ucfirst($info['type']) ?><br>
                     </div>
                 </div>
             </div>

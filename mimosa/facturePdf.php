@@ -5,7 +5,7 @@
 
 
   $myfile = fopen("toPrint.html", "w") or die("Unable to open file!");
-  $url="http://127.0.0.1/svn/mimosa/afficherFacturePdf.php?id_commande=".$_GET['id_commande'];
+  $url="http://127.0.0.1/code/mimosa/afficherFacturePdf.php?id_commande=".$_GET['id_commande'];
   $lines=file($url);
   foreach($lines as $line_num => $line) {
     //$line = htmlentities($line);
