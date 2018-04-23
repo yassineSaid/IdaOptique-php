@@ -105,10 +105,10 @@ class CommandeC
         } 
         
     }   
-    function confirmerCommande($commande)
+    function confirmerCommande($commande,$type)
     {
         $commande->setId_commande(CommandeC::creerIdCommande());
-        $sql="INSERT into commande values (:id_commande,:id_client,:total,:nom,:prenom,:adresse,:adresse2,:ville,:zip,now())";
+        $sql="INSERT into commande values (:id_commande,:id_client,:total,:nom,:prenom,:adresse,:adresse2,:ville,:zip,now(),:type)";
         $db = config::getConnexion();
             try{
             $req=$db->prepare($sql);
@@ -121,6 +121,7 @@ class CommandeC
             $req->bindValue(':adresse2',$commande->getAdresse2());
             $req->bindValue(':ville',$commande->getVille());
             $req->bindValue(':zip',$commande->getZip());
+            $req->bindValue(':type',$type);
             
                if( $req->execute())
                {

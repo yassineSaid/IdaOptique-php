@@ -56,14 +56,14 @@
 						\Stripe\Stripe::setApiKey("sk_test_rkfr2kuDbj8a7LRmarLt40W7");
 						$token = $_POST['stripeToken'];
 						$charge = \Stripe\Charge::create([
-						    'amount' => $_POST['total'],
+						    'amount' => $_POST['total']*100,
 						    'currency' => 'usd',
 						    'description' => 'Example charge',
 						    'source' => $token,
 						]);
 						$comm=new Commande($_SESSION['id'],$_POST['total'],$_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip']);
 						$commC= new CommandeC();
-						$id_commande=$commC->confirmerCommande($comm);
+						$id_commande=$commC->confirmerCommande($comm,"Carte de crédit");
 						if($id_commande!=0)
 						{
 							echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
@@ -76,7 +76,7 @@
 					if ($_POST['paiement']=='livraison'){
 						$comm=new Commande($_SESSION['id'],$_POST['total'],$_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip']);
 						$commC= new CommandeC();
-						if($commC->confirmerCommande($comm)!=0)
+						if($commC->confirmerCommande($comm,"à la livraison")!=0)
 							echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
 						}
 						else if ($_POST['paiement']=='carte'){
@@ -116,7 +116,7 @@
 									<script
 																		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 																		    data-key="pk_test_q7Dy8VDhH4I9kRddnDfGQ842"
-																		    data-amount="<?php $total=$_POST['total']; echo $total ?>"
+																		    data-amount="<?php $total=$_POST['total']*100; echo $total ?>"
 																		    data-name="Demo Site"
 																		    data-description="Widget"
 																		    data-currency="usd"

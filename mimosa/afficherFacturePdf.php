@@ -301,18 +301,6 @@
                     Avenue Hedi Nouira - Résidence la Coupole<br>
                     Ennasr II, Ariana, Tunisie
                 </p>
-            </div>
-            <div class="company-contact">
-                <div class="phone left">
-                    <span class="helper"></span>
-                    <a href="tel:70851322">70 851 322</a>
-                    <span class="helper"></span>
-                </div>
-                <div class="email right">
-                    <span class="helper"></span>
-                    <a href="mailto:ida.optique@yahoo.fr">ida.optique@yahoo.fr</a>
-                    <span class="helper"></span>
-                </div>
             </div> 
         </div>
     </header>
@@ -330,6 +318,7 @@
                     <div class="title">ID de la commande: <?php echo $_GET["id_commande"] ?></div>
                     <div class="date">
                         Date de facturation: <?php echo $dateV ?><br>
+                        Methode de paiement: <?php echo ucfirst($info['type']) ?><br>
                     </div>
                 </div>
             </div>
