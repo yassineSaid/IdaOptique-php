@@ -106,7 +106,6 @@
 													<th class="product-quantity">Quantité</th>
 													<th class="product-subtotal">Total</th>
 													<th class="product-remove">Supprimer</th>
-													<th class="product-remove">Mettre à jour</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -132,16 +131,13 @@
 													<td class="product-quantity"><input type="number" name="qte" min="0" value="<?php echo $row['qte'] ?>" onChange="changerQte(<?php echo $i ?>)"></td>
 													<td class="product-subtotal"><span id="<?php echo 'prixProd'.$i ?>"><?php $total +=$row['qte']*$row['produit_prix']; echo $row['qte']*$row['produit_prix']; ?> DT</span></td>
 													<td class="product-remove"><a href="<?php echo  "supprimerProduitPanier.php?id_produit=".$row['id_produit'] ?>"><i class="fa fa-times"></i></a></td>
-													<td class="product-remove">
 															<input type="hidden" name="id_produit" value="<?php echo $row['id_produit'] ?>">
 															<input type="hidden" name="id_client" value="<?php echo $_SESSION['id'] ?>">
 															<input type="hidden" name="prix" value="<?php echo $row['produit_prix'] ?>">
-															<button type="submit">Mettre à jour</button>
-													</td>
 													</form>
 												</tr>
 												<?php $i++; }}
-												else if (isset($_SESSION['panier']['id_produit'])>0)
+												else if (count($_SESSION['panier']['id_produit'])>0)
 												{
 													$nbArticles=count($_SESSION['panier']['id_produit']);
 																
@@ -159,11 +155,8 @@
 													<td class="product-quantity"><input type="number" name="qte" min="0" value="<?php echo $_SESSION['panier']['qte'][$i] ?>" onChange="changerQte(<?php echo $i ?>)"></td>
 													<td class="product-subtotal" name="prixProd"><span id="<?php echo 'prixProd'.$i ?>"><?php $total +=$_SESSION['panier']['qte'][$i]*$row['produit_prix']; echo $_SESSION['panier']['qte'][$i]*$row['produit_prix']; ?> DT</span></td>
 													<td class="product-remove"><a href="<?php echo  "supprimerProduitPanier.php?id_produit=".$row['produit_id'] ?>"><i class="fa fa-times"></i></a></td>
-													<td class="product-remove">
 															<input type="hidden" name="id_produit" value="<?php echo $row['produit_id'] ?>">
 															<input type="hidden" name="prix" value="<?php echo $row['produit_prix'] ?>">
-															<button type="submit">Mettre à jour</button>
-													</td>
 													</form>
 												</tr>
 												<?php 

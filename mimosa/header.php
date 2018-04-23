@@ -33,7 +33,7 @@
 													<li><a href="index-6.html">Home-6</a></li>
 												</ul>
 											</li>
-											<li><a href="<?php echo "listeProduits.php?categorie=optique"; ?>">Montures de vue</a>
+											<li><a href="listeProduits.php?categorie=optique">Montures de vue</a>
 												<ul class="mega-menu">
 													<li><a href="#">Integer vestib</a>
 														<ul class="sub-menu-2">
@@ -69,7 +69,7 @@
 													</li>
 												</ul>
 											</li>
-											<li><a href="<?php echo "listeProduits.php?categorie=solaire"; ?>">Monture Solaire</a>
+											<li><a href="listeProduits.php?categorie=solaire">Monture Solaire</a>
 												<ul class="mega-menu mega-menu-2">
 													<li><a href="#">suscipit mauris</a>
 														<ul class="sub-menu-2">
@@ -154,9 +154,7 @@
 											</div>
 										</li>
 										<li><a href="afficherPanier.php"><i class="icon ion-bag"></i></a>
-											<span><?php 
-											
-											
+											<span><?php
 											include_once '../core/panierC.php'; 
 											$pan = new panierC();
 											if (isset($_SESSION['id']))

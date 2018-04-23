@@ -104,7 +104,11 @@
 		<div id="page-wraper">
 			<!-- header-area-start -->
 			<header>
-				<?php include 'header.php'; ?>
+				<?php 
+					include 'header.php'; 
+					if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
+						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+				?>
 			</header>
 			<!-- header-area-end -->
 			<!-- breadcrumbs-area-start -->
@@ -338,15 +342,9 @@
 									<div class="your-order">
 										<h3>Votre commande</h3>
 										<?php 
-											
-											
 											include_once '../core/panierC.php'; 
 											$pan = new panierC();
-											if (isset($_SESSION['id']))
-											{
-												
-											
-											?>
+											$total=0; ?>
 										<div class="your-order-table table-responsive">
 											<table>
 												<thead>
@@ -360,7 +358,6 @@
 															if (isset($_SESSION['id']))
 													{
 														$listePanier=$pan->afficherPanier($_SESSION['id']);
-														$total=0;
 														foreach($listePanier as $row){													
 													?>
 													<tr class="cart_item">
@@ -371,14 +368,31 @@
 															<span class="amount"><?php $total +=$row['qte']*$row['produit_prix']; echo $row['produit_prix']; ?> DT</span>
 														</td>
 													</tr>
-													<?php }} ?>
+													<?php }}
+													else if (count($_SESSION['panier']['id_produit'])>0)
+													{
+														$nbArticles=count($_SESSION['panier']['id_produit']);
+																
+															for ($i=0 ;$i < $nbArticles ; $i++)
+															{
+																$listePanier=$pan->afficherPanierSession($_SESSION['panier']['id_produit'][$i]);
+																foreach ($listePanier as $row) { ?>	
+													<tr class="cart_item">
+														<td class="product-name">
+															<?php echo $row['produit_nom'] ?> <strong class="product-quantity"> × <?php echo $_SESSION['panier']['qte'][$i] ?></strong>
+														</td>
+														<td class="product-total">
+															<span class="amount"><?php $total +=$_SESSION['panier']['qte'][$i]*$row['produit_prix']; echo $row['produit_prix']; ?> DT</span>
+														</td>
+													</tr>
+													<?php }}} ?>
 												</tbody>
 												<tfoot>
 													<tr class="order-total">
 														<th>Total de la commande</th>
 														<td><strong><span class="amount"><?php echo $total ;?> DT</span></strong>
 															<input type="hidden" name="total" value="<?php echo $total ?>">
-															<input type="hidden" name="total" value="<?php echo $total ;}?>">
+															<input type="hidden" name="total" value="<?php echo $total ?>">
 														</td>
 													</tr>								
 												</tfoot>
