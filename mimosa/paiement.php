@@ -45,7 +45,9 @@
 			<!-- header-area-start -->
 			<header>
 				<?php 
-					include 'header.php'; 
+					include 'header.php';
+					require_once '../core/livraisonC.php';
+
 					if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
 						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
 					include_once '../entities/commande.php';
@@ -64,9 +66,24 @@
 						$comm=new Commande($_SESSION['id'],$_POST['total'],$_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip']);
 						$commC= new CommandeC();
 						$id_commande=$commC->confirmerCommande($comm,"Carte de crédit");
+						$var=new Livraison($_SESSION['id'],$id_commande,$_POST['livraison_nom'],$_POST['livraison_prenom'],$_POST['livraison_societe'],$_POST['livraison_adresse1'],$_POST['livraison_adresse2'],$_POST['livraison_ville'],$_POST['livraison_code_postal'],$_POST['livraison_pays'],$_POST['livraison_region'],$_POST['livraison_email'],$_POST['livraison_telephone'],$_POST['livraison_order_note']);
+						$var2=new LivraisonManage();
+						$var2->ajouter_livraison($var);
 						if($id_commande!=0)
 						{
-							echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
+
+							if ($_POST['livraison']==1)
+							{
+								$var=new Livraison($_SESSION['id'],$id_commande,$_POST['livraison_nom'],$_POST['livraison_prenom'],$_POST['livraison_societe'],$_POST['livraison_adresse1'],$_POST['livraison_adresse2'],$_POST['livraison_ville'],$_POST['livraison_code_postal'],$_POST['livraison_pays'],$_POST['livraison_region'],$_POST['livraison_email'],$_POST['livraison_telephone'],$_POST['livraison_order_note']);
+								$var2=new LivraisonManage();
+								$var2->ajouter_livraison($var);
+							}
+							else
+							{
+								$var=new Livraison($_SESSION['id'],$id_commande,$_POST['nom'],$_POST['prenom'],"",$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip'],"tunisie","","",0,"");
+								$var2=new LivraisonManage();
+								$var2->ajouter_livraison($var);
+							}
 							if ($commC->ajouterPaiement($id_commande,$_POST['total'],$token))
 								echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
 						}
@@ -76,8 +93,24 @@
 					if ($_POST['paiement']=='livraison'){
 						$comm=new Commande($_SESSION['id'],$_POST['total'],$_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip']);
 						$commC= new CommandeC();
-						if($commC->confirmerCommande($comm,"à la livraison")!=0)
+						$id_commande=$commC->confirmerCommande($comm,"à la livraison");
+						if($id_commande!=0)
+						{
+
+							if ($_POST['livraison']==1)
+							{
+								$var=new Livraison($_SESSION['id'],$id_commande,$_POST['livraison_nom'],$_POST['livraison_prenom'],$_POST['livraison_societe'],$_POST['livraison_adresse1'],$_POST['livraison_adresse2'],$_POST['livraison_ville'],$_POST['livraison_code_postal'],$_POST['livraison_pays'],$_POST['livraison_region'],$_POST['livraison_email'],$_POST['livraison_telephone'],$_POST['livraison_order_note']);
+								$var2=new LivraisonManage();
+								$var2->ajouter_livraison($var);
+							}
+							else
+							{
+								$var=new Livraison($_SESSION['id'],$id_commande,$_POST['nom'],$_POST['prenom'],"",$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip'],"tunisie","","",0,"");
+								$var2=new LivraisonManage();
+								$var2->ajouter_livraison($var);
+							}
 							echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
+						}
 						}
 						else if ($_POST['paiement']=='carte'){
 				?>
