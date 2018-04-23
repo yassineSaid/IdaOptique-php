@@ -73,7 +73,7 @@
 				require_once '../core/livraisonC.php';
 				$livre=new LivraisonManage();
 
-				$liste=$livre->afficher_livraison($_GET['id']);
+				$liste=$livre->afficher_livraison($_SESSION['id']);
 				?>
 				<div class="cart-main-area">
 					<div class="container">
@@ -86,7 +86,7 @@
 												<thead>
 													<tr>
 													
-														<th class="product-thumbnail">ID client</th>
+														<th class="product-thumbnail">ID Client</th>
 														<th class="product-name">Nom</th>
 														<th class="product-price">Prenom </th>
 														<th class="product-stock-stauts">ID Commande </th>
@@ -113,7 +113,9 @@
 														  font-weight: 700;
 														  padding: 10px 56px;
 														  text-transform: uppercase;
-														  width: 260px;"  <?php if ( $row['statut'] != "en attente"){ ?> disabled <?php   }?> <?php if($row['statut'] == "en attente")echo "<a href=afficherModifierLivraison.php?id=".$row['id_client']."&id_commande=".$row['id_commande'].""?>  >Modifier </a></p></td>
+														  width: 260px;"  <?php if ( $row['statut'] != "en attente"){ ?> disabled <?php   }?> <?php if($row['statut'] == "en attente")echo "<a href=afficherModifierLivraison.php?id=".$row['id_client']."&id_commande=".$row['id_commande'].""?>  >Modifier </a></p>
+														  <p align="center"><a type='submit' name='' value="Suivi"   href="<?php echo "mapAffichage.php?id=".$row['id_client']."&id_commande=".$row['id_commande'].""?>"" ><img src="img/map.png">  </a></p>
+														</td>
 													</tr>
 
 

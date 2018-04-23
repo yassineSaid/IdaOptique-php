@@ -310,9 +310,11 @@
                                                         <td>
                                                               <?php /* <form method="post" action="supprimer-livraison.php"> */?>
                                                                 <p align="center">
-                                                                    <a href="supprimer-livraison.php?id_commande=<?php echo $row['id_commande'] ?>" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5">Supprimer</a></p></td>
+                                                                    <a href="supprimer-livraison.php?id_commande=<?php echo $row['id_commande'] ?>" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5">Supprimer</a></p>
                                                             
-                                                          <td><p align="center"><button type='submit' name='' value="enregistrer" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5"  >Enregistrer </button></p></td></form>
+                                                          <p align="center"><button type='submit' name='' value="enregistrer" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5"  >Enregistrer </button></p></td>
+                                                          <td><p align="center">
+                                                                    <a href="supprimer-livraison.php?id_commande=<?php echo $row['id_commande'] ?>" class="btn btn-inverse waves-effect waves-light m-b-5">email</a></p> </td></form>
 
                                         </tr>
                                         <?php } ?>
