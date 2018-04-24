@@ -168,6 +168,11 @@
 			<header>
 					<?php if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
 						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+						else if (!isset($_SESSION['id']))
+						{
+							$_SESSION['redirect']=true;
+							echo "<script type='text/javascript'>document.location.replace('login-client-inter.php');</script>";
+						}
 				?>
 			</header>
 			<!-- header-area-end -->
@@ -195,7 +200,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-12">
-								<div class="coupon-accordion">
+								<div class="coupon-accordion" style="display:none;" >
 									<h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
 									<div class="coupon-content" id="checkout-login">
 										<div class="coupon-info">

@@ -1,5 +1,6 @@
 <?php
 include_once '../entities/produit.php';
+include_once 'commandeC.php';
 class PanierC {
     function afficherPanier ($id_client)
     {
@@ -67,6 +68,33 @@ class PanierC {
             $req=$db->prepare($sql);
             
             $qte=$panier->getQte();
+            $req->bindValue(':id_client',$id_client);
+            $req->bindValue(':id_produit',$id_produit);
+            $req->bindValue(':qte',$qte);
+            
+               if( $req->execute())
+               {
+                return true;
+            }
+               
+            }
+            catch (Exception $e){
+                echo 'Erreur: '.$e->getMessage();
+            }
+        }
+        
+    }
+    function ajouterProduitReturn($id_client,$id_produit,$qte){
+        if (panierC::rechercherPanier($id_client,$id_produit)==true)
+        {
+            header('Location: afficherPanier.php');
+        }
+        else
+        {
+            $sql="INSERT into panier (id_client,id_produit,qte) values (:id_client, :id_produit,:qte)";
+            $db = config::getConnexion();
+            try{
+            $req=$db->prepare($sql);
             $req->bindValue(':id_client',$id_client);
             $req->bindValue(':id_produit',$id_produit);
             $req->bindValue(':qte',$qte);
@@ -172,6 +200,20 @@ class PanierC {
         {
             array_push( $_SESSION['panier']['id_produit'],$id_produit);
             array_push( $_SESSION['panier']['qte'],$qte);
+        }
+    }
+    function transfertSessionPanier($id_client)
+    {
+        $nb=count($_SESSION['panier']['id_produit']);
+        if ($nb>0)
+        {
+            $comm=new commandeC();
+            $comm->supprimerPanier($id_client);
+            for ($i=0;$i<$nb;$i++)
+            {
+                panierC::ajouterProduitReturn($_SESSION['id'],$_SESSION['panier']['id_produit'][$i],$_SESSION['panier']['qte'][$i]);
+            }
+            unset($_SESSION['panier']);
         }
     }
 

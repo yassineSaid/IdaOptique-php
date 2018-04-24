@@ -73,6 +73,9 @@
 						<div class="row">
 							<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
 								<div class="login-form">
+									<?php if (isset($_SESSION['redirect'])){ ?>
+									<p style="color:red">Veuillez d'abord vous connecter</p>
+									<?php } ?>
 									<form action="login-client.php" role="form" method="Post">
 									<div class="single-login">
 										<label>E-mail<span>*</span></label>

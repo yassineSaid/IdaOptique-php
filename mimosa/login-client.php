@@ -23,10 +23,21 @@ if(empty($user) || empty($pass)) {
        foreach ($query as $row) {
            $_SESSION['id'] = $row['id'];
        }
-        
-        $_SESSION['time_start_login'] = time();
-        echo $_SESSION['id'];
-        header("location: index.php");
+        if (isset($_SESSION['redirect']))
+        {
+          include_once '../core/panierC.php';
+          $pan=new panierC();
+          $pan->transfertSessionPanier($_SESSION['id']);
+          unset($_SESSION['redirect']);
+          $_SESSION['time_start_login'] = time();
+          header("location: passerCommande.php");
+        }
+        else
+        {
+          $_SESSION['time_start_login'] = time();
+          echo $_SESSION['id'];
+          header("location: index.php");
+        }
     } else {
         $messeg = "Username/Password is wrong";
         header("location: login-client-inter.php?connect=error");
