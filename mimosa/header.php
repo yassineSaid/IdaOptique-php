@@ -163,21 +163,25 @@
 											if (isset($_SESSION['id']))
 											{
 												echo $pan->calculPanier($_SESSION['id']);
+												$nb = $pan->calculPanier($_SESSION['id']);
 											}
 											else if (!isset($_SESSION['panier']))
 											{
 												$pan->creationPanier();
 												echo count($_SESSION['panier']['id_produit']);
+												$nb = count($_SESSION['panier']['id_produit']);
 											}
 											else
 											{
 												echo count($_SESSION['panier']['id_produit']);
+												$nb = count($_SESSION['panier']['id_produit']);
 											}
 											?>
 											</span>
 											<div class="mini-cart-sub">
 												<div class="cart-product">
 													<?php
+													if ($nb>0){
 													$total=0;
 													if (isset($_SESSION['id']))
 													{
@@ -225,6 +229,13 @@
 												<div class="cart-bottom">
 													<a href="passerCommande.php">Passer la commande</a>
 												</div>
+												<?php }
+												else {
+												?>
+												<div class="cart-totals">
+													<h5><center><b>Votre panier est vide</b></center></h5>
+												</div>
+												<?php } ?>
 											</div>
 										</li>
 										<li id="show-cart"><a href="#"><i class="icon ion-drag"></i></a>
