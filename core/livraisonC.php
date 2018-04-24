@@ -67,7 +67,7 @@ class LivraisonManage
         }
 	}
 	function modifierLivraison($livraison){
-		$sql="UPDATE livraison SET nom=:nom,prenom=:prenom,sosciete=:societe,adresse1=:adresse1,adresse2=:adresse2,ville=:ville,code_postal=:code_postal,pays=:pays,region=:region,email=:email,telephone=:telephone,note=:note,date_livraison=now() WHERE id_client=:id_client and id_commande=:id_commande";
+		$sql="UPDATE livraison SET nom=:nom,prenom=:prenom,sosciete=:societe,adresse1=:adresse1,adresse2=:adresse2,ville=:ville,code_postal=:code_postal,pays=:pays,region=:region,email=:email,telephone=:telephone,note=:note,date_livraison=now() WHERE id_commande=:id_commande";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
@@ -89,7 +89,6 @@ class LivraisonManage
         $note=$livraison->get_note();
 		
 		
-		$req->bindValue(':id_client',$id_client);
 		$req->bindValue(':id_commande',$id_commande);
 		$req->bindValue(':nom',$nom);
 		$req->bindValue(':prenom',$prenom);
@@ -107,7 +106,7 @@ class LivraisonManage
 		{
           $s= $req->execute();
 			
-           header('Location: afficheraa.php?id='.$id_client.'&id_commande='.$id_commande);
+           header('Location: afficherModifierLivraison.php?id='.$id_client.'&id_commande='.$id_commande);
         
     }
         catch (Exception $e){

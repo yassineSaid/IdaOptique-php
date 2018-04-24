@@ -192,7 +192,7 @@
 												</a>
 												<div class="product-icon">
 													<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-													 <a href="<?php echo "comparateur.php?id=".$_GET['id']; ?>" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
+													 <a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
 													<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 												</div>
 											</div>
@@ -387,7 +387,6 @@
 										<?php 
 											$prodC3=new ProduitManage();
 											$nbPage=$prodC3->getNbPages($_GET['categorie']); 
-											var_dump($nbPage);
 											if ($nbPage==1){
 										?>
 											<li class="active"><a href="<?php echo 'listeProduits.php?categorie='.$_GET['categorie'].'&page=1' ?>">1</a></li>

@@ -75,6 +75,7 @@
 				$liv=new LivraisonManage();
     			$result=$liv->recupererLivraison($_GET['id'],$_GET['id_commande']);
 				foreach($result as $row){
+				}
 				?>
 				<div class="user-login-area">
 					<div class="container">
@@ -156,9 +157,7 @@
 											</div>
 										</div>
 									</div>
-										<?php 
-									}
-									?>
+										
 									
 									<div class="single-register">
 										<button type="submit" name="modif">Modifier</button>

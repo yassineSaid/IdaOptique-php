@@ -84,6 +84,18 @@
         		{
         			document.commande.zip.style.borderColor="e5e5e5";
         		}
+        		if ((!window.document.commande.paiement[0].checked)&&(!window.document.commande.paiement[1].checked))
+        		{
+        			
+        			document.getElementById("paim").innerHTML='<span style="color: red;">Paiement à la livraison</span>';
+        			document.getElementById("paim1").innerHTML='<span style="color: red;">Paiement par carte de crédit</span>';
+        			v=1;
+        		}
+        		else
+        		{
+        			document.getElementById("paim").innerHTML='<span style="color: #777;">Paiement à la livraison</span>';
+        			document.getElementById("paim1").innerHTML='<span style="color: #777;">Paiement par carte de crédit</span>';
+        		}
         		if (window.document.commande.livraison.checked)
         		{
         			if (window.document.commande.livraison_nom.value.length<3)
@@ -461,8 +473,8 @@
 															<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 																<div class="panel-body">
 																	<p>
-																		<input type="radio" name="paiement" value="livraison"> Paiement à la livraison <hr>
-																		<input type="radio" name="paiement" value="carte"> Paiement par carte de crédit <img src="img/2.png" alt="payment" />
+																		<input type="radio" name="paiement" value="livraison"> <span id="paim">Paiement à la livraison</span> <hr>
+																		<input type="radio" name="paiement" value="carte"> <span id="paim1">Paiement par carte de crédit </span><img src="img/2.png" alt="payment" />
 																	</p>
 															  </div>
 															</div>

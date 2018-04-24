@@ -251,6 +251,7 @@
 														if(isset($_SESSION['id'])) { ?>
 														<li><a href="afficherProfil.php?id=<?php echo $_SESSION['id']?>">Mon compte</a></li>
 														<li><a href="listeCommandes.php">Mes commandes</a></li>
+														<li><a href="afficherLivraison.php">Mes livraisons</a></li>
 														
 														<li><a href="logout-client.php">Déconnexion</a></li>
 														<?php } else { ?>
