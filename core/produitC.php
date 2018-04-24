@@ -136,14 +136,23 @@ class ProduitManage
 	 
  
 }
-public function afficherProduitCategorie($cat)
+public function afficherProduitCategorie($cat,$page)
 	{
 		$db=config::getConnexion();
-		$req="SELECT * from produit p,images i where p.produit_id=i.produit_id and i.type='principal' and p.produit_categorie='$cat'";
+		$sel=($page-1)*10;
+		$req="SELECT * from produit p,images i where p.produit_id=i.produit_id and i.type='principal' and p.produit_categorie='$cat' LIMIT $sel,10";
 		$sql=$db->query($req);
 		
 		return $sql;
 	}
+    function getNbPages($cat)
+    {
+    	$conn=Config::getConnexion();
+        $sql="SELECT * from produit where produit_categorie='$cat'";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        return ceil($query->rowCount()/10);
+    }
 	function recupererProduit2($idp){
 		$sql="SELECT * from produit p,images i where p.produit_id=$idp and i.produit_id=$idp and i.type='principal'";
 		$db=config::getConnexion();
