@@ -1,4 +1,6 @@
-<?php include_once('header.php'); ?>
+<?php include_once('header.php'); 
+
+include_once 'init.php';?>
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -32,6 +34,9 @@
 		<link rel="stylesheet" href="style.css">
 		<!-- responsive css -->
         <link rel="stylesheet" href="css/responsive.css">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -132,7 +137,7 @@
 								
 
 									
-									<div class="order-notes">
+									<div class="col-lg-12 ">
 											<div class="checkout-form-list">
 										
 											<textarea  cols="80" rows="4"  name="message" placeholder="Massage"></textarea>
@@ -168,24 +173,90 @@
 
 				<!-- contact-area-end -->
 			</div>
+			<?php 
+
+				$data = $messages->get_msg(0,265);
+				$data1 = $messages->get_msg(0,12);?>
 			<!-- shop-main-area-end -->
 			<!-- newslatter-area-start -->
 			<div class="newslatter-area">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-12">
-							<div class="bt-top ptb-80">
-								<div class="newlatter-content text-center">
-									<h6>Special Offers For Subscribers</h6>
-									<h3>Ten Percent Member Discount</h3>
-									<p>Subscribe to our newsletters now and stay up to date with new collections, the latest lookbooks and exclusive offers.</p>
-									<form action="#">
-										<input type="text" placeholder="Enter your email address here..."/>
-										<button type="submit">Subscribe</button>
-									</form>
-								</div>
-							</div>
-						</div>
+						<div class="col-lg-5" style="
+    margin-left: 700px;
+">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="accordion">
+                    <span class="glyphicon glyphicon-comment"></span> Chat
+                    <div class="btn-group pull-right">
+                        <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                    </div>
+                </div>
+            <div class="panel-collapse collapse" id="collapseOne">
+                <div class="panel-body">
+
+                    <ul class="chat">
+                    	<?php foreach ($data1 as $record) {
+					if ($record['is_actived'] != '0') { ?>
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                	
+                                    <strong class="primary-font"><?php echo $record['username']; ?></strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span><?php echo date("d/m H:i", $record['update_time']); ?></small>
+                                </div>
+                                <p>
+                                  <?php echo $record['message']; ?>
+                                </p>
+                            </div>
+                        </li>
+                            <?php
+					}
+				}
+				
+				?>
+				<?php foreach ($data as $record) {
+					if ($record['is_actived'] != '0') { ?>
+                        <li class="right clearfix"><span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span><?php echo date("d/m H:i", $record['update_time']); ?></small>
+                                    <strong class="pull-right primary-font"><?php echo $record['username']; ?></strong>
+                                </div>
+                                <p>
+                                    <?php echo $record['message']; ?>
+                                </p>
+                            </div>
+                        </li>
+                         <?php
+					}
+				}
+				
+				?>
+                    </ul>
+                   
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                    	<form id="frm-msg" name="frm-msg" onsubmit="return false;">
+                        <input id="btn-input" name="msg" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <input class="btn btn-warning btn-sm" value="Send" id="btn-chat">
+                               
+
+                        </span>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
 					</div>
 				</div>
 			</div>

@@ -16,13 +16,13 @@ class ContactManage
         $sql->bindValue(':message',$contact->get_message());
         if( $sql->execute())
         {
-            header("Location: contact.html"); 
+            header("Location: contact.php"); 
 exit;
 
         }
        else
        {
-        header("Location: contact.html"); 
+        header("Location: contact.php"); 
 exit;
 
        }
