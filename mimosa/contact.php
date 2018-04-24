@@ -209,18 +209,24 @@ include_once 'init.php';?>
                                     <strong class="primary-font"><?php echo $record['username']; ?></strong> <small class="pull-right text-muted">
                                         <span class="glyphicon glyphicon-time"></span><?php echo date("d/m H:i", $record['update_time']); ?></small>
                                 </div>
+                                <br>
                                 <p>
                                   <?php echo $record['message']; ?>
                                 </p>
                             </div>
                         </li>
+                        <br>
                             <?php
+					
 					}
 				}
 				
 				?>
+				
+
 				<?php foreach ($data as $record) {
 					if ($record['is_actived'] != '0') { ?>
+                        <br>
                         <li class="right clearfix"><span class="chat-img pull-right">
                             <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
                         </span>
@@ -229,6 +235,7 @@ include_once 'init.php';?>
                                     <small class=" text-muted"><span class="glyphicon glyphicon-time"></span><?php echo date("d/m H:i", $record['update_time']); ?></small>
                                     <strong class="pull-right primary-font"><?php echo $record['username']; ?></strong>
                                 </div>
+                                <br>
                                 <p>
                                     <?php echo $record['message']; ?>
                                 </p>
