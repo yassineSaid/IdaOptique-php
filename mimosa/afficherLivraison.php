@@ -102,7 +102,7 @@
 
 													?>
 													<tr>
-														<td><?php echo $row['id_client'] ,$row["statut"] ?></td>
+														<td><?php echo $row['id_client']  ?></td>
 														<td><?php echo $row['nom'] ?></td>
 														<td><?php echo $row['prenom'] ?></td>
 														<td><?php echo $row['id_commande'] ?></td>
