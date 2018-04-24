@@ -441,7 +441,7 @@
 													<?php }}} ?>
 												</tbody>
 												<tfoot>
-													<?php if(isset($_SESSION['pourcentage'])){?>
+													<?php if(isset($_SESSION['pourcentage'])){ if ($_SESSION['pourcentage']!=0){?>
 													<tr class="cart-subtotal">
 														<th>Total</th>
 														<td><span class="amount"><strike><?php echo $total?> DT</strike></span></td>
@@ -451,7 +451,7 @@
 														<?php $total=$total-(($total*$_SESSION['pourcentage'])/100) ?>
 														<td><span class="amount"><?php echo $_SESSION['pourcentage']?>%</span></td>
 													</tr>
-													<?php } ?>
+													<?php }} ?>
 													<tr class="order-total">
 														<th>Total de la commande</th>
 														<td><strong><span class="amount"><?php echo $total ;?> DT</span></strong>

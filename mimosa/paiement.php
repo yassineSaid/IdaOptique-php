@@ -79,7 +79,10 @@
 							$var2->ajouter_livraison($var);
 						}
 							if ($commC->ajouterPaiement($id_commande,$_POST['total'],$token))
+							{
+								$_SESSION['pourcentage']=0;
 								echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
+							}
 					}
 					else if (isset($_POST['paiement']))
 					{
@@ -90,7 +93,7 @@
 						if($id_commande!=0)
 						{
 
-							if ($_POST['livraison']==1)
+							if (isset($_POST['livraison']))
 							{
 								$var=new Livraison($_SESSION['id'],$id_commande,$_POST['livraison_nom'],$_POST['livraison_prenom'],$_POST['livraison_societe'],$_POST['livraison_adresse1'],$_POST['livraison_adresse2'],$_POST['livraison_ville'],$_POST['livraison_code_postal'],$_POST['livraison_pays'],$_POST['livraison_region'],$_POST['livraison_email'],$_POST['livraison_telephone'],$_POST['livraison_order_note']);
 								$var2=new LivraisonManage();
@@ -102,6 +105,7 @@
 								$var2=new LivraisonManage();
 								$var2->ajouter_livraison($var);
 							}
+							$_SESSION['pourcentage']=0;
 							echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
 						}
 						}
