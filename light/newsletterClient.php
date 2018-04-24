@@ -278,9 +278,9 @@
                                             $liste=$q->fetchAll();
                                            ?>
 
-                                                  <select name="to" class="form-control">
+                                                  <select required name="to" class="form-control">
                                                           
-                                                          <option> --Selectionner un email--</option>
+                                                          <option value=""> --Selectionner un email--</option>
 
                                                             <?PHP
                                                         foreach($liste as $row){

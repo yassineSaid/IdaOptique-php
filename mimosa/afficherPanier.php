@@ -263,27 +263,11 @@
 				<!-- cart-main-area-end -->
 			</div>
 			<!-- shop-main-area-end -->
+
 			<!-- newslatter-area-start -->
-			<div class="newslatter-area pt-80">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="bt-top ptb-80">
-								<div class="newlatter-content text-center">
-									<h6>Special Offers For Subscribers</h6>
-									<h3>Ten Percent Member Discount</h3>
-									<p>Subscribe to our newsletters now and stay up to date with new collections, the latest lookbooks and exclusive offers.</p>
-									<form action="#">
-										<input type="text" placeholder="Enter your email address here..."/>
-										<button type="submit">Subscribe</button>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php  include 'newsletter.php'; ?>
 			<!-- newslatter-area-end -->
+			
 			<!-- footer-area-start -->
 			<footer>
 				<div class="footer-area ptb-40">

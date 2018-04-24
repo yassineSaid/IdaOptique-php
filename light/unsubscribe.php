@@ -20,6 +20,6 @@ $key = $_GET['key'];
             die('Erreur: '.$e->getMessage());
         }
 
-header('Location: http://localhost/code/mimosa/sub.html');
+header('Location: http://localhost/code/mimosa/unsub.html');
 
 ?>

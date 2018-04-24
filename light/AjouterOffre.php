@@ -298,14 +298,10 @@
                                                       return ok;
                                                         }
 
-
-
-
-
                                       </script>
                                       
 
-                                      <form name="formulaire"  method="POST" action="ajouteroffree.php" >
+                                      <form name="formulaire"  method="POST" action="ajouteroffree.php" ">
 
                                        
 
@@ -313,7 +309,7 @@
                                                 <div class="form-group row">
                                                      <label class="col-2 col-form-label">Nom d'offre</label>
                                                         <div class="col-5">
-                                                            <input type="text" class="form-control" placeholder="Nom d'offre"
+                                                            <input required type="text" class="form-control" placeholder="Nom d'offre"
                                                                name="nom" onblur="queDesLettres(this);" >
                                                              
                                                         </div>
@@ -339,9 +335,9 @@
                         $listeproduit=$q->fetchAll();
                        ?>
 
-                              <select name="produit_id" class="form-control">
+                              <select  required name="produit_id" class="form-control">
                                       
-                                      <option> --Selectionner un produit--</option>
+                                      <option value=""> --Selectionner un produit--</option>
 
                                         <?PHP
                                     foreach($listeproduit as $row){
@@ -361,7 +357,7 @@
                                                 <div class="form-group row">
                                                         <label class="col-2 col-form-label">Pourcentage de la remise </label>
                                                         <div class="col-5">
-                                                            <input type="text" class="form-control" placeholder="pourcentage de la remise"
+                                                            <input min="5" max="75" required type="number" class="form-control" placeholder="pourcentage de la remise"
                                                             name="pourcentage"  > 
 
                                                         </div>          
@@ -373,7 +369,7 @@
 
                                                    <p align="center">
                                            
-                                                    <button type="submit" name="Ajouter" class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Ajouter offre</button>
+                                                    <button  type="submit"  name="Ajouter" class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Ajouter offre</button>
 
                                            </form>
                         

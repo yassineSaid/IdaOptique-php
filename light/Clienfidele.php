@@ -285,9 +285,9 @@
                         $listeClient=$q->fetchAll();
                        ?>
 
-                              <select name="fidele" class="form-control">
+                              <select required name="fidele" class="form-control">
                                       
-                                      <option> --Selectionner un client--</option>
+                                      <option value=""> --Selectionner un client--</option>
 
                                         <?PHP
                                     foreach($listeClient as $row){
@@ -328,7 +328,7 @@
                                             <th>nombre de commandes passées</th>
                                             <th>pourcentage</th>
                                             <th>Validité</th>
-                                            <th></th>
+                                           
 
                                         </tr>
                                         </thead>
@@ -349,6 +349,12 @@
                                             <td> <?php echo $val['validite']?> </td>
 
 
+                                               <td>
+                                                 <button  type="submit"  class="btn btn-icon waves-effect waves-light btn-success m-b-5"> <i class="fa fa-envelope-o m-r-5"></i> <span> Envoyer</span> </button>
+                                             </td>
+
+
+
 
                                             <td>
 
@@ -359,6 +365,9 @@
                                             </form>
 
                                              </td>
+
+
+
 
 
                                        
