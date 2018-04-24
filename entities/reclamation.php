@@ -1,9 +1,9 @@
 <?php
-require '../config.php';
+include_once'../config.php';
 class Reclamation
 {
-	private $nom,$prenom,$age,$email,$telephone,$pays,$adresse1,$adresse2,$ville,$region,$code_postal,$profession,$nom_produit,$date_achat,$note;
-	public function __construct($nom,$prenom,$age,$email,$telephone,$pays,$adresse1,$adresse2,$ville,$region,$code_postal,$profession,$nom_produit,$date_achat,$note)
+	private $nom,$prenom,$age,$email,$telephone,$pays,$adresse1,$adresse2,$ville,$region,$code_postal,$profession,$nom_produit,$date_achat,$note,$id_client;
+	public function __construct($nom,$prenom,$age,$email,$telephone,$pays,$adresse1,$adresse2,$ville,$region,$code_postal,$profession,$nom_produit,$date_achat,$note,$id_client)
 	{
 
 		$this->nom=$nom;
@@ -21,6 +21,7 @@ class Reclamation
 		$this->note=$note;
 		$this->date_achat=$date_achat;
 		$this->nom_produit=$nom_produit;
+		$this->id_client=$id_client;
 	}
 	
 	public function get_nom(){return $this->nom;}
@@ -38,6 +39,7 @@ class Reclamation
 	public function get_note(){return $this->note;}
 	public function get_date_achat(){return $this->date_achat;}
 	public function get_nom_produit(){return $this->nom_produit;}
+	public function get_id_client(){return $this->id_client;}
 
 
 	
