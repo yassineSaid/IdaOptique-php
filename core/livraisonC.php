@@ -25,9 +25,9 @@ class LivraisonManage
 		//$sql->bindvalue(':date_livraison',$livraison->get_date_livraison());
 		//$sql->bindvalue(':heure_livraison',$livraison->get_heure_livraison());
 		if($sql->execute())
-			echo "succes";
+			return true;
 		else  {
-				echo "aaaaa";
+				return false;
 			}	
 		}
 		public function afficher_livraison($id)
