@@ -145,26 +145,36 @@
 							<div class="zoom-product-details">
 								<h1><?php echo $nom?></h1>
 								<div class="main-area mtb-30">
+									
+													<?php $prodC=new ProduitManage();
+													$rate=$prodC->getRating($row['produit_id']);
+													foreach ($rate as $rate1) {
+														$moy=$rate1['r1'];
+													}
+													 ?>
 									<div class="rating">
 										<ul>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
-											<li><a href="#"><i class="fa fa-star"></i></a></li>
+											<?php for ($i=0;$i<$moy;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
+															<?php } for ($i=$moy;$i<5;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
+															<?php }?>
 										</ul>
 									</div>
-									<div class="review-2">
-										<a href="#">1 reviews</a>
-										<a href="#">Write a review</a>
-									</div>
+									
 								</div>
 								<div class="price">
 									<ul>
 										<li class="new-price"><?php echo $prix ; echo "  DT"?></li>
 									</ul>
-									<p><?php echo $description ?></p>
+									
+
+								</div>
+								<div class="name">
+									<ul>
+										<li> Description: <?php echo $description ?></li>
+									</ul>
+									
 								</div>
 							
 								<div class="list-unstyled">
@@ -315,7 +325,7 @@
 									<!-- product-wrapper-start -->
 									<div class="product-wrapper">
 										<div class="product-img">
-											<a href="#">
+											<a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>">
 												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="primary"/>
 												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
@@ -329,15 +339,23 @@
 										<div class="product-content pt-20">
 											<div class="manufacture-product">
 												<a href="#"><?php echo $row['produit_categorie'] ?></a>
+												<?php $prodC=new ProduitManage();
+													$rate=$prodC->getRating($row['produit_id']);
+													foreach ($rate as $rate1) {
+														$moy=$rate1['r1'];
+													}
+													 ?>
 												<div class="rating">
 													<ul>
-														<li><a href="#"><i class="fa fa-star-o"></i></a></li>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>	
+														<?php for ($i=0;$i<$moy;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
+															<?php } for ($i=$moy;$i<5;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
+															<?php }?>
 													</ul>
 												</div>
 											</div>
-											<h2><a href="<?php echo "detailsProduit2.php?id=".$row['produit_id'] ?>"><?php echo $row['produit_nom'] ?></a></h2>
+											<h2><a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>"><?php echo $row['produit_nom'] ?></a></h2>
 											<div class="price">
 												<ul>
 													<li class="new-price"><?php echo $row['produit_prix']; echo "  DT" ?></li>

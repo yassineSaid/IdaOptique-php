@@ -33,12 +33,8 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        
     </head>
     <body class="shop">
-    	<div class="container" style="width:800px;">
-   
-  </div>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -52,15 +48,6 @@
 			</header>
 			<!-- header-area-end -->
 			<!-- breadcrumbs-area-start -->
-			<?php  
-			include_once '../core/produitC.php';
-         	include_once '../core/imageC.php';
-				if (isset($_GET['rate']))
-				{
-					$prodC1=new ProduitManage();
-					$rate=$prodC1->addRating($_GET['id'],$_GET['rate']+1);
-				}
-			?>
 			<div class="breadcrumbs-area">
 				<div class="container">
 					<div class="row">
@@ -135,12 +122,12 @@
 										<!-- product-wrapper-start -->
 											<?php
 
-                                        
+                                        include_once '../core/produitC.php';
+                                        include '../core/imageC.php';
                                        // include_once 'header.php';
                                         
                                         $pro= new ProduitManage();
-                                        if (isset($_GET['filtre'])||isset($_POST['minPriceSel'])) {
-                                        	if (isset($_GET['filtre'])) {
+
                                         $filtre=$pro->recupererFiltre($_GET['filtre']);
 
 
@@ -152,32 +139,12 @@
                                        
                                         
                                         
-									}}
-									else
-									{
-										$min=$_POST['minPriceSel'];
-										$max=$_POST['maxPriceSel'];
 									}
                                     ?>
                                      <?php
 
                                         $result=$pro->afficherProduitFiltre($min,$max,$_GET['categorie']);
-                                        	
-                                        }
-                                        else {
-                                        if(isset($_POST['rech'])&&$_POST['rech']!="")
-                                        {
-                                            $result=$pro->rechercherProduit($_POST['rech']);
-                                        }
-                                        else
-                                        $result=$pro->afficherProduitCategorie($_GET['categorie'],$_GET['page']);
                                         
-                                        }
-                                        
-                                        
-
-                                    ?>
-                                     <?php
 
                                     foreach ($result as $row) 
                                     {
@@ -185,33 +152,27 @@
                                     	
 										<div class="product-wrapper product-wrapper-3 mb-40">
 											<div class="product-img">
-												<a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>">
+												<a href="#">
 													
 													<img src="<?php echo  "img/tsawer/".$row['nom'] ?>" alt="product" class="primary"/>
 													<img src="<?php echo  "img/tsawer/".$row['nom'] ?>" alt="product" class="secondary"/>
 												</a>
 												<div class="product-icon">
 													<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-													 <a href="<?php echo "comparateur.php?id=".$_GET['id']; ?>" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
+													<a href="#" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
 													<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 												</div>
 											</div>
 											<div class="product-content">
 												<div class="manufacture-product">
 													<a href="#"><?php echo $row['produit_categorie']?></a>
-													<?php $prodC=new ProduitManage();
-													$rate=$prodC->getRating($row['produit_id']);
-													foreach ($rate as $rate1) {
-														$moy=$rate1['r1'];
-													}
-													 ?>
 													<div class="rating">
 														<ul>
-															<?php for ($i=0;$i<$moy;$i++) {?>
-															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i."&page=".$_GET['page'] ?>"><i class="fa fa-star"></i></a></li>
-															<?php } for ($i=$moy;$i<5;$i++) {?>
-															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
-															<?php }?>
+															<li><a href="#"><i class="fa fa-star"></i></a></li>
+															<li><a href="#"><i class="fa fa-star"></i></a></li>
+															<li><a href="#"><i class="fa fa-star"></i></a></li>
+															<li><a href="#"><i class="fa fa-star"></i></a></li>
+															<li><a href="#"><i class="fa fa-star"></i></a></li>
 														</ul>
 													</div>
 												</div>
@@ -225,7 +186,7 @@
 												<p><?php echo $row['produit_description']?></p>
 											</div>
 											<div>
-												
+												<p>-----------------------------------------------------------------------------------------------------------</p>
 											</div>
 										</div>
 										<?php } ?>
@@ -242,100 +203,12 @@
 										<!-- product-wrapper-end -->
 									</div>
 									<div class="tab-pane fade" id="list">
-
 										<div class="row">
-											<?php
-
-                                        
-                                       // include_once 'header.php';
-                                        
-                                        $pro= new ProduitManage();
-                                        if (isset($_GET['filtre'])||isset($_POST['minPriceSel'])) {
-                                        	if (isset($_GET['filtre'])) {
-                                        $filtre=$pro->recupererFiltre($_GET['filtre']);
-
-
-//                                        $results=$pro->afficherProduitCategorie($_GET['categorie']);
-                                        foreach ($filtre as $fil) {
-                                       $min=$fil['min'];
-                                       $max=$fil['max'];
-
-                                       
-                                        
-                                        
-									}}
-									else
-									{
-										$min=$_POST['minPriceSel'];
-										$max=$_POST['maxPriceSel'];
-									}
-                                    ?>
-                                     <?php
-
-                                        $result=$pro->afficherProduitFiltre($min,$max,$_GET['categorie']);
-                                        	
-                                        }
-                                        else {
-                                        if(isset($_POST['rech'])&&$_POST['rech']!="")
-                                        {
-                                            $result=$pro->rechercherProduit($_POST['rech']);
-                                        }
-                                        else
-                                        $result=$pro->afficherProduitCategorie($_GET['categorie'],$_GET['page']);
-                                        
-                                        }
-                                        
-                                        
-
-                                    ?>
-                                     <?php
-
-                                    foreach ($result as $row) 
-                                    {
-                                    	?>
-												<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 												<!-- product-wrapper-start -->
-												<div class="product-wrapper mb-40">
-													<div class="product-img">
-														<a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>">
-
-													<img src="<?php echo  "img/tsawer/".$row['nom'] ?>" alt="product" class="primary"/>
-													<img src="<?php echo  "img/tsawer/".$row['nom'] ?>" alt="product" class="secondary"/>
-														</a>
-														<span class="sale">sale</span>
-														<div class="product-icon">
-															<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-															<a href="#" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
-															<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
-														</div>
-													</div>
-													<div class="product-content pt-20">
-														<div class="manufacture-product">
-															<a href="#"><?php echo $row['produit_categorie']?></a>
-															<div class="rating">
-																<ul>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																</ul>
-															</div>
-														</div>
-														<h2><a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>"><?php echo $row['produit_nom']?></a></h2>
-														<div class="price">
-															<ul>
-																<li class="new-price"><?php echo $row['produit_prix']?></li>
-															</ul>
-														</div>
-													</div>
-
 												
-												</div>
 												<!-- product-wrapper-end -->
 											</div>
-											<?php } ?>
 											<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 												<!-- product-wrapper-start -->
 												
@@ -384,30 +257,11 @@
 								<div class="pagination-area">
 									<div class="pagination-number">
 										<ul>
-										<?php 
-											$prodC3=new ProduitManage();
-											$nbPage=$prodC3->getNbPages($_GET['categorie']); 
-											var_dump($nbPage);
-											if ($nbPage==1){
-										?>
-											<li class="active"><a href="<?php echo 'listeProduits.php?categorie='.$_GET['categorie'].'&page=1' ?>">1</a></li>
-										<?php } 
-											if ($nbPage>1 && $_GET['page']>1){
-										?>
-											<li><a href="<?php echo 'listeProduits.php?categorie='.$_GET['categorie'].'&page='.($_GET['page']-1) ?>"><i class="fa fa-angle-left"></i></a></li>
-											<li><a href="<?php echo 'listeProduits.php?categorie='.$_GET['categorie'].'&page=1' ?>">1</a></li>
-											<li class="active"><a href="<?php echo 'listeProduits.php?categorie='.$_GET['categorie'].'&page='.$_GET['page'] ?>"><?php echo $_GET['page'] ?></a></li>
-										<?php } 
-											if ($nbPage>1 && $_GET['page']==1){
-										?>
-											<li class="active"><a href="<?php echo 'listeProduits.php?categorie='.$_GET['categorie'].'&page='.$_GET['page'] ?>"><?php echo $_GET['page'] ?></a></li>
-										<?php }
-											if ($nbPage>1 && $_GET['page']<$nbPage){
-										?>
-											<li><a href="<?php echo 'listeProduits.php?categorie='.$_GET['categorie'].'&page='.$nbPage ?>"><?php echo $nbPage ?></a></li>
-											<li><a href="<?php echo 'listeProduits.php?categorie='.$_GET['categorie'].'&page='.($_GET['page']+1) ?>"><i class="fa fa-angle-right"></i></a></li>
-										<?php } 
-											?>
+											<li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+											<li class="active"><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
 										</ul>
 									</div>
 									<div class="product-count">
@@ -418,7 +272,6 @@
 							</div>
 							<!-- shop-right-area-end -->
 						</div>
-						<form method="post" action="<?php echo "listeProduits.php?categorie=optique"?>">
 						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 							<!-- shop-left-area-start -->
 							<div class="shop-left-area">
@@ -442,17 +295,6 @@
 								</div>
 								<!-- single-shop-end -->
 								<!-- single-shop-start -->
-								<?php
-													$prodC2=new ProduitManage();
-													$rate=$prodC2->getMinMaxPrice();
-													foreach ($rate as $rate1) {
-														$min=$rate1['min'];
-														$max=$rate1['max'];
-													}
-													 ?>
-									<input type="hidden" id="maxPrice" value="<?php echo $max ?>">
-									<input type="hidden" id="minPriceSel" name="minPriceSel">
-									<input type="hidden" id="maxPriceSel" name="maxPriceSel">
 								<div class="single-shop mb-40">
 									<div class="Categories-title">
 										<h3>Price Filter</h3>
@@ -512,13 +354,7 @@
 								<!-- single-shop-end -->
 							</div>
 							<!-- shop-left-area-end -->
-							<div class="buttons-cart mb-30 mt-3">
-									<ul>
-										<li><button type="submit">Rechercher</button></li>
-									</ul>
-								</div>
 						</div>
-					</form>
 					</div>	
 				</div>
 			</div>

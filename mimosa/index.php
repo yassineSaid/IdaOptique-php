@@ -214,7 +214,7 @@
 									<?php 
 										include_once '../core/produitC.php';
                                         $pro= new ProduitManage();
-                                        $result=$pro->afficherProduitCategorie("optique");
+                                        $result=$pro->afficherProduitCategorie("optique",1);
                                         
 									
 									?>
@@ -279,7 +279,7 @@
 									<?php 
 										include_once '../core/produitC.php';
                                         $pro= new ProduitManage();
-                                        $result=$pro->afficherProduitCategorie("solaire");
+                                        $result=$pro->afficherProduitCategorie("solaire",1);
                                         
 									
 									?>
