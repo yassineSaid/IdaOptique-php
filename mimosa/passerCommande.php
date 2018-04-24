@@ -84,51 +84,54 @@
         		{
         			document.commande.zip.style.borderColor="e5e5e5";
         		}
-        		if (window.document.commande.livraison_nom.value.length<3)
+        		if (window.document.commande.livraison.checked)
         		{
-        			document.commande.livraison_nom.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.livraison_nom.style.borderColor="#e5e5e5";
-        			
-        		}
-        		if (window.document.commande.livraison_prenom.value.length<3)
-        		{
-        			document.commande.livraison_prenom.style.borderColor="red";
-        			v=1;
-        		}
-        		else 
-        		{
-        			document.commande.livraison_prenom.style.borderColor="#e5e5e5";
-        		}
-        		if (window.document.commande.livraison_adresse1.value.length<8)
-        		{
-        			document.commande.livraison_adresse1.style.borderColor="red";
-        			v=1;
-        		}
-        		else 
-        		{
-        			document.commande.livraison_adresse1.style.borderColor="e5e5e5";
-        		}
-        		if (window.document.commande.livraison_ville.value.length<3)
-        		{
-        			document.commande.livraison_ville.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.livraison_ville.style.borderColor="e5e5e5";
-        		}
-        		if (window.document.commande.livraison_code_postal.value.length<4)
-        		{
-        			document.commande.livraison_code_postal.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.livraison_code_postal.style.borderColor="e5e5e5";
+        			if (window.document.commande.livraison_nom.value.length<3)
+	        		{
+	        			document.commande.livraison_nom.style.borderColor="red";
+	        			v=1;
+	        		}
+	        		else
+	        		{
+	        			document.commande.livraison_nom.style.borderColor="#e5e5e5";
+	        			
+	        		}
+	        		if (window.document.commande.livraison_prenom.value.length<3)
+	        		{
+	        			document.commande.livraison_prenom.style.borderColor="red";
+	        			v=1;
+	        		}
+	        		else 
+	        		{
+	        			document.commande.livraison_prenom.style.borderColor="#e5e5e5";
+	        		}
+	        		if (window.document.commande.livraison_adresse1.value.length<8)
+	        		{
+	        			document.commande.livraison_adresse1.style.borderColor="red";
+	        			v=1;
+	        		}
+	        		else 
+	        		{
+	        			document.commande.livraison_adresse1.style.borderColor="e5e5e5";
+	        		}
+	        		if (window.document.commande.livraison_ville.value.length<3)
+	        		{
+	        			document.commande.livraison_ville.style.borderColor="red";
+	        			v=1;
+	        		}
+	        		else
+	        		{
+	        			document.commande.livraison_ville.style.borderColor="e5e5e5";
+	        		}
+	        		if (window.document.commande.livraison_code_postal.value.length<4)
+	        		{
+	        			document.commande.livraison_code_postal.style.borderColor="red";
+	        			v=1;
+	        		}
+	        		else
+	        		{
+	        			document.commande.livraison_code_postal.style.borderColor="e5e5e5";
+	        		}
         		}
         		if (v==1)
         		{
@@ -426,10 +429,20 @@
 													<?php }}} ?>
 												</tbody>
 												<tfoot>
+													<?php if(isset($_SESSION['pourcentage'])){?>
+													<tr class="cart-subtotal">
+														<th>Total</th>
+														<td><span class="amount"><strike><?php echo $total?> DT</strike></span></td>
+													</tr>
+													<tr class="cart-subtotal">
+														<th>Réduction</th>
+														<?php $total=$total-(($total*$_SESSION['pourcentage'])/100) ?>
+														<td><span class="amount"><?php echo $_SESSION['pourcentage']?>%</span></td>
+													</tr>
+													<?php } ?>
 													<tr class="order-total">
 														<th>Total de la commande</th>
 														<td><strong><span class="amount"><?php echo $total ;?> DT</span></strong>
-															<input type="hidden" name="total" value="<?php echo $total ?>">
 															<input type="hidden" name="total" value="<?php echo $total ?>">
 														</td>
 													</tr>								

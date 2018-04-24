@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Mimosa-Responsive eCommerce Template</title>
+        <title>Confirmation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -53,10 +53,9 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="breadcrumb-content text-center">
-								<h2>404</h2>
+								<h2>Confirmation</h2>
 								<ul>
-									<li><a href="#">Home /</a></li>
-									<li class="active"><a href="#">404</a></li>
+									<li class="active"><a href="#">Confirmation</a></li>
 								</ul>
 							</div>
 						</div>

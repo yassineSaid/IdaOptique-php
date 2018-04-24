@@ -1,11 +1,12 @@
 <?php
+session_start();
 include_once '../core/couponC.php'; 
 	if (isset($_POST['coupon']))
 	{
 		$code = new couponC();
 		$pourcentage=0;
-		$_SESSION['coupon']=$_POST['coupon'];
-		$liste=$code->verifierCoupon($_SESSION['coupon']);
+		
+		$liste=$code->verifierCoupon($_POST['coupon']);
 		foreach($liste as $val)
 		{
 	        $code=$val['codePromo'] ;
@@ -15,6 +16,7 @@ include_once '../core/couponC.php';
 			{
 				$pourcentage=$val['pourcentage'];
 				$_SESSION['pourcentage']=$val['pourcentage'];
+				$_SESSION['coupon']=$_POST['coupon'];
 			}
 			else
 			{

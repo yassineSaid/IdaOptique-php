@@ -1,9 +1,9 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="fr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Mimosa-Responsive eCommerce Template</title>
+        <title>Paiement</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -66,13 +66,22 @@
 						$comm=new Commande($_SESSION['id'],$_POST['total'],$_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip']);
 						$commC= new CommandeC();
 						$id_commande=$commC->confirmerCommande($comm,"Carte de crédit");
-						$var=new Livraison($_SESSION['id'],$id_commande,$_POST['livraison_nom'],$_POST['livraison_prenom'],$_POST['livraison_societe'],$_POST['livraison_adresse1'],$_POST['livraison_adresse2'],$_POST['livraison_ville'],$_POST['livraison_code_postal'],$_POST['livraison_pays'],$_POST['livraison_region'],$_POST['livraison_email'],$_POST['livraison_telephone'],$_POST['livraison_order_note']);
-						$var2=new LivraisonManage();
-						$var2->ajouter_livraison($var);
+						if (isset($_POST['livraison']))
+						{
+							$var=new Livraison($_SESSION['id'],$id_commande,$_POST['livraison_nom'],$_POST['livraison_prenom'],$_POST['livraison_societe'],$_POST['livraison_adresse1'],$_POST['livraison_adresse2'],$_POST['livraison_ville'],$_POST['livraison_code_postal'],$_POST['livraison_pays'],$_POST['livraison_region'],$_POST['livraison_email'],$_POST['livraison_telephone'],$_POST['livraison_order_note']);
+							$var2=new LivraisonManage();
+							$var2->ajouter_livraison($var);
+						}
+						else
+						{
+							$var=new Livraison($_SESSION['id'],$id_commande,$_POST['nom'],$_POST['prenom'],"",$_POST['adresse'],$_POST['adresse2'],$_POST['ville'],$_POST['zip'],"tunisie","","",0,"");
+							$var2=new LivraisonManage();
+							$var2->ajouter_livraison($var);
+						}
 						if($id_commande!=0)
 						{
 
-							if ($_POST['livraison']==1)
+							if (isset($_POST['livraison']))
 							{
 								$var=new Livraison($_SESSION['id'],$id_commande,$_POST['livraison_nom'],$_POST['livraison_prenom'],$_POST['livraison_societe'],$_POST['livraison_adresse1'],$_POST['livraison_adresse2'],$_POST['livraison_ville'],$_POST['livraison_code_postal'],$_POST['livraison_pays'],$_POST['livraison_region'],$_POST['livraison_email'],$_POST['livraison_telephone'],$_POST['livraison_order_note']);
 								$var2=new LivraisonManage();
@@ -122,10 +131,9 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="breadcrumb-content text-center">
-								<h2>404</h2>
+								<h2>Paiement</h2>
 								<ul>
-									<li><a href="#">Home /</a></li>
-									<li class="active"><a href="#">404</a></li>
+									<li class="active"><a href="#">Paiement</a></li>
 								</ul>
 							</div>
 						</div>
@@ -150,10 +158,10 @@
 																		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 																		    data-key="pk_test_q7Dy8VDhH4I9kRddnDfGQ842"
 																		    data-amount="<?php $total=$_POST['total']*100; echo $total ?>"
-																		    data-name="Demo Site"
-																		    data-description="Widget"
+																		    data-name="IDA Optique"
+																		    data-description="Paiement"
 																		    data-currency="usd"
-																		    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+																		    data-image="img/ida24.png"
 																		    data-locale="fr">
 																		</script>
 																		<script>
