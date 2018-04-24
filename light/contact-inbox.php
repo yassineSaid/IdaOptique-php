@@ -440,38 +440,7 @@
 
                                                                 
                                                                 ?>
-                                                            <li class="blue-dot">
-                                                                <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                    <div class="checkbox-wrapper-mail">
-                                                                        <input type="checkbox" id="chk13">
-                                                                        <label for="chk13" class="toggle"></label>
-                                                                    </div>
-                                                                    <p class="title">Tobias Berggren</p><span
-                                                                            class="star-toggle fa fa-star-o"></span>
-                                                                </div>
-                                                                <div class="mail-col mail-col-2">
-                                                                    <div class="subject">Let's go fishing! &nbsp;&ndash;&nbsp;
-                                                                        <span class="teaser">Hey, You wanna join me and Fred at the lake tomorrow? It'll be awesome.</span>
-                                                                    </div>
-                                                                    <div class="date">Feb 23</div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="green-dot">
-                                                                <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                    <div class="checkbox-wrapper-mail">
-                                                                        <input type="checkbox" id="chk16">
-                                                                        <label for="chk16" class="toggle"></label>
-                                                                    </div>
-                                                                    <p class="title">Stack Exchange</p><span
-                                                                            class="star-toggle fa fa-star-o"></span>
-                                                                </div>
-                                                                <div class="mail-col mail-col-2">
-                                                                    <div class="subject">1 new items in your Stackexchange inbox
-                                                                        &nbsp;&ndash;&nbsp; <span class="teaser">The following items were added to your Stack Exchange global inbox since you last checked it.</span>
-                                                                    </div>
-                                                                    <div class="date">Feb 21</div>
-                                                                </div>
-                                                            </li>
+                                                           
                                                             
                                                         </ul>
                                                         <a href="#" class="load-more-link">Show more messages</a>

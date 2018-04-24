@@ -133,7 +133,21 @@ class ReclamationManage
             //header('Location: contact-inbox.php');
         
   }
-  function recupererreclamationback_back($id){
+  function supprimerreclamation2($id){
+    $sql="DELETE FROM reclamation where id_reclamation= :id";
+    $db = config::getConnexion();
+        $req=$db->prepare($sql);
+    $req->bindValue(':id',$id);
+   
+            if($req->execute())
+            	 echo "<meta http-equiv=\"refresh\" content=\"0;URL=afficher-reclamation.php\">"; 
+            else
+            	 echo "<meta http-equiv=\"refresh\" content=\"0;URL=afficher-reclamation.php\">"; 
+        
+            //header('Location: contact-inbox.php');
+        
+  }
+  function recupererreclamation_back($id){
 		$sql="SELECT * from reclamation where id_reclamation= $id";
 		$db = config::getConnexion();
 		try{
