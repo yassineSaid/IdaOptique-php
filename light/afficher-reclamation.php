@@ -36,7 +36,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo"><span>Reclamation<span>to</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="index.html" class="logo"><span>Admin<span>to</span></span><i class="mdi mdi-layers"></i></a>
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -51,7 +51,7 @@
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                                <h4 class="page-title">Clients</h4>
+                                <h4 class="page-title">Datatables</h4>
                             </li>
                         </ul>
 
@@ -243,42 +243,33 @@
             </div>
             <!-- Left Sidebar End -->
 
-             <?php
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                      
+                         <?php
                                         require '../core/reclamationM.php';
                                         $c=new ReclamationManage();
                                         $val=$c->afficher_reclamation_back();
 
                                     ?>
 
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-             <div class="content-page">
-                <!-- Start content -->
-                <div class="content">
-                    <div class="container-fluid">
-
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box table-responsive">
-                                    <h4 class="m-t-0 header-title"><b>Default Example</b></h4>
-                                     <div class="row">
-                                     <div class="col-sm-12 col-md-6">
-                                     <div class="dataTables_length" id="datatable_length">
-                                     <label>Show entries</label><select name="datatable_length" aria-controls="datatable" class="form-control form-control-sm" style="
-    width: 67.988636px;
-">
-                                     <option value="10">10</option>
-                                     <option value="25">25</option>
-                                     <option value="50">50</option>
-                                     <option value="100">100</option>
-                                     </select> </div></div>
-                                     <div class="col-sm-12 col-md-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="datatable"></label></div></div></div>
-
-                                    <table id="datatable" class="table table-bordered">
+                                    <h4 class="m-t-0 header-title"><b>Afficher Reclamations</b></h4>
+                                   
+                                    <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                         <tr>
-                                             <th>ID</th>
+                                            <th>ID</th>
                                             <th>Nom</th>
                                             <th>Prenom</th>
                                             <th>Age</th>
@@ -294,6 +285,8 @@
                                             <th>produit</th>
                                             <th>date_achat</th>
                                             <th>note</th>
+                                            <th>supprimer</th>
+                                            <th>pdf</th>
                                           
                                         </tr>
                                         </thead>
@@ -327,15 +320,20 @@
                                     </table>
                                 </div>
                             </div>
-                            </div>
-                         <!-- end r
-                         </div> <!-- container -->
+                        </div>
+                        <!-- end row -->
 
-                
-                <!-- Start content -->
-            
+                    </div> <!-- container -->
 
-                     
+                </div> <!-- content -->
+
+                <footer class="footer text-right">
+                    2016 - 2018 © Adminto. Coderthemes.com
+                </footer>
+
+            </div>
+
+
             <!-- ============================================================== -->
             <!-- End Right content here -->
             <!-- ============================================================== -->
@@ -450,7 +448,21 @@
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
-        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatable').DataTable();
+
+                //Buttons examples
+                var table = $('#datatable-buttons').DataTable({
+                    lengthChange: false,
+                    buttons: ['copy', 'excel', 'pdf']
+                });
+
+                table.buttons().container()
+                        .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
+            } );
+
+        </script>
 
 
     </body>

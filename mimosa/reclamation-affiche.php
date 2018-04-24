@@ -35,14 +35,156 @@
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script>
-function verif(champ) {
-	if(champ.value.length==0)
-   { 
-         alert("empty");  	
-        
-      }  	
-      
-    } 
+function verif()
+        	{
+        		var v=0
+        		if (window.document.commande.nom.value.length<3)
+        		{
+        			document.commande.nom.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.nom.style.borderColor="#e5e5e5";
+        			
+        		}
+        		if (window.document.commande.prenom.value.length<3)
+        		{
+        			document.commande.prenom.style.borderColor="red";
+        			v=1;
+        		}
+        		else 
+        		{
+        			document.commande.prenom.style.borderColor="#e5e5e5";
+        		}
+        		if (window.document.commande.email.value.length<8)
+        		{
+        			document.commande.email.style.borderColor="red";
+        			v=1;
+        		}
+        		else 
+        		{
+        			document.commande.email.style.borderColor="e5e5e5";
+        		}
+        		if (window.document.commande.telephone.value.length<3)
+        		{
+        			document.commande.telephone.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.telephone.style.borderColor="e5e5e5";
+        		}
+        		if (window.document.commande.date_achat.value.length<4)
+        		{
+        			document.commande.date_achat.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.date_achat.style.borderColor="e5e5e5";
+        		}
+        		if (window.document.commande.notes.value.length<4)
+        		{
+        			document.commande.notes.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.notes.style.borderColor="e5e5e5";
+        		}
+        		if (window.document.commande.adresse1.value.length<4)
+        		{
+        			document.commande.adresse1.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.adresse1.style.borderColor="e5e5e5";
+        		}
+        		if (window.document.commande.adresse2.value.length<4)
+        		{
+        			document.commande.adresse2.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.adresse2.style.borderColor="e5e5e5";
+        		}
+        		if (window.document.commande.code_postal.value.length<4)
+        		{
+        			document.commande.code_postal.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.code_postal.style.borderColor="e5e5e5";
+        		}
+
+
+        		if (window.document.commande.ville.value.length<4)
+        		{
+        			document.commande.ville.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.ville.style.borderColor="e5e5e5";
+        		}
+        		
+
+        		if (window.document.commande.pays.value.length<4)
+        		{
+        			document.commande.pays.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.pays.style.borderColor="e5e5e5";
+        		}
+
+
+        		if (window.document.commande.ville.value.length<4)
+        		{
+        			document.commande.ville.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.ville.style.borderColor="e5e5e5";
+        		}
+
+
+        		if (window.document.commande.region.value.length<4)
+        		{
+        			document.commande.region.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.region.style.borderColor="e5e5e5";
+        		}
+
+
+        		if (window.document.commande.produit.value.length<4)
+        		{
+        			document.commande.produit.style.borderColor="red";
+        			v=1;
+        		}
+        		else
+        		{
+        			document.commande.produit.style.borderColor="e5e5e5";
+        		}
+        		
+        		if (v==1)
+        		{
+        			return false;
+        		}
+        		else
+        		{
+        			return true;
+        		}
+        	}
     function formcheck() {
   var fields = $(".checkout-form-list")
         .find("select, textarea, input").serializeArray();
@@ -137,10 +279,12 @@ function verif(champ) {
 			<!-- header-area-start -->
 			<header>
 				<!-- header-top-area-start -->
-				
+				<?php if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
+						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+				?>
 			
 			</header>
-			<form action="ajouter-reclamation.php" method="post">
+			<form action="ajouter-reclamation.php" method="post"  >
 			<!-- header-area-end -->
 			<!-- breadcrumbs-area-start -->
 			<div class="breadcrumbs-area">
@@ -329,14 +473,26 @@ function verif(champ) {
 									
 										
 									
-									
+									<?php 
+											include '../core/reclamationM.php';
+											$rec=new ReclamationManage();
+							    			$result1=$rec->afficherProduitpourReclamation();
+							    		
+							    			?>
 									
 										<div class="col-lg-12">
 										<div class="country-select">
 										<label>Produit<span>*</span></label>
 										<select name="produit" class="chosen-select" tabindex="1" style="width:100%;" data-placeholder="Default Sorting">
+											
 											<option value="produit">Selectioner un produit</option>
-											<option value="lunette1">Lunette</option>
+
+											<?php
+											
+											 foreach ($result1 as $key => $item) { ?>
+																					<option value="<?php echo $item['produit_nom']; ?>"><?php echo $item['produit_nom']; ?></option>
+																					
+											<?php } ?>
 											
 										</select>
 									</div>

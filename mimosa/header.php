@@ -127,7 +127,7 @@
 													<li><a href="contact.php">contact</a></li>
 													<li><a href="reclamation-affiche.php">Ajouter Reclamation</a></li>
 													<li><a href="reclamation-affiche1.php">Afficher les Reclamations</a></li>
-													<li><a href="about.html">about</a></li>
+													<li><a href="rendez-vous.php">Prendre Un Rendez-vous</a></li>
 													<li><a href="cart.html">cart</a></li>
 													<li><a href="checkout.html">checkout</a></li>
 													<li><a href="wishlist.html">wishlist</a></li>

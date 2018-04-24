@@ -62,7 +62,17 @@ class ReclamationManage
             die('Erreur: '.$e->getMessage());
         }
 	}
-
+	public function afficherProduitpourReclamation()
+	{
+		$db = config::getConnexion();
+		
+		$req = $db->query('SELECT * FROM produit')->fetchAll();
+		
+		return $req;
+        
+		
+	}
+	
 	function modifierreclamation($reclamation,$id_client,$id_reclamation){
 		
 		
