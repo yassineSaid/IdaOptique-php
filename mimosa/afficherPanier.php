@@ -110,6 +110,24 @@
 			<!-- shop-main-area-start -->
 			<div class="shop-main-area">
 				<!-- cart-main-area-start -->
+				<?php 
+											$pan = new panierC();
+											if (isset($_SESSION['id']))
+											{
+												$nb = $pan->calculPanier($_SESSION['id']);
+											}
+											else if (!isset($_SESSION['panier']))
+											{
+												$pan->creationPanier();
+												$nb = count($_SESSION['panier']['id_produit']);
+											}
+											else
+											{
+												$nb = count($_SESSION['panier']['id_produit']);
+											}
+											if ($nb!=0){
+
+					?>
 				<div class="cart-main-area">
 					<div class="container">
 						<div class="row">
@@ -128,7 +146,6 @@
 											</thead>
 											<tbody>
 												<?php 
-														$pan= new panierC();
 														$total=0;
 														$i=0;
 														if (isset($_SESSION['id']))
@@ -226,6 +243,23 @@
 						</div>
 					</div>
 				</div>
+				<?php } else { ?>
+					<div class="page-not-found">
+						<div class="section-element-area">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="entry-header text-center mb-20">
+										<p>Votre panier est vide</p>
+									</div>
+									<div class="entry-content text-center mb-30">
+										<a href="listeProduits.php?categorie=optique&page=1">Découvrez nos produits</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><?php } ?>
 				<!-- cart-main-area-end -->
 			</div>
 			<!-- shop-main-area-end -->
