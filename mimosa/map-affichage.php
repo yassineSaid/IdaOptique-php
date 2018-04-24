@@ -30,7 +30,7 @@
     <script>
       function initMap() {
        var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 15,
     center: new google.maps.LatLng(36.862, 10.165),
     mapTypeId: google.maps.MapTypeId.ROADMAP
 });

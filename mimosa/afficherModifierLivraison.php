@@ -85,55 +85,55 @@
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
-													<label>First Name<span>*</span></label>
+													<label>Nom<span>*</span></label>
 													<input type="text" name="livraison_nom" value="<?php echo $row['nom']; ?>"/>
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
-													<label>Last Name<span>*</span></label>
+													<label>Prénom<span>*</span></label>
 													<input type="text" name="livraison_prenom" value="<?php echo $row['prenom']; ?>" />
 											</div>
 										</div>
 									</div>
 									<div class="single-register">
-											<label>Company Name</label>
+											<label>Societe</label>
 											<input type="text" name="livraison_sosciete" value="<?php echo $row['sosciete']; ?>" />
 									</div>
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
-													<label>Email Address<span>*</span></label>
+													<label>Email <span>*</span></label>
 													<input type="text" name="livraison_email" value="<?php echo $row['email']; ?>" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
-													<label>Phone<span>*</span></label>
+													<label>Telephone<span>*</span></label>
 													<input type="text" name="livraison_telephone" value="<?php echo $row['telephone']; ?>" />
 											</div>
 										</div>
 									</div>
 									<div class="single-register">
-										<label>Country<span>*</span></label>
+										<label>Tunisie<span>*</span></label>
 										<select class="chosen-select" tabindex="1" style="width:100%;" name="livraison_pays" data-placeholder="Default Sorting">
 											<option value="Tunisie">Tunisie </option>
 											
 										</select>
 									</div>
 									<div class="single-register">
-											<label>Address<span>*</span></label>
+											<label>Addresse<span>*</span></label>
 											<input type="text" name="livraison_adresse1" value="<?php echo $row['adresse1']; ?>" placeholder="Street address"/>
 											<input type="text" name="livraison_adresse2" value="<?php echo $row['adresse2']; ?>" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional"/>
 									</div>
 									<div class="single-register">
-											<label>Town/City<span>*</span></label>
+											<label>Ville<span>*</span></label>
 											<input type="text" name="livraison_ville" value="<?php echo $row['ville']; ?>" />
 									</div>
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
-												<label>State<span>*</span></label>
+												<label>Region<span>*</span></label>
 												<input type="text" name="livraison_region" value="<?php echo $row['region']; ?>" />
 												
 											</div>
@@ -141,7 +141,7 @@
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
 												
-													<label>Postcode/zip<span>*</span></label>
+													<label>Code Postal<span>*</span></label>
 													<input type="text" name="livraison_code_postal" value="<?php echo $row['code_postal']; ?>" placeholder="Postcode/zip"/>
 											
 											</div>
