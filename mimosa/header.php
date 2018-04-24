@@ -34,7 +34,7 @@
 													<li><a href="index-6.html">Home-6</a></li>
 												</ul>
 											</li>
-											<li><a href="listeProduits.php?categorie=optique">Montures de vue</a>
+											<li><a href="listeProduits.php?categorie=optique&page=1">Montures de vue</a>
 												<ul class="mega-menu">
 													<li><a href="#">Filtre de prix</a>
 														<ul class="sub-menu-2">
@@ -70,7 +70,7 @@
 													</li>
 												</ul>
 											</li>
-											<li><a href="listeProduits.php?categorie=solaire">Monture Solaire</a>
+											<li><a href="listeProduits.php?categorie=solaire&page=1">Monture Solaire</a>
 												<ul class="mega-menu mega-menu-2">
 													<li><a href="#">Filtre de prix</a>
 														<ul class="sub-menu-2">
