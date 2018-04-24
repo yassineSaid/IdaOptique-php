@@ -43,7 +43,7 @@
 {
   myMarker[i] = new google.maps.Marker({
     position: new google.maps.LatLng(document.getElementById('lat'+i.toString()).value, document.getElementById('lng'+i.toString()).value),
-    draggable: true
+    draggable: false
     });
   map.setCenter(myMarker[i].position);
 myMarker[i].setMap(map);
