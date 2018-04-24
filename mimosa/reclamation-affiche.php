@@ -54,6 +54,76 @@ function verif(champ) {
 }
 
 </script>
+<script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlZPf84AAVt8_FFN7rwQY5nPgB02SlTKs&libraries=places&callback=initAutocomplete"
+        async defer></script>
     </head>
     <body class="register">
         <!--[if lt IE 8]>
@@ -392,7 +462,7 @@ function verif(champ) {
 											<div class="checkout-form-list">
 												
 													<label>First Name<span>*</span></label>
-													<input onblur="verif(this);" name="nom" type="text"/>
+													<input  name="nom" type="text"/>
 												
 											</div>
 										</div>
@@ -431,16 +501,35 @@ function verif(champ) {
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 										
-											<label>Town/City<span>*</span></label>
-											<input name="ville" type="text" />
+											<label>Date d'achat<span></span></label>
+											<input name="date_achat" type="date" placeholder="Date d'achat"/>
 										
 									</div>
 									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+										
+											<label>Profession</label>
+											<input name="profession" type="text"/>
+										
+									</div>
+								</div>
+
+										<div class="col-lg-12">
+											<div class="checkout-form-list">
+										
+											<label>Search Adress<span></span></label>
+											<input id="autocomplete" placeholder="Enter your address"
+             onFocus="geolocate()" type="text"></input>
+										
+									</div>
+									</div>
+										
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 										
 											<label>Address<span>*</span></label>
-											<input name="adresse1" type="text" placeholder="Street address"/>
+											<input name="adresse1" id="street_number" type="text" placeholder="Street address"/>
 										
 											
 									</div>
@@ -450,7 +539,7 @@ function verif(champ) {
 										
 											<label>Address2<span></span></label>
 											
-											<input name="adresse2" type="text" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional"/>
+											<input name="adresse2" id="route" type="text"  placeholder="Apartment, suite, unit etc. (optional"/>
 										
 									</div>
 									</div>
@@ -460,16 +549,25 @@ function verif(champ) {
 											<div class="checkout-form-list">
 												
 													<label>Postcode<span>*</span></label>
-													<input name="code_postal" type="text" placeholder="Postcode"/>
+													<input name="code_postal" id="postal_code" type="text" placeholder="Postcode"/>
 												
 											</div>
 										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+										
+											<label>Town/City<span>*</span></label>
+											<input name="ville" id="locality" type="text" />
+										
+									</div>
+									</div>
 										 
 										 <div class="col-lg-12">
 										<div class="country-select">
 										<label>Country<span>*</span></label>
-										<select name="pays" class="chosen-select" tabindex="1" style="width:100%;" data-placeholder="Default Sorting">
-											<option value="country">Select a country</option>
+										<select name="pays" class="chosen-select" id="country" tabindex="1" 
+										style="width:100%;" data-placeholder="Default Sorting">
+											<option  >Select a country</option>
 											<option value="Tunisia">Tunisia</option>
 											
 										</select>
@@ -480,8 +578,8 @@ function verif(champ) {
 									<div class="col-lg-12">
 										<div class="country-select">
 												<label>State<span>*</span></label>
-												<select name="region" class="chosen-select" tabindex="1" style="width:100%;" data-placeholder="Default Sorting">
-													<option value="Select">Select a State</option>
+												<select name="region" class="chosen-select" tabindex="1" id="administrative_area_level_1" style="width:100%;" data-placeholder="Default Sorting">
+													<option >Select a State</option>
 													<option value="Tunis">Tunis</option>
 													<option value="Ariana">Ariana</option>
 													<option value="Ben Arous">Ben Arous</option>
@@ -511,22 +609,8 @@ function verif(champ) {
 										</div>
 									
 										
-									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-											<div class="checkout-form-list">
-										
-											<label>Profession<span>*</span></label>
-											<input name="profession" type="text" placeholder="Profession"/>
-										
-									</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-											<div class="checkout-form-list">
-										
-											<label>Date d'achat<span>*</span></label>
-											<input name="date_achat" type="date" placeholder="Date d'achat"/>
-										
-									</div>
-									</div>
+									
+									
 									
 										<div class="col-lg-12">
 										<div class="country-select">
