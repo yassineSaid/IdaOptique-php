@@ -160,6 +160,10 @@
 											<span><?php
 											include_once '../core/panierC.php'; 
 											$pan = new panierC();
+											if (!isset($_SESSION['panier']))
+											{
+												$pan->creationPanier();
+											}
 											if (isset($_SESSION['id']))
 											{
 												echo $pan->calculPanier($_SESSION['id']);
