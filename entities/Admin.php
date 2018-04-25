@@ -2,9 +2,9 @@
 include "../light/connect.php";
 class Admin
 {
-   private $nom,$prenom,$pseudo,$email,$motDePasse,$verifPass;
+   private $nom,$prenom,$pseudo,$email,$motDePasse;
 
-function __construct($nom,$prenom,$pseudo,$email,$motDePasse,$verifPass)
+function __construct($nom,$prenom,$pseudo,$email,$motDePasse)
  {
 		//$this->id=$id;
         $this->nom=$nom;
@@ -12,7 +12,7 @@ function __construct($nom,$prenom,$pseudo,$email,$motDePasse,$verifPass)
         $this->pseudo=$pseudo;
         $this->email=$email;
         $this->motDePasse=$motDePasse;
-        $this->verifPass=$verifPass;
+      
         
     }
  public function get_id() 
@@ -39,15 +39,7 @@ function __construct($nom,$prenom,$pseudo,$email,$motDePasse,$verifPass)
     {
         return $this->motDePasse;
     }   
-     public function get_verifPass() 
-    {
-        return $this->verifPass;
-    }   
-     /*
-    public function set_id($id) 
-    {
-         $this->id=$id;
-    }   */
+     
     public function set_nom($nom) 
     {
          $this->nom=$nom;
@@ -68,10 +60,7 @@ function __construct($nom,$prenom,$pseudo,$email,$motDePasse,$verifPass)
     {
     	$this->motDePasse=$motDePasse;
     }
-    public function set_verifPass($verifPass) 
-    {
-    	$this->verifPass=$verifPass;
-    }
+   
     
 }
 
