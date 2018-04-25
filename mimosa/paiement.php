@@ -117,7 +117,7 @@
 							?><form method="post" action="envoyer-mail.php">
 							<input type="hidden" name="lien" value="<?php echo 'http://127.0.0.1/code/mimosa/afficherFacturePdf.php?id_commande='.$id_commande ?>">
 							<input type="hidden" name="destination" value="<?php echo $commC->getEmailClient($_SESSION['id'])?>">
-							<input type="hidden" name="link" value="confirmerCommande">
+							<input type="hidden" name="link" value="http://127.0.0.1/code/mimosa/confirmerCommande.php">
 							<input type="hidden" name="objet" value="Votre commande est confirmée">
 							<button value="confirmer" id="confirmer"></button>
 						</form>

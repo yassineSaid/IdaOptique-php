@@ -1,5 +1,4 @@
-<?php
-    session_start() ;
+<?php //session_start();
     if (!isset($_SESSION['id_admin']))
     {
         header("location: login-admin.php");
@@ -43,13 +42,11 @@
 
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-donut-variant"></i><span> Charts </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-donut-variant"></i><span> Gestion des produits </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="chart-flot.html">Flot Chart</a></li>
-                                    <li><a href="chart-morris.html">Morris Chart</a></li>
-                                    <li><a href="chart-chartist.html">Chartist Charts</a></li>
-                                    <li><a href="chart-chartjs.html">Chartjs Chart</a></li>
-                                    <li><a href="chart-other.html">Other Chart</a></li>
+                                    <li><a href="ajout-produit.php">Ajouter un produit</a></li>
+                                    <li><a href="affichage-produit.php">Liste des produits</a></li>
+                                    
                                 </ul>
                             </li>
 
