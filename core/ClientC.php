@@ -11,10 +11,10 @@ public function ajouterClient($client,$confirmationMail)
         
  
    
-    $req="INSERT INTO `client` (`id`, `nom`, `prenom`, `email`, `MotDePasse`,`pays`,`cite`,`telephone`,`fax`,`adresse`,`adresse2`,`confirmationMail`,`status`) VALUES (:id, :nom, :prenom, :email, :motDePasse, :pays, :cite, :telephone, :fax, :adresse, :adresse2, :confirmationMail, 0);";
+    $req="INSERT INTO `client` (`nom`, `prenom`, `email`, `MotDePasse`,`pays`,`cite`,`telephone`,`fax`,`adresse`,`adresse2`,`confirmationMail`,`status`) VALUES (:nom, :prenom, :email, :motDePasse, :pays, :cite, :telephone, :fax, :adresse, :adresse2, :confirmationMail, 0);";
 
         $sql=$db->prepare($req);
-        $sql->bindValue(':id',$client->get_id());
+        
         $sql->bindValue(':nom',$client->get_nom());
         $sql->bindValue(':prenom',$client->get_prenom());
         $sql->bindValue(':email',$client->get_email());
@@ -30,7 +30,11 @@ public function ajouterClient($client,$confirmationMail)
      
      
        if($sql->execute())
-        {echo "bien";}
+       {
+        echo "<meta http-equiv='refresh' content='0;url=login-client-inter.php'>";
+
+       }
+        
         else
             {echo "noo";}
         /* catch(Exception $e) 
@@ -40,7 +44,7 @@ public function ajouterClient($client,$confirmationMail)
 
 
 
-        	
+        
        
        
     } 
@@ -64,7 +68,7 @@ public function ajouterClient($client,$confirmationMail)
 
          public function modifierClient($Client,$id)
     {
-        $sql="UPDATE `client` SET `id`=$id,`nom`=:nom,`prenom`=:prenom,`email`=:email,`MotDePasse`=:motDePasse,`pays`=:pays,`cite`=:cite,`telephone`=:telephone,`fax`=:fax,`adresse`=:adresse,`adresse2`=:adresse2 WHERE id= $id";
+        $sql="UPDATE `client` SET `nom`=:nom,`prenom`=:prenom,`email`=:email,`MotDePasse`=:motDePasse,`pays`=:pays,`cite`=:cite,`telephone`=:telephone,`fax`=:fax,`adresse`=:adresse,`adresse2`=:adresse2 WHERE id= $id";
        
        
         $db =config::getConnexion();
