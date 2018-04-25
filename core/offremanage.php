@@ -101,6 +101,17 @@ function modifierOffre($offre,$id)
 	}
 
 
+        function recupererProduit($id)
+    {
+        $db=config::getConnexion();
+        $req="SELECT * FROM produit p , images p1 where p.produit_id=p1.produit_id and p.produit_id= '$id' LIMIT 1";
+        $sql=$db->query($req);
+        
+        return $sql;
+        //return $sql;
+    }
+
+
 
 
 
