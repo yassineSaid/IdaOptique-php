@@ -154,6 +154,12 @@ foreach($result as $row)
 										
 									</div>
 								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="checkout-form-list">
+													<label>Zip<span>*</span></label>
+													<input type="text" name="zip" value="<?php echo $row['zip']; ?>" />
+											</div>
+										</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="checkout-form-list">
 													<label>Telephone<span>*</span></label>

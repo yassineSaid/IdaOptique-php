@@ -12,7 +12,7 @@ $nmdp=md5($mdp);
         $confirmationMail .= $characters[rand(0, $charactersLength - 1)];
     }
 
-$cl1=new Client($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['motDePasse'],$_POST['pays'],$_POST['cite'],$_POST['telephone'],$_POST['fax'],$_POST['adresse'],$_POST['adresse2']);
+$cl1=new Client($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['motDePasse'],$_POST['pays'],$_POST['cite'],$_POST['zip'],$_POST['telephone'],$_POST['fax'],$_POST['adresse'],$_POST['adresse2']);
 
 //var_dump($emp1);
 $cl=new ClientManage();

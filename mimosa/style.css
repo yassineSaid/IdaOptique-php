@@ -2752,6 +2752,16 @@ a#scrollUp:hover{
   padding: 0 15px;
   width: 100%;
 }
+.single-register .prenom{
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 1px solid #eceff8;
+  box-shadow: none;
+  color: #333333;
+  font-size: 14px;
+  height: 45px;
+  padding: 0 15px;
+  width: 100%;
+}
 .single-register .chosen-select{
 	height: 45px;
 	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
@@ -2795,6 +2805,23 @@ a#scrollUp:hover{
   transition:.3s;
 }
 .single-register > a:hover{
+	background-color:#ee3333;
+	color:#fff;
+	border:1px solid #ee3333;
+}
+.single-register > .confirmer {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 1px solid #eceff8;
+  box-shadow: none;
+  color: #626262;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 6px;
+  padding: 12px 48px;
+  text-decoration:none;
+  transition:.3s;
+}
+.single-register > .confirmer:hover{
 	background-color:#ee3333;
 	color:#fff;
 	border:1px solid #ee3333;
