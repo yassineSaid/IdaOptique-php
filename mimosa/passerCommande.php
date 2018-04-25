@@ -166,17 +166,29 @@
 		<div id="page-wraper">
 			<!-- header-area-start -->
 			<header>
-					<?php if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
+					<?php 
+						include_once '../core/panierC.php'; 
+						if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
 						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
 						else if (!isset($_SESSION['id']))
 						{
 							$_SESSION['redirect']=true;
 							echo "<script type='text/javascript'>document.location.replace('login-client-inter.php');</script>";
 						}
-						else if ((count($_SESSION['panier']['id_produit'])<=0))
+						else if (isset($_SESSION['id']))
 						{
-							echo "<script type='text/javascript'>document.location.replace('afficherPanier.php');</script>";
+							$panier=new PanierC();
+							if ($panier->calculPanier($_SESSION['id'])<=0)
+								echo "<script type='text/javascript'>document.location.replace('afficherPanier.php');</script>";
 						}
+						include_once '../core/commandeC.php';
+						
+						if (isset($_SESSION['id']))
+						{
+							$commande=new CommandeC();
+							$info=$commande->getInfoClient($_SESSION['id']);
+
+
 				?>
 			</header>
 			<!-- header-area-end -->
@@ -261,21 +273,21 @@
 												<div class="country-select">
 													<label>Pays <span class="required">*</span></label>
 													<select>
-													  <option value="volvo">Tunisie</option>
-													  <option value="saab">Suisse</option>
+													  <option value="Tunisie">Tunisie</option>
+													  <option value="Suisse">Suisse</option>
 													</select> 										
 												</div>
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 												<div class="checkout-form-list">
 													<label>Prénom <span class="required">*</span></label>										
-													<input type="text" placeholder="" name="prenom">
+													<input type="text" placeholder="" name="prenom" value="<?php echo $info['prenom'] ?>">
 												</div>
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 												<div class="checkout-form-list">
 													<label>Nom <span class="required">*</span></label>										
-													<input type="text" placeholder="" name="nom">
+													<input type="text" placeholder="" name="nom" value="<?php echo $info['nom'] ?>">
 												</div>
 											</div>
 											<div class="col-lg-12">
@@ -287,24 +299,24 @@
 											<div class="col-lg-12">
 												<div class="checkout-form-list">
 													<label>Adresse <span class="required">*</span></label>
-													<input type="text" placeholder="Rue" name="adresse">
+													<input type="text" placeholder="Rue" name="adresse"  value="<?php echo $info['adresse'] ?>">
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="checkout-form-list">									
-													<input type="text" placeholder="Appartement... (optionnel)" name="adresse2">
+													<input type="text" placeholder="Appartement... (optionnel)" name="adresse2"  value="<?php echo $info['adresse2'] ?>">
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="checkout-form-list">
 													<label>Ville <span class="required">*</span></label>
-													<input type="text" placeholder="" name="ville">
+													<input type="text" placeholder="" name="ville"  value="<?php echo $info['cite'] ?>">
 												</div>
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 												<div class="checkout-form-list">
 													<label>Code postal <span class="required">*</span></label>										
-													<input type="text" placeholder="" name="zip">
+													<input type="text" placeholder="" name="zip"  value="">
 												</div>
 											</div>
 											<div class="col-lg-12">
@@ -315,6 +327,7 @@
 												</div>
 											</div>								
 										</div>
+										<?php } ?>
 										<div class="different-address">
 												<div class="ship-different-title">
 													<h3>
@@ -404,7 +417,6 @@
 									<div class="your-order">
 										<h3>Votre commande</h3>
 										<?php 
-											include_once '../core/panierC.php'; 
 											$pan = new panierC();
 											$total=0; ?>
 										<div class="your-order-table table-responsive">

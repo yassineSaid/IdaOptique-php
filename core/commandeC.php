@@ -67,6 +67,14 @@ class CommandeC
         $value = $result->fetch();
         return $value['email'];
     }
+    function getInfoClient($id)
+    {
+        $conn=Config::getConnexion();
+        $sql="SELECT * from client where id=$id";
+        $result = $conn->query($sql);
+        $value = $result->fetch();
+        return $value;
+    }
     function afficherInfoCommande($id_commande)
     {
         $conn=Config::getConnexion();
