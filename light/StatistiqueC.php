@@ -1,7 +1,7 @@
 <?php // content="text/plain; charset=utf-8"
 require_once ('/jpgraph-4.2.0/src/jpgraph.php');
 require_once ('/jpgraph-4.2.0/src/jpgraph_bar.php');
-require_once 'config.php';
+require_once '../config.php';
 //bar linear fix
 
 $query="SELECT * FROM `reclamation`   ";
@@ -46,5 +46,5 @@ $graph->xaxis->SetTickLabels($datax);
 //$graph->xaxis->SetLabelAngle(50);
 $graph->xaxis->SetTextTickInterval(1);
 // Display the graph
-$graph->Stroke();
+$graph->Stroke("./stat.jpg");
 ?>

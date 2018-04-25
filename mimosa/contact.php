@@ -40,7 +40,7 @@ include_once 'init.php';?>
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
-    <body class="contact">
+    <body >	
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -247,18 +247,17 @@ include_once 'init.php';?>
 				
 				?>
                     </ul>
-                   
+                   <input type="hidden" value="<?php echo $_SESSION['id'] ?>" name="id_client">
                 </div>
                 <div class="panel-footer">
                     <div class="input-group">
-                    	<form id="frm-msg" name="frm-msg" onsubmit="return false;">
+                    	
                         <input id="btn-input" name="msg" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                        <span class="input-group-btn">
-                            <input class="btn btn-warning btn-sm" value="Send" id="btn-chat">
+                    
+                           <a href="add.php?id=<?php echo $_SESSION['id']; ?>&msg=aefafe" > <input class="btn btn-warning btn-sm" type="submit" value="Send" id="btn-chat">
                                
 
-                        </span>
-                    </form>
+                  
                     </div>
                 </div>
             </div>

@@ -11,21 +11,23 @@ class Message {
 
 		$this->db = $database;
 	}
-	public function post($user_id, $user, $msg,$id_client){
+
+
+	public function ajouter_message( $user, $msg,$id_client){
 	
 		$time 		= time();
 		$ip 		= $_SERVER['REMOTE_ADDR'];
+	 	
+		$query 	= $this->db->prepare("INSERT INTO `messages` ( `username`, `message`, `ip`, `time`, `update_time`, `is_actived`, `id_client`) VALUES (?, ?, ?, ?, ?, ?, ?) ");
 	 
-		$query 	= $this->db->prepare("INSERT INTO `messages` (`user_id`, `username`, `message`, `ip`, `time`, `update_time`, `is_actived`, `id_client`) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ");
-	 
-		$query->bindValue(1, $user_id);
-		$query->bindValue(2, $user);
-		$query->bindValue(3, $msg);
-		$query->bindValue(4, $ip);
+		
+		$query->bindValue(1, $user);
+		$query->bindValue(2, $msg);
+		$query->bindValue(3, $ip);
+		$query->bindValue(4, $time);
 		$query->bindValue(5, $time);
-		$query->bindValue(6, $time);
-		$query->bindValue(7, 1);
-		$query->bindValue(8, $id_client);
+		$query->bindValue(6, 1);
+		$query->bindValue(7, $id_client);
 		try{
 			$query->execute();
 	 	}catch(PDOException $e){
