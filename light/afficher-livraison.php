@@ -312,9 +312,16 @@
                                                                 <p align="center">
                                                                     <a href="supprimer-livraison.php?id_commande=<?php echo $row['id_commande'] ?>" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5">Supprimer</a></p>
                                                             
-                                                          <p align="center"><button type='submit' name='' value="enregistrer" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5"  >Enregistrer </button></p></td>
+                                                          <p align="center"><button type='submit' name='' value="enregistrer" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5"  >Enregistrer </button></p></td></form>
+                                                          <form method="post" action="http://laptops.topic.ca/back/projet/light/envoyer-mail.php">
                                                           <td><p align="center">
-                                                                    <a href="supprimer-livraison.php?id_commande=<?php echo $row['id_commande'] ?>" class="btn btn-inverse waves-effect waves-light m-b-5">email</a></p> </td></form>
+                                                            
+                                                                <input type="hidden" name="destination" value="<?php echo $row['email'] ?>">
+                                                                <input type="hidden" name="objet" value="Livraison">
+                                                                <input type="hidden" name="link" value="http://127.0.0.1/code/light/afficher-livraison.php" >
+                                                                <input type="hidden" name="contenu" value="votre livraison sera livré le <?php echo $row['date_livraison'] ?>">
+                                                                    <button type='submit'  class="btn btn-inverse waves-effect waves-light m-b-5">email</a></p> </td>
+                                                                    </form>
 
                                         </tr>
                                         <?php } ?>
