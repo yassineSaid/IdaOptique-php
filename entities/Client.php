@@ -2,9 +2,9 @@
 include_once "../config.php";
 class Client
 {
-private $nom,$prenom,$email,$motDePasse,$pays,$cite,$telephone,$fax,$adresse,$adresse2;
+private $nom,$prenom,$email,$motDePasse,$pays,$cite,$zip,$telephone,$fax,$adresse,$adresse2;
 
-function __construct($nom,$prenom,$email,$motDePasse,$pays,$cite,$telephone,$fax,$adresse,$adresse2)
+function __construct($nom,$prenom,$email,$motDePasse,$pays,$cite,$zip,$telephone,$fax,$adresse,$adresse2)
     {
 		
         $this->nom=$nom;
@@ -17,6 +17,7 @@ function __construct($nom,$prenom,$email,$motDePasse,$pays,$cite,$telephone,$fax
         $this->fax=$fax;
         $this->adresse=$adresse;
         $this->adresse2=$adresse2;
+         $this->zip=$zip;
     }
  
     public function get_nom() 
@@ -35,7 +36,10 @@ function __construct($nom,$prenom,$email,$motDePasse,$pays,$cite,$telephone,$fax
     {
         return $this->motDePasse;
     } 
-     
+       public function get_zip() 
+    {
+        return $this->zip;
+    } 
     public function get_pays() 
     {
         return $this->pays;
@@ -60,7 +64,6 @@ function __construct($nom,$prenom,$email,$motDePasse,$pays,$cite,$telephone,$fax
     {
         return $this->adresse2;
     }    
-     
     public function set_nom($nom) 
     {
          $this->nom=$nom;
