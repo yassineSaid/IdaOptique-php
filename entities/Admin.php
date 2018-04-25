@@ -1,5 +1,5 @@
 <?php
-include "../light/connect.php";
+include_once "../config.php";
 class Admin
 {
    private $nom,$prenom,$pseudo,$email,$motDePasse;
