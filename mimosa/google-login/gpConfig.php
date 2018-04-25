@@ -9,7 +9,7 @@ include_once 'src/contrib/Google_Oauth2Service.php';
  */
 $clientId = '962019930958-vsje9rk72et9vqt7p6tiu923osth159m.apps.googleusercontent.com'; //Google client ID
 $clientSecret = '7rYXabe8ffwze86fPlzHz3Pa'; //Google client secret
-$redirectURL = 'http://127.0.0.1/login-google'; //Callback URL
+$redirectURL = 'http://127.0.0.1/code/mimosa/google-login'; //Callback URL
 
 //Call Google API
 $gClient = new Google_Client();
