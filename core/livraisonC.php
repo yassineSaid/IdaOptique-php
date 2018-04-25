@@ -37,6 +37,13 @@ class LivraisonManage
 		$sql=$db->query($req);
 		return $sql;
 	}
+	public function afficher_livraison_id_commande($id)
+	{
+		$db=config::getConnexion();
+		$req="SELECT * FROM livraison where id_commande=$id";
+		$sql=$db->query($req);
+		return $sql;
+	}
 		public function afficher_livraisons()
 	{
 		$db=config::getConnexion();
