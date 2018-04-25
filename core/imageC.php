@@ -130,7 +130,7 @@ class ImagesManage
  			$data3= file_get_contents($_FILES['image3']['tmp_name']);*/
  			//$next=ImagesManage::recupNext();
  			//$new = 'C:/wamp64/www/mimosa/mimosa/img/tsawer/'."image_".$val.strrchr($img_nom,".");
-            $new = '../mimosa/img/tsawer/'."image_".$val.strrchr($img_nom,".");
+            $new = '../mimosa/img/product/'."image_".$val.strrchr($img_nom,".");
  			/*$new2 = 'C:/wamp64/www/mimosa/mimosa/img/tsawer/'.$img_nom2;
  			$new3 = 'C:/wamp64/www/mimosa/mimosa/img/tsawer/'.$img_nom3;*/
  			
@@ -187,7 +187,7 @@ class ImagesManage
             $data3= file_get_contents($_FILES['image3']['tmp_name']);*/
             //$next=ImagesManage::recupNext();
             //$new = 'C:/wamp64/www/projet/mimosa/img/tsawer/'."image_".$val.strrchr($img_nom,".");
-            $new = '../mimosa/img/tsawer/'."image_".$val.strrchr($img_nom,".");
+            $new = '../mimosa/img/product/'."image_".$val.strrchr($img_nom,".");
             /*$new2 = 'C:/wamp64/www/mimosa/mimosa/img/tsawer/'.$img_nom2;
             $new3 = 'C:/wamp64/www/mimosa/mimosa/img/tsawer/'.$img_nom3;*/
             
@@ -244,7 +244,7 @@ class ImagesManage
             $data3= file_get_contents($_FILES['image3']['tmp_name']);*/
             //$next=ImagesManage::recupNext();
             //$new = 'C:/wamp64/www/mimosa/mimosa/img/tsawer/'."image_".$val.strrchr($img_nom,".");
-            $new = '../mimosa/img/tsawer/'."image_".$val.strrchr($img_nom,".");
+            $new = '../mimosa/img/product/'."image_".$val.strrchr($img_nom,".");
             /*$new2 = 'C:/wamp64/www/mimosa/mimosa/img/tsawer/'.$img_nom2;
             $new3 = 'C:/wamp64/www/mimosa/mimosa/img/tsawer/'.$img_nom3;*/
             
@@ -255,60 +255,12 @@ class ImagesManage
 
     }
 }
-    function ajouter_image($img_type,$img_nom,$img_size,$val,$type){
-       /* $ret        = false;
-       // $img_blob   = '';
-        $img_taille = 0;
-        $img_type   = '';
-        $img_nom    = '';
-     
-        $taille_max = 250000;
-        $ret        = is_uploaded_file($_FILES['image']['tmp_name']);
-        $ret2        = is_uploaded_file($_FILES['image2']['tmp_name']);
-        $ret3       = is_uploaded_file($_FILES['image3']['tmp_name']);
-        
-        if (!$ret) {
-            echo "Problème de transfert";
-            return false;
-        } else {
-            // Le fichier a bien été reçu
-            $img_taille = $_FILES['image']['size'];
-            $img_taille2 = $_FILES['image2']['size'];
-            $img_taille3 = $_FILES['image3']['size'];
-            
-            if ($img_taille > $taille_max) {
-                echo "Trop gros !";
-                return false;
-            }
-
-            $img_type = $_FILES['image']['type'];
-            $img_nom  = $_FILES['image']['name'];
-            $img_size  = $_FILES['image']['size'];
-
-            $img_type2 = $_FILES['image2']['type'];
-            $img_nom2  = $_FILES['image2']['name'];
-            $img_size2  = $_FILES['image2']['size'];
-
-            $img_type3 = $_FILES['image3']['type'];
-            $img_nom3  = $_FILES['image3']['name'];
-            $img_size3  = $_FILES['image3']['size'];
-
-             
-
- 			$data = file_get_contents($_FILES['image']['tmp_name']);
- 			$data2 = file_get_contents($_FILES['image2']['tmp_name']);
- 			$data3= file_get_contents($_FILES['image3']['tmp_name']);*/
-
- 	
- 			
-
-        
-        //$img_blob = file_get_contents ($_FILES['fic']['tmp_name']);
+    function ajouter_image($img_type,$img_nom,$img_size,$val,$type,$id){
             $db=config::getConnexion();
             date_default_timezone_get('GMT');
-				$time=date("d-m-Y H:i:s");
-            $prod=new Produit($_POST['idproduit'],$_POST['description'],$_POST['prix'],$_POST['quantite'],$time,$time,$_POST['nom'],$_POST['categorie'],$_POST['marque'],$_POST['forme'],$_POST['couleur']);
-            $produit_id=$prod->get_idproduit();
+			$time=date("d-m-Y H:i:s");
+            //$prod=new Produit($_POST['idproduit'],$_POST['description'],$_POST['prix'],$_POST['quantite'],$time,$time,$_POST['nom'],$_POST['categorie'],$_POST['marque'],$_POST['forme'],$_POST['couleur']);
+            $produit_id=$id;
         $req = "INSERT INTO images (url,nom,taille,produit_id,type) VALUES (:url,:nom,:taille,:produit_id,:type) "; // N'oublions pas d'échapper le contenu binaire
         $sql=$db->prepare($req);
         $sql->bindvalue(":url",$img_type);

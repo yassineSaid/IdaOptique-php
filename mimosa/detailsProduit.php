@@ -111,8 +111,8 @@
                                     {
                                     	if (!isset($first))
                                     	{
-                                    		$first="img/tsawer/".$val['nom'];
-									?> <img id="zoompro" src="<?php echo "img/tsawer/".$val['nom']; ?>" data-zoom-image="<?php echo $first; ?>	" alt="zoom"/><?php 
+                                    		$first="img/product/".$val['nom'];
+									?> <img id="zoompro" src="<?php echo "img/product/".$val['nom']; ?>" data-zoom-image="<?php echo $first; ?>	" alt="zoom"/><?php 
                                     	}
                                     	?>
 
@@ -121,8 +121,8 @@
 								<div id="gallery" class="mt-30">
 									
 								
-									  <a href="#" data-image="<?php echo "img/tsawer/".$val['nom']; ?>" data-zoom-image="<?php echo "img/tsawer/".$val['nom']; ?>">
-										<img src="<?php echo "img/tsawer/".$val['nom']; ?>" alt="zoom"/>
+									  <a href="#" data-image="<?php echo "img/product/".$val['nom']; ?>" data-zoom-image="<?php echo "img/product/".$val['nom']; ?>">
+										<img src="<?php echo "img/product/".$val['nom']; ?>" alt="zoom"/>
 										</a>
 										
 
@@ -326,8 +326,8 @@
 									<div class="product-wrapper">
 										<div class="product-img">
 											<a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>">
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="primary"/>
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="secondary"/>
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="primary"/>
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
 											<span class="sale">sale</span>
 											<div class="product-icon">
