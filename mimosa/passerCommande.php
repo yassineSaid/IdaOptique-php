@@ -166,7 +166,7 @@
 		<div id="page-wraper">
 			<!-- header-area-start -->
 			<header>
-					<?php if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
+					<?php if(((count($_SESSION['panier']['id_produit'])<=0))||(!isset($_SESSION['id'])))
 						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
 						else if (!isset($_SESSION['id']))
 						{

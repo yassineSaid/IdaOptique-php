@@ -211,16 +211,9 @@
 													<img src="<?php echo  "img/product/".$row['nom'] ?>" alt="product" class="secondary"/>
 												</a>
 												<div class="product-icon">
-<<<<<<< .mine
 													<a href="ajouterPanier.php?id_produit=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-													 <a href="<?php echo "comparateur.php?id=".$row['produit_id']; ?>" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
-||||||| .r45
-													<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-													 <a href="<?php echo "comparateur.php?id=".$_GET['id']; ?>" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
-=======
 													<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
 													 <a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
->>>>>>> .r70
 													<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 												</div>
 											</div>
@@ -418,14 +411,7 @@
 										<ul>
 										<?php 
 											$prodC3=new ProduitManage();
-<<<<<<< .mine
-											$nbPage=$prodC3->getNbPages($categorie); 
-||||||| .r45
 											$nbPage=$prodC3->getNbPages($_GET['categorie']); 
-											var_dump($nbPage);
-=======
-											$nbPage=$prodC3->getNbPages($_GET['categorie']); 
->>>>>>> .r70
 											if ($nbPage==1){
 										?>
 											<li class="active"><a href="<?php echo 'listeProduits.php?categorie='.$categorie.'&page=1' ?>">1</a></li>
