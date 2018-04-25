@@ -8,7 +8,7 @@ public function ajouterAdmin($admin)
     {
         $db=config::getConnexion();
         
-        $req="INSERT INTO `admin` (`nom`, `prenom` ,`pseudo`, `email`, `MotDePasse`,`verifPass`) VALUES ( :nom, :prenom, :pseudo, :email, :motDePasse, :verifPass);";
+        $req="INSERT INTO `admin` (`nom`, `prenom` ,`pseudo`, `email`, `MotDePasse`,`type`) VALUES ( :nom, :prenom, :pseudo, :email, :motDePasse,1);";
       
         $sql=$db->prepare($req);
        // $sql->bindValue(':id',$admin->get_id());
@@ -17,7 +17,8 @@ public function ajouterAdmin($admin)
         $sql->bindValue(':pseudo',$admin->get_pseudo());
         $sql->bindValue(':email',$admin->get_email());
         $sql->bindValue(':motDePasse',$admin->get_motDePasse());
-        $sql->bindValue(':verifPass',$admin->get_verifPass());
+      
+
         if($sql->execute())
         {
         	
@@ -72,22 +73,11 @@ public function modifierAdmin($admin)
         $sql->execute();
         */
         $db =config::getConnexion();
-       $sql="UPDATE admin SET id=:idd,nom=:nom,prenom=:prenom,pseudo=:pseudo,email=:email,MotDePasse=:MotDePasse,verifPass=:verifPass WHERE id=:id";
-       // $sql="UPDATE admin SET id=:idd,nom=:nom WHERE id=:id";
-        
-        
-        //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-        //try{        
+       $sql="UPDATE admin SET id=:idd,nom=:nom,prenom=:prenom,pseudo=:pseudo,email=:email,MotDePasse=:MotDePasse,type=:type WHERE id=:id";
+       
+        try{        
         $req=$db->prepare($sql);
 
-        /*$idd=$admin->get_id();
-        $nom=$admin->get_nom();
-        $prenom=$admin->get_prenom();
-        $pseudo=$admin->get_pseudo();
-        $email=$admin->get_email();
-        $MotDePasse=$admin->get_motDePasse();
-        $verifPass=$admin->get_verifPass();*/
-       // $datas = array(':idd'=>$idd, ':id'=>$id, ':nom'=>$nom,':prenom'=>$prenom,':pseudo'=>$pseudo,':email'=>$email,':MotDePasse'=>$MotDePasse,':verifPass'=>$verifPass);
         $req=$db->prepare($sql);
       /* $req->bindValue(':idd',$idd);
         $req->bindValue(':id',$idd);*/
@@ -98,7 +88,8 @@ public function modifierAdmin($admin)
         $req->bindValue(':pseudo',$admin->get_pseudo());
        $req->bindValue(':email',$admin->get_email());
        $req->bindValue(':MotDePasse',$admin->get_motDePasse());
-       $req->bindValue(':verifPass',$admin->get_verifPass());
+     
+       $req->bindValue(':type',1);
         
         /*$req->bindValue(':idd',18);
         $req->bindValue(':id',18);
