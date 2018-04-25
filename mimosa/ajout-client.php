@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="controle_saisie_client.js"></script>
+      
         <script type="text/javascript">
         function confirm()
         {
@@ -91,7 +91,7 @@ function verifPass(champ)
       return true;
    }
 }*/
-function verif()
+/*function verif()
 {
 	var v=0;
 	if(window.document.client.prenom.value.length<2|| window.document.client.prenom.value.length > 20)
@@ -145,7 +145,7 @@ function verif()
 		return false;
 	}
 	else return true;
-}
+}*/
 /*function queDesLettres(champ) {
   if(!/^[a-zA-Z]+$/.test(champ.value)) {
     alert("C'est pas que des lettres !");
@@ -225,16 +225,16 @@ function queDesChiffres(champ) {
 												
 													
 														
-													<label>Nom<span>*</span></label>
-													<input type="text" name="nom">
+													<label>Nom<span id="span_nom">*</span></label>
+													<input type="text" id="nom" name="nom">
 												
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
 												
-													<label>Prenom<span>*</span></label>
-													<input type="text" name="prenom">
+													<label>Prenom<span id="span_prenom">*</span></label>
+													<input type="text" id="prenom" name="prenom">
 												
 											</div>
 										</div>
@@ -244,8 +244,8 @@ function queDesChiffres(champ) {
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
 												
-													<label>Adresse Email<span>*</span></label>
-													<input type="email"" name="email">
+													<label>Adresse Email<span id="span_id">*</span></label>
+													<input type="email"" id="email_id" name="email">
 											
 											</div>
 										</div>
@@ -254,8 +254,8 @@ function queDesChiffres(champ) {
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 										<div class="single-register">
 										
-											<label>Mot de passe<span>*</span></label>
-											<input type="password" name="motDePasse" id="motDePasse" placeholder="Entrer votre mot de passe" >
+											<label>Mot de passe<span id="mdp_span">*</span></label>
+											<input type="password" name="motDePasse" id="mdp" placeholder="Entrer votre mot de passe" >
 										
 									    </div>
 								        </div>
@@ -264,7 +264,7 @@ function queDesChiffres(champ) {
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 									<div class="single-register">
 										
-											<label>Confirmer mot de passe<span>*</span></label>
+											<label>Confirmer mot de passe<span id="mdpC_span">*</span></label>
 											<input type="password" name="ConfirmPass" id="ConfirmPass" placeholder="Confirmez">
 										 <span id='message'></span>
                                      </div>
@@ -320,7 +320,7 @@ function queDesChiffres(champ) {
 											<div class="single-register">
 												
 													<label>Telephone<span>*</span></label>
-													<input type="text" name="telephone" onblur="queDesChiffres(this)">
+													<input type="text" name="telephone" >
 												
 											</div>
 										</div>
@@ -352,7 +352,7 @@ function queDesChiffres(champ) {
 								    </div>
 									
 				                      <div class="single-register">
-										 <button type="submit" name="submit" class="btn btn-info waves-effect waves-light" onclick="verif()">Enregistrer</button>
+										 <button type="submit" name="submit" id="enregistrer" class="btn btn-info waves-effect waves-light" onclick="verif()">Enregistrer</button>
 									</div>
 								</div>
 							</div>
@@ -361,6 +361,8 @@ function queDesChiffres(champ) {
 				</div>
 				<!-- user-login-area-end -->
 			</div>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+									<script src="verif_inscrit.js"></script>
 		</form>
 			<!-- shop-main-area-end -->
 

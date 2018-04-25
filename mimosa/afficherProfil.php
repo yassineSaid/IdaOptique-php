@@ -84,13 +84,10 @@ foreach($result as $row)
 					
 						<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
 									<div class="checkbox-form">						
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											
-											<div class="checkout-form-list">
-													<label>ID<span>*</span></label>
-													<input type="text" name="id" value="<?php echo $row['id']; ?>"/>
-											</div>
-										</div>
+										
+													
+													<input type="hidden" name="id" value="<?php echo $row['id']; ?>"/>
+										
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="checkout-form-list">
 													<label>nom<span>*</span></label>

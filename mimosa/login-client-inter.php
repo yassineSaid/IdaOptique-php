@@ -78,15 +78,15 @@
 									<?php } ?>
 									<form action="login-client.php" role="form" method="Post">
 									<div class="single-login">
-										<label>E-mail<span>*</span></label>
-										<input type="text" name="email"/>
+										<label>E-mail<span id="span_id">*</span></label>
+										<input type="text" id="email_id" name="email"/>
 									</div>
 									<div class="single-login">
 										<label>Mot de passe <span>*</span></label>
 										<input type="password" name="MotDePasse" />
 									</div>
 									<div>
-										<button type="submit"  class="single-login single-login-2">Connexion</button>
+										<button type="submit" id="connexion" class="single-login single-login-2">Connexion</button>
 										<input id="rememberme" type="checkbox" name="rememberme" value="forever">
 										<span>Remember me</span>
 									</div>
@@ -96,6 +96,8 @@
 									<a href="#">Mot de passe oublié ?</a>
 
 									<?php include "google-login/index.php" ?>
+									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+									<script src="controle.js"></script>
 								</form>
 								</div>
 							</div>
