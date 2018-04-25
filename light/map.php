@@ -5,19 +5,19 @@
     <style>
       #map {
         height: 400px;
-        width: 100%;
+        width: 80%;
+        left: 200px;
+
        }
     </style>
   </head>
   <body>
-    <h3>Tracking</h3>
     <div id="map"></div>
     <form method="POST" action="ajouter-position.php">
-    <div id="current">Nothing yet...</div>
     <input type="hidden" name="lat" id="lat">
     <input type="hidden" name="lng" id="lng">
-    <input type="submit" id="valider" name="Valider" disabled="disabled">
-    <select name='id' >
+    <p style="padding-left: 200px;"> <button class="btn btn-primary waves-effect waves-light" type="submit" id="valider" name="Valider" disabled="true">Enregistrer</button>
+    <select name='id' class="btn waves-effect waves-light btn-primary dropdown-toggle" >
       <?php 
       require_once '../core/livraisonC.php';
       $livre=new LivraisonManage();
@@ -27,6 +27,7 @@
     <option value='<?php echo $row['id_commande'] ?>'><?php echo $row['id_commande'] ?></option>
     <?php } ?>
     </select>
+    </p>
     </form>
     <script>
       function initMap() {
