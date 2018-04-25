@@ -11,7 +11,7 @@ public function ajouterClient($client,$confirmationMail)
         
  
    
-    $req="INSERT INTO `client` (`nom`, `prenom`, `email`, `MotDePasse`,`pays`,`cite`,`telephone`,`fax`,`adresse`,`adresse2`,`confirmationMail`,`status`) VALUES (:nom, :prenom, :email, :motDePasse, :pays, :cite, :telephone, :fax, :adresse, :adresse2, :confirmationMail, 0);";
+    $req="INSERT INTO `client` (`nom`, `prenom`, `email`, `MotDePasse`,`pays`,`cite`,`zip`,`telephone`,`fax`,`adresse`,`adresse2`,`confirmationMail`,`status`) VALUES (:nom, :prenom, :email, :motDePasse, :pays, :cite,:zip, :telephone, :fax, :adresse, :adresse2, :confirmationMail, 0);";
 
         $sql=$db->prepare($req);
         
@@ -25,6 +25,7 @@ public function ajouterClient($client,$confirmationMail)
         $sql->bindValue(':fax',$client->get_fax());
         $sql->bindValue(':adresse',$client->get_adresse());
         $sql->bindValue(':adresse2',$client->get_adresse2());
+        $sql->bindValue(':zip',$client->get_zip());
      $sql->bindValue(':confirmationMail',$confirmationMail);
     
      
@@ -68,7 +69,7 @@ public function ajouterClient($client,$confirmationMail)
 
          public function modifierClient($Client,$id)
     {
-        $sql="UPDATE `client` SET `nom`=:nom,`prenom`=:prenom,`email`=:email,`MotDePasse`=:motDePasse,`pays`=:pays,`cite`=:cite,`telephone`=:telephone,`fax`=:fax,`adresse`=:adresse,`adresse2`=:adresse2 WHERE id= $id";
+        $sql="UPDATE `client` SET `nom`=:nom,`prenom`=:prenom,`email`=:email,`MotDePasse`=:motDePasse,`pays`=:pays,`cite`=:cite,`zip`=:zip,`telephone`=:telephone,`fax`=:fax,`adresse`=:adresse,`adresse2`=:adresse2 WHERE id= $id";
        
        
         $db =config::getConnexion();
@@ -89,20 +90,13 @@ public function ajouterClient($client,$confirmationMail)
        $req->bindValue(':motDePasse',$Client->get_motDePasse());
        $req->bindValue('pays',$Client->get_pays());
        $req->bindValue(':cite',$Client->get_cite());
+       $req->bindValue(':zip',$Client->get_zip());
        $req->bindValue(':telephone',$Client->get_telephone());
        $req->bindValue(':fax',$Client->get_fax());
        $req->bindValue(':adresse',$Client->get_adresse());
        $req->bindValue(':adresse2',$Client->get_adresse2());
-      // $req->bindValue(':confirmationMail',intval($confirmationMail));
-        
-        /*$req->bindValue(':idd',18);
-        $req->bindValue(':id',18);
-        $req->bindValue(':nom',"uauua");
-        $req->bindValue(':prenom',"habha");
-        $req->bindValue(':pseudo',"njan");
-        $req->bindValue(':email',"lyes@firas.nizar");
-        $req->bindValue(':MotDePasse',"yayaya");
-        $req->bindValue(':verifPass',"yayayay");*/
+ 
+     
 
 
      if ($req->execute())
