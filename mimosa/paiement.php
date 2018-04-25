@@ -81,7 +81,15 @@
 							if ($commC->ajouterPaiement($id_commande,$_POST['total'],$token))
 							{
 								$_SESSION['pourcentage']=0;
-								echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
+						?><form method="post" action="envoyer-mail.php">
+							<input type="hidden" name="lien" value="<?php echo 'http://127.0.0.1/code/mimosa/afficherFacturePdf.php?id_commande='.$id_commande ?>">
+							<input type="hidden" name="destination" value="<?php echo $commC->getEmailClient($_SESSION['id'])?>">
+							<input type="hidden" name="link" value="http://127.0.0.1/code/mimosa/confirmerCommande.php">
+							<input type="hidden" name="objet" value="Votre commande est confirmée">
+							<button value="confirmer" id="confirmer"></button>
+						</form>
+						<?php
+								//echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
 							}
 					}
 					else if (isset($_POST['paiement']))
@@ -106,7 +114,15 @@
 								$var2->ajouter_livraison($var);
 							}
 							$_SESSION['pourcentage']=0;
-							echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
+							?><form method="post" action="envoyer-mail.php">
+							<input type="hidden" name="lien" value="<?php echo 'http://127.0.0.1/code/mimosa/afficherFacturePdf.php?id_commande='.$id_commande ?>">
+							<input type="hidden" name="destination" value="<?php echo $commC->getEmailClient($_SESSION['id'])?>">
+							<input type="hidden" name="link" value="confirmerCommande">
+							<input type="hidden" name="objet" value="Votre commande est confirmée">
+							<button value="confirmer" id="confirmer"></button>
+						</form>
+						<?php
+								//echo "<script type='text/javascript'>document.location.replace('confirmerCommande.php');</script>";
 						}
 						}
 						else if ($_POST['paiement']=='carte'){
@@ -255,3 +271,7 @@
         <script src="js/main.js"></script>
     </body>
 </html>
+<script>
+
+    document.getElementById("confirmer").click(); // Click on the checkbox
+</script>

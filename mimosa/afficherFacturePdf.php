@@ -112,7 +112,7 @@
             float: left;
             width: 60px;
             height: 60px;
-            margin-right: 10px;
+            margin-right: 25px;
             background-color: none;
             border-radius: 50%;
             text-align: center;
