@@ -1,7 +1,7 @@
 <?php //session_start();
     if (!isset($_SESSION['id_admin']))
     {
-        header("location: login-admin.php");
+       echo "<meta http-equiv='refresh' content='0;url=login-admin.php'>";
     }
 ?>
 <div class="left side-menu">
@@ -49,6 +49,13 @@
                                     
                                 </ul>
                             </li>
+                             <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Gestion des livraisons </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="afficher-livraison.php">afficher les livraisons</a></li>
+                                    <li><a href="ajouterPosition.php">ajouter une position</a></li>
+                                </ul>
+                            </li>
 
                             <li>
                                 <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Calendar </span></a>
@@ -58,19 +65,7 @@
                                 <a href="inbox.html" class="waves-effect"><i class="mdi mdi-email"></i><span class="badge badge-purple pull-right">New</span><span> Mail </span></a>
                             </li>
 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Pages </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="page-starter.html">Starter Page</a></li>
-                                    <li><a href="page-login.html">Login</a></li>
-                                    <li><a href="page-register.html">Register</a></li>
-                                    <li><a href="page-recoverpw.html">Recover Password</a></li>
-                                    <li><a href="page-lock-screen.html">Lock Screen</a></li>
-                                    <li><a href="page-confirm-mail.html">Confirm Mail</a></li>
-                                    <li><a href="page-404.html">Error 404</a></li>
-                                    <li><a href="page-500.html">Error 500</a></li>
-                                </ul>
-                            </li>
+                           
 
                         
 
