@@ -6,6 +6,7 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
+
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <title>Adminto - Responsive Admin Dashboard Template</title>
@@ -21,6 +22,7 @@
 
 
     <body class="fixed-left">
+        
 
         <!-- Begin page -->
         <div id="wrapper">
@@ -37,7 +39,7 @@
                 <div class="navbar navbar-default" role="navigation">
                     <div class="container-fluid">
 
-                        <!-- Page title -->
+<!-- Page title -->
                         <ul class="nav navbar-nav list-inline navbar-left">
                             <li class="list-inline-item">
                                 <button class="button-menu-mobile open-left">
@@ -45,7 +47,7 @@
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                                <h4 class="page-title"> Newsletter pour Client </h4>
+                                <h4 class="page-title">Ajouter Une Promotion</h4>
                             </li>
                         </ul>
 
@@ -88,9 +90,7 @@
 
 
             <!-- ========== Left Sidebar Start ========== -->
-            
            <?php  include 'left-bar.php'; ?>
-
             <!-- Left Sidebar End -->
 
 
@@ -102,77 +102,117 @@
                 <!-- Start content -->
                 <div class="content">
                     <div class="container-fluid">
-
+                                                        
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-12">
                                 <div class="card-box">
 
-                               
+                                   <h4 class="m-t-0 header-title"><b></b></h4>
+                                     
 
-                                    <form method="post" action="envoyermail.php">
-                                       <div class="form-group row">
-                                                        <label class="col-2 col-form-label" for="example-email"> A </label>
-                                                        <div class="col-10">
-
-
-
-                                                             <?php 
-                                           require '../config.php';
-                                                        
-                                            $bdd=config::getConnexion();
-                                            $q=$bdd->prepare("select * from client");
-                                            $q->execute();
-                                            $liste=$q->fetchAll();
-                                           ?>
-
-                                                  <select required name="to" class="form-control">
-                                                          
-                                                          <option value=""> --Selectionner un email--</option>
-
-                                                            <?PHP
-                                                        foreach($liste as $row){
-                                                            ?>
-                                                            <option  value="<?PHP echo $row['email']; ?>"> <?PHP echo $row['email'] ; ?>
-                                                            </option>
-                                                            <?PHP } ?>
-                                                 </select>
-
-                                                               
-                                           
-
-
-
-                                                          
-                                                        </div>
-                                        </div>
-
-                                         <div class="form-group row">
-                                                        <label class="col-2 col-form-label" for="example-email"> Objet </label>
-                                                        <div class="col-10">
-                                                           <input type="text" name="objet" class="form-control" placeholder="Insérer un objet..." >
-                                                        </div>
-                                        </div>
-
-                                        <textarea id="elm1" name="area"> </textarea>
-
-
-                                        
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
                                       
-                                        <div>
+
+                                      <form   name="generate" method="POST" action="ajouterpromotion.php" >
                                         
-                                            <p align="right">
-                                                <button type="submit" name="send" class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5"> Send  </button> 
+                                        <script type="text/javascript">
+                                            
+                                      function makeid() 
+                                      {
+                                              var text = "";
+                                              var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-                                          </div>
-                
+                                              for (var i = 0; i < 5; i++)
+                                              {
+                                                text += possible.charAt(Math.floor(Math.random() * possible.length));
+                                            }
+                                             
+                                             var chaine="IDA-"
+                                             var chainee=chaine.concat(text);
+
+                                            
+                                            document.getElementById("code").value=chainee;
+                                            //alert(text);
+                                        }
+                                      
+                                       function check()
+                                      {
+                                         
+                                          var pourcentage=window.document.generate.pourcentage.value;
+                                          if(pourcentage>50)
+                                          {
+                                            alert("Erreur, le pourcentage doit être compris entre 5% et 50% ");
+                                          }
+
+                                      }
+
+
+                                        </script>
+
+                                
+                                            <div class="form-group row">
+                                                     <label class="col-2 col-form-label">Saisir un code de promotion</label>
+                                                        <div class="col-5">
+                                                            <input required type="text" class="form-control" placeholder="code"
+                                                              id="code"  name="code" >
+                                                             
+                                                        </div>
+                                                        
+                                                        <button type="button" name="generate1" class="btn btn-icon waves-effect waves-light btn-success m-b-5" onclick="makeid()"> Générer <i class="fa fa-keyboard-o"></i></button>
+
+                                                </div>
+
+                                   
+                                                <div class="form-group row">
+                                                        <label class="col-2 col-form-label">  Pourcentage de réduction</label>
+                                                        <div class="col-5">
+
+
+                                                         <select required name="pourcentage" class="form-control">
+                                      
+                                                                     <option  value="" > --Selectionner un pourcentage--</option>
+                                                                     <option value="10"> 10 </option>  
+                                                                     <option value="15"> 15 </option>
+                                                                     <option value="20"> 20 </option>   
+                                                                     <option value="25"> 25 </option>       
+                                                         </select>
+                                                          
+
+                                                        </div>
+                                                       
+                                                </div>
+
+
+                                             </div>
+                                            
+
+                                                   <p align="center">
+                                                   
+
+                                                    <button type="submit" name="Ajouter"  class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Ajouter Promotion</button>
 
 
 
-                                    </form>
-                                </div>
+
+ 
+
+
+                                           </form>
+                        
+                                
+                                             </div>
+                                        </div>
+                                    </div>
+                                    <!-- end row -->
+
+
+
+                                </div> <!-- end card-box -->
                             </div><!-- end col -->
                         </div>
-                        <!-- End row -->
+                        <!-- end row -->
 
                     </div> <!-- container -->
 
@@ -280,39 +320,9 @@
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
 
-        <!--form wysiwig js-->
-        <script src="assets/plugins/tinymce/tinymce.min.js"></script>
-
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                if($("#elm1").length > 0){
-                    tinymce.init({
-                        selector: "textarea#elm1",
-                        theme: "modern",
-                        height:300,
-                        plugins: [
-                            "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-                            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                            "save table contextmenu directionality emoticons template paste textcolor"
-                        ],
-                        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
-                        style_formats: [
-                            {title: 'Bold text', inline: 'b'},
-                            {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
-                            {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
-                            {title: 'Example 1', inline: 'span', classes: 'example1'},
-                            {title: 'Example 2', inline: 'span', classes: 'example2'},
-                            {title: 'Table styles'},
-                            {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
-                        ]
-                    });
-                }
-            });
-        </script>
 
     </body>
 </html>

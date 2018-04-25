@@ -49,11 +49,35 @@
                                     
                                 </ul>
                             </li>
+                            
                              <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Gestion des livraisons </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="afficher-livraison.php">afficher les livraisons</a></li>
                                     <li><a href="ajouterPosition.php">ajouter une position</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Gestion des Promotions et des Offres</span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="AjouterPromotion1.php">Ajouter Promotion</a></li>
+                                    <li><a href="ListeDesPromotions.php">Liste Des Promotions</a></li>
+                                    <li><a href="AjouterOffre.php">Ajouter Offre</a></li>
+                                    <li><a href="ListeDesOffres.php">Liste Des Offres</a></li>
+                                    <li><a href="clienfidele.php">Client Fidèle</a></li>
+
+                                    
+                             </ul>
+
+                              <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Newsletter</span> <span class="menu-arrow"></span></a>
+                                    
+                                <ul class="list-unstyled">
+                                    <li><a href="newsletterClient.php">Newsletter pour Clients</a></li>
+                                    <li><a href="newsletterSubscribe.php">Newsletter pour Subscribers</a></li>
+
+
+
                                 </ul>
                             </li>
 
