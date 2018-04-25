@@ -1,6 +1,6 @@
 <?php
 
-include"../entities/Admin.php";
+include "../entities/Admin.php";
 
 class AdminManage
 {
@@ -75,7 +75,7 @@ public function modifierAdmin($admin)
         $db =config::getConnexion();
        $sql="UPDATE admin SET id=:idd,nom=:nom,prenom=:prenom,pseudo=:pseudo,email=:email,MotDePasse=:MotDePasse,type=:type WHERE id=:id";
        
-        try{        
+       
         $req=$db->prepare($sql);
 
         $req=$db->prepare($sql);
