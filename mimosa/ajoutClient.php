@@ -12,7 +12,7 @@ $nmdp=md5($mdp);
         $confirmationMail .= $characters[rand(0, $charactersLength - 1)];
     }
 
-$cl1=new Client($_POST['id'],$_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['motDePasse'],$_POST['pays'],$_POST['cite'],$_POST['telephone'],$_POST['fax'],$_POST['adresse'],$_POST['adresse2']);
+$cl1=new Client($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['motDePasse'],$_POST['pays'],$_POST['cite'],$_POST['telephone'],$_POST['fax'],$_POST['adresse'],$_POST['adresse2']);
 
 //var_dump($emp1);
 $cl=new ClientManage();
@@ -36,14 +36,14 @@ $header='Content-type: text/html; charset=iso-8859-1 From :contact.zaytatn@gmail
                         <br>
                         <br>
                         <br>
-                        <font color =#E9383F size= 2px><a href="http://127.0.0.1//mimosa/confirmation.php?id='.$_POST['id'].'&code='.$confirmationMail.'"> Confirmer Mon Compte </a></font>
+                        <font color =#E9383F size= 2px><a href="http://127.0.0.1//code//mimosa/confirmation.php?id='.$_POST['id'].'&code='.$confirmationMail.'"> Confirmer Mon Compte </a></font>
                     </div>
                   </body>
                 </html>';
      if( mail($_POST['email'],"Confimation de votre Compte",$message,$header))
       {
       echo "bravo";
-    echo "<meta http-equiv='refresh' content='0;url=afficherProfil.php'>";
+    echo "<meta http-equiv='refresh' content='0;url=login-client-inter.php'>";
   }
     else
       echo"non";

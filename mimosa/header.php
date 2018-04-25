@@ -123,7 +123,7 @@
 													<li><a href="blog.html">blog</a></li>
 													<li><a href="blog-details.html">blog-details</a></li>
 													<li><a href="login.html">login</a></li>
-													<li><a href="register.html">register</a></li>
+													<li><a href="ajout-client.php">Créer un compte</a></li>
 													<li><a href="contact.php">contact</a></li>
 													<li><a href="reclamation-affiche.php">Ajouter Reclamation</a></li>
 													<li><a href="reclamation-affiche1.php">Afficher les Reclamations</a></li>
