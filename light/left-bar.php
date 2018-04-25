@@ -1,3 +1,10 @@
+<?php
+    session_start() ;
+    if (!isset($_SESSION['id_admin']))
+    {
+        header("location: login-admin.php");
+    }
+?>
 <div class="left side-menu">
                 <div class="sidebar-inner slimscrollleft">
 
@@ -67,6 +74,8 @@
                                     <li><a href="page-500.html">Error 500</a></li>
                                 </ul>
                             </li>
+
+                        
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span>Extra Pages </span> <span class="menu-arrow"></span></a>

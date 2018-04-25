@@ -5,7 +5,7 @@ if(isset($_SESSION['user'])){
       header("location: body.php");
 
 }
-require "connect.php";
+require "../config.php";
 $conn=Config::getConnexion();
 if(isset($_POST['MotDePasse'])){
 $user = $_POST['pseudo'];
@@ -34,10 +34,10 @@ if(empty($user) || empty($pass)) {
         
         $_SESSION['time_start_login'] = time();
         //echo $_SESSION['id_admin'];
-        //header("location: body.php");
+        header("location: index.php");
     } else {
         $messeg = "Username/Password is wrong";
-       //header("location: login-admin.php?connect=error");
+       header("location: login-admin.php?connect=error");
 }
 }
 }
