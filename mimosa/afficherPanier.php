@@ -98,8 +98,8 @@
 							<div class="breadcrumb-content text-center">
 								<h2>cart</h2>
 								<ul>
-									<li><a href="#">Home /</a></li>
-									<li class="active"><a href="#">cart</a></li>
+									<li><a href="#">Accueil /</a></li>
+									<li class="active"><a href="#">panier</a></li>
 								</ul>
 							</div>
 						</div>
