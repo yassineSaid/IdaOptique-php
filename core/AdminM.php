@@ -57,7 +57,7 @@ public function ajouterAdmin($admin)
         $sql->execute();
 
     }
-public function modifierAdmin($admin)
+public function modifierAdmin($admin,$id)
     {
        
        /* $sql=$db->prepare("UPDATE admin SET nom=:nom,prenom=:prenom,pseudo=:pseudo,email=:email,MotDePasse=:motDePasse,verifPass=:verifPass WHERE id=:id;");
@@ -73,23 +73,21 @@ public function modifierAdmin($admin)
         $sql->execute();
         */
         $db =config::getConnexion();
-       $sql="UPDATE admin SET id=:idd,nom=:nom,prenom=:prenom,pseudo=:pseudo,email=:email,MotDePasse=:MotDePasse,type=:type WHERE id=:id";
+       $sql="UPDATE admin SET nom=:nom,prenom=:prenom,pseudo=:pseudo,email=:email,MotDePasse=:MotDePasse WHERE id=$id";
        
        
         $req=$db->prepare($sql);
 
         $req=$db->prepare($sql);
-      /* $req->bindValue(':idd',$idd);
-        $req->bindValue(':id',$idd);*/
-        $req->bindValue(':idd',18);
-        $req->bindValue(':id',18);
+      
+  
         $req->bindValue(':nom',$admin->get_nom());
         $req->bindValue(':prenom',$admin->get_prenom());
         $req->bindValue(':pseudo',$admin->get_pseudo());
        $req->bindValue(':email',$admin->get_email());
        $req->bindValue(':MotDePasse',$admin->get_motDePasse());
      
-       $req->bindValue(':type',1);
+       
         
         /*$req->bindValue(':idd',18);
         $req->bindValue(':id',18);
@@ -101,14 +99,15 @@ public function modifierAdmin($admin)
         $req->bindValue(':verifPass',"yayayay");*/
 
 
-     if ($req->execute())
+  
+        if ($req->execute())
         
         {
-            echo "bien";
+             header("Refresh:2;url=affichage-admin-back.php");
         }
         else 
         {
-            echo"erreur";
+           echo "non";
         }
             
            // header('Location: index.php');
