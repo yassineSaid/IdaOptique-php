@@ -59,6 +59,14 @@ class CommandeC
         $value = $result->fetch();
         return $value['max']+1;
     }
+    function getEmailClient($id)
+    {
+        $conn=Config::getConnexion();
+        $sql="SELECT email from client where id=$id";
+        $result = $conn->query($sql);
+        $value = $result->fetch();
+        return $value['email'];
+    }
     function afficherInfoCommande($id_commande)
     {
         $conn=Config::getConnexion();
