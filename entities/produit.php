@@ -4,11 +4,10 @@ class Produit
 {
 	private $id_produit,$description,$prix,$quantite,$dateajout,$datemod,$nom,$categorie,$marque,$forme,$couleur;
 
-	public function __construct($id_produit,$description,$prix,$quantite,$dateajout,$datemod,$nom,$categorie,$marque,$forme,$couleur)
+	public function __construct($description,$prix,$quantite,$dateajout,$datemod,$nom,$categorie,$marque,$forme,$couleur)
 			{
 				date_default_timezone_get('GMT');
 				$time=date("d-m-Y H:i:s");
-				$this->id_produit=$id_produit;
 				$this->description=$description;
 				$this->prix=$prix;
 				$this->quantite=$quantite;

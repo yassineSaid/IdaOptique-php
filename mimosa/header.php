@@ -38,10 +38,10 @@
 												<ul class="mega-menu">
 													<li><a href="#">Filtre de prix</a>
 														<ul class="sub-menu-2">
-															<li><a href="<?php echo "listeProduits.php?filtre=1&categorie=optique"?>">de 0 a 150</a></li>
-															<li><a href="<?php echo "listeProduits.php?filtre=2&categorie=optique"?>">de 151 a 300</a></li>
-															<li><a href="<?php echo "listeProduits.php?filtre=3&categorie=optique"?>">de 301 a 450</a></li>
-															<li><a href="<?php echo "listeProduits.php?filtre=4&categorie=optique"?>l">de 451 a 600</a></li>
+															<li><a href="listeProduits.php?filtre=1&categorie=optique&page=1">de 0 a 150</a></li>
+															<li><a href="listeProduits.php?filtre=2&categorie=optique&page=1">de 151 a 300</a></li>
+															<li><a href="listeProduits.php?filtre=3&categorie=optique&page=1">de 301 a 450</a></li>
+															<li><a href="listeProduits.php?filtre=4&categorie=optique&page=1">de 451 a 600</a></li>
 														</ul>
 													</li>
 													<li><a href="#">Phasellus inviv</a>
@@ -74,10 +74,10 @@
 												<ul class="mega-menu mega-menu-2">
 													<li><a href="#">Filtre de prix</a>
 														<ul class="sub-menu-2">
-															<li><a href="<?php echo "listeProduits.php?filtre=1&categorie=solaire"?>">de 0 a 150</a></li>
-															<li><a href="<?php echo "listeProduits.php?filtre=2&categorie=solaire"?>">de 151 a 300</a></li>
-															<li><a href="<?php echo "listeProduits.php?filtre=3&categorie=solaire"?>">de 301 a 450</a></li>
-															<li><a href="<?php echo "listeProduits.php?filtre=4&categorie=solaire"?>l">de 451 a 600</a></li>
+															<li><a href="listeProduits.php?filtre=1&categorie=solaire&page=1">de 0 a 150</a></li>
+															<li><a href="listeProduits.php?filtre=2&categorie=solaire&page=1">de 151 a 300</a></li>
+															<li><a href="listeProduits.php?filtre=3&categorie=solaire&page=1">de 301 a 450</a></li>
+															<li><a href="listeProduits.php?filtre=4&categorie=solaire&page=1">de 451 a 600</a></li>
 														</ul>
 													</li>
 													<li><a href="#">viverra lacus</a>

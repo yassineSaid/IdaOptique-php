@@ -111,7 +111,7 @@
 
 													<tr>
 														
-														<td class="product-thumbnail"><a href="<?php echo "detailsProduit2.php?id=".$val['produit_id'] ?>"><img src="<?php echo "img/tsawer/".$val['nom']; ?>" alt="man" /></a></td>
+														<td class="product-thumbnail"><a href="<?php echo "detailsProduit2.php?id=".$val['produit_id'] ?>"><img src="<?php echo "img/product/".$val['nom']; ?>" alt="man" /></a></td>
 														<td class="product-name"><?php echo $val['produit_categorie'];?></a></td>
 														<td class="product-price"><span class="amount"><?php echo $val['produit_marque'];?></span></td>
 														<td class="product-price"><span class="amount"><?php echo $val['produit_nom'];?></span></td>

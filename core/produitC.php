@@ -9,7 +9,8 @@ class ProduitManage
 		date_default_timezone_get('GMT');
 		$time=date("d-m-Y H:i:s");
 		$sql=$db->prepare($req);
-		$sql->bindvalue(':id_produit',$produit->get_idproduit());
+		$id_produit=ProduitManage::creerIdProduit();
+		$sql->bindvalue(':id_produit',$id_produit);
         $sql->bindvalue(':produit_marque',$produit->get_marque());
 		$sql->bindvalue(':produit_categorie',$produit->get_categorie());
 		$sql->bindvalue(':produit_nom',$produit->get_nom());
@@ -24,7 +25,7 @@ class ProduitManage
 		if($sql->execute())
         {
         	
-           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=affichage-produit.php\">";
+           return $id_produit;
          }
         	else
         {
@@ -107,10 +108,6 @@ class ProduitManage
 		$sql->bindvalue(':prix',$produit->get_prix());
 		$sql->bindvalue(':quantite',$produit->get_quantite());
 		$sql->bindvalue(':datemod',$time);
-
- 	
-	
- 	
  	if($sql->execute())
         {
         	
@@ -127,20 +124,12 @@ class ProduitManage
             	
             exit;
         }
- 		
- 	
-
- 	
-
-	
-	 
- 
 }
 public function afficherProduitCategorie($cat,$page)
 	{
 		$db=config::getConnexion();
 		$sel=($page-1)*10;
-		$req="SELECT * from produit p,images i where p.produit_id=i.produit_id and i.type='principal' and p.produit_categorie='$cat' LIMIT $sel,10";
+		$req="SELECT * from produit p,images i where p.produit_id=i.produit_id and i.type='principal' and p.produit_categorie LIKE '$cat' and p.produit_qte>0 LIMIT $sel,10";
 		$sql=$db->query($req);
 		
 		return $sql;
@@ -148,7 +137,7 @@ public function afficherProduitCategorie($cat,$page)
     function getNbPages($cat)
     {
     	$conn=Config::getConnexion();
-        $sql="SELECT * from produit where produit_categorie='$cat'";
+        $sql="SELECT * from produit where produit_categorie LIKE '$cat'";
         $query = $conn->prepare($sql);
         $query->execute();
         return ceil($query->rowCount()/10);
@@ -175,16 +164,27 @@ public function afficherProduitCategorie($cat,$page)
 	public function afficherProduitCmp($val)
 	{
 		$db=config::getConnexion();
-		$req="SELECT * from produit p,images i where p.produit_id=$val and i.type='principal' and i.produit_id=$val";
+		$req="SELECT * from produit p,images i where p.produit_id=$val and i.type='principal' and i.produit_id=$val and p.produit_qte>0";
+		try{
 		$sql=$db->query($req);
-		
+		}
+		catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
 		return $sql;
 	}
-	
+	function creerIdProduit()
+    {
+        $conn=Config::getConnexion();
+        $sql="SELECT max(produit_id) max from produit";
+        $result = $conn->query($sql);
+        $value = $result->fetch();
+        return $value['max']+1;
+    }
 	public function afficherProduitFiltre($min,$max,$cat)
 	{
 		$db=config::getConnexion();
-		$req="SELECT * from produit p,images i where p.produit_id=i.produit_id and i.type='principal' and p.produit_categorie='$cat' and produit_prix between $min and $max";
+		$req="SELECT * from produit p,images i where p.produit_id=i.produit_id and i.type='principal' and p.produit_categorie LIKE '$cat' and p.produit_qte>0 and p.produit_prix between $min and $max";
 		$sql=$db->query($req);
 		
 		return $sql;
@@ -204,27 +204,86 @@ public function afficherProduitCategorie($cat,$page)
 		$sql=$db->query($req);
 		return $sql;
 	}
-	public function addRating($id,$rate)
+	public function addRating($id,$rate,$id_client)
+	{
+		if (!ProduitManage::verifRating($id,$rate,$id_client))
+		{
+			$db=config::getConnexion();
+			$req="INSERT INTO rating (produit_id,rate,id_client) VALUES (:id_produit,:rate,:id_client)";
+			$sql=$db->prepare($req);
+			$sql->bindvalue(':id_produit',$id);
+			$sql->bindvalue(':id_client',$id_client);
+	        $sql->bindvalue(':rate',$rate);
+			if($sql->execute())
+	        {
+	        	
+	           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=affichage-produit.php\">";
+	         }
+	        	else
+	        {
+	           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=affichage-produit.php\">";
+	        }
+		}
+		else
+		{
+			ProduitManage::updateRating($id,$rate,$id_client);
+		}
+		
+	}
+	public function verifRating($id,$rate,$id_client)
+	{
+		$db=Config::getConnexion();
+        $sql="SELECT * from rating where produit_id=$id AND id_client=$id_client";
+        $req=$db->prepare($sql);
+        try
+        {  
+        
+            $req->execute();
+            
+            if ($req->rowCount()>0)
+                return true;
+            else
+                return false;
+        }
+        catch (Exception $e){
+            echo " Erreur ! ".$e->getMessage();
+        }
+	}
+	public function updateRating($id,$rate,$id_client)
 	{
 		$db=config::getConnexion();
-		$req="INSERT INTO rating (produit_id,rate) VALUES (:id_produit,:rate)";
-		$sql=$db->prepare($req);
-		$sql->bindvalue(':id_produit',$id);
+	
+		$req = "UPDATE rating SET rate=:rate WHERE produit_id=:idProduit AND id_client=:id_client";
+
+		$sql= $db->prepare($req);
+ 		$sql->bindvalue(':idProduit',$id);
         $sql->bindvalue(':rate',$rate);
-		if($sql->execute())
+ 		$sql->bindvalue(':id_client',$id_client);
+ 		if($sql->execute())
         {
         	
-           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=affichage-produit.php\">";
-         }
-        	else
-        {
-           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=affichage-produit.php\">";
+            return true;
         }
 	}
 	public function getMinMaxPrice()
 	{
 		$db=config::getConnexion();
 		$req="SELECT min(produit_prix) min,max(produit_prix) max from produit";
+		$sql=$db->query($req);
+		return $sql;
+	}
+
+	public function rechercherMarque()
+	{
+		$db=config::getConnexion();
+		$req="SELECT DISTINCT produit_marque from produit";
+		$sql=$db->query($req);
+		return $sql;
+	}
+	public function afficherMarque($cat,$marque)
+	{
+		$db=config::getConnexion();
+		$req="SELECT * from produit p,images i where p.produit_marque='$marque' and p.produit_categorie LIKE '$cat' and i.produit_id=p.produit_id and i.type='principal'";
 		$sql=$db->query($req);
 		return $sql;
 	}

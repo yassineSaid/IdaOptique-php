@@ -292,7 +292,9 @@ $('.counter').counterUp({
 	   }
 	  });
 	  $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
-	   "DT - " + $( "#slider-range" ).slider( "values", 1 ) + "DT");  
+	   "DT - " + $( "#slider-range" ).slider( "values", 1 ) + "DT"); 
+	   $( "#minPriceSel" ).val(ui.values[ 0 ]);
+		$( "#maxPriceSel" ).val(ui.values[ 1 ]); 
 	   
 /*--------------------------
  scrollUp
