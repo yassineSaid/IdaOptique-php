@@ -452,15 +452,18 @@
                                                         <?php 
                                                         include_once '../core/imageC.php';  
                                                                 $ph=new ImagesManage();
-                                                                $tt=$ph->afficherImage($_GET['id']);
+                                                                $tt=$ph->afficherImage($id);
                                                             ?>
                                                     <div class="form-group row">
                                                         <label class="col-2 col-form-label">Images du produit</label>
-                                                        <div class="col-5">
+                                                        <div class="col-1">
                                                                 <?php 
                                                                 foreach ($tt as $aa) { ?>
                                                                     
-                                                                <img src="<?php echo  "img/product/".$aa['nom'] ?>" alt="product" class="primary"/>
+                                                                <img src="<?php echo  "../mimosa/img/product/".$aa['nom'] ?>" width="100" height="100" alt="product" class="primary"/>
+                                                                <?php echo $aa['nom'] ?>
+                                                                <input type="hidden" name="nomIm" value="<?php echo $aa['nom'] ?>">
+                                                                
                                                               <?php   } ?>
                                                         </div>
                                                     </div>
@@ -471,7 +474,7 @@
 
                                                         <div class="col-5">
                                                             <input size=50 type="file" class="form-control"
-                                                            name="image">
+                                                            name="imageM">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -479,7 +482,7 @@
 
                                                         <div class="col-5">
                                                             <input size=50 type="file" class="form-control"
-                                                            name="image2">
+                                                            name="image2M">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -487,7 +490,7 @@
 
                                                         <div class="col-5">
                                                             <input size=50 type="file" class="form-control"
-                                                            name="image3">
+                                                            name="image3M">
                                                         </div>
                                                     </div>
                                                     
