@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -46,7 +48,11 @@
 			<header>
 				
     	<?php include 'header.php';?>
+    	<?php if(!isset($_SESSION['id']))
     	
+    	echo	"<meta http-equiv='refresh' content='0;url=index.php'>";
+    		?>
+
 			</header>
 			<!-- header-area-end -->
 			<!-- breadcrumbs-area-start -->
