@@ -316,7 +316,7 @@
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 												<div class="checkout-form-list">
 													<label>Code postal <span class="required">*</span></label>										
-													<input type="text" placeholder="" name="zip"  value="">
+													<input type="text" placeholder="" name="zip"  value="<?php echo $info['zip'] ?>">
 												</div>
 											</div>
 											<div class="col-lg-12">
