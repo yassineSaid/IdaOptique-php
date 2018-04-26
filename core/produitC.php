@@ -89,7 +89,7 @@ class ProduitManage
             die('Erreur: '.$e->getMessage());
         }
 	}
-	public function modifierProduit($produit)
+	public function modifierProduit($produit,$id)
 	{
 		$db=config::getConnexion();
 		date_default_timezone_get('GMT');
@@ -98,7 +98,7 @@ class ProduitManage
 		$req = "UPDATE produit SET produit_marque=:produit_marque,produit_categorie=:produit_categorie, produit_nom=:produit_nom,produit_description=:description, produit_forme=:produit_forme,produit_couleur=:produit_couleur,produit_prix=:prix, produit_qte=:quantite, produit_date_modification=:datemod WHERE produit_id=:idProduit";
 
 	$sql= $db->prepare($req);
- 		$sql->bindvalue(':idProduit',$produit->get_idproduit());
+ 		$sql->bindvalue(':idProduit',$id);
         $sql->bindvalue(':produit_marque',$produit->get_marque());
  		$sql->bindvalue(':produit_categorie',$produit->get_categorie());
  		$sql->bindvalue(':produit_nom',$produit->get_nom());
