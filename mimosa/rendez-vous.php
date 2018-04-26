@@ -103,7 +103,7 @@ include_once 'init.php';?>
 			<div class="shop-main-area">
 				<!-- googleMap-area-start -->
 				<div class="map-area pt-50">
-					<?php include'rdv.php'; ?>
+					<?php include'agenda.php'; ?>
 				</div>
 				<!-- googleMap-end -->
 				<!-- contact-area-start -->

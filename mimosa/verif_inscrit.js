@@ -68,6 +68,78 @@ else if($("#nom").val().match(onlyletter)==null)
 
 
 }
+function notes()
+{
+ var onlyNumber=/^[0-9]*$/gm;
+    var onlyletter=/^[A-Za-z]+$/;
+     $("#span_notes").css({"color":"red"});
+
+if($("#notes").val()=="")
+{
+   $("#span_notes").html("       Champ obligatoire"); 
+      $("#notes").css({"background-color": "#ff7f7f"}); 
+}
+else if($("#notes").val().match(onlyletter)==null)
+                {
+                    $("#span_notes").html("Que des lettres !");
+                    $("#notes").css({"background-color":"#ff7f7f"});
+              
+               
+                }
+                else
+                {
+  $("#span_notes").html("");
+                    $("#notes").css({"background-color":"white"});
+                }
+
+
+}
+function street_number()
+{
+ var onlyNumber=/^[0-9]*$/gm;
+    var onlyletter=/^[A-Za-z]+$/;
+     $("#span_street_number").css({"color":"red"});
+
+if($("#street_number").val()=="")
+{
+   $("#span_street_number").html("       Champ obligatoire"); 
+      $("#street_number").css({"background-color": "#ff7f7f"}); 
+}
+
+                else
+                {
+  $("#span_street_number").html("");
+                    $("#street_number").css({"background-color":"white"});
+                }
+
+
+}
+function locality()
+{
+ var onlyNumber=/^[0-9]*$/gm;
+    var onlyletter=/^[A-Za-z ]+$/;
+     $("#span_ville").css({"color":"red"});
+
+if($("#locality").val()=="")
+{
+   $("#span_ville").html("       Champ obligatoire"); 
+      $("#locality").css({"background-color": "#ff7f7f"}); 
+}
+else if($("#locality").val().match(onlyletter)==null)
+                {
+                    $("#span_ville").html("Que des lettres !");
+                    $("#locality").css({"background-color":"#ff7f7f"});
+              
+               
+                }
+                else
+                {
+  $("#span_ville").html("");
+                    $("#locality").css({"background-color":"white"});
+                }
+
+
+}
 function telephone()
 {
  var onlyNumber=/^[0-9]*$/gm;
@@ -144,6 +216,31 @@ else if($("#zip").val().match(onlyNumber)==null)
                     $("#zip").css({"background-color":"white"});
                 }
 
+
+}
+function postal_code()
+{
+  var onlyNumber=/^[0-9]*$/gm;
+    var onlyletter=/^[A-Za-z]+$/;
+     $("#span_postal_code").css({"color":"red"});
+
+if($("#postal_code").val()=="")
+{
+   $("#span_postal_code").html("       Champ obligatoire"); 
+      $("#postal_code").css({"background-color": "#ff7f7f"}); 
+}
+else if($("#postal_code").val().match(onlyNumber)==null)
+                {
+                    $("#span_postal_code").html("Que des chiffres !");
+                    $("#postal_code").css({"background-color":"#ff7f7f"});
+              
+               
+                }
+                else
+                {
+  $("#span_postal_code").html("");
+                    $("#postal_code").css({"background-color":"white"});
+                }
 
 }
 
@@ -309,7 +406,8 @@ x++;
 
 
 $("#nom").keyup(nom);
-
+$("#locality").keyup(locality);
+$("#street_number").keyup(street_number);
 $("#prenom").keyup(prenom);
 $("#telephone").keyup(telephone);
 $("#fax").keyup(fax);
@@ -322,9 +420,10 @@ $("#mdp").keyup(mdp);
 $("#ConfirmPass").keyup(confirm);
 
 
+$("#notes").keyup(notes);
 
 
-
+$("#postal_code").keyup(postal_code);
 
 
 
