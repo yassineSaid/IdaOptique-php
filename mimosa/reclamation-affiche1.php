@@ -46,7 +46,9 @@
 		<div id="page-wraper">
 			<!-- header-area-start -->
 			<header>
-			
+				<?php if(((count($_SESSION['panier']['id_produit'])<=0))&&(!isset($_SESSION['id'])))
+						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+				?>
 			</header>
 			<!-- header-area-end -->
 			<!-- breadcrumbs-area-start -->
