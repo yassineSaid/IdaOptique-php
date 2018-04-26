@@ -733,38 +733,10 @@
 		   </div>
 			<!-- feature-product-area-end -->
 			<!-- testimonial-area-start -->
-			<div class="testimonial-area bg ptb-80">
-				<div class="container">
-					<div class="row">
-						<div class="testimonial-active">
-							<div class="col-lg-12">
-								<div class="single-testimonial text-center">
-									<div class="testimonial-img">
-										<a href="#"><img src="img/testimonial/1.jpg" alt="man" /></a>
-									</div>
-									<div class="testimonial-content">
-										<p>This is Photoshops version  of Lorem Ipsum. Proin gravida nibh vel velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie augue magna. Pellentesque felis lorem, pulvinar sed eros n..</p>
-										<i class="fa fa-quote-right"></i>
-										<h4>Rebecka Filson</h4>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-12">
-								<div class="single-testimonial text-center">
-									<div class="testimonial-img">
-										<a href="#"><img src="img/testimonial/1.jpg" alt="man" /></a>
-									</div>
-									<div class="testimonial-content">
-										<p>Mauris blandit, metus a venenatis lacinia, felis enim tincidunt est, condimentum vulputate orci augue eu metus. Fusce dictum, nisi et semper ultricies, felis tortor blandit odio, egestas consequat pur..</p>
-										<i class="fa fa-quote-right"></i>
-										<h4>Nathanael Jaworski</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		   </div>
+		<?php 
+						include_once 'mapIndex.php';
+
+						 ?>
 			<!-- testimonial-area-end -->
 			<!-- arrivals-area-start -->
 			<div class="arrivals-area ptb-80">
