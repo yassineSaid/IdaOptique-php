@@ -1,0 +1,34 @@
+Application path: /code/light/livechat/php/app.php?install-wizard-2
+2018-04-25 22:27:54 Undefined index: smtp on line 78 in C:\wamp64\www\code\light\livechat\views\admin\install-wizard-2.html
+2018-04-25 22:27:54 Undefined index: smtp on line 151 in C:\wamp64\www\code\light\livechat\views\admin\install-wizard-2.html
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:32:46 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:32:50 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:32:56 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:06 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:14 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:19 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:24 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:29 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:35 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:40 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:44 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-get-typing-status
+2018-04-25 22:33:49 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/livechat/php/app.php?operator-update-typing-status
+2018-04-25 22:33:51 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+2018-04-25 22:33:51 parse_ini_file(C:\wamp64\www\code\light\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+2018-04-25 22:33:51 array_merge(): Argument #1 is not an array on line 102 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+2018-04-25 22:33:51 array_keys() expects parameter 1 to be array, boolean given on line 104 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+2018-04-25 22:33:51 Invalid argument supplied for foreach() on line 104 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+2018-04-25 22:33:51 Invalid argument supplied for foreach() on line 79 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
