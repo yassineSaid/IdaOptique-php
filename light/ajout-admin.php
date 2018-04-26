@@ -1,5 +1,4 @@
 <?php include 'session.php' ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,12 +10,6 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <title>Adminto - Responsive Admin Dashboard Template</title>
-
-        <!-- DataTables -->
-        <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <!-- Responsive datatable examples -->
-        <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -53,7 +46,7 @@
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                                <h4 class="page-title">Admins</h4>
+                                <h4 class="page-title">Admin</h4>
                             </li>
                         </ul>
 
@@ -96,16 +89,7 @@
 
 
             <!-- ========== Left Sidebar Start ========== -->
-             <?php include 'left-bar.php' ?>
-            
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- Sidebar -->
-                    <div class="clearfix"></div>
-
-                </div>
-
-            </div>
+         <?php include 'left-bar.php' ?>
             <!-- Left Sidebar End -->
 
 
@@ -120,54 +104,85 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <div class="card-box table-responsive">
-                                    <h4 class="m-t-0 header-title"><b>Affichage de admins</b></h4>
-                                    <?php
-										require '../Core/AdminM.php';
-										$c=new AdminManage();
-										$val=$c->afficherAdmins();
+                                <div class="card-box">
+                                    <h4 class="m-t-0 header-title"><b>Ajouter un admin</b></h4>
+                                    
 
-									?>
-										                                    
-                                    <table id="datatable" class="table table-bordered">
-                                    	
-                                        <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Pseudo</th>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
+                                               
+                                                <form class="form-horizontal" role="form" action="ajoutAdmin.php" method="POST">
+                                                   <div class="form-group row">
+                                                        <label class="col-2 col-form-label" for="example-email">Nom</label>
+                                                        <div class="col-10">
+                                                            <input type="text" id="nom" name="nom" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Prenom</label>
+                                                        <div class="col-10">
+                                                            <input type="text" class="form-control" name="prenom">
+                                                        </div>
+                                                    </div>
+                                                      <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Pseudo</label>
+                                                        <div class="col-10">
+                                                            <input type="text" class="form-control" name="pseudo">
+                                                        </div>
+                                                    </div>
 
-                                            <th>E-mail</th>
-                                            <th>Mot de passe</th>
-                                           
-                                           
-                                         
-                                        </tr>
-                                        </thead>
-                                          <tbody>
-                                        	<?php 
-                                    	foreach ($val as $row) {?>
-                                      
-                                        
-                                        <tr>
-                                            <td><?php echo $row['id']?></td>
-                                            <td><?php echo $row['nom']?></td>
-                                            <td><?php echo $row['prenom']?></td>
-                                            <td><?php echo $row['pseudo']?></td>
-                                            <td><?php echo $row['email']?></td>
-                                            <td><?php echo $row['MotDePasse']?></td>
-                                          
-                                            
-                         <?php  echo "<td><a href=supprimer-admin.php?id=".$row['id']."><button type='button' class='btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5'>Supprimer</button></td>"; ?>
-        <?php echo "<td><a href=modifierAdmin.php?id=".$row['id']."><button type='button' class='btn btn-warning btn-rounded w-md waves-effect waves-light m-b-5'>Modifier</button></td>"; ?>
-                                            <?php } ?>
-                                        </tr>
-                                        </tbody>
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">E-mail</label>
+                                                        <div class="col-10">
+                                                            <input type="email" class="form-control" name="email">
+                                                        </div>
+                                                    </div>
+                                                     <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Mot de passe</label>
+                                                        <div class="col-10">
+                                                            <input type="password" class="form-control" name="motDePasse">
+                                                        </div>
+                                                    </div>
+                                                       <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Confirmer votre mot de passe</label>
+                                                        <div class="col-10">
+                                                            <input type="password" class="form-control" name="verifPass">
+                                                        </div>
+                                                    </div>
+                                                
 
 
-                                        
-          
+                                                    
+                                                        
+                                                   
+                        <!-- end row -->
+
+
+                          <div class="form-group mb-0 justify-content-end row">
+                                            <div class="col-9">
+                                                <button type="submit" class="btn btn-info waves-effect waves-light">Valider</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                               </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end row -->
+
+
+                        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <footer class="footer text-right">
+                    2016 - 2018 © Adminto. Coderthemes.com
+                </footer>
+
+            </div>
 
 
             <!-- ============================================================== -->
@@ -265,27 +280,9 @@
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
 
-        <!-- Required datatable js -->
-        <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
-        <!-- Buttons examples -->
-        <script src="assets/plugins/datatables/dataTables.buttons.min.js"></script>
-        <script src="assets/plugins/datatables/buttons.bootstrap4.min.js"></script>
-        <script src="assets/plugins/datatables/jszip.min.js"></script>
-        <script src="assets/plugins/datatables/pdfmake.min.js"></script>
-        <script src="assets/plugins/datatables/vfs_fonts.js"></script>
-        <script src="assets/plugins/datatables/buttons.html5.min.js"></script>
-        <script src="assets/plugins/datatables/buttons.print.min.js"></script>
-        <!-- Responsive examples -->
-        <script src="assets/plugins/datatables/dataTables.responsive.min.js"></script>
-        <script src="assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
-
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
-
-        
-
 
     </body>
 </html>
