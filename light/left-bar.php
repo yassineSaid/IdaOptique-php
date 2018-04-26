@@ -82,7 +82,7 @@
                             </li>
 
                             <li>
-                                <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Calendar </span></a>
+                                <a href="afficherCommandes.php" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Gestion des commandes </span></a>
                             </li>
 
                             <li>

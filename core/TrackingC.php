@@ -11,7 +11,7 @@ class PositionManage
 		$sql->bindvalue(':lat',$position->get_lat());
 		$sql->bindvalue(':lng',$position->get_lng());
 		if($sql->execute())
-			echo "succes";
+			header('Location: ajouterPosition.php');
 		else  {
 				echo "echec";
 			}	
