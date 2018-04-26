@@ -115,6 +115,14 @@
                                    
                                 </ul>
                             </li>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Statistique </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="chart-flot.php">Afficher les Statistiques</a></li>
+                                   
+                                </ul>
+                            </li>
+                          
                               <li>
                                 <a href="calendrier.php" class="waves-effect"><i class="mdi mdi-calendar"></i><span>  Calendrier </span></a>
                             </li>
