@@ -355,6 +355,15 @@ public function upload_update($val)
       
         
         }
+         function supprimer_image($id){
+            $db=config::getConnexion();
+            $produit_id=$id;
+                $req = "DELETE FROM images where id_image=$id "; // N'oublions pas d'échapper le contenu binaire
+               $sql=$db->prepare($req);
+               $sql->execute();
+      
+        
+        }
         
         function modifier_image($img_type,$img_nom,$img_size,$val,$type,$id){
             $db=config::getConnexion();

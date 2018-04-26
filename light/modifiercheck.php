@@ -19,18 +19,47 @@ foreach ($result as $row) {
 	$id[]=$row['id_image'];
 }
 if($_FILES['imageM']['tmp_name']!=""){
-var_dump($_POST['idproduitM']);
-$M->upload_imageM($id[0]);
+
+$val2=$M->recupNext();
+if(isset($id[0]))
+{$M->supprimer_image($id[0]);
+			
+$M->upload_imageM($val2);
+$M->ajouter_image($_FILES['imageM']['type'],$_FILES['imageM']['name'],$_FILES['imageM']['size'],$val2,'principal',$_POST['idproduitM']);}
+else {$M->upload_imageM($val2);
+$M->ajouter_image($_FILES['imageM']['type'],$_FILES['imageM']['name'],$_FILES['imageM']['size'],$val2,'principal',$_POST['idproduitM']);}
+
+/*var_dump($_POST['idproduitM']);
+$M->upload_imageM($id[0]);*/
 
 }
 if($_FILES['image2M']['tmp_name']!=""){
-var_dump($_POST['idproduitM']);
-$M->upload_image2M($id[1]);
+	$val3=$M->recupNext();
+	if(isset($id[1]))
+{$M->supprimer_image($id[1]);
+			
+$M->upload_image2M($val3);
+$M->ajouter_image($_FILES['image2M']['type'],$_FILES['image2M']['name'],$_FILES['image2M']['size'],$val3,'secondaire',$_POST['idproduitM']);
+}
+else {$M->upload_image2M($val3);
+$M->ajouter_image($_FILES['image2M']['type'],$_FILES['image2M']['name'],$_FILES['image2M']['size'],$val3,'secondaire',$_POST['idproduitM']);}
+/*var_dump($_POST['idproduitM']);
+$M->upload_image2M($id[1]);*/
 
 }
+
 if($_FILES['image3M']['tmp_name']!=""){
-var_dump($_POST['idproduitM']);
-$M->upload_image3M($id[2]);
+	$val4=$M->recupNext();
+	if(isset($id[2]))
+{$M->supprimer_image($id[2]);
+			
+$M->upload_image3M($val4);
+$M->ajouter_image($_FILES['image3M']['type'],$_FILES['image3M']['name'],$_FILES['image3M']['size'],$val4,'secondaire',$_POST['idproduitM']);}
+else {$M->upload_image3M($val4);
+$M->ajouter_image($_FILES['image3M']['type'],$_FILES['image3M']['name'],$_FILES['image3M']['size'],$val4,'secondaire',$_POST['idproduitM']);}
+
+/*var_dump($_POST['idproduitM']);
+$M->upload_image3M($id[2]);*/
 
 }
 
