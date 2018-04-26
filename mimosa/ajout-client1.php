@@ -272,14 +272,14 @@
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
-													<label>Téléphone<span>*</span></label>
-													<input class="prenom" type="text" name="telephone"/>
+													<label>Téléphone<span id="span_telephone">*</span></label>
+													<input class="prenom" id="telephone" type="text" name="telephone"/>
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
-													<label>Fax<span>*</span></label>
-													<input class="prenom" type="text" name="fax" onblur="queDesChiffres(this)"/>
+													<label>Fax<span id="span_fax">*</span></label>
+													<input class="prenom" type="text" id="fax" name="fax" onblur="queDesChiffres(this)"/>
 											</div>
 										</div>
 									</div>
@@ -330,8 +330,8 @@
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="single-register">
-													<label>Code postal<span>*</span></label>
-													<input class="prenom" type="text" placeholder="" name="zip"/>
+													<label>Code postal<span id="span_zip">*</span></label>
+													<input class="prenom" id="zip" type="text" placeholder="" name="zip"/>
 											</div>
 										</div>
 									</div>
