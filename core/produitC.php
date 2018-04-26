@@ -111,10 +111,10 @@ class ProduitManage
  	if($sql->execute())
         {
         	
-            echo "<p style='text-align: center;'><img src='success.png' width='319' height='319' /></p>";
-             echo "<h2 style='text-align: center;'><span style='color: #3BB54A;'><strong>Modifier avec succes</strong></span></h2>";
-             header("Refresh:2;url=affichage-produit.php");
-             exit;
+            //echo "<p style='text-align: center;'><img src='success.png' width='319' height='319' /></p>";
+             //echo "<h2 style='text-align: center;'><span style='color: #3BB54A;'><strong>Modifier avec succes</strong></span></h2>";
+             //header("Refresh:2;url=affichage-produit.php");
+             //exit;
          }
         	else
         {
