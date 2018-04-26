@@ -263,8 +263,8 @@
 						<?php } ?>
 
 									<div class="single-register">
-										<input type="submit" value="Modifier">
-									</div>
+                                        <input class="confirmer" type="submit" value="Modifier">
+                                    </div>
 									
 								</div>
 							</div>
