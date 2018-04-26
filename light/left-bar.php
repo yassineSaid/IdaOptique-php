@@ -60,7 +60,9 @@
                                     
                                 </ul>
                             </li>
-                            
+                              <li>
+                                <a href="afficherCommandes.php" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Gestion des commandes </span></a>
+                            </li>
                              <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Gestion des livraisons </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
@@ -70,17 +72,31 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Gestion des Promotions et des Offres</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Gestion des Promotions</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="AjouterPromotion1.php">Ajouter Promotion</a></li>
                                     <li><a href="ListeDesPromotions.php">Liste Des Promotions</a></li>
+                             
+
+                                    
+                             </ul>
+                         </li>
+                          <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Gestion des Offres</span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                   
                                     <li><a href="AjouterOffre.php">Ajouter Offre</a></li>
                                     <li><a href="ListeDesOffres.php">Liste Des Offres</a></li>
                                     <li><a href="clienfidele.php">Client Fidèle</a></li>
 
                                     
                              </ul>
+                         </li>
+                          <li>
+                                <a href="contact-inbox.php" class="waves-effect"><i class="mdi mdi-email"></i><span class="badge badge-purple pull-right">New</span><span> Mail </span></a>
+                            </li>
 
+                             <li>
                               <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Newsletter</span> <span class="menu-arrow"></span></a>
                                     
                                 <ul class="list-unstyled">
@@ -92,14 +108,20 @@
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="afficherCommandes.php" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Gestion des commandes </span></a>
+                           <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Gestion des Reclamation </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="afficher-reclamation.php">Afficher les Reclamation</a></li>
+                                   
+                                </ul>
                             </li>
-
-                            <li>
-                                <a href="inbox.html" class="waves-effect"><i class="mdi mdi-email"></i><span class="badge badge-purple pull-right">New</span><span> Mail </span></a>
+                              <li>
+                                <a href="calendrier.php" class="waves-effect"><i class="mdi mdi-calendar"></i><span>  Calendrier </span></a>
                             </li>
-
+                             <li>
+                                <a href="" class="waves-effect"><i class="mdi mdi-calendar"></i><span>  Chat </span></a>
+                            </li>
+                           
                            
 
                         
