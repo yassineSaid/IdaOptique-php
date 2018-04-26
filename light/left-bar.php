@@ -38,7 +38,14 @@
                             <li>
                                 <a href="index.php" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
                             </li>
-
+ <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-donut-variant"></i><span> Gestion des admins </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="ajout-admin.php">Ajouter un admin</a></li>
+                                    <li><a href="affichage-admin-back.php">Mes admins</a></li>
+                                    
+                                </ul>
+                            </li>
 
 
                             <li class="has_sub">
