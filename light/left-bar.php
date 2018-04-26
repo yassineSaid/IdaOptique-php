@@ -119,7 +119,7 @@
                                 <a href="calendrier.php" class="waves-effect"><i class="mdi mdi-calendar"></i><span>  Calendrier </span></a>
                             </li>
                              <li>
-                                <a href="" class="waves-effect"><i class="mdi mdi-calendar"></i><span>  Chat </span></a>
+                                <a href="/code/light/livechat/php/app.php?admin" class="waves-effect"><i class="mdi mdi-calendar"></i><span>  Chat </span></a>
                             </li>
                            
                            
