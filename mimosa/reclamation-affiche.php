@@ -192,7 +192,7 @@
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 												
-													<label>Email Address<span id="span_id">*</span></label>
+													<label>Email<span id="span_id">*</span></label>
 													<input  class="prenom" id="email_id" name="email" type="text"/>
 												
 											</div>
