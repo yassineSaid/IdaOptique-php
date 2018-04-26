@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+ <?php  include 'session.php'; ?>
+ <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -60,7 +61,11 @@
                 <div class="logo"> <?php echo $val['pourcentage']?>% </div>
                 <h3 class="text-uppercase font-600">sur chaque commade du produit </h3>
                 <div class="text-error"> <?php echo $row['produit_nom']?></div>
-                <div> <img src="<?php echo  "../mimosa/img/tsawer/".$row['nom'].".jpg" ?>" width="350" height="250" alt="product" class="primary"/></div>
+                <div> <img src="<?php echo  "../mimosa/img/tsawer/".$row['nom'].".jpg" ?>" width="400" height="250" alt="product" class="primary"/>
+                    <div></div>
+                 <div>   <a class="btn btn-success waves-effect waves-light" href="index.html"> PDF</a> </div>
+
+                </div>
 
                      
 
