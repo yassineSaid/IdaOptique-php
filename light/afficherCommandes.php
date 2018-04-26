@@ -124,6 +124,7 @@
                                             <th>Prenom</th>
                                             <th>Ville</th>
                                             <th>Date</th>
+                                            <th>Méthode de paiement</th>
                                             <th>Total</th>
                                             <th><center>Action</center></th>
                                         </tr>
@@ -145,6 +146,7 @@
                                             <td><?php echo $row['prenom']?></td>
                                             <td><?php echo $row['ville']?></td>
                                             <td><?php echo $dateV ?></td>
+                                            <td><?php echo $row['type']?></td>
                                             <td><?php echo $row['total']?></td>
                                             <form action="supprimerCommande.php" method="post">
                                                 <input type="hidden" name="id_commande" value="<?php echo $row['id_commande']?>">
@@ -162,16 +164,6 @@
                         </div> <!-- end row -->
 
 
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card-box table-responsive">
-                                    <h4 class="m-t-0 header-title"><b>Buttons example</b></h4>
-                                    <p class="text-muted font-14 m-b-30">
-                                        The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                         <!-- end row -->
 
                     </div> <!-- container -->

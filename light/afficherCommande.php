@@ -151,13 +151,42 @@
                                     </table>
                                     <?php $listeInfo=$comm->afficherCommande($_GET["id_commande"]); 
                                         foreach($listeInfo as $row){ ?>
-                                    <h4 class="m-t-0 header-title"><b>Nom: <?php echo $row['nom']; ?></b></h4>
-                                    <h4 class="m-t-0 header-title"><b>Prenom: <?php echo $row['prenom']; ?></b></h4>
-                                    <h4 class="m-t-0 header-title"><b>Adresse: <?php echo $row['adresse'].$row['adresse2']; ?></b></h4>
-                                    <h4 class="m-t-0 header-title"><b>Ville: <?php echo $row['ville']; ?></b></h4>
-                                    <h4 class="m-t-0 header-title"><b>Code postal: <?php echo $row['zip']; ?></b></h4>
-                                    <a href="javascript:history.go(-1)" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5">Retour</a>
+                                    <table>
+                                        <tr>
+                                            <th><h4>Nom: </h4></th>
+                                            <td width="20px"></td>
+                                            <td><h4><?php echo $row['nom']; ?></h4></td>
+                                        </tr>
+                                        <tr>
+                                            <th><h4>Prenom: </h4></th>
+                                            <td width="20px"></td>
+                                            <td><h4><?php echo $row['prenom']; ?></h4></td>
+                                        </tr>
+                                        <tr>
+                                            <th><h4>Adresse: </h4></th>
+                                            <td width="20px"></td>
+                                            <td><h4><?php echo $row['adresse'].$row['adresse2']; ?></h4></td>
+                                        </tr>
+                                        <tr>
+                                            <th><h4>Ville: </h4></th>
+                                            <td width="20px"></td>
+                                            <td><h4><?php echo $row['ville']; ?></h4></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="200px"><h4>Code postal: </h4></th>
+                                            <td width="20px"></td>
+                                            <td><h4><?php echo $row['zip']; ?></h4></td>
+                                        </tr>
+                                        <tr>
+                                            <th><h4>Méthode de paiement: </h4></th>
+                                            <td width="20px"></td>
+                                            <td><h4><?php echo $row['type']; ?></h4></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20px" colspan="3" align="center"><a href="javascript:history.go(-1)" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5">Retour</a></td>
+                                        </tr>
                                     <?php } ?>
+                                    </table>
                                 </div>
                             </div>
                         </div>
