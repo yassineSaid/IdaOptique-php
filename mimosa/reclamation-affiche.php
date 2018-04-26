@@ -35,156 +35,7 @@
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script>
-function verif()
-        	{
-        		var v=0
-        		if (window.document.commande.nom.value.length<3)
-        		{
-        			document.commande.nom.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.nom.style.borderColor="#e5e5e5";
-        			
-        		}
-        		if (window.document.commande.prenom.value.length<3)
-        		{
-        			document.commande.prenom.style.borderColor="red";
-        			v=1;
-        		}
-        		else 
-        		{
-        			document.commande.prenom.style.borderColor="#e5e5e5";
-        		}
-        		if (window.document.commande.email.value.length<8)
-        		{
-        			document.commande.email.style.borderColor="red";
-        			v=1;
-        		}
-        		else 
-        		{
-        			document.commande.email.style.borderColor="e5e5e5";
-        		}
-        		if (window.document.commande.telephone.value.length<3)
-        		{
-        			document.commande.telephone.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.telephone.style.borderColor="e5e5e5";
-        		}
-        		if (window.document.commande.date_achat.value.length<4)
-        		{
-        			document.commande.date_achat.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.date_achat.style.borderColor="e5e5e5";
-        		}
-        		if (window.document.commande.notes.value.length<4)
-        		{
-        			document.commande.notes.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.notes.style.borderColor="e5e5e5";
-        		}
-        		if (window.document.commande.adresse1.value.length<4)
-        		{
-        			document.commande.adresse1.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.adresse1.style.borderColor="e5e5e5";
-        		}
-        		if (window.document.commande.adresse2.value.length<4)
-        		{
-        			document.commande.adresse2.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.adresse2.style.borderColor="e5e5e5";
-        		}
-        		if (window.document.commande.code_postal.value.length<4)
-        		{
-        			document.commande.code_postal.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.code_postal.style.borderColor="e5e5e5";
-        		}
 
-
-        		if (window.document.commande.ville.value.length<4)
-        		{
-        			document.commande.ville.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.ville.style.borderColor="e5e5e5";
-        		}
-        		
-
-        		if (window.document.commande.pays.value.length<4)
-        		{
-        			document.commande.pays.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.pays.style.borderColor="e5e5e5";
-        		}
-
-
-        		if (window.document.commande.ville.value.length<4)
-        		{
-        			document.commande.ville.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.ville.style.borderColor="e5e5e5";
-        		}
-
-
-        		if (window.document.commande.region.value.length<4)
-        		{
-        			document.commande.region.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.region.style.borderColor="e5e5e5";
-        		}
-
-
-        		if (window.document.commande.produit.value.length<4)
-        		{
-        			document.commande.produit.style.borderColor="red";
-        			v=1;
-        		}
-        		else
-        		{
-        			document.commande.produit.style.borderColor="e5e5e5";
-        		}
-        		
-        		if (v==1)
-        		{
-        			return false;
-        		}
-        		else
-        		{
-        			return true;
-        		}
-        	}
     function formcheck() {
   var fields = $(".checkout-form-list")
         .find("select, textarea, input").serializeArray();
@@ -317,16 +168,16 @@ function verif()
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 												
-													<label>First Name<span>*</span></label>
-													<input  name="nom" type="text"/>
+													<label>Nom<span>*</span id="span_nom"></label>
+													<input  name="nom" type="text" id="nom"/>
 												
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 												
-													<label>Last Name<span>*</span></label>
-													<input  name="prenom" type="text"/>
+													<label>Prenom<span>*</span id="span_prenom"></label>
+													<input   name="prenom" id="prenom" type="text"/>
 												
 											</div>
 										</div>
@@ -341,16 +192,16 @@ function verif()
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 												
-													<label>Email Address<span>*</span></label>
-													<input name="email" type="text"/>
+													<label>Email Address<span id="span_id">*</span></label>
+													<input  class="prenom" id="email_id" name="email" type="text"/>
 												
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 												
-													<label>Phone<span>*</span></label>
-													<input name="telephone" type="text"/>
+													<label>Telephone<span id="span_telephone">*</span></label>
+													<input id="telephone" name="telephone" type="text"/>
 												
 											</div>
 										</div>
@@ -373,15 +224,15 @@ function verif()
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="checkout-form-list">
 										
-											<label>Notes<span>*</span></label>
-											<input name="notes" type="text" placeholder="Notes a propos de votre commande."/>
+											<label>Notes<span id="span_notes">*</span></label>
+											<input name="notes" id="notes" type="text" placeholder="Notes a propos de votre commande."/>
 										</div>
 									</div>
 
 										<div class="col-lg-12">
 											<div class="checkout-form-list">
 										
-											<label>Search Adress<span></span></label>
+											<label>Rechercher Adresse<span></span></label>
 											<input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
 										</div>
 									</div>
@@ -389,7 +240,7 @@ function verif()
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 										
-											<label>Address<span>*</span></label>
+											<label>Addresse<span id="span_street_number">*</span></label>
 											<input name="adresse1" id="street_number" type="text" placeholder="Street address"/>
 										
 											
@@ -398,7 +249,7 @@ function verif()
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 										
-											<label>Address2<span></span></label>
+											<label>Addresse 2<span></span></label>
 											
 											<input name="adresse2" id="route" type="text"  placeholder="Apartment, suite, unit etc. (optional"/>
 										
@@ -409,7 +260,7 @@ function verif()
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 												
-													<label>Postcode<span>*</span></label>
+													<label>Code Postal<span id="span_postal_code">*</span></label>
 													<input name="code_postal" id="postal_code" type="text" placeholder="Postcode"/>
 												
 											</div>
@@ -417,7 +268,7 @@ function verif()
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 											<div class="checkout-form-list">
 										
-											<label>Town/City<span>*</span></label>
+											<label>Ville<span id="span_ville">*</span></label>
 											<input name="ville" id="locality" type="text" />
 											<input name="id_client"  type="hidden" value="<?php echo $_SESSION['id']; ?>" />
 										
@@ -427,11 +278,11 @@ function verif()
 										 
 										 <div class="col-lg-12">
 										<div class="country-select">
-										<label>Country<span>*</span></label>
+										<label>Pays<span>*</span></label>
 										<select name="pays" class="chosen-select" id="country" tabindex="1" 
 										style="width:100%;" data-placeholder="Default Sorting">
-											<option  >Select a country</option>
-											<option value="Tunisia">Tunisia</option>
+											<option  >Selectioner votre pays</option>
+											<option value="Tunisia">Tunisie</option>
 											
 										</select>
 									</div>
@@ -440,9 +291,9 @@ function verif()
 									
 									<div class="col-lg-12">
 										<div class="country-select">
-												<label>State<span>*</span></label>
+												<label>Region<span>*</span></label>
 												<select name="region" class="chosen-select" tabindex="1" id="administrative_area_level_1" style="width:100%;" data-placeholder="Default Sorting">
-													<option >Select a State</option>
+													<option >Selectioner votre Region</option>
 													<option value="Tunis">Tunis</option>
 													<option value="Ariana">Ariana</option>
 													<option value="Ben Arous">Ben Arous</option>
@@ -502,11 +353,11 @@ function verif()
 						</div>
 											
 									
-									
-
 									<div class="single-register">
-										<input type="submit" onclick="formcheck();" value="Reclamer"></a>
-									</div>
+                                        <input class="confirmer" type="submit" onclick="formcheck();" value="Reclamer">
+                                    </div>
+
+									
 								</div>
 							</div>
 						</div>
@@ -592,5 +443,7 @@ function verif()
         <script src="js/plugins.js"></script>
 		<!-- main js -->
         <script src="js/main.js"></script>
+
+        <script src="verif_inscrit.js"></script>
     </body>
 </html>
