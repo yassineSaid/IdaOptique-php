@@ -22,8 +22,8 @@
                             </li>
 
                             <li class="list-inline-item">
-                                <a href="#" class="text-custom">
-                                    <i class="mdi mdi-power"></i>
+                                <a href="logout.php" class="text-custom">
+                                    <i class="mdi mdi-power" href="logout.php"></i>
                                 </a>
                             </li>
                         </ul>
@@ -38,6 +38,10 @@
                             <li>
                                 <a href="index.php" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
                             </li>
+                            <?php if($_SESSION['type']== "superuser")  
+                            {
+
+                               ?>
  <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-donut-variant"></i><span> Gestion des admins </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
@@ -47,7 +51,7 @@
                                 </ul>
                             </li>
 
-
+                            <?php } ?>
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-donut-variant"></i><span> Gestion des produits </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
