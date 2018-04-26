@@ -210,6 +210,7 @@ function queDesChiffres(champ) {
 			</div>
 			<!-- breadcrumbs-area-end -->
 			<!-- shop-main-area-start -->
+			<form class="form-horizontal" role="form" action="ajoutClient.php" method="POST" name="client" onsubmit="return verif(this)">
 			<div class="shop-main-area">
 				<!-- user-login-area-start -->
 				<div class="user-login-area">
@@ -218,10 +219,10 @@ function queDesChiffres(champ) {
 							<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
 								<div class="billing-fields">
 									<div class="row">
-										<form class="form-horizontal" role="form" action="ajoutClient.php" method="POST" name="client" onsubmit="return verif(this)">
+										
 											
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
 												
 													
 														
@@ -230,8 +231,9 @@ function queDesChiffres(champ) {
 												
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												
 												
 													<label>Prenom<span id="span_prenom">*</span></label>
 													<input type="text" id="prenom" name="prenom">
@@ -241,18 +243,20 @@ function queDesChiffres(champ) {
 									
 									
 									
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												
 												
 													<label>Adresse Email<span id="span_id">*</span></label>
-													<input type="email"" id="email_id" name="email">
+													<input type="email" id="email_id" name="email">
 											
 											</div>
 										</div>
 									
 										
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-										<div class="single-register">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												
 										
 											<label>Mot de passe<span id="mdp_span">*</span></label>
 											<input type="password" name="motDePasse" id="mdp" placeholder="Entrer votre mot de passe" >
@@ -261,8 +265,9 @@ function queDesChiffres(champ) {
 								        </div>
 							           
 							    
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="single-register">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												
 										
 											<label>Confirmer mot de passe<span id="mdpC_span">*</span></label>
 											<input type="password" name="ConfirmPass" id="ConfirmPass" placeholder="Confirmez">
@@ -271,8 +276,56 @@ function queDesChiffres(champ) {
                                      </div> 
 									
 							
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="single-register">
+										
+									
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												
+												
+													<label>Telephone<span>*</span></label>
+													<input type="text" name="telephone" >
+												
+											</div>
+										</div>
+									
+									
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												
+												
+													<label>Fax<span>*</span></label>
+													<input type="text" name="fax" onblur="queDesChiffres(this)">
+												
+											</div>
+										</div>
+								
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												
+									
+											<label>Zip code<span>*</span></label>
+											<input type="text" placeholder="zip code" name="zip">
+										</div>
+									</div>		
+									
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												
+									
+											<label>Adresse<span>*</span></label>
+											<input type="text" placeholder="adresse" name="adresse">
+										</div>
+									</div>		
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+											<div class="checkout-form-list">
+												<label>Adresse 2<span></span></label>
+											<input type="text" id="billing_address_2"  name="adresse2" placeholder="Appartement, suite..etc. (optional">
+										
+									</div>
+									</div>
+									 <div class="col-lg-6">
+										<div class="country-select">
+												
 										<label>Pays<span>*</span></label>
 										<select class="chosen-select" tabindex="1" style="width:100%;" data-placeholder="Default Sorting" name="pays"> 
 											<option value="country">Select a country</option>
@@ -283,9 +336,10 @@ function queDesChiffres(champ) {
 								    </div>
 								
 							       
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
-												<label>Cite<span>*</span></label>
+									 <div class="col-lg-6">
+										<div class="country-select">
+												
+												<label>Ville<span>*</span></label>
 												<select class="chosen-select"  name="cite" tabindex="1" style="width:100%;" data-placeholder="Default Sorting">
 													<option value="Select">Selectionner votre ville</option>
 													<option value="Tunis">Tunis</option>
@@ -315,45 +369,12 @@ function queDesChiffres(champ) {
 												</select>
 											</div>
 										</div>
+								  
 									
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
-												
-													<label>Telephone<span>*</span></label>
-													<input type="text" name="telephone" >
-												
-											</div>
-										</div>
-									
-									
-									 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
-												
-													<label>Fax<span>*</span></label>
-													<input type="text" name="fax" onblur="queDesChiffres(this)">
-												
-											</div>
-										</div>
-								
-									
-									
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									    <div class="single-register">
-									
-											<label>Adresse<span>*</span></label>
-											<input type="text" placeholder="adresse" name="adresse">
-										</div>
-									</div>		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									    <div class="single-register">
-											<input type="text" id="billing_address_2"  name="adresse2" placeholder="Appartement, suite..etc. (optional">
-										
+									<div class="single-register">
+										<input type="submit" onclick="verif()" value="Enregistrer"><a>dsfg</a>
 									</div>
-									</div>
-								    </div>
-									
-				                      <div class="single-register">
-										 <button type="submit" name="submit" id="enregistrer" class="btn btn-info waves-effect waves-light" onclick="verif()">Enregistrer</button>
-									</div>
+				                      
 								</div>
 							</div>
 						</div>
@@ -361,8 +382,7 @@ function queDesChiffres(champ) {
 				</div>
 				<!-- user-login-area-end -->
 			</div>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-									<script src="verif_inscrit.js"></script>
+			
 		</form>
 			<!-- shop-main-area-end -->
 
@@ -440,5 +460,7 @@ function queDesChiffres(champ) {
         <script src="js/plugins.js"></script>
 		<!-- main js -->
         <script src="js/main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+									<script src="verif_inscrit.js"></script>
     </body>
 </html>

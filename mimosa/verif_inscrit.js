@@ -68,6 +68,84 @@ else if($("#nom").val().match(onlyletter)==null)
 
 
 }
+function telephone()
+{
+ var onlyNumber=/^[0-9]*$/gm;
+    var onlyletter=/^[A-Za-z]+$/;
+     $("#span_telephone").css({"color":"red"});
+
+if($("#telephone").val()=="")
+{
+   $("#span_telephone").html("       Champ obligatoire"); 
+      $("#telephone").css({"background-color": "#ff7f7f"}); 
+}
+else if($("#telephone").val().match(onlyNumber)==null)
+                {
+                    $("#span_telephone").html("Que des chiffres !");
+                    $("#telephone").css({"background-color":"#ff7f7f"});
+              
+               
+                }
+                else
+                {
+  $("#span_telephone").html("");
+                    $("#telephone").css({"background-color":"white"});
+                }
+
+
+}
+function fax()
+{
+ var onlyNumber=/^[0-9]*$/gm;
+    var onlyletter=/^[A-Za-z]+$/;
+     $("#span_fax").css({"color":"red"});
+
+if($("#fax").val()=="")
+{
+   $("#span_fax").html("       Champ obligatoire"); 
+      $("#fax").css({"background-color": "#ff7f7f"}); 
+}
+else if($("#fax").val().match(onlyNumber)==null)
+                {
+                    $("#span_fax").html("Que des chiffres !");
+                    $("#fax").css({"background-color":"#ff7f7f"});
+              
+               
+                }
+                else
+                {
+  $("#span_telephone").html("");
+                    $("#telephone").css({"background-color":"white"});
+                }
+
+
+}
+function zip()
+{
+ var onlyNumber=/^[0-9]*$/gm;
+    var onlyletter=/^[A-Za-z]+$/;
+     $("#span_zip").css({"color":"red"});
+
+if($("#zip").val()=="")
+{
+   $("#span_zip").html("       Champ obligatoire"); 
+      $("#zip").css({"background-color": "#ff7f7f"}); 
+}
+else if($("#zip").val().match(onlyNumber)==null)
+                {
+                    $("#span_zip").html("Que des lettres !");
+                    $("#zip").css({"background-color":"#ff7f7f"});
+              
+               
+                }
+                else
+                {
+  $("#span_zip").html("");
+                    $("#zip").css({"background-color":"white"});
+                }
+
+
+}
 
 function prenom()
 {
@@ -233,7 +311,9 @@ x++;
 $("#nom").keyup(nom);
 
 $("#prenom").keyup(prenom);
-
+$("#telephone").keyup(telephone);
+$("#fax").keyup(fax);
+$("#zip").keyup(zip);
 
 $("#email_id").keyup(verif_mail);
 
