@@ -262,5 +262,44 @@ class CommandeC
         $value = $result->fetch();
         return $value;
     }
+    function commandesMoisDernier()
+    {
+        $annee=date("Y");
+        $mois=date("m");
+        if ($mois==12)
+        {
+            $mois=1;
+            $annee-=1;
+        }
+        else
+        {
+            $mois-=1;
+        }
+        $conn=Config::getConnexion();
+        $sql="SELECT count(*) AS nbrCommandes, SUM(total) AS total FROM commande WHERE MONTH(date) = $mois AND YEAR(date) = $annee";
+        $result = $conn->query($sql);
+        $value = $result->fetch();
+        return $value;
+    }
+    function commandesCeMois()
+    {
+        $annee=date("Y");
+        $mois=date("m");
+        $conn=Config::getConnexion();
+        $sql="SELECT count(*) AS nbrCommandes, SUM(total) AS total FROM commande WHERE MONTH(date) = $mois AND YEAR(date) = $annee";
+        $result = $conn->query($sql);
+        $value = $result->fetch();
+        return $value;
+    }
+    function articlesCeMois()
+    {
+        $annee=date("Y");
+        $mois=date("m");
+        $conn=Config::getConnexion();
+        $sql="SELECT SUM(qte) AS nbrArticles FROM commande c,ligne_commande l WHERE MONTH(date) = $mois AND YEAR(date) = $annee AND c.id_commande=l.id_commande";
+        $result = $conn->query($sql);
+        $value = $result->fetch();
+        return $value;
+    }
 }
 ?>
