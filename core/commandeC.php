@@ -108,25 +108,27 @@ class CommandeC
         $id_client=$commande->getId_client();
         $sql="SELECT * From panier p,produit p1 where id_client=$id_client and p1.produit_id=id_produit";
         $db = config::getConnexion();
-        try{
-        $liste=$db->query($sql);
-        foreach($liste as $row)
+        try
         {
-            CommandeC::ajouterLigne($commande->getId_commande(),$row['id_produit'],$row['qte']);
+            $liste=$db->query($sql);
+            foreach($liste as $row)
+            {
+                CommandeC::ajouterLigne($commande->getId_commande(),$row['id_produit'],$row['qte']);
+            }
+            return true;
         }
-        return true;
-        }
-        catch (Exception $e){
+        catch (Exception $e)
+        {
             die('Erreur: '.$e->getMessage());
-        } 
-        
+        }   
     }   
     function confirmerCommande($commande,$type)
     {
         $commande->setId_commande(CommandeC::creerIdCommande());
         $sql="INSERT into commande values (:id_commande,:id_client,:total,:nom,:prenom,:adresse,:adresse2,:ville,:zip,now(),:type)";
         $db = config::getConnexion();
-            try{
+        try
+        {
             $req=$db->prepare($sql);
             $req->bindValue(':id_commande',$commande->getId_commande());
             $req->bindValue(':id_client',$commande->getId_client());
@@ -139,22 +141,23 @@ class CommandeC
             $req->bindValue(':zip',$commande->getZip());
             $req->bindValue(':type',$type);
             
-               if( $req->execute())
-               {
+            if( $req->execute())
+            {
                 if(CommandeC::ajouterCommande($commande))
-                    {
+                {
                     if (CommandeC::supprimerPanier($commande->getId_client()))
-                        {
-                            return $commande->getId_commande();
-                        }
+                    {
+                        return $commande->getId_commande();
+                     }
                     else
                     {
                         return 0;
                     }
-                    }
+                }
             }
-            }
-            catch (Exception $e){
+        }
+            catch (Exception $e)
+            {
                 echo 'Erreur: '.$e->getMessage();
             }
     }   
@@ -227,7 +230,8 @@ class CommandeC
             die('Erreur: '.$e->getMessage());
         }
     }
-    function modifierPanier($id_client,$id_produit,$qte){
+    function modifierPanier($id_client,$id_produit,$qte)
+    {
         $sql="UPDATE panier SET qte=:qte WHERE id_produit=:id_produit and id_client=:id_client";
         
         $db = config::getConnexion();
@@ -243,14 +247,20 @@ class CommandeC
             
            header('Location: afficherPanier.php');
         }
-        catch (Exception $e){
+        catch (Exception $e)
+        {
             echo " Erreur ! ".$e->getMessage();
-   echo " Les datas : " ;
-  print_r($datas);
+            echo " Les datas : " ;
+            print_r($datas);
         }
-        
-    
+    }
+    function meilleureVente()
+    {
+        $conn=Config::getConnexion();
+        $sql="SELECT id_produit, SUM(qte) AS qteTotal FROM ligne_commande GROUP BY id_produit ORDER BY SUM(qte) DESC";
+        $result = $conn->query($sql);
+        $value = $result->fetch();
+        return $value;
+    }
 }
-}
-
 ?>

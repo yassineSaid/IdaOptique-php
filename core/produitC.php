@@ -79,11 +79,23 @@ class ProduitManage
 
 	}
 	function recupererProduit($idp){
-		$sql="SELECT * from produit where produit_id=$idp";
+		$sql="SELECT * from produit p,images i where p.produit_id=$idp AND p.produit_id=i.produit_id";
 		$db=config::getConnexion();
 		try{
 		$liste=$db->query($sql);
 		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+	function recupererProduitBest($idp){
+		$sql="SELECT * from produit p,images i where p.produit_id=$idp AND p.produit_id=i.produit_id";
+		$db=config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		$result=$liste->fetch();
+		return $result;
 		}
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
