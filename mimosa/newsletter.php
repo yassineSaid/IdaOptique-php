@@ -11,7 +11,7 @@
 
 
 									<form  method="post" action="subscribe.php">
-										<input  require type="email" name="subscribe" placeholder="Enter your email address here..."/>
+										<input  require type="email" name="subscribe" placeholder="Entrez votre adresse mail ici..."/>
 										<button type="submit">Subscribe</button>
 									</form>
 

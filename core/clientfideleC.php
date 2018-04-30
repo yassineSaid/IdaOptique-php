@@ -130,6 +130,21 @@ Class ClientfideleC
         }
   }
 
+ 
+
+        function recupererClientFidele($id)
+    {
+        $db=config::getConnexion();
+        $req="SELECT * FROM clientfidele where id_client='$id' ";
+        $sql=$db->query($req);
+        
+        return $sql;
+        //return $sql;
+    }
+
+
+
+
 }
 
 

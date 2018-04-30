@@ -128,7 +128,7 @@
                       <?php 
                                     
                         $bdd=config::getConnexion();
-                        $q=$bdd->prepare("select DISTINCT (id_client ) from commande ");
+                        $q=$bdd->prepare("select DISTINCT (id_client) ,nom , prenom from commande ");
                         $q->execute();
                         $listeClient=$q->fetchAll();
                        ?>
@@ -140,7 +140,7 @@
                                         <?PHP
                                     foreach($listeClient as $row){
                                         ?>
-                                        <option  value="<?PHP echo $row['id_client']; ?>"> <?PHP echo $row['id_client'] ; ?>
+                                        <option  value="<?PHP echo $row['id_client']; ?>"> <?PHP echo $row['nom'] ,'-',$row['prenom'] ; ?>
                                         </option>
                                         <?PHP } ?>
                               </select>
@@ -198,7 +198,17 @@
 
 
                                                <td>
+
+                                                <form method="POST" action="couponMail.php">
+
                                                  <button  type="submit"  class="btn btn-icon waves-effect waves-light btn-success m-b-5"> <i class="fa fa-envelope-o m-r-5"></i> <span> Envoyer</span> </button>
+
+                                                 <input type="hidden" name="id_client" value="<?php echo $val['id_client']?>">
+
+                                                 <input type="hidden" name="codePromo"   value="<?php echo $val['codePromo']?>">
+
+
+                                               </form>
                                              </td>
 
 
