@@ -7,11 +7,7 @@
                 </a>
                 <h4 class="">Notifications</h4>
                 <div class="notification-list nicescroll">
-                    <ul id="list-notifications" class="list-group list-no-border user-list"><span>
-
-                    </span></ul>
+                    <ul id="list-notifications" class="list-group list-no-border user-list"></ul>
                 </div>
             </div>
-
-        <script src="assets/js/notification.js"></script>
           
