@@ -15,10 +15,11 @@ $message = $_FILES['image'];
 
  $link = 'http://localhost/code/light/unsubscribe.php?key='.$hash; //change your domain here.
 
+
         $strSubject="IDA_OPTIQUE | Newsletter";
-        $message = 'Thank you for subscribing  Email: '.$to.'.' ;
-        $message .= 'Click here to unsubscribe your email : <a href="'.$link.'">
-        Unsubscribe</a>' ;
+        $message = 'Merci de vous être abonné   Email: '.$to.'. '  ;
+        $message .= 'Cliquez ici pour vous désabonner de votre e-mail :   '.$link.'
+        Unsubscribe' ;
 
         $mail_sent=mail($to, $strSubject, $message);
 

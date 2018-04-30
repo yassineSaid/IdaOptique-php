@@ -30,7 +30,7 @@
    <script type="text/javascript">
        
      //Ajax
-        $('#ajax-alert').click(function () {
+    /*    $('#ajax-alert').click(function () {
             swal({
                 title: 'Numero Telephone',
                 input: 'Numero telephone',
@@ -58,7 +58,7 @@
                     html: 'Submitted email: ' + email
                 })
             })
-        });
+        });*/
 
 
 
@@ -188,11 +188,25 @@
                                             <td> <?php echo $val['pourcentage']?> </td>
 
 
+
+                                             <td> 
+                                                <form method="POST" action="apismsphp.php">
+                                           
+                                             <button   class="btn btn-icon waves-effect waves-light btn-success m-b-5" id="ajax-alert" > <i class="fa fa-envelope-o m-r-5"></i>  SMS </button> 
+
+                                             <input type="hidden" name="idoffre"   value="<?php echo $val['idOffre']?>" >
+
+                                                 </form>
+
+                                            </td>
+
+
                                             <td>
 
                                             <form method="POST" action="ViewOffres.php">
 
                                                 <button  class="btn btn-secondary waves-effect m-b-5">  <i class="fa fa-rocket m-r-5"></i>  view </button>
+
                                                 <input type="hidden" name="idoffre"   value="<?php echo $val['idOffre']?>">
                                                 
                                             </form>
@@ -200,16 +214,13 @@
                                             </td>
 
 
-                                            <td> 
-                                           
-                                             <button  type="button" class="btn btn-icon waves-effect waves-light btn-success m-b-5" id="ajax-alert" > <i class="fa fa-envelope-o m-r-5"></i> <span> SMS </span> </button> </td>
+
 
                                             <td>
                                              <a href="ModifierOffre.php?id=<?php echo $val['idOffre'] ; ?>">
                                                     
                                             <button  class="btn btn-icon waves-effect waves-light btn-warning m-b-5">  <i class="fa fa-wrench"></i>  </button>
-                                                        
-     
+
                                             </td>
                                                    
 
