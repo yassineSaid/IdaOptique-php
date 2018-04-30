@@ -207,7 +207,6 @@
                 <div class="content">
                     <div class="container-fluid">
                         
-                        
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
@@ -218,7 +217,16 @@
                                         <div class="col-12">
                                             <div class="p-20">
                                                 <form enctype="multipart/form-data" name="produit" action="ajouter-produit.php" method="POST" onsubmit="return verif(this)">
-                                                    <div class="form-group row">
+                                                    <?php include_once '../core/produitC.php';
+                                                        $n=new produitManage();
+                                                        $id=$n->creerIdProduit();
+                                                     ?>
+                                                        <div class="form-group row">
+                                                        
+                                                        <div class="col-5">
+                                                            <input type="text" class="form-control" value="<?php echo $id?>"
+                                                            name="idproduit" disabled>
+                                                        </div>
 
                                                     </div>
                                                      <div class="form-group row">

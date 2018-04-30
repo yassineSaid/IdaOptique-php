@@ -1,5 +1,4 @@
-<?php include 'session.php' ?>
-
+<?php include'session.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,7 +52,7 @@
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                                <h4 class="page-title">Admins</h4>
+                                <h4 class="page-title">Datatables</h4>
                             </li>
                         </ul>
 
@@ -96,16 +95,7 @@
 
 
             <!-- ========== Left Sidebar Start ========== -->
-             <?php include 'left-bar.php' ?>
-            
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- Sidebar -->
-                    <div class="clearfix"></div>
-
-                </div>
-
-            </div>
+            <?php include 'left-bar.php' ?>
             <!-- Left Sidebar End -->
 
 
@@ -123,14 +113,14 @@
                                 <div class="card-box table-responsive">
                                     <h4 class="m-t-0 header-title"><b>Affichage de admins</b></h4>
                                     <?php
-										require '../Core/AdminM.php';
-										$c=new AdminManage();
-										$val=$c->afficherAdmins();
+                                        require '../Core/AdminM.php';
+                                        $c=new AdminManage();
+                                        $val=$c->afficherAdmins();
 
-									?>
-										                                    
+                                    ?>
+                                                                            
                                     <table id="datatable" class="table table-bordered">
-                                    	
+                                        
                                         <thead>
                                         <tr>
                                             <th>ID</th>
@@ -146,8 +136,8 @@
                                         </tr>
                                         </thead>
                                           <tbody>
-                                        	<?php 
-                                    	foreach ($val as $row) {?>
+                                            <?php 
+                                        foreach ($val as $row) {?>
                                       
                                         
                                         <tr>
@@ -164,10 +154,21 @@
                                             <?php } ?>
                                         </tr>
                                         </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
 
+                    </div> <!-- container -->
 
-                                        
-          
+                </div> <!-- content -->
+
+                <footer class="footer text-right">
+                    2016 - 2018 © Adminto. Coderthemes.com
+                </footer>
+
+            </div>
 
 
             <!-- ============================================================== -->
@@ -176,77 +177,7 @@
 
 
             <!-- Right Sidebar -->
-            <div class="side-bar right-bar">
-                <a href="javascript:void(0);" class="right-bar-toggle">
-                    <i class="mdi mdi-close-circle-outline"></i>
-                </a>
-                <h4 class="">Notifications</h4>
-                <div class="notification-list nicescroll">
-                    <ul class="list-group list-no-border user-list">
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">Michael Zenaty</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">2 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-info">
-                                    <i class="mdi mdi-account"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">New Signup</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">5 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-pink">
-                                    <i class="mdi mdi-comment"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">New Message received</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">1 day ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#" class="user-list-item">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-3.jpg" alt="">
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">James Anderson</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">2 days ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-warning">
-                                    <i class="mdi mdi-settings"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">Settings</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">1 day ago</span>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
+            <?php include 'notification-bar.php' ?>
             <!-- /Right-bar -->
 
         </div>
@@ -283,8 +214,8 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/notification.js"></script>
 
-        
 
 
     </body>
