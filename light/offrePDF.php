@@ -14,7 +14,7 @@ require '../core/offremanage.php';
 
             {
 
-$html="Offre Spéciale !!! ".htmlspecialchars($val['nom'])." !!! </b> Profitez d'une superbe réduction de -".htmlspecialchars($val['pourcentage'])."% sur l'article </br> *** ".htmlspecialchars($row['produit_nom'])." *** </b> " ;
+$html=" <br>Offre Spéciale !!! </br>".htmlspecialchars($val['nom'])." !!! </b> Profitez d'une superbe réduction de -".htmlspecialchars($val['pourcentage'])."% sur l'article </br> *** ".htmlspecialchars($row['produit_nom'])." *** </b> " ;
 
 
 

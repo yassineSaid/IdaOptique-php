@@ -28,8 +28,8 @@
 
 
 	// Authorisation details.
-	$username = "idaoptique@gmail.com";
-	$hash = "9d86480d31bc0b4b00569e61ffc4977faada86596c68187c148b9e2b1c089e6b";
+	$username = "leehobaby283@gmail.com";
+	$hash = "8c5a736b644a8264af46e467539e68fe86fac2fc4d3180e2c1ce21176c817363";
 
 	// Config variables. Consult http://api.txtlocal.com/docs for more info.
 	$test = "0";

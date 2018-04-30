@@ -6,7 +6,9 @@ $to      = $_POST['to'];
 $objet   = $_POST['objet'];
 $message = $_POST['area'];
 
-mail($_POST['to'], $_POST['objet'], $_POST['area']);
+$header='Content-type: text/html; charset=iso-8859-1 From :contact.zaytatn@gmail.com';
+
+mail($_POST['to'], $_POST['objet'], $_POST['area'],$header);
 
 header('Location: http://localhost/projet/light/page-confirm-mail.html');
 
