@@ -19,13 +19,15 @@ if (isset($_POST['delete']) && isset($_POST['id'])){
 	 die ('Erreur execute');
 	}
 	
-}elseif (isset($_POST['title']) && isset($_POST['color']) && isset($_POST['id'])){
+}elseif (isset($_POST['title']) && isset($_POST['hstart']) && isset($_POST['hend']) && isset($_POST['color']) && isset($_POST['id'])){
 	
 	$id = $_POST['id'];
 	$title = $_POST['title'];
+	$hstart = $_POST['hstart'];
+	$hend = $_POST['hend'];
 	$color = $_POST['color'];
 	
-	$sql = "UPDATE events SET  title = '$title', color = '$color' WHERE id = $id ";
+	$sql = "UPDATE events SET  title = '$title',heure_debut= '$hstart',heure_fin='$hend', color = '$color' WHERE id = $id ";
 
 	
 	$query = $db->prepare( $sql );
@@ -40,7 +42,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])){
 	}
 
 }
-header('Location: rendez-vous.php');
+header('Location: calendrier.php');
 
 	
 ?>

@@ -35,20 +35,7 @@ $events = $req->fetchAll();
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-<style>
-    body {
-        padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
-    #calendar {
-        max-width: 800px;
-    }
-    .col-centered{
-        float: none;
-        margin: 0 auto;
-    }
-    </style>
-     
+
 
     </head>
 
@@ -78,7 +65,10 @@ $events = $req->fetchAll();
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                                <h4 class="page-title">Calendar</h4>
+                               <h4 class="page-title" style="
+   
+    margin-right: 700px;
+">Calendrier</h4>
                             </li>
                         </ul>
 
@@ -141,8 +131,11 @@ $events = $req->fetchAll();
 
                                 <div class="row">
                                     <!-- end col-->
-                                    <div class="col-lg-9">
-                                        <div class="card-box">
+                                    <div class="col-lg-10">
+                                        <div class="card-box" style="
+    
+    margin-left: 200px;
+">
                                          <?php   include ('agenda.php'); ?>
                                         </div>
                                     </div> <!-- end col -->
@@ -354,14 +347,16 @@ var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
             select: function(start, end) {
                 
             
-                $('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
-                $('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
+                $('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD'));
+                $('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD'));
                 $('#ModalAdd').modal('show');
             },
             eventRender: function(event, element) {
                 element.bind('dblclick', function() {
                     $('#ModalEdit #id').val(event.id);
                     $('#ModalEdit #title').val(event.title);
+                    $('#ModalEdit #hstart').val(event.hstart);
+                    $('#ModalEdit #hend').val(event.hend);
                     $('#ModalEdit #color').val(event.color);
                     $('#ModalEdit').modal('show');
                 });
@@ -379,18 +374,11 @@ var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
             events: [
             <?php foreach($events as $event): 
             
-                $start = explode(" ", $event['start_event']);
-                $end = explode(" ", $event['end_event']);
-                if($start[1] == '00:00:00'){
-                    $start = $start[0];
-                }else{
+              
                     $start = $event['start_event'];
-                }
-                if($end[1] == '00:00:00'){
-                    $end = $end[0];
-                }else{
+              
                     $end = $event['end_event'];
-                }
+               
             ?>
                 {
                     id: '<?php echo $event['id']; ?>',
@@ -404,9 +392,9 @@ var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
         });
         
         function edit(event){
-            start = event.start.format('YYYY-MM-DD HH:mm:ss');
+            start = event.start.format('YYYY-MM-DD');
             if(event.end){
-                end = event.end.format('YYYY-MM-DD HH:mm:ss');
+                end = event.end.format('YYYY-MM-DD');
             }else{
                 end = start;
             }
