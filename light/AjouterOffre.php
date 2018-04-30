@@ -103,16 +103,16 @@
                     <div class="container-fluid">
 
 
-                                                <div class="row">
+                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
 
                                    <h4 class="m-t-0 header-title"><b></b></h4>
                                      
 
-                                    <div class="row">
-                                        <div class="col-12">
+
                                             <div class="p-20">
+
                                                 <script type="text/javascript">
                                                     
 
@@ -141,7 +141,7 @@
                                                       return ok;
                                                         }
 
-                                      </script>
+                                                </script>
                                       
 
                                       <form name="formulaire"  method="POST" action="ajouteroffree.php" ">
@@ -161,22 +161,19 @@
 
                                                 <div class="form-group row">
                                                         <label class="col-2 col-form-label">ID_Produit </label>
-                                                        <div class="col-5">
+                                                     <div class="col-5">
 
 
 
 
-
-                    
-
-                      <?php 
-                       require '../config.php';
-                                    
-                        $bdd=config::getConnexion();
-                        $q=$bdd->prepare("select produit_id , produit_nom from produit ");
-                        $q->execute();
-                        $listeproduit=$q->fetchAll();
-                       ?>
+                                                  <?php 
+                                                   require '../config.php';
+                                                                
+                                                    $bdd=config::getConnexion();
+                                                    $q=$bdd->prepare("select produit_id , produit_nom from produit ");
+                                                    $q->execute();
+                                                    $listeproduit=$q->fetchAll();
+                                                   ?>
 
                               <select  required name="produit_id" class="form-control">
                                       
@@ -190,7 +187,7 @@
                                         <?PHP } ?>
                               </select>
 
-                            </div>
+                                                 </div>
                                                           
                                                           
                                                 </div>
@@ -207,19 +204,18 @@
                                                 </div>
 
 
-                                                 </div>
+                                                 
                                             
 
                                                    <p align="center">
                                            
                                                     <button  type="submit"  name="Ajouter" class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Ajouter offre</button>
 
-                                           </form>
+                                              </form>
                         
                                 
                                              </div>
-                                        </div>
-                                    </div>
+
                                     <!-- end row -->
 
 
@@ -247,77 +243,7 @@
 
 
             <!-- Right Sidebar -->
-            <div class="side-bar right-bar">
-                <a href="javascript:void(0);" class="right-bar-toggle">
-                    <i class="mdi mdi-close-circle-outline"></i>
-                </a>
-                <h4 class="">Notifications</h4>
-                <div class="notification-list nicescroll">
-                    <ul class="list-group list-no-border user-list">
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">Michael Zenaty</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">2 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-info">
-                                    <i class="mdi mdi-account"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">New Signup</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">5 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-pink">
-                                    <i class="mdi mdi-comment"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">New Message received</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">1 day ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#" class="user-list-item">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-3.jpg" alt="">
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">James Anderson</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">2 days ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-warning">
-                                    <i class="mdi mdi-settings"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">Settings</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">1 day ago</span>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
+            <?php include 'notification-bar.php' ?>
             <!-- /Right-bar -->
 
         </div>
@@ -339,6 +265,7 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/notification.js"></script>
 
     </body>
 </html>

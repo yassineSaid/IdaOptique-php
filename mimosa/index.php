@@ -235,8 +235,8 @@
 										<div class="product-wrapper">
 										<div class="product-img">
 											<a href="#">
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="primary"/>
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="secondary"/>
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="primary"/>
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
 											<span class="sale">sale</span>
 											<div class="product-icon">
@@ -300,8 +300,8 @@
 										<div class="product-wrapper">
 										<div class="product-img">
 											<a href="#">
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="primary"/>
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="secondary"/>
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="primary"/>
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
 											<span class="sale">sale</span>
 											<div class="product-icon">
@@ -359,13 +359,19 @@
 											<div class="product-content pt-20">
 												<div class="manufacture-product">
 													<a href="#">H&M </a>
+													<?php $prodC=new ProduitManage();
+													$rate=$prodC->getRating($row['produit_id']);
+													foreach ($rate as $rate1) {
+														$moy=$rate1['r1'];
+													}
+													 ?>
 													<div class="rating">
 														<ul>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
+															<?php for ($i=0;$i<$moy;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
+															<?php } for ($i=$moy;$i<5;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
+															<?php }?>
 														</ul>
 													</div>
 												</div>

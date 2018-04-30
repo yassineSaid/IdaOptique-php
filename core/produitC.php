@@ -29,7 +29,7 @@ class ProduitManage
          }
         	else
         {
-           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=affichage-produit.php\">";
+           //echo "<meta http-equiv=\"refresh\" content=\"0;URL=ajout-produit.php\">";
         }
 		
 
