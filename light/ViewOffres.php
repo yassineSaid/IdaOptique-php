@@ -63,7 +63,15 @@
                 <div class="text-error"> <?php echo $row['produit_nom']?></div>
                 <div> <img src="<?php echo  "../mimosa/img/tsawer/".$row['nom'].".jpg" ?>" width="400" height="250" alt="product" class="primary"/>
                     <div></div>
-                 <div>   <a class="btn btn-success waves-effect waves-light" href="index.html"> PDF</a> </div>
+
+
+
+                 <div>  
+                    <form method="POST" action="offrePDF.php">
+                  <button class="btn btn-success waves-effect waves-light"> PDF  </button>  
+                 <input type="hidden" name="idoffre"  value="<?php echo $val['idOffre']?>" >
+                    </form>
+                  </div>
 
                 </div>
 
