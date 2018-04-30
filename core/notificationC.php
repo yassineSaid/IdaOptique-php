@@ -34,9 +34,9 @@ class NotificationC
                 echo 'Erreur: '.$e->getMessage();
             }
     }   
-    function supprimerPanier($id_client)
+    function updateNotification()
     {
-        $sql="TRUNCATE TABLE notification";
+        $sql="UPDATE notification SET statut='seen' where statut='unseen'";
         $db = config::getConnexion();
         $req=$db->prepare($sql);
         try{
@@ -46,6 +46,19 @@ class NotificationC
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
+    }
+    function countUnseen()
+    {
+        $sql="SELECT count(*) AS nbr From notification WHERE statut='unseen'";
+        $db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        $result=$liste->fetch();
+        return $result['nbr'];
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
     }
 }
 ?>
