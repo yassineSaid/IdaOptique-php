@@ -132,6 +132,10 @@
                                         $result=$comm->meilleureVente();
                                         $ventes=$comm->commandesCeMois();
                                         $ventes1=$comm->commandesMoisDernier();
+                                        if($ventes['total']==null)
+                                        {
+                                            $ventes['total']=0;
+                                        }
                                         $articles=$comm->articlesCeMois();
                                         if ($ventes1['total']>0)
                                             $augmentation=round((($ventes['total']-$ventes1['total'])/$ventes1['total'])*100);
