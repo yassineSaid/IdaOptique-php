@@ -114,15 +114,10 @@
 											<?php } $id=$_GET['id'];?>	
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 												<div class="user-share">
-													<span>Share:</span>
+													
 													<ul>
-														<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-														<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-														<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-														<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-														<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-														<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-														<li><a href="#"><i class="fa fa-reddit"></i></a></li>
+														<li><a href="supprimer-post.php?id=<?php echo $_GET['id']; ?>"><i>Supprimer</i></a></li>
+														<li><a href="modifier-post.php?id=<?php echo $_GET['id']; ?>"><i>Modifier</i></a></li>
 													</ul>
 												</div>
 											</div>		

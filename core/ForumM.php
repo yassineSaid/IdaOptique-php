@@ -92,8 +92,8 @@ public function ajouterPost($post)
       public function supprimerPost($id)
     {
          $db=config::getConnexion();
-        $sql=$db->prepare("DELETE FROM post WHERE id= :id");
-        if($req->execute())
+        $sql=$db->prepare("DELETE FROM post WHERE id= $id");
+        if($sql->execute())
                  echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum.php\">"; 
             else
                  echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum.php\">"; 
@@ -114,7 +114,7 @@ public function modifierPost($post,$id_post)
         $sql->bindValue(':categorie',$post->get_categorie());
         $sql->bindValue(':post',$post->get_post());
   
-      if($req->execute())
+      if($sql->execute())
                  echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum-detail.php?id=".$id_post."\">"; 
             else
                  echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum-detail.php?id=".$id_post."\">";  
