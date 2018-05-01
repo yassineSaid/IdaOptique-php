@@ -166,8 +166,15 @@
 											}
 											if (isset($_SESSION['id']))
 											{
+
+											if(!isset($_SESSION['google']))
+											{
+
 												echo $pan->calculPanier($_SESSION['id']);
 												$nb = $pan->calculPanier($_SESSION['id']);
+											 }
+											
+
 											}
 											else if (!isset($_SESSION['panier']))
 											{
