@@ -33,7 +33,6 @@
                                          
 
                                         require '../core/offremanage.php';
-                                       
                                         $off= new OffreManage();
                                         if (isset($_POST['idoffre']))
                                             $idoffre=$_POST['idoffre'];
@@ -90,7 +89,7 @@
 
                           
            
-                            <input type="hidden" name="lien" value="<?php echo 'http://localhost/code/light/ViewOffres.php?idoffre='.$_POST['idoffre'] ?>">
+                            <input type="hidden" name="lien" value="<?php echo 'http://localhost/code/light/ViewOffres.php?idoffre='.$_GET['idoffre'] ?>">
                             <input type="hidden" name="destination" value="<?php echo $to ?>">
                             <input type="hidden" name="link" value="http://localhost/code/light/ListeDesOffres.php">
                             <input type="hidden" name="objet" value="IDA-OPTIQUE|Newsletter">
