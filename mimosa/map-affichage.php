@@ -18,7 +18,7 @@
       $livraison= new LivraisonManage();
       $liste2=$livraison->afficher_livraison_id_commande($_GET['id_commande']);
       foreach ($liste2 as $row) { ?>
-      <input type="hidden" name="address" id="<?php echo "adresse" ?>" value='<?php echo $row['adresse1'] ?>'>
+      <input type="hidden" name="address" id="<?php echo "adresse" ?>" value='<?php echo $row['adresse1']." ".$row['ville']." ".$row['pays'] ?>'>
       <?php }?>
       <?php 
       include_once '../core/TrackingC.php';

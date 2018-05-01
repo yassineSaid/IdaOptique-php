@@ -247,7 +247,7 @@
         ykeys: ['visits'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
-        labels: ['Visits'],
+        labels: ['Produit'],
         // Disables line smoothing
         smooth: false,
         resize: true

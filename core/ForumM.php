@@ -29,11 +29,28 @@ public function ajouterPost($post)
         	
        
     } 
+    public function ajouterLike($id_post) 
+    {
+        $db=config::getConnexion();
+        
+        $req="UPDATE `post` SET `likes`= likes + 1 WHERE id=$id_post";
+
+
+         $sql=$db->prepare($req);
+      
+  
+      if($sql->execute())
+                 echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum.php\">"; 
+            else
+                 echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum.php\">";  
+          
+       
+    } 
     public function ajouterCommentaire($comment,$id_client,$id_post,$nom) 
     {
         $db=config::getConnexion();
         
-        $req="INSERT INTO `commentaire`( `nom`,`comment`, `date_com`, `id_client`, `id_post`) VALUES ($nom,:comment,now(),$id_client,$id_post)";
+        $req="INSERT INTO `commentaire`( `nom`,`comment`, `date_com`, `id_client`, `id_post`) VALUES ('$nom',:comment,now(),$id_client,$id_post)";
        
         $sql=$db->prepare($req);
         

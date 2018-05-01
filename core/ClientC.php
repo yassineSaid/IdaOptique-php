@@ -6,11 +6,6 @@ class ClientManage
 public function ajouterClient($client,$confirmationMail) 
     {
         $db=config::getConnexion();
-        /*$req="INSERT INTO client(id,nom,prenom,email,MotDePasse,pays,cite,telephone,fax,adresse,adresse2) values (:id, :nom, :prenom, :email, :motDePasse, :pays, :cite, :telephone, :fax, :adresse, :adresse2);";*/
-        
-        
- 
-   
     $req="INSERT INTO `client` (`nom`, `prenom`, `email`, `MotDePasse`,`pays`,`cite`,`zip`,`telephone`,`fax`,`adresse`,`adresse2`,`confirmationMail`,`status`) VALUES (:nom, :prenom, :email, :motDePasse, :pays, :cite,:zip, :telephone, :fax, :adresse, :adresse2, :confirmationMail, 0);";
 
         $sql=$db->prepare($req);
@@ -27,9 +22,6 @@ public function ajouterClient($client,$confirmationMail)
         $sql->bindValue(':adresse2',$client->get_adresse2());
         $sql->bindValue(':zip',$client->get_zip());
      $sql->bindValue(':confirmationMail',$confirmationMail);
-    
-     
-     
        if($sql->execute())
        {
         echo "<meta http-equiv='refresh' content='0;url=login-client-inter.php'>";
@@ -38,16 +30,26 @@ public function ajouterClient($client,$confirmationMail)
         
         else
             {echo "noo";}
-        /* catch(Exception $e) 
-         {
-            die ("erreur :".$e->getMessage());
-         }   */
+    } 
+public function ajouterClientGoogle($nom,$prenom,$google_id,$email) 
+    {
+        $db=config::getConnexion();
+    $req="INSERT INTO `client` (`nom`, `prenom`, `email`, `type`,`google_id`,`status`) VALUES (:nom, :prenom, :email, 'google', :google_id, 1);";
 
-
-
+        $sql=$db->prepare($req);
         
-       
-       
+        $sql->bindValue(':nom',$nom);
+        $sql->bindValue(':prenom',$prenom);
+        $sql->bindValue(':email',$email);
+        $sql->bindValue(':google_id',$google_id);
+       if($sql->execute())
+       {
+       // echo "<meta http-equiv='refresh' content='0;url=login-client-inter.php'>";
+
+       }
+        
+        else
+            {echo "noo";}
     } 
    public function afficherClients()
     {
@@ -57,6 +59,13 @@ public function ajouterClient($client,$confirmationMail)
         return $sql;
     
 
+    }
+   public function connexionGoogle($google_id)
+    {
+        $db=config::getConnexion();
+       $result ="SELECT id FROM client WHERE google_id=$google_id;";
+        $sql=$db->query($result);
+        return $sql;
     }
       public function supprimerClient()
     {
@@ -133,6 +142,20 @@ function recupererClient($id)
             die('Erreur: '.$e->getMessage());
         }
     }
+function recupererClientMail($email)
+    {
+        $db = config::getConnexion();
+        $sql="SELECT * from client where email='$email'";
+        
+        try{
+        $liste=$db->query($sql);
+        $result=$liste->fetch();
+        return $result['id'];
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
       function VerifierEmailConfirmation($id,$code)
     {
         $db = config::getConnexion();
@@ -151,14 +174,42 @@ function recupererClient($id)
       $q->bindParam(":id",$id);
       if($q->execute())
       {
-      header('Location: index.html');
+      header('Location: ../mimosa/login-client-inter.php');
       exit;
     }
     else
-    {
+    { 
         echo "erreur";
     }
   }
+   public function modifierPass($mdp,$id)
+    {
+        $sql="UPDATE `client` SET `MotDePasse`='$mdp' WHERE id= $id";
+       
+       
+        $db =config::getConnexion();
+       $req=$db->prepare($sql);
+
+       if ($req->execute())
+        
+        {
+            echo "<meta http-equiv='refresh' content='0;url=login-client-inter.php'>";
+        }
+        else 
+        {
+          echo "erreur";
+        }
+            
+           // header('Location: index.php');
+       // }
+        /*catch (Exception $e){
+            echo " Erreur ! ".$e->getMessage();
+   echo " Les datas : " ;
+  print_r($datas);
+        }*/
+        
+    
+    }
     
 }
 ?>

@@ -103,7 +103,7 @@ public function modifierAdmin($admin,$id)
         if ($req->execute())
         
         {
-             header("Refresh:2;url=affichage-admin-back.php");
+             header("Refresh:0;url=affichage-admin-back.php");
         }
         else 
         {
