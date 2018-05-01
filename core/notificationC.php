@@ -15,6 +15,57 @@ class NotificationC
             die('Erreur: '.$e->getMessage());
         } 
     }  
+    
+    function checkRdv ()
+    {
+        $sql="SELECT * From events where start_event=date(now())";
+        $db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+    }  
+    function checkRdvNotif ($link)
+    {
+        $sql="SELECT * From notification where link=$link";
+        $db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        if($liste->rowCount()>0)
+            return true;
+        else
+            return false;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+    }  
+    function ajouterRdvNotif()
+    {
+        $liste=NotificationC::checkRdv();
+        foreach ($liste as $value) 
+        {
+            if (!NotificationC::checkRdvNotif($value['id']))
+                NotificationC::ajouterNotificationRdv("Rendez-vous","Vous avez un rendez-vous aujourd\'hui","rdv",$value['id']);
+        }
+    }
+    function ajouterNotificationRdv($titre,$contenu,$type,$link)
+    {
+        $sql="INSERT into notification (titre,contenu,type,heure,link) values ('$titre','$contenu','$type',now(),'$link')";
+        $db = config::getConnexion();
+        try
+        {
+            $req=$db->prepare($sql);
+            $req->execute();
+        }
+            catch (Exception $e)
+            {
+                echo 'Erreur: '.$e->getMessage();
+            }
+    }
     function ajouterNotification($notification)
     {
         $sql="INSERT into notification (titre,contenu,type,heure,link) values (:titre,:contenu,:type,now(),:link)";

@@ -123,10 +123,12 @@
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Statistique </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Statistiques </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="chart-flot.php">Afficher les Statistiques</a></li>
-                                   
+                                    <li><a href="chart-flot.php">Visiteur</a></li>
+                                    <li><a href="chart-flot1.php">Client</a></li>
+                                    <li><a href="chart-flot2.php">Produit</a></li>
+                                
                                 </ul>
                             </li>
                           
