@@ -46,9 +46,9 @@ function supprimerNotification(view = '')
 }
 $('.right-bar-toggle').click(function()
 {
-	//setTimeout(function(){updateNotification();}, 3000);
+	setTimeout(function(){updateNotification();}, 3000);
 });
 $('#supprimer-notif').click(function()
 {
-	//supprimerNotification();
+	supprimerNotification();
 });
