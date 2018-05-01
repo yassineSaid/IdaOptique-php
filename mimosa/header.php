@@ -16,7 +16,7 @@
 							<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
 								<!-- logo-area-start -->
 								<div class="logo-area">
-									<a href="index.php"><img src="img/logo/1.png" width="50" height="50" alt="logo" /></a>
+									<a href="index.php"><img src="img/logo/IDA-OPTIQUE.jpg" width="120" height="200" alt="logo" /></a>
 								</div>
 								<!-- logo-area-end -->
 							</div>

@@ -159,6 +159,10 @@
                                         {
                                         	$result=$pro->afficherMarque($categorie,$_GET['marque']);
                                         }
+                                        else if(isset($_GET['forme']))
+                                        {
+                                        	$result=$pro->afficherForme($categorie,$_GET['forme']);
+                                        }
                                         else if (isset($_GET['filtre'])||isset($_POST['minPriceSel'])) {
                                         	if (isset($_GET['filtre'])) {
                                         $filtre=$pro->recupererFiltre($_GET['filtre']);
@@ -271,6 +275,10 @@
                                        if(isset($_GET['marque']))
                                         {
                                         	$result=$pro->afficherMarque($categorie,$_GET['marque']);
+                                        }
+                                        else if(isset($_GET['forme']))
+                                        {
+                                        	$result=$pro->afficherForme($categorie,$_GET['forme']);
                                         }
                                         else if (isset($_GET['filtre'])||isset($_POST['minPriceSel'])) 
                                         {
@@ -503,36 +511,26 @@
 								<!-- single-shop-start -->
 								<div class="single-shop mb-40">
 									<div class="Categories-title">
-										<h3>Size</h3>
+										<h3>Forme</h3>
 									</div>
+									<?php
+													
+													$forme=$prodC2->rechercherForme();
+													foreach ($forme as $f) {
+														
+													
+													 ?>
 									<div class="Categories-list">
 										<ul>
-											<li><a href="#">L (14)</a></li>
-											<li><a href="#">M (11)</a></li>
-											<li><a href="#">S (12)</a></li>
-											<li><a href="#">XL (14)</a></li>
-											<li><a href="#">XS (12)</a></li>
-											<li><a href="#">XXL (13)</a></li>
+											<li><a href="<?php echo "listeProduits.php?categorie=".$categorie."&page=".$page."&forme=".$f['produit_forme']?>"><?php echo $f['produit_forme']?></a></li>
 										</ul>
 									</div>
+									<?php } ?>
+
 								</div>
 								<!-- single-shop-end -->
 								<!-- single-shop-start -->
-								<div class="single-shop mb-40">
-									<div class="Categories-title">
-										<h3>Color</h3>
-									</div>
-									<div class="Categories-list">
-										<ul>
-											<li><a href="#">Black (12)</a></li>
-											<li><a href="#">Blue (10)</a></li>
-											<li><a href="#">Green (14)</a></li>
-											<li><a href="#">Grey (14)</a></li>
-											<li><a href="#">Red (12)</a></li>
-											<li><a href="#">White (13)</a></li>
-										</ul>
-									</div>
-								</div>
+							
 								<!-- single-shop-end -->
 							</div>
 							<!-- shop-left-area-end -->

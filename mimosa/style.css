@@ -275,7 +275,7 @@ body {
 /*  2.1  header-top-area
 /*----------------------------------------*/
 .logo-area {
-  margin-top: 26px;
+  margin-top: 18px;
 }
 .menu-area ul li{
 	display:inline-block;
@@ -919,6 +919,10 @@ color: #fff;
 }
 .product-wrapper .product-img a img,.product-wrapper-2 .product-img a img{
 	width:100%;
+	max-height: 137px; 
+	max-width: 258px;
+	height: 137px; 
+	width: 258px;
 }
 .product-wrapper .product-img a .secondary,.product-wrapper-2 .product-img-2 a .secondary{
 	left: 0;

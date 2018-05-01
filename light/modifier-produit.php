@@ -32,7 +32,7 @@
                                     function verif()
                                     {
                                     var verif=0;
-                                        if(parseInt(window.document.produit.prix.value)!=(window.document.produit.prix.value))
+                                        /*if(parseInt(window.document.produit.prix.value)!=(window.document.produit.prix.value))
                                             {
 
                                          document.produit.prix.style.borderColor="red";
@@ -43,7 +43,7 @@
 
                                          document.produit.prix.style.borderColor="#e5e5e5";
                                         
-                                    }
+                                    }*/
 
                                     if(parseInt(window.document.produit.quantite.value)!=(window.document.produit.quantite.value))
                                     {

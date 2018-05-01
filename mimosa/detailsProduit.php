@@ -329,7 +329,7 @@
 												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="primary"/>
 												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
-											<span class="sale">sale</span>
+											
 											<div class="product-icon">
 												<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
 												<a href="#" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
