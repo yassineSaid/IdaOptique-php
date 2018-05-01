@@ -16,7 +16,7 @@
                         <h5><a href="#">Admin</a> </h5>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="#" >
+                                <a href="modifierProfil.php" >
                                     <i class="mdi mdi-settings"></i>
                                 </a>
                             </li>
@@ -42,7 +42,8 @@
                             {
 
                                ?>
- <li class="has_sub">
+                            <?php if ($_SESSION['type']=="superuser"){ ?>
+                            <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-donut-variant"></i><span> Gestion des admins </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="ajout-admin.php">Ajouter un admin</a></li>
@@ -50,6 +51,12 @@
                                     
                                 </ul>
                             </li>
+                            <?php } ?>
+                            <li class="has_sub">
+                                <a href="affichage-clients-back.php" class="waves-effect"><i class="mdi mdi-chart-donut-variant"></i><span> Gestion des clients</span> <span class="menu-arrow"></span></a>
+                                
+                            </li>
+
 
                             <?php } ?>
                             <li class="has_sub">

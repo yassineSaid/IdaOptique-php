@@ -73,7 +73,7 @@ function temps_ecoule($date,$type) {
     $Annees = date('Y',$Ecart)-1970;
     $Mois = date('m',$Ecart)-1;
     $Jours = date('d',$Ecart)-1;
-    $Heures = date('H',$Ecart);
+    $Heures = date('H',$Ecart)-1;
     $Minutes = date('i',$Ecart);
     $Secondes = date('s',$Ecart);
     if($Annees > 0) {

@@ -1,7 +1,8 @@
-
+<?php include 'session.php' ?>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
@@ -16,13 +17,13 @@
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
         <script src="assets/js/modernizr.min.js"></script>
-</head>
-<body class="fixed-left">
+
+    </head>
 
 
+    <body class="fixed-left">
 
-
- <!-- Begin page -->
+        <!-- Begin page -->
         <div id="wrapper">
 
             <!-- Top Bar Start -->
@@ -45,7 +46,7 @@
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                                <h4 class="page-title">Admin</h4>
+                                <h4 class="page-title">Form Validation</h4>
                             </li>
                         </ul>
 
@@ -98,97 +99,69 @@
             <!-- ============================================================== -->
             <div class="content-page">
                 <!-- Start content -->
-
                 <div class="content">
                     <div class="container-fluid">
+                        <?php 
+                            include_once '../core/AdminM.php';
+                            $admin=new AdminManage();
+                            $list=$admin->recupererAdmin($_SESSION['id_admin']);
+                            $result=$list->fetch();
+                        ?>
+
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-xl-6">
                                 <div class="card-box">
-                                    <h4 class="m-t-0 header-title"><b>Modifier un admin</b></h4>
-                                    
 
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="p-20">
+                                    <h4 class="header-title m-t-0 m-b-30">Basic Form</h4>
 
-                                       <?php
-                include "../Core/AdminM.php";
-                $AdminManage=new AdminManage();
-$result=$AdminManage->recupererAdmin($_GET['id']);
-foreach($result as $row)
-{
-
-                ?>
-
-                                                <form class="form-horizontal" role="form" action="modifier-admin.php" method="POST">
-                                                	<div class="form-group row">
-                                                     
-                                                        <div class="col-10">
-                                                            <input type="hidden" class="form-control" name="id"  value="<?php echo $row['id']; ?>">
-                                                        </div>
-                                                    </div>
-                                                   <div class="form-group row">
-                                                        <label class="col-2 col-form-label" for="example-email">Nom</label>
-                                                        <div class="col-10">
-                                                            <input type="text" id="nom" name="nom" class="form-control" value="<?php echo $row['nom']; ?>" >
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Prenom</label>
-                                                        <div class="col-10">
-                                                            <input type="text" class="form-control" name="prenom" value="<?php echo $row['prenom']; ?>">
-                                                        </div>
-                                                    </div>
-                                                      <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Pseudo</label>
-                                                        <div class="col-10">
-                                                            <input type="text" class="form-control" name="pseudo" value="<?PHP echo $row['pseudo']; ?>">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label class="col-2 col-form-label">E-mail</label>
-                                                        <div class="col-10">
-                                                            <input type="email" class="form-control" name="email" value="<?PHP echo $row['email']; ?>">
-                                                        </div>
-                                                    </div>
-                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Mot de passe</label>
-                                                        <div class="col-10">
-                                                            <input type="password" class="form-control" name="MotDePasse" value="<?PHP echo $row['MotDePasse']?>">
-                                                        </div>
-                                                    </div>
-                                                   
-                                                
-
-
-                                                    
-                                                        
-                                                   
-                        <!-- end row -->
-
-
-                     
-                                                <?php	}
-												?>
-                                                 <div class="form-group mb-0 justify-content-end row">
-                                            <div class="col-9">
-                                                <button type="submit" name="modif" value="Modifier" class="btn btn-info waves-effect waves-light">Modifier</button>
-                                            </div>
+                                    <form action="modifier-admin.php" method="POST" data-parsley-validate novalidate>
+                                        <div class="form-group">
+                                            <label for="userName">User Name*</label>
+                                            <input type="text" parsley-trigger="change" required
+                                                   placeholder="Enter user name" class="form-control" id="userName" name="pseudo" value="<?php echo $result['pseudo'] ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="userName">Nom</label>
+                                            <input type="text" parsley-trigger="change" required
+                                                   placeholder="Enter user name" class="form-control" id="nom" name="nom" value="<?php echo $result['nom'] ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="userName">Prenom</label>
+                                            <input type="text" parsley-trigger="change" required
+                                                   placeholder="Enter user name" class="form-control" id="prenom" name="prenom" value="<?php echo $result['prenom'] ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="emailAddress">Email address*</label>
+                                            <input type="email" name="email" parsley-trigger="change" required
+                                                   placeholder="Enter email" class="form-control" id="emailAddress" name="email" value="<?php echo $result['email'] ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pass1">Password*</label>
+                                            <input id="pass1" placeholder="Password" required
+                                                   class="form-control" name="MotDePasse" value="<?php echo $result['MotDePasse'] ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="passWord2">Confirm Password *</label>
+                                            <input data-parsley-equalto="#pass1" type="password" required
+                                                   placeholder="Password" class="form-control" id="passWord2" name="MotDePasse" value="<?php echo $result['MotDePasse'] ?>">
+                                        </div>
+                                        <input type="hidden" name="id" value="<?php echo $_SESSION['id_admin'] ?>">
+                                        <div class="form-group text-right m-b-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                Submit
+                                            </button>
+                                            <button type="reset" class="btn btn-secondary waves-effect waves-light m-l-5">
+                                                Cancel
+                                            </button>
                                         </div>
 
                                     </form>
-                                    
-                               
                                 </div>
-                            </div>
-
+                            </div><!-- end col -->
                         </div>
                         <!-- end row -->
 
-
-                        
                     </div> <!-- container -->
 
                 </div> <!-- content -->
@@ -225,12 +198,20 @@ foreach($result as $row)
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
 
+        <!-- Validation js (Parsleyjs) -->
+        <script type="text/javascript" src="assets/plugins/parsleyjs/dist/parsley.min.js"></script>
+
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
         <script src="assets/js/notification.js"></script>
 
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('form').parsley();
+            });
+        </script>
 
 
-</body>
+    </body>
 </html>
