@@ -22,7 +22,7 @@
 
     <body>
 
-
+<form method="post" action="envoyer-mail1.php">
 
         <div ></div>
         <div class="clearfix"></div>
@@ -78,19 +78,28 @@
 
                     $db = config::getConnexion();
                     $req = $db->query("SELECT email from client ");
-                    $donnees = $req->fetch();
-                    $to=$donnees['email'];
+                    $donnees = $req->fetchAll();
+                    $to='';
+                    foreach ($donnees as $key => $value) {
+                        $to.=$value['email'].",";
+
+                    
+                    
                     /*$header='Content-type: text/html; charset=iso-8859-1 From :contact.zaytatn@gmail.com';
                     mail($to, 'IDA-OPTIQUE|Newsletter', '$string',$header);*/?>
 
                           
-           <form method="post" action="envoyer-mail1.php">
+           
                             <input type="hidden" name="lien" value="<?php echo 'http://localhost/code/light/ViewOffres.php?idoffre='.$_POST['idoffre'] ?>">
                             <input type="hidden" name="destination" value="<?php echo $to ?>">
                             <input type="hidden" name="link" value="http://localhost/code/light/ListeDesOffres.php">
                             <input type="hidden" name="objet" value="IDA-OPTIQUE|Newsletter">
-                            <button value="confirmer" id="confirmer"></button>
-                        </form>
+
+                        <?php } ?>
+                            <input type="submit" name="confirmer">
+                           <!-- <button value="confirmer" id="confirmer"></button>-->
+
+
                  <?php }} ?>
 
             </div>
@@ -113,6 +122,6 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
-	
+	</form>
 	</body>
 </html>

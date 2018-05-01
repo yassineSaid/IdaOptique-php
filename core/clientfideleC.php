@@ -19,6 +19,15 @@ Class ClientfideleC
                             $id=$donnees['id_client'];
 
 
+                            if ($count<300)
+                            {
+                              $code=0;
+                              $pourcentage=0;
+                              $validite=0;
+
+                            }
+
+
                             if (($count>300) and ($count<500))
 
                               {
@@ -31,9 +40,12 @@ Class ClientfideleC
                                           foreach($liste as $val) 
                                           {
                                              $code=$val['codePromo'] ;
-                                             $pourcentage=$val['pourcentage'] ;                                          }
+                                             $pourcentage=$val['pourcentage'] ;
+                                          }
+                                          $validite=1;
 
                                }
+
                                if  (($count>500) and ($count<700))
                               {
 
@@ -45,8 +57,10 @@ Class ClientfideleC
                                           foreach($liste as $val) 
                                           {
                                              $code=$val['codePromo'] ;
-                                             $pourcentage=$val['pourcentage'] ;   
+                                             $pourcentage=$val['pourcentage'] ;  
+                                            
                                           }
+                                          $validite=1;
 
                                }
                                if (($count>700) and ($count<900))
@@ -61,8 +75,10 @@ Class ClientfideleC
                                           foreach($liste as $val) 
                                           {
                                              $code=$val['codePromo'] ;
-                                             $pourcentage=$val['pourcentage'] ;   
+                                             $pourcentage=$val['pourcentage'] ; 
+
                                           }
+                                          $validite=1;
 
                                }
 
@@ -81,10 +97,11 @@ Class ClientfideleC
                                              $code=$val['codePromo'] ;
                                              $pourcentage=$val['pourcentage'] ;   
                                           }
+                                          $validite=1;
 
                                }
 
-                  $validite=1;
+                  
                   $p="INSERT INTO clientfidele (id_client, codePromo, sum , count , pourcentage,  validite) VALUES ('$id' ,'$code','$count', '$nb',  '$pourcentage','$validite') ";
                                 $sql = $db->prepare($p);
                        
