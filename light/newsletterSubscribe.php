@@ -144,17 +144,6 @@
 
                                         </div>
 
-
-
-                                         <div class="form-group row">
-
-                                                        <label class="col-2 col-form-label">Image</label>
-                                                        <div class="col-10">
-                                                            <input type="file" name="image"  class="form-control">
-                                                        </div>
-                                          </div>
-
-
                    
                                       
                                         <div>

@@ -128,7 +128,7 @@
                       <?php 
                                     
                         $bdd=config::getConnexion();
-                        $q=$bdd->prepare("select DISTINCT (id_client) ,nom , prenom from commande ");
+                        $q=$bdd->prepare("SELECT DISTINCT(id_client),p.nom ,p.prenom FROM client p , commande p1 where p.id=p1.id_client");
                         $q->execute();
                         $listeClient=$q->fetchAll();
                        ?>
