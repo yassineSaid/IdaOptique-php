@@ -22,6 +22,8 @@
 
     <body>
 
+
+
         <div class="account-pages"></div>
         <div class="clearfix"></div>
         <div class="wrapper-page">
@@ -33,7 +35,12 @@
                                         require '../core/offremanage.php';
                                        
                                         $off= new OffreManage();
-                                        $idoffre=$_POST['idoffre'];
+                                        if (isset($_POST['idoffre']))
+                                            $idoffre=$_POST['idoffre'];
+                                        else if (isset($_GET['idoffre']))
+                                            $idoffre=$_GET['idoffre'];
+                                        else
+                                            die();
                                         $liste=$off->recupererOffre($idoffre);
 
 
@@ -53,38 +60,37 @@
                                         {
 
                                         ?>
-
+                <div><img src="https://image.ibb.co/h0KWOc/ida2.png"></div>
 
                 <h3 class="text-uppercase font-600">Offre Spéciale</h3>
-                <div class="text-error"> <?php echo $val['nom']?> </div>
+                <div class="text-error" size= 5px> <?php echo $val['nom']?> </div>
                 <h3 class="text-uppercase font-600">Vous avez une réduction de </h3>
-                <div class="logo"> <?php echo $val['pourcentage']?>% </div>
+                <div class="logo" size= 5px> <?php echo $val['pourcentage']?>% </div>
                 <h3 class="text-uppercase font-600">sur chaque commade du produit </h3>
-                <div class="text-error"> <?php echo $row['produit_nom']?></div>
-                <div> <img src="<?php echo  "../mimosa/img/tsawer/".$row['nom'].".jpg" ?>" width="400" height="250" alt="product" class="primary"/>
-                    <div></div>
-
-
-
-                 <div>  
-                    <form method="POST" action="offrePDF.php">
-                  <button class="btn btn-success waves-effect waves-light"> PDF  </button>  
-                 <input type="hidden" name="idoffre"  value="<?php echo $val['idOffre']?>" >
-                    </form>
-                  </div>
-
-                </div>
-
-                     
-
-
+                <div class="text-error" size= 5px> <?php echo $row['produit_nom']?></div>
+         
+                   
 
                 
+                
 
+                      <?php
 
-         
-            
+                    $db = config::getConnexion();
+                    $req = $db->query("SELECT email from client ");
+                    $donnees = $req->fetch();
+                    $to=$donnees['email'];
+                    /*$header='Content-type: text/html; charset=iso-8859-1 From :contact.zaytatn@gmail.com';
+                    mail($to, 'IDA-OPTIQUE|Newsletter', '$string',$header);*/?>
 
+                          
+           <form method="post" action="envoyer-mail1.php">
+                            <input type="hidden" name="lien" value="<?php echo 'http://localhost/code/light/ViewOffres.php?idoffre='.$_POST['idoffre'] ?>">
+                            <input type="hidden" name="destination" value="<?php echo $to ?>">
+                            <input type="hidden" name="link" value="http://localhost/code/light/ListeDesOffres.php">
+                            <input type="hidden" name="objet" value="IDA-OPTIQUE|Newsletter">
+                            <button value="confirmer" id="confirmer"></button>
+                        </form>
                  <?php }} ?>
 
             </div>
