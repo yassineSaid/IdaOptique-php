@@ -175,7 +175,13 @@
                                                                 <input type="hidden" name="objet" value="Livraison">
                                                                 <input type="hidden" name="link" value="http://localhost/code/light/afficher-livraison.php" >
                                                                 <input type="hidden" name="contenu" value="votre livraison sera livré le <?php echo $row['date_livraison'] ?>">
-                                                                    <button type='submit'  class="btn btn-inverse waves-effect waves-light m-b-5">email</a></p> </td>
+                                                                    <button type='submit'  class="btn btn-inverse waves-effect waves-light m-b-5">email</button></p> 
+                                                                    </form>
+                                                                    <form method="post" action="sms2.php">
+                                                          <p align="center">
+                                                            
+                                                                <input type="hidden" name="id_commande" value="<?php echo $row['id_commande'] ?>">
+                                                                    <button type='submit'  class="btn btn-inverse waves-effect waves-light m-b-5">SMS</button></p> </td>
                                                                     </form>
 
                                         </tr>

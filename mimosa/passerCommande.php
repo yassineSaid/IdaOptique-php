@@ -64,7 +64,7 @@
         		}
         		else 
         		{
-        			document.commande.adresse.style.borderColor="e5e5e5";
+        			document.commande.adresse.style.borderColor="#e5e5e5";
         		}
         		if (window.document.commande.ville.value.length<3)
         		{
@@ -73,16 +73,16 @@
         		}
         		else
         		{
-        			document.commande.ville.style.borderColor="e5e5e5";
+        			document.commande.ville.style.borderColor="#e5e5e5";
         		}
-        		if (window.document.commande.zip.value.length<4)
+        		if ((window.document.commande.zip.value.length<4)|| (parseInt(window.document.commande.zip.value)!=(window.document.commande.zip.value) ))
         		{
         			document.commande.zip.style.borderColor="red";
         			v=1;
         		}
         		else
         		{
-        			document.commande.zip.style.borderColor="e5e5e5";
+        			document.commande.zip.style.borderColor="#e5e5e5";
         		}
         		if ((!window.document.commande.paiement[0].checked)&&(!window.document.commande.paiement[1].checked))
         		{
@@ -124,7 +124,7 @@
 	        		}
 	        		else 
 	        		{
-	        			document.commande.livraison_adresse1.style.borderColor="e5e5e5";
+	        			document.commande.livraison_adresse1.style.borderColor="#e5e5e5";
 	        		}
 	        		if (window.document.commande.livraison_ville.value.length<3)
 	        		{
@@ -133,16 +133,25 @@
 	        		}
 	        		else
 	        		{
-	        			document.commande.livraison_ville.style.borderColor="e5e5e5";
+	        			document.commande.livraison_ville.style.borderColor="#e5e5e5";
 	        		}
-	        		if (window.document.commande.livraison_code_postal.value.length<4)
+	        		if ((window.document.commande.livraison_code_postal.value.length<4)|| (parseInt(window.document.commande.livraison_code_postal.value)!=(window.document.commande.livraison_code_postal.value) ))
 	        		{
 	        			document.commande.livraison_code_postal.style.borderColor="red";
 	        			v=1;
 	        		}
 	        		else
 	        		{
-	        			document.commande.livraison_code_postal.style.borderColor="e5e5e5";
+	        			document.commande.livraison_code_postal.style.borderColor="#e5e5e5";
+	        		}
+	        		if (parseInt(window.document.commande.livraison_telephone.value)!=(window.document.commande.livraison_telephone.value))
+	        		{
+	        			document.commande.livraison_telephone.style.borderColor="red";
+	        			v=1;
+	        		}
+	        		else
+	        		{
+	        			document.commande.livraison_telephone.style.borderColor="#e5e5e5";
 	        		}
         		}
         		if (v==1)
@@ -347,67 +356,67 @@
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
 														<label>Nom <span class="required">*</span></label>										
-														<input type="text" name="livraison_nom" placeholder="">
+														<input type="text" name="livraison_nom" placeholder="votre nom...">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
 														<label>Prenom <span class="required">*</span></label>										
-														<input type="text" name="livraison_prenom" placeholder="">
+														<input type="text" name="livraison_prenom" placeholder="votre prénom...">
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="checkout-form-list">
 														<label>Societe</label>
-														<input type="text" name="livraison_societe" placeholder="">
+														<input type="text" name="livraison_societe" placeholder="votre societe...">
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="checkout-form-list">
 														<label>Addresse <span class="required">*</span></label>
-														<input type="text" name="livraison_adresse1"  placeholder="Street address">
+														<input type="text" name="livraison_adresse1"  placeholder="votre addresse...">
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="checkout-form-list">									
-														<input type="text" name="livraison_adresse2" placeholder="Apartment, suite, unit etc. (optional)">
+														<input type="text" name="livraison_adresse2" placeholder="">
 													</div>
 												</div>
 												<div class="col-lg-12">
 													<div class="checkout-form-list">
 														<label>Ville <span class="required">*</span></label>
-														<input type="text" name="livraison_ville"  placeholder="Town / City">
+														<input type="text" name="livraison_ville"  placeholder="votre ville...">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
 														<label>Region <span class="required">*</span></label>										
-														<input type="text" name="livraison_region"  placeholder="">
+														<input type="text" name="livraison_region"  placeholder="votre région...">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
 														<label>Code Postal <span class="required">*</span></label>										
-														<input type="text" name="livraison_code_postal"  placeholder="Postcode / Zip">
+														<input type="text" name="livraison_code_postal"  placeholder="votre code postal...">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
 														<label>Email <span class="required">*</span></label>										
-														<input type="email" name="livraison_email"  placeholder="">
+														<input type="email" name="livraison_email"  placeholder="votre adresse email...">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="checkout-form-list">
 														<label>Telephone  <span class="required">*</span></label>										
-														<input type="text" name="livraison_telephone"  placeholder="Postcode / Zip">
+														<input type="text" name="livraison_telephone"  placeholder="votre numéro de téléphone...">
 													</div>
 												</div>								
 											</div>
 											<div class="order-notes">
 												<div class="checkout-form-list">
 													<label>Order Notes</label>
-													<textarea placeholder="Notes about your order, e.g. special notes for delivery." rows="10" cols="30" id="checkout-mess" name="livraison_order_note"></textarea>
+													<textarea placeholder="" rows="10" cols="30" id="checkout-mess" name="livraison_order_note"></textarea>
 												</div>									
 											</div>
 										</div>													

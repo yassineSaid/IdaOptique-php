@@ -142,7 +142,7 @@
 											<div class="single-register">
 												
 													<label>Code Postal<span>*</span></label>
-													<input type="text" name="livraison_code_postal" value="<?php echo $row['code_postal']; ?>" placeholder="Postcode/zip"/>
+													<input type="text" name="livraison_code_postal" value="<?php echo $row['code_postal']; ?>" />
 											
 											</div>
 										</div>
@@ -150,7 +150,7 @@
 											<div class="single-register">
 												
 													<label>Note<span>*</span></label>
-													<textarea type="text" name="livraison_note" value="<?php echo $row['note']; ?>" placeholder="Postcode/zip"/></textarea>
+													<textarea type="text" name="livraison_note" value="<?php echo $row['note']; ?>" /></textarea>
 													<input type="hidden" name="id_commande" value="<?php echo $_GET['id_commande']; ?>"/>
 													<input type="hidden" name="id_client" value="<?php echo $row['id_client']; ?>"/>
 											
