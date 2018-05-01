@@ -1,6 +1,4 @@
-
- <?php  include 'session.php'; ?>
-
+<?php include_once "session.php"; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,9 +11,11 @@
 
         <title>Adminto - Responsive Admin Dashboard Template</title>
 
-
-        <!-- Sweet Alert css -->
-        <link href="assets/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+        <!-- DataTables -->
+        <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -24,45 +24,8 @@
 
         <script src="assets/js/modernizr.min.js"></script>
 
-
     </head>
 
-   <script type="text/javascript">
-       
-     //Ajax
-    /*    $('#ajax-alert').click(function () {
-            swal({
-                title: 'Numero Telephone',
-                input: 'Numero telephone',
-                showCancelButton: true,
-                confirmButtonText: 'Submit',
-                showLoaderOnConfirm: true,
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger m-l-10',
-                preConfirm: function (email) {
-                    return new Promise(function (resolve, reject) {
-                        setTimeout(function () {
-                            if (email === 'taken@example.com') {
-                                reject('This email is already taken.')
-                            } else {
-                                resolve()
-                            }
-                        }, 2000)
-                    })
-                },
-                allowOutsideClick: false
-            }).then(function (email) {
-                swal({
-                    type: 'success',
-                    title: 'Ajax request finished!',
-                    html: 'Submitted email: ' + email
-                })
-            })
-        });*/
-
-
-
-   </script>
 
     <body class="fixed-left">
 
@@ -74,7 +37,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo"><span>Admin<span>to</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="index.html" class="logo"><span>Client<span>to</span></span><i class="mdi mdi-layers"></i></a>
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -89,7 +52,7 @@
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                                <h4 class="page-title">Liste des offres</h4>
+                                <h4 class="page-title">Clients</h4>
                             </li>
                         </ul>
 
@@ -132,9 +95,7 @@
 
 
             <!-- ========== Left Sidebar Start ========== -->
-           
-           <?php  include 'left-bar.php'; ?>
-           
+           <?php include_once 'left-bar.php'; ?>
             <!-- Left Sidebar End -->
 
 
@@ -146,107 +107,67 @@
                 <!-- Start content -->
                 <div class="content">
                     <div class="container-fluid">
-                        
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box table-responsive">
-                                    <h4 class="m-t-0 header-title"><b></b></h4> 
-
+                                    <h4 class="m-t-0 header-title"><b>Affichage de clients</b></h4>
                                     <?php
-                                         
+										require '../Core/ClientC.php';
+										$c=new ClientManage();
+										$val=$c->afficherClients();
 
-                                        require '../core/offremanage.php';
-                                       
-                                        $off= new OffreManage();
-                                        $liste=$off->afficherOffre();
-
-                                    ?>
-                                    
-                                                                    
-                                    <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
-
+									?>
+										                                    
+                                    <table id="datatable" class="table table-bordered">
+                                    	
                                         <thead>
                                         <tr>
-                                            <th>ID_Offre</th>
-                                            <th>Nom d'Offre</th>
-                                            <th>ID_Produit</th>
-                                            <th>Pourcentage de la remise</th>
-
+                                            <th>ID</th>
+                                            <th>Nom</th>
+                                            <th>Prenom</th>
+                                            <th>email</th>
+                                            <th>Mot de passe</th>
+                                            <th>pays</th>
+                                            <th>cite</th>
+                                            <th>telephone</th>
+                                            <th>fax</th>
+                                            <th>code postal</th>
+                                            <th>adresse</th>
+                                            <th>adresse2</th>
+                                           
+                                         
                                         </tr>
                                         </thead>
-
-
-                                        <tbody>
-                                            <?php
-                                    foreach ($liste as $val) 
-                                    {?>
+                                          <tbody>
+                                        	<?php 
+                                    	foreach ($val as $row) {?>
+                                      
+                                        
                                         <tr>
+                                            <td><?php echo $row['id']?></td>
+                                            <td><?php echo $row['nom']?></td>
+                                            <td><?php echo $row['prenom']?></td>
+                                            <td><?php echo $row['email']?></td>
+                                            <td><?php echo $row['MotDePasse']?></td>
+                                            <td><?php echo $row['pays']?></td>
+                                            <td><?php echo $row['cite']?></td>
+                                            <td><?php echo $row['telephone']?></td>
+                                            <td><?php echo $row['fax']?></td>
+                                            <td><?php echo $row['zip']?></td>
+
+                                            <td><?php echo $row['adresse']?></td>
+                                             <td><?php echo $row['adresse2']?></td>
                                             
-                                            <td> <?php echo $val['idOffre']?> </td>
-                                            <td> <?php echo $val['nom']?> </td>
-                                            <td> <?php echo $val['produit_id']?> </td>
-                                            <td> <?php echo $val['pourcentage']?> </td>
+                         <?php  echo "<td><a href=supprimerClient.php?id=".$row['id']."><button type='button' class='btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5'>Supprimer</button></td>"; ?>
 
-
-
-                                             <td> 
-                                                <form method="POST" action="apismsphp.php">
-                                           
-                                             <button  class="btn btn-icon waves-effect waves-light btn-success m-b-5" id="ajax-alert" > <i class="fa fa-envelope-o m-r-5"></i>  SMS </button> 
-
-                                             <input type="hidden" name="idoffre"   value="<?php echo $val['idOffre']?>" >
-
-                                                 </form>
-
-                                            </td>
-
-
-                                            <td>
-
-                                            <form method="POST" action="ViewOffres.php">
-
-                                                <button  class="btn btn-secondary waves-effect m-b-5">  <i class="fa fa-rocket m-r-5"></i>  view </button>
-
-                                                <input type="hidden" name="idoffre"   value="<?php echo $val['idOffre']?>">
-                                                
-                                            </form>
-                                           
-                                            </td>
-
-
-
-
-                                            <td>
-                                             <a href="ModifierOffre.php?id=<?php echo $val['idOffre'] ; ?>">
-                                                    
-                                            <button  class="btn btn-icon waves-effect waves-light btn-warning m-b-5">  <i class="fa fa-wrench"></i>  </button>
-
-                                            </td>
-                                                   
-
-                                               <?php  echo "<td><a href=supprimerOffre.php?idOffre=".$val['idOffre']."><button type='button' class='btn btn-icon waves-effect waves-light btn-danger m-b-5'><i class='fa fa-remove'></i></button></td>"; ?>
-
-                                       
-                                        </tr>
                                             <?php } ?>
+                                        </tr>
                                         </tbody>
-                                    </table>
-                                    
 
-                                 </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
 
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-                <footer class="footer text-right">
-                    2016 - 2018 © Adminto. Coderthemes.com
-                </footer>
-
-            </div>
+                                        
+          
 
 
             <!-- ============================================================== -->
@@ -274,10 +195,28 @@
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
 
+        <!-- Required datatable js -->
+        <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Buttons examples -->
+        <script src="assets/plugins/datatables/dataTables.buttons.min.js"></script>
+        <script src="assets/plugins/datatables/buttons.bootstrap4.min.js"></script>
+        <script src="assets/plugins/datatables/jszip.min.js"></script>
+        <script src="assets/plugins/datatables/pdfmake.min.js"></script>
+        <script src="assets/plugins/datatables/vfs_fonts.js"></script>
+        <script src="assets/plugins/datatables/buttons.html5.min.js"></script>
+        <script src="assets/plugins/datatables/buttons.print.min.js"></script>
+        <!-- Responsive examples -->
+        <script src="assets/plugins/datatables/dataTables.responsive.min.js"></script>
+        <script src="assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
+
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
         <script src="assets/js/notification.js"></script>
+
+        
+
 
     </body>
 </html>
