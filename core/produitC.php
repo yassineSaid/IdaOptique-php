@@ -299,6 +299,20 @@ public function afficherProduitCategorie($cat,$page)
 		$sql=$db->query($req);
 		return $sql;
 	}
+	public function rechercherForme()
+	{
+		$db=config::getConnexion();
+		$req="SELECT DISTINCT produit_forme from produit";
+		$sql=$db->query($req);
+		return $sql;
+	}
+	public function afficherForme($cat,$forme)
+	{
+		$db=config::getConnexion();
+		$req="SELECT * from produit p,images i where p.produit_forme='$forme' and p.produit_categorie LIKE '$cat' and i.produit_id=p.produit_id and i.type='principal'";
+		$sql=$db->query($req);
+		return $sql;
+	}
 
 
 
