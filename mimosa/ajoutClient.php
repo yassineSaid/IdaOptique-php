@@ -37,7 +37,7 @@ $header='Content-type: text/html; charset=iso-8859-1 From :contact.zaytatn@gmail
                         <br>
                         <br>
                         <br>
-                        <font color =#E9383F size= 2px><a href="http://127.0.0.1//code//mimosa/confirmation.php?code='.$confirmationMail.'"> Confirmer Mon Compte </a></font>
+                        <font color =#E9383F size= 2px><a href="http://127.0.0.1/code/mimosa/confirmation.php?id='.$cl->recupererClientMail($_POST['email']).'&code='.$confirmationMail.'"> Confirmer Mon Compte </a></font>
                     </div>
                   </body>
                 </html>';

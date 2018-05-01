@@ -76,7 +76,7 @@ foreach($result as $row)
 {
 
 				?>
-				<form method="post" action="modifier-client.php">
+				<form method="post" action="modifier-client.php" onsubmit="return verif(this)">
 				<div class="user-login-area">
 					<div class="container">
 						<div class="row">
@@ -103,7 +103,7 @@ foreach($result as $row)
 									
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="checkout-form-list">
-													<label>Email Address<span>*</span></label>
+													<label>Adresse Email<span>*</span></label>
 													<input type="text" name="email" value="<?php echo $row['email']; ?>" />
 											</div>
 										</div>
@@ -156,20 +156,20 @@ foreach($result as $row)
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="checkout-form-list">
-													<label>Zip<span>*</span></label>
-													<input type="text" name="zip" value="<?php echo $row['zip']; ?>" />
+													<label>Zip<span id="span_zip">*</span></label>
+													<input type="text" name="zip" id="zip" value="<?php echo $row['zip']; ?>" />
 											</div>
 										</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="checkout-form-list">
-													<label>Telephone<span>*</span></label>
-													<input type="text" name="telephone" value="<?php echo $row['telephone']; ?>" />
+													<label>Telephone<span id="span_telephone">*</span></label>
+													<input type="text" name="telephone" id="telephone" value="<?php echo $row['telephone']; ?>" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 											<div class="checkout-form-list">
-												<label>Fax<span>*</span></label>
-												<input type="text" name="fax" value="<?php echo $row['fax']; ?>" />
+												<label>Fax<span id="span_fax">*</span></label>
+												<input type="text" name="fax" id="fax" value="<?php echo $row['fax']; ?>" />
 												
 											</div>
 										</div>
@@ -195,8 +195,8 @@ foreach($result as $row)
 										<?php 
 									}
 									?>
-									<div class="order-button-payment">
-												<input type="submit" name="modif" value="Modifier">
+									<div id="div1" class="order-button-payment">
+												<input type="submit" name="modif" onclick="verif()" id="div1" value="Modifier">
 											</div>
 									
 								</div>
@@ -286,5 +286,8 @@ foreach($result as $row)
         <script src="js/plugins.js"></script>
 		<!-- main js -->
         <script src="js/main.js"></script>
+        <script src="verif_inscrit.js"></script>
+
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </body>
 </html>

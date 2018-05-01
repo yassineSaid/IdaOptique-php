@@ -14,13 +14,13 @@ function StopEvent()
          
         if(data2==1)
         {
-           $("#enregistrer").prop("disabled",true);
+           $("#S'inscrire").prop("disabled",true);
 
 
         }
         else
         {
-             $("#enregistrer").prop("disabled",false);
+             $("#S'inscrire").prop("disabled",false);
         }
            
          }
@@ -393,7 +393,26 @@ x++;
     }
 
 
+function verif(event)
+    {
+    var y=fax()+mdp()+confirm()+telephone()+zip();
 
+        
+        
+        if(y==0)
+     {  $("#div1").fadeIn(3000);
+                    $("#div1").css({"display":"inherit"});
+                    setTimeout(function(){$("#div1").fadeOut(3000); }, 4000);
+      
+     
+
+     }    
+    else
+        {          
+                event.preventDefault();
+        }
+
+}
 
 
 
@@ -425,6 +444,6 @@ $("#notes").keyup(notes);
 
 $("#postal_code").keyup(postal_code);
 
-
+$("#submit").click(verif);
 
 });

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -33,10 +34,8 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-      
-
     </head>
-    <body class="register">
+    <body class="wishlist">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -46,7 +45,7 @@
 		<div id="page-wraper">
 			<!-- header-area-start -->
 			<header>
-				<?php include 'header.php'; ?>
+				<?php  include 'header.php'; ?>
 			</header>
 			<!-- header-area-end -->
 			<!-- breadcrumbs-area-start -->
@@ -55,10 +54,10 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="breadcrumb-content text-center">
-								<h2>register</h2>
+								<h2>Comparateur</h2>
 								<ul>
 									<li><a href="#">Home /</a></li>
-									<li class="active"><a href="#">register</a></li>
+									<li class="active"><a href="#">Comparateur</a></li>
 								</ul>
 							</div>
 						</div>
@@ -66,64 +65,117 @@
 				</div>
 			</div>
 			<!-- breadcrumbs-area-end -->
-			
 			<!-- shop-main-area-start -->
 			<div class="shop-main-area">
-				<!-- user-login-area-start -->
-			
-				<form method="post" action="modifier-mdp.php" onsubmit="return verif(this)">
-					   <script src="verif_inscrit.js"></script>
-
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-				<div class="user-login-area">
+				<!-- cart-main-area-start -->
+				<div class="cart-main-area">
 					<div class="container">
 						<div class="row">
-					
-					
-						<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-									<div class="checkbox-form">						
-										
+							<div class="col-lg-12">
+								<div class="wishlist-content">
+									<form action="#">
+										<div class="wishlist-table table-responsive">
+											<?php 
+
+											require'../core/produitC.php'; 
+											//$cmp=new produitManage();
+											//$liste=$cmp->afficherComparateur();
+											?>
+											<table>
+												<thead>
+											
+													<tr>
+														
+														<th class="product-thumbnail">Image</th>
+														<th class="product-name">Categorie</th>
+														<th class="product-name">Marque</th>
+														<th class="product-name">Nom du produit</th>
+														<th class="product-name">Forme</th>
+														<th class="product-name">produit_couleur</th>														
+														<th class="product-price">Prix</th>
+														<th class="product-stock-stauts">Description</th>												
+														<th></th>
+														
+													</tr>
+												</thead>
+												<tbody>
+															
+
+											<?php $var=new produitManage();
+											$nbr_cmp=count($_SESSION['comparateur']['id_produit']);
+											if ($nbr_cmp>0){
+											for($i=0;$i<$nbr_cmp;$i++){
+												$liste2=$var->afficherProduitCmp($_SESSION['comparateur']['id_produit'][$i]);
+
+											foreach ($liste2 as $val) {?>
+
+													<tr>
+														
+														<td class="product-thumbnail"><a href="<?php echo "detailsProduit2.php?id=".$val['produit_id'] ?>"><img src="<?php echo "img/product/".$val['nom']; ?>" alt="man" /></a></td>
+														<td class="product-name"><?php echo $val['produit_categorie'];?></a></td>
+														<td class="product-price"><span class="amount"><?php echo $val['produit_marque'];?></span></td>
+														<td class="product-price"><span class="amount"><?php echo $val['produit_nom'];?></span></td>
+														<td class="product-price"><span class="amount"><?php echo $val['produit_forme'];?></span></td>
+														<td class="product-price"><span class="amount"><?php echo $val['produit_couleur'];?></span></td>
+														<td class="product-stock-status"><span class="wishlist-in-stock"><?php echo $val['produit_prix'];?></span></td>
+														<td class="product-add-to-cart" > <?php echo $val['produit_description'];?></td>													
+														
+                                            				<td> <a href="<?php echo "supprimer-comparateur.php?suppid=".$i; ?>" >
+                                            			<input class="fa fa-remove" type="button" value="x"></a></td>
+
+													</tr>
 													
-													<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/>
-										
-										
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="checkout-form-list">
-													<label>Mot de passe<span id="mdp_span">*</span></label>
-													<input type="text" name="MotDePasse" id="mdp"  />
-											</div>
+												</tbody>
+												 
+												<?php } }  }?>	
+												<tfoot>
+													<tr>
+														<td colspan="6">
+															<div class="wishlist-share">
+																<h4 class="wishlist-share-title">Share on:</h4>
+																<ul>
+																	<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+																	<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+																	<li><a class="pinterest" href="#"><i class="fa fa-dribbble"></i></a></li>
+																	<li><a class="googleplus" href="#"><i class="fa fa-google-plus"></i></a></li>
+																	<li><a class="email" href="#"><i class="fa fa-instagram"></i></a></li>
+																</ul>
+															</div>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="checkout-form-list">
-													<label>Confirmer Mot de passe<span id="mdpCs_span">*</span></label>
-													<input type="text" name="MotDePassec" id="ConfirmPass"  />
-											</div>
-										</div>
-									
-									</div>
-									
-									<div class="order-button-payment">
-												<input type="submit" name="modif" onclick="verif()" value="Modifier">
-											</div>
-									
+									</form>
 								</div>
 							</div>
-							
 						</div>
 					</div>
 				</div>
-				
-				</form>
-				
-			
-				<!-- user-login-area-end -->
-			
+				<!-- cart-main-area-end -->
+			</div>
 			<!-- shop-main-area-end -->
-			
 			<!-- newslatter-area-start -->
-			
+			<div class="newslatter-area pt-80">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="bt-top ptb-80">
+								<div class="newlatter-content text-center">
+									<h6>Special Offers For Subscribers</h6>
+									<h3>Ten Percent Member Discount</h3>
+									<p>Subscribe to our newsletters now and stay up to date with new collections, the latest lookbooks and exclusive offers.</p>
+									<form action="#">
+										<input type="text" placeholder="Enter your email address here..."/>
+										<button type="submit">Subscribe</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<!-- newslatter-area-end -->
-
 			<!-- footer-area-start -->
 			<footer>
 				<div class="footer-area ptb-40">
