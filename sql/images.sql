@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 26 avr. 2018 à 13:02
+-- Généré le :  mar. 01 mai 2018 à 21:44
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -38,58 +38,46 @@ CREATE TABLE IF NOT EXISTS `images` (
   `type` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_image`),
   KEY `produit_id` (`produit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=338 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=387 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `images`
 --
 
 INSERT INTO `images` (`id_image`, `url`, `nom`, `taille`, `produit_id`, `type`) VALUES
-(117, 'image/jpeg', 'image_116', 29732, 6060, 'secondaire'),
-(119, 'image/jpeg', 'image_118', 50432, 8202, 'secondaire'),
-(120, 'image/jpeg', 'image_118', 377844, 8202, 'secondaire'),
-(289, 'image/jpeg', 'image_289', 142688, 102040, 'secondaire'),
-(297, 'image/jpeg', 'image_297', 183752, 1414, 'principal'),
-(298, 'image/jpeg', 'image_298', 142688, 1414, 'secondaire'),
-(299, 'image/png', 'image_299', 147978, 1414, 'secondaire'),
-(300, 'image/jpeg', 'image_300', 175626, 102046, 'principal'),
-(301, 'image/jpeg', 'image_301', 68613, 102046, 'secondaire'),
-(302, 'image/jpeg', 'image_302', 4705, 102046, 'secondaire'),
-(303, 'image/jpeg', 'image_303', 142688, 102045, 'principal'),
-(304, 'image/png', 'image_304', 147978, 102045, 'secondaire'),
-(305, 'image/jpeg', 'image_305', 183752, 102045, 'secondaire'),
-(306, 'image/jpeg', 'image_306', 29732, 102048, 'principal'),
-(307, 'image/jpeg', 'image_307', 50432, 102048, 'secondaire'),
-(308, 'image/jpeg', 'image_308', 4705, 102048, 'secondaire'),
-(309, 'image/jpeg', 'image_309', 68613, 1940, 'principal'),
-(310, 'image/jpeg', 'image_310', 4705, 1940, 'secondaire'),
-(311, 'image/jpeg', 'image_311', 175626, 1940, 'secondaire'),
-(312, 'image/jpeg', 'image_312', 4972, 102043, 'principal'),
-(313, 'image/jpeg', 'image_313', 116059, 102043, 'secondaire'),
-(314, 'image/jpeg', 'image_314', 3618, 102043, 'secondaire'),
-(315, 'image/jpeg', 'image_315', 116059, 102047, 'principal'),
-(316, 'image/jpeg', 'image_316', 3618, 102047, 'secondaire'),
-(317, 'image/jpeg', 'image_317', 4972, 102047, 'secondaire'),
-(318, 'image/jpeg', 'image_318', 3618, 102044, 'principal'),
-(319, 'image/jpeg', 'image_319', 4972, 102044, 'secondaire'),
-(320, 'image/jpeg', 'image_320', 116059, 102044, 'secondaire'),
-(321, 'image/jpeg', 'image_321', 4705, 102049, 'principal'),
-(322, 'image/jpeg', 'image_322', 68613, 102049, 'secondaire'),
-(323, 'image/jpeg', 'image_323', 175626, 102049, 'secondaire'),
-(324, 'image/png', 'image_324', 4255, 2020, 'principal'),
-(325, 'image/jpeg', 'image_325', 68613, 2020, 'secondaire'),
-(326, 'image/jpeg', 'image_326', 3684, 2020, 'secondaire'),
-(327, 'image/jpeg', 'image_327', 116059, 102039, 'secondaire'),
-(328, 'image/jpeg', 'image_328', 116059, 102041, 'principal'),
-(329, 'image/jpeg', 'image_329', 3618, 102041, 'secondaire'),
-(330, 'image/jpeg', 'image_330', 4972, 102041, 'secondaire'),
-(331, 'image/png', 'image_331', 147978, 102042, 'principal'),
-(332, 'image/jpeg', 'image_332', 142688, 102042, 'secondaire'),
-(333, 'image/jpeg', 'image_333', 183752, 102042, 'secondaire'),
-(334, 'image/jpeg', 'image_334', 142688, 102039, 'principal'),
-(335, 'image/jpeg', 'image_335', 183752, 102039, 'secondaire'),
-(336, 'image/png', 'image_336', 147978, 102040, 'principal'),
-(337, 'image/jpeg', 'image_337', 183752, 102040, 'secondaire');
+(353, 'image/jpeg', 'image_353', 29503, 1, 'principal'),
+(354, 'image/jpeg', 'image_354', 25806, 1, 'secondaire'),
+(355, 'image/jpeg', 'image_355', 24827, 1, 'secondaire'),
+(356, 'image/jpeg', 'image_356', 24114, 2, 'principal'),
+(357, 'image/jpeg', 'image_357', 20894, 2, 'secondaire'),
+(358, 'image/jpeg', 'image_358', 18777, 2, 'secondaire'),
+(359, 'image/jpeg', 'image_359', 26588, 3, 'principal'),
+(360, 'image/jpeg', 'image_360', 23126, 3, 'secondaire'),
+(361, 'image/jpeg', 'image_361', 25164, 3, 'secondaire'),
+(362, 'image/jpeg', 'image_362', 21337, 4, 'principal'),
+(363, 'image/jpeg', 'image_363', 20004, 4, 'secondaire'),
+(364, 'image/jpeg', 'image_364', 18532, 4, 'secondaire'),
+(365, 'image/jpeg', 'image_365', 23999, 5, 'principal'),
+(366, 'image/jpeg', 'image_366', 21709, 5, 'secondaire'),
+(367, 'image/jpeg', 'image_367', 21115, 5, 'secondaire'),
+(368, 'image/jpeg', 'image_368', 24660, 6, 'principal'),
+(369, 'image/jpeg', 'image_369', 28029, 6, 'secondaire'),
+(370, 'image/jpeg', 'image_370', 20790, 6, 'secondaire'),
+(371, 'image/jpeg', 'image_371', 27207, 7, 'principal'),
+(372, 'image/jpeg', 'image_372', 21057, 7, 'secondaire'),
+(373, 'image/jpeg', 'image_373', 28314, 7, 'secondaire'),
+(374, 'image/jpeg', 'image_374', 35599, 8, 'principal'),
+(375, 'image/jpeg', 'image_375', 27798, 8, 'secondaire'),
+(376, 'image/jpeg', 'image_376', 28144, 8, 'secondaire'),
+(377, 'image/jpeg', 'image_377', 30693, 9, 'principal'),
+(378, 'image/jpeg', 'image_378', 29035, 9, 'secondaire'),
+(379, 'image/jpeg', 'image_379', 30208, 9, 'secondaire'),
+(380, 'image/jpeg', 'image_380', 25299, 10, 'principal'),
+(381, 'image/jpeg', 'image_381', 22423, 10, 'secondaire'),
+(382, 'image/jpeg', 'image_382', 24891, 10, 'secondaire'),
+(383, 'image/jpeg', 'image_383', 13822, 11, 'principal'),
+(384, 'image/jpeg', 'image_384', 13544, 11, 'secondaire'),
+(385, 'image/jpeg', 'image_385', 24067, 11, 'secondaire');
 
 --
 -- Contraintes pour les tables déchargées

@@ -55,6 +55,8 @@ $M3->ajouter_image($_FILES['image3']['type'],$_FILES['image3']['name'],$_FILES['
 /*$M->upload_image_url($im);*/
 //$M->ajouter_image();
 
+echo "<meta http-equiv='refresh' content='0;url=affichage-produit.php'>";
+
          
 
 

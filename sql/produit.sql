@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 26 avr. 2018 à 13:01
+-- Généré le :  mar. 01 mai 2018 à 21:44
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `produit_description` varchar(80) NOT NULL,
   `produit_forme` varchar(30) DEFAULT NULL,
   `produit_couleur` varchar(20) DEFAULT NULL,
-  `produit_prix` int(11) NOT NULL,
+  `produit_prix` double(11,3) NOT NULL,
   `produit_qte` int(11) NOT NULL,
   `produit_date_ajout` varchar(80) NOT NULL,
   `produit_date_modification` varchar(80) NOT NULL,
@@ -49,23 +49,17 @@ CREATE TABLE IF NOT EXISTS `produit` (
 --
 
 INSERT INTO `produit` (`produit_id`, `produit_marque`, `produit_categorie`, `produit_nom`, `produit_description`, `produit_forme`, `produit_couleur`, `produit_prix`, `produit_qte`, `produit_date_ajout`, `produit_date_modification`) VALUES
-(123, NULL, 'solaire', 'selon', 'mouch normale', NULL, NULL, 760, 41, '30-03-2018 21:50:55', '02-04-2018 15:32:16'),
-(1414, 'police', 'solaire', 'G58578', 'test00', 'rectangulaire', 'Noir', 120, 2, '08-04-2018 13:55:37', '26-04-2018 12:25:17'),
-(1940, 'Gucci', 'optique', 'K857', 'lunette', 'Classique', 'Rouge', 150, 5, '08-04-2018 12:50:20', '26-04-2018 12:29:52'),
-(2020, 'Gucci', 'optique', 'U874', 'lunette', 'Ronde/Ovale', 'noir', 150, 5, '17-04-2018 11:16:31', '26-04-2018 12:34:53'),
-(6060, 'Police', 'solaire', 'fgh', 'ghj', 'rectangulaire', '', 5, 5, '04-04-2018 19:18:31', '17-04-2018 11:03:05'),
-(8202, 'ray ban', 'solaire', 'gh', 'hj', 'rectangulaire', '', 200, 30, '05-04-2018 12:51:48', '17-04-2018 10:04:58'),
-(102039, 'ray ban', 'solaire', 'G555', 'lunette', 'rectangulaire', 'rouge', 120, 5, '25-04-2018 16:08:52', '26-04-2018 12:44:39'),
-(102040, 'ray ban', 'solaire', 'G55502', 'lunette', 'rectangulaire', 'vert', 100, 20, '25-04-2018 16:13:08', '26-04-2018 12:47:21'),
-(102041, 'ray ban', 'solaire', 'G555', 'lunette', 'rectangulaire', 'noir', 100, 20, '25-04-2018 16:13:54', '26-04-2018 12:45:30'),
-(102042, 'ray ban', 'solaire', 'T4757', 'lunette', 'rectangulaire', 'bleue', 100, 20, '25-04-2018 16:14:07', '26-04-2018 12:45:12'),
-(102043, 'ray ban', 'solaire', 'Y854789', 'lunette', 'rectangulaire', 'rouge', 100, 20, '25-04-2018 16:14:35', '26-04-2018 12:44:16'),
-(102044, 'ray ban', 'solaire', 'G555648', 'lunette', 'rectangulaire', 'bleue', 100, 20, '25-04-2018 16:14:54', '26-04-2018 12:44:31'),
-(102045, 'ray ban', 'solaire', 'H8475', 'lunette', 'rectangulaire', 'bleu', 55, 20, '25-04-2018 16:15:22', '26-04-2018 12:47:38'),
-(102046, 'ray ban', 'optique', 'Y8745', 'lunette', 'Aviateur', 'rouge', 55, 5, '26-04-2018 00:51:53', '26-04-2018 12:26:10'),
-(102047, 'police', 'solaire', 'S8574', 'lunette', 'rectangulaire', 'Noir', 444, 4, '26-04-2018 00:56:17', '26-04-2018 12:32:12'),
-(102048, 'ray ban', 'optique', 'F4747', 'lunette', 'rectangulaire', 'bleu', 100, 5, '26-04-2018 01:25:17', '26-04-2018 12:44:01'),
-(102049, 'ray ban', 'optique', 'M147', 'lunette', 'rectangulaire', 'bleu', 100, 5, '26-04-2018 01:25:35', '26-04-2018 12:45:00');
+(1, 'Tom Ford', 'optique', 'FT5298', ' ', 'Ronde/Ovale', 'bleue', 198.200, 10, '01-05-2018 20:43:23', '01-05-2018 20:43:23'),
+(2, 'BOSS', 'optique', 'B0254', ' ', 'rectangulaire', 'noir', 220.300, 5, '01-05-2018 20:45:07', '01-05-2018 20:45:07'),
+(3, 'Ray-Ban', 'optique', 'RB245', '  ', 'Ronde/Ovale', 'marron', 184.500, 6, '01-05-2018 20:46:14', '01-05-2018 20:46:14'),
+(4, 'Miu Miu', 'optique', 'MM236', '  ', 'Cat Eyes', 'blanche', 202.400, 2, '01-05-2018 20:47:14', '01-05-2018 20:47:14'),
+(5, 'Calvin Klein', 'optique', 'CK201', ' ', 'Classique', 'marron', 340.100, 10, '01-05-2018 20:48:12', '01-05-2018 20:48:12'),
+(6, 'Oakley', 'optique', 'O6667', ' ', 'rectangulaire', 'bleue', 174.500, 3, '01-05-2018 20:49:03', '01-05-2018 20:49:03'),
+(7, 'Ray-Ban', 'solaire', 'RB6987', ' ', 'Ronde/Ovale', 'Doré', 165.400, 5, '01-05-2018 20:53:04', '01-05-2018 20:53:04'),
+(8, 'Tom Ford', 'solaire', 'TF8475', '  ', 'Cat Eyes', 'noir', 210.350, 4, '01-05-2018 20:53:57', '01-05-2018 20:53:57'),
+(9, 'Gucci', 'solaire', 'G754', ' ', 'Ronde/Ovale', 'marron', 250.310, 8, '01-05-2018 20:54:56', '01-05-2018 20:54:56'),
+(10, 'Carrera', 'solaire', 'C103', ' ', 'Classique', 'noir', 360.400, 10, '01-05-2018 20:55:41', '01-05-2018 20:55:41'),
+(11, 'Gucci', 'solaire', 'G9352', '  ', 'Ronde/Ovale', 'Doré', 280.620, 9, '01-05-2018 20:57:06', '01-05-2018 20:57:06');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

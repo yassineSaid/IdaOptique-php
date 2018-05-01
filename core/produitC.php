@@ -285,10 +285,10 @@ public function afficherProduitCategorie($cat,$page)
 		return $sql;
 	}
 
-	public function rechercherMarque()
+	public function rechercherMarque($cat)
 	{
 		$db=config::getConnexion();
-		$req="SELECT DISTINCT produit_marque from produit";
+		$req="SELECT DISTINCT produit_marque from produit where produit_categorie LIKE '$cat'";
 		$sql=$db->query($req);
 		return $sql;
 	}
@@ -299,10 +299,10 @@ public function afficherProduitCategorie($cat,$page)
 		$sql=$db->query($req);
 		return $sql;
 	}
-	public function rechercherForme()
+	public function rechercherForme($cat)
 	{
 		$db=config::getConnexion();
-		$req="SELECT DISTINCT produit_forme from produit";
+		$req="SELECT DISTINCT produit_forme from produit where produit_categorie LIKE '$cat'";
 		$sql=$db->query($req);
 		return $sql;
 	}
