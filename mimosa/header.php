@@ -102,14 +102,8 @@
 											if (isset($_SESSION['id']))
 											{
 
-											if(!isset($_SESSION['google']))
-											{
-
 												echo $pan->calculPanier($_SESSION['id']);
 												$nb = $pan->calculPanier($_SESSION['id']);
-											 }
-											
-
 											}
 											else if (!isset($_SESSION['panier']))
 											{
@@ -208,7 +202,7 @@
 														<li><a href="rendez-vous.php">Rendez-vous</a></li>
 														<li><a href="logout-client.php">Déconnexion</a></li>
 														<?php } else { ?>
-														<li><a href="ajout-client.php">Ajouter un compte</a></li>
+														<li><a href="ajout-client1.php">Ajouter un compte</a></li>
 														<li><a href="login-client-inter.php">Connexion</a></li>
 														<?php } ?>
 													</ul>

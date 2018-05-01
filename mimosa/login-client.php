@@ -14,7 +14,7 @@ if(empty($user) || empty($pass)) {
     $messeg = "email/MotDePasse con't be empty";
 } else {
     $sql = "SELECT id,email, MotDePasse FROM client WHERE email=? AND 
-  MotDePasse=? ";
+  MotDePasse=?";
 
     $query = $conn->prepare($sql);
     $query->execute(array($user,$pass));
