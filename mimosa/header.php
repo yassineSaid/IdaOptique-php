@@ -70,22 +70,29 @@
 											<li><a href="#">pages</a>
 												<ul class="sub-menu">
 													<li><a href="listeProduits.php">Shop</a></li>
-													<li><a href="contact.php">Contact</a></li>
-													<li><a href="reclamation-affiche.php">Ajouter Reclamation</a></li>
-													<li><a href="reclamation-affiche1.php">Afficher Reclamations</a></li>
-													<li><a href="rendez-vous.php">Rendez-vous</a></li>
+													
+										
+													
 													<li><a href="afficherPanier.php">Panier</a></li>
-													<?php if (count($_SESSION['panier']['id_produit'])>0) 
+													<?php 
+													if(isset($_SESSION['id']))
+													{
+														if (count($_SESSION['panier'])>0) 
 														{
 															?>
 													<li><a href="passerCommande.php">Check-out</a></li> 
 
-													<?php } ?>
+													<?php }} ?>
 													<?php
 														if(isset($_SESSION['id'])) { ?>
 													<li><a href="afficherFavoris.php">Favoris</a></li>
+													<li><a href="rendez-vous.php">Rendez-vous</a></li>
+													<li><a href="reclamation-affiche.php">Ajouter Reclamation</a></li>
+													<li><a href="reclamation-affiche1.php">Reclamations</a></li>
 													<?php } ?>
-													<li><a href="404.html">404</a></li>
+													
+													<li><a href="contact.php">Contact</a></li>
+												<!--	<li><a href="404.html">404</a></li> -->
 												</ul>
 											</li>
 										</ul>
