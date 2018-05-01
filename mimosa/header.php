@@ -62,13 +62,10 @@
 											</li>
 											
 											<li><a href="forum.php">Blog</a>
-												<ul class="sub-menu">
-													<li><a href="forum.php">blog</a></li>
-													<li><a href="forum-detail.php">blog details</a></li>
-												</ul>
+												
 											</li>
 											<li>
-												<a href="contact.php">Contacter Nous</a>
+												<a href="contact.php">Contactez Nous</a>
 											
 											</li>
 											
@@ -189,6 +186,8 @@
 										</li>
 										<li id="show-cart"><a href="#"><i class="icon ion-drag"></i></a>
 											<div class="shapping-area" id="hide-cart">
+												<?php
+														if(isset($_SESSION['id'])) { ?>
 												<div class="single-shapping mb-20">
 													<span>Reclamations</span>
 													<ul>
@@ -196,6 +195,7 @@
 														<li><a href="reclamation-affiche1.php">Mes reclamations</a></li>
 													</ul>
 												</div>
+												<?php } ?>
 												<div class="single-shapping">
 													<span>Mon compte</span>
 													<ul>
