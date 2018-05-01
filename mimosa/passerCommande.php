@@ -153,6 +153,15 @@
 	        		{
 	        			document.commande.livraison_telephone.style.borderColor="#e5e5e5";
 	        		}
+	        		if (window.document.commande.livraison_email.value.length<3)
+	        		{
+	        			document.commande.livraison_email.style.borderColor="red";
+	        			v=1;
+	        		}
+	        		else
+	        		{
+	        			document.commande.livraison_email.style.borderColor="#e5e5e5";
+	        		}
         		}
         		if (v==1)
         		{
