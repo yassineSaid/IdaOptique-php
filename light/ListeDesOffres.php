@@ -203,7 +203,7 @@
 
                                             <td>
 
-                                            <form method="POST" action="ViewOffres.php">
+                                            <form method="GET" action="ViewOffres.php">
 
                                                 <button  class="btn btn-secondary waves-effect m-b-5">  <i class="fa fa-rocket m-r-5"></i>  view </button>
 
