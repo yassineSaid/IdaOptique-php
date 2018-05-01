@@ -363,7 +363,7 @@
 														<div class="rating">
 															<ul>
 																<li class="new-price"><?php echo $row['produit_marque']?></li>
-																<li class="new-price"><?php echo $row['produit_prix']."  DT"?></li>
+																<li class="new-price rating"  align="right" style="color: black;font-size: 120%;"><?php echo $row['produit_prix']."  DT"?></li>
 															</ul>
 														</div>
 													</div>
@@ -500,7 +500,7 @@
 									</div>
 									<?php
 													
-													$marque=$prodC2->rechercherMarque();
+													$marque=$prodC2->rechercherMarque($_GET['categorie']);
 													foreach ($marque as $m) {
 														
 													
@@ -521,7 +521,7 @@
 									</div>
 									<?php
 													
-													$forme=$prodC2->rechercherForme();
+													$forme=$prodC2->rechercherForme($_GET['categorie']);
 													foreach ($forme as $f) {
 														
 													

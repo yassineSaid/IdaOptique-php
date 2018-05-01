@@ -281,13 +281,19 @@
 										<div class="product-content pt-20">
 											<div class="manufacture-product">
 												<a href="#"><?php echo $row['produit_categorie'] ?></a>
+												<?php $prodC=new ProduitManage();
+													$rate=$prodC->getRating($row['produit_id']);
+													foreach ($rate as $rate1) {
+														$moy=$rate1['r1'];
+													}
+													 ?>
 												<div class="rating">
 													<ul>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>
-														<li><a href="#"><i class="fa fa-star"></i></a></li>	
-														<li><a href="#"><i class="fa fa-star"></i></a></li>														
-														<li><a href="#"><i class="fa fa-star"></i></a></li>	
+														<?php for ($i=0;$i<$moy;$i++) {?>
+															<li><a href="<?php echo "index.php?id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
+															<?php } for ($i=$moy;$i<5;$i++) {?>
+															<li><a href="<?php echo "index.php?id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
+															<?php }?>
 													</ul>
 												</div>
 											</div>
