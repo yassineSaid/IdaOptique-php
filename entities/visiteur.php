@@ -2,14 +2,13 @@
 include_once "../config.php";
 class Visiteur
 {
-   private $ip,$country,$date;
+   private $ip,$country;
 
-function __construct($ip,$country,$date)
+function __construct($ip,$country)
  {
-		//$this->id=$id;
+		
         $this->ip=$ip;
         $this->country=$country;
-        $this->date=$date;
       
         
     }
@@ -21,11 +20,7 @@ function __construct($ip,$country,$date)
     {
         return $this->country;
     }   
-    public function get_date_visit() 
-    {
-        return $this->date;
-    }   
-    
+   
     
 }
 

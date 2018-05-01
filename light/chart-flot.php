@@ -18,6 +18,8 @@
 
         <script src="assets/js/modernizr.min.js"></script>
 
+        <link href="assets/css/morris.css" rel="stylesheet">
+        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
 
 
@@ -46,7 +48,7 @@
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                                <h4 class="page-title">Flot Charts</h4>
+                                <h4 class="page-title">Statistiques</h4>
                             </li>
                         </ul>
 
@@ -104,19 +106,39 @@
 
                       
                         <!-- end row -->
+                        <?php
+                        include_once  '../config.php';
+              // visits by day
+              $db=config::getConnexion();
+              //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+             //$PDO = Database::connect();
+             //$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+              $sql ="SELECT DATE_FORMAT(date_visit, '%Y-%m-%d') as daydate,count(*) as visits from visiteur /*WHERE visitdate >= (CURDATE() - INTERVAL 1 MONTH)*/ GROUP by daydate ORDER BY daydate ASC";
+              $stmt = $db->prepare($sql);
+              $stmt ->execute();
+              $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
+              $phpobj =json_encode($data);
+             //echo '<h4> Json Data </h4>';
+             // echo json_encode($data);
 
+              
+              ?>
                       
 
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card-box">
-                                    <h4 class="header-title m-t-0 m-b-30">Bar chart</h4>
-                                      <img src="stat.jpg">
-                                   
-
-                                    
-
-                                    <div id="ordered-bars-chart" style="height: 320px;"></div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="panel panel-default">
+                                          <div class="panel-heading">
+                                            <h3 class="panel-title"></i> Visiteur par jour  </h3>
+                                          </div>
+                                          <div class="panel-body">
+                                            <div id="morris-line-chart">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                 </div>
                             </div><!-- end col-->
 
@@ -176,5 +198,30 @@
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
+        <script src="assets/js/morris.min.js"></script>
+        <script src="assets/js/raphael.min.js"></script>
+        <script language="JavaScript" type="text/javascript">
+        $(function() {
+        var jsobj = <?php echo $phpobj; ?>;
+        // Line Chart
+        Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'morris-line-chart',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: jsobj,
+        // The name of the data record attribute that contains x-visits.
+        xkey: 'daydate',
+        // A list of names of data record attributes that contain y-visits.
+        ykeys: ['visits'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Visits'],
+        // Disables line smoothing
+        smooth: false,
+        resize: true
+        });
+        });
+        </script>
     </body>
 </html>
