@@ -1,4 +1,4 @@
- <?php  include 'session.php'; ?>
+
  <!DOCTYPE html>
 <html>
     <head>
@@ -95,8 +95,8 @@
                             <input type="hidden" name="objet" value="IDA-OPTIQUE|Newsletter">
 
                         <?php } ?>
-                            <input type="submit" name="confirmer">
-                           <!-- <button value="confirmer" id="confirmer"></button>-->
+                            
+                           <button value="confirmer" id="confirmer">Envoyer</button>
 
 
                  <?php }} ?>

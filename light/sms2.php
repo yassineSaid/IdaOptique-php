@@ -27,5 +27,5 @@ foreach ($result as $row){
 	$result = curl_exec($ch); 
 	echo($result);// This is the result from the API
 	curl_close($ch);
-//header("Location: afficher-livraison.php")
+header("Location: afficher-livraison.php")
 ?>
