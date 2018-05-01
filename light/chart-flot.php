@@ -110,9 +110,6 @@
                         include_once  '../config.php';
               // visits by day
               $db=config::getConnexion();
-              //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-             //$PDO = Database::connect();
-             //$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
               $sql ="SELECT DATE_FORMAT(date_visit, '%Y-%m-%d') as daydate,count(*) as visits from visiteur /*WHERE visitdate >= (CURDATE() - INTERVAL 1 MONTH)*/ GROUP by daydate ORDER BY daydate ASC";
               $stmt = $db->prepare($sql);
               $stmt ->execute();
@@ -131,14 +128,14 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="panel panel-default">
                                           <div class="panel-heading">
-                                            <h3 class="panel-title"></i> Visiteur par jour  </h3>
+                                            <h3 class="panel-title"></i> Nombre des visiteurs par jour  </h3>
                                           </div>
                                           <div class="panel-body">
                                             <div id="morris-line-chart">
                                             </div>
                                           </div>
                                         </div>
-                                      </div>
+                                    </div>
                                 </div>
                             </div><!-- end col-->
 

@@ -4,6 +4,7 @@
 if(isset($_POST['view']))
 {
     $noti=new NotificationC();
+    $noti->ajouterRdvNotif();
     $result=$noti->afficherNotifications();
     if ($noti->countUnseen()>0)
     {
@@ -26,6 +27,19 @@ if(isset($_POST['view']))
                             <a href="'.$row['link'].'" class="user-list-item">
                                 <div class="icon bg-info">
                                     <i class="mdi mdi-cart-outline"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">'.$row['titre'].'</span>
+                                    <span class="desc">'.$row['contenu'].'</span>
+                                    <span class="time">'.temps_ecoule($row['heure'],"date").'</span>
+                                </div>
+                            </a>
+                        </li>';}
+        else if ($row['type']=="rdv")
+        {$output .= '<li class="list-group-item '.$statut.'">
+                            <a href="'.$row['link'].'" class="user-list-item">
+                                <div class="icon bg-warning">
+                                    <i class="mdi mdi-timetable"></i>
                                 </div>
                                 <div class="user-desc">
                                     <span class="name">'.$row['titre'].'</span>

@@ -106,17 +106,26 @@
                         <?php
                         include_once  '../config.php';
               // visits by day
-              $db=config::getConnexion();
-              $sql ="SELECT cite as Cites,count(*) as Quantity from client GROUP by cite ORDER BY cite ASC LIMIT 5";
-              $stmt = $db->prepare($sql);
-              $stmt ->execute();
-              $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
-              $phpobj =json_encode($data);
-              //echo '<h4> Json Data </h4>';
-              //echo json_encode($data);
+           
+              $db = config::getConnexion();
+          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $sql ="SELECT produit_categorie as label,count(*) as value from produit GROUP by label ORDER BY value DESC LIMIT 5";
+          $stmt = $db->prepare($sql);
+          $stmt ->execute();
+          $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
+          $phpobj =json_encode($data);
+           $sql2 ="SELECT SUBSTRING(produit_date_ajout,1,10) as daydate,count(*) as visits from produit /*WHERE visitdate >= (CURDATE() - INTERVAL 1 MONTH)*/ GROUP by daydate ORDER BY daydate ASC";
+              $stmt2 = $db->prepare($sql2);
+              $stmt2 ->execute();
+              $data2=$stmt2->fetchAll(PDO::FETCH_ASSOC);
+              $phpobj1 =json_encode($data2);
+         //echo '<h4> Json Data </h4>';
+         // echo json_encode($data);
 
+        
               
               ?>
+              
                       
 
                       
@@ -127,10 +136,10 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="panel panel-default">
                                           <div class="panel-heading">
-                                            <h3 class="panel-title"></i> Nombre des Clients par Region  </h3>
+                                            <h3 class="panel-title"></i> Nombre des produits par category  </h3>
                                           </div>
                                           <div class="panel-body">
-                                            <div id="morris-bar-chart">
+                                            <div id="morris-donut-chart">
                                             </div>
                                           </div>
                                         </div>
@@ -140,6 +149,24 @@
 
                         </div>
                         <!-- end row -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card-box">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="panel panel-default">
+                                          <div class="panel-heading">
+                                            <h3 class="panel-title"></i> Nombre des Produits ajouter par jour  </h3>
+                                          </div>
+                                          <div class="panel-body">
+                                            <div id="morris-line-chart">
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end col-->
+
+                        </div>
 
                     </div> <!-- container -->
 
@@ -197,26 +224,36 @@
         <script src="assets/js/morris.min.js"></script>
         <script src="assets/js/raphael.min.js"></script>
         <script language="JavaScript" type="text/javascript">
-        $(function() {
-        var jsobj = <?php echo $phpobj; ?>;
-        // Bar Chart
-        Morris.Bar({
-        element: 'morris-bar-chart',
-        data: jsobj,
-        xkey: 'Cites',
-        ykeys: ['Quantity'],
-        labels: ['Nombre'],
-        // stacked : true,
-        
-        barRatio: 0.4,
-        xLabelAngle: 35,
-        hideHover: 'auto',
-        resize: true,
-        stacked:false,
-        barColors:['#d13c3e']
+       $(function() {
+    var jsobj = <?php echo $phpobj; ?>;
+    var jsobj1 = <?php echo $phpobj1; ?>;
+    // Donut Chart
+    Morris.Donut({
+    element: 'morris-donut-chart',
+    data:jsobj,
+
+    resize: true});
+
+        // Line Chart
+        Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'morris-line-chart',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: jsobj1,
+        // The name of the data record attribute that contains x-visits.
+        xkey: 'daydate',
+        // A list of names of data record attributes that contain y-visits.
+        ykeys: ['visits'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Visits'],
+        // Disables line smoothing
+        smooth: false,
+        resize: true
+    
+    });
         });
-        });
-        
         </script>
     </body>
 </html>
