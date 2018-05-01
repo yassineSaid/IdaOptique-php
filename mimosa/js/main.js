@@ -14,7 +14,10 @@ if ($(this).scrollTop() > 30){
     $('#sticky-header').removeClass("sticky");
   }
 }); 
-	
+$(document).ready(function()
+{
+	$('.footer-area').text("");
+});	
  
  /*----------------------------
  TOP Menu Stick-2

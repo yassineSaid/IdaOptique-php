@@ -82,10 +82,10 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="breadcrumb-content text-center">
-								<h2>shop</h2>
+								<h2>Magasin</h2>
 								<ul>
-									<li><a href="#">Home /</a></li>
-									<li class="active"><a href="#">shop</a></li>
+									<li><a href="index.php">Accueil /</a></li>
+									<li class="active"><a>Magasin</a></li>
 								</ul>
 							</div>
 						</div>
@@ -109,22 +109,15 @@
 										</ul>
 									</div>
 									<!-- tab-menu-end -->
-									<!-- toolbar-sorter-start -->
-									<div class="toolbar-sorter">
-										<select  class="sorter-options" data-role="sorter">
-											<option selected="selected" value="Lowest">Sort By: Default</option>
-											<option value="Highest">Sort By: Name (A - Z)</option>
-											<option value="Product">Sort By: Name (Z - A)</option>
-										</select>
-									</div>
-									<!-- toolbar-sorter-end -->
-									<!-- toolbar-sorter-2-start -->
+									
 									<div class="toolbar-sorter-2">
-										<select  class="sorter-options" data-role="sorter">
-											<option selected="selected" value="Lowest">Show: 9</option>
-											<option value="Highest">Show: 25</option>
-											<option value="Product">Show: 50</option>
-										</select>
+										
+                                     	<a href="comparer.php">
+                                        <input style="
+									    background: #ee3333;
+									    border-color: #ee3333;
+									    color: #fff;
+									" type="button" value="Aller au comparateur"></a>
 									</div>
 									<!-- toolbar-sorter-2-end -->
 								</div>
@@ -238,9 +231,9 @@
 														</ul>
 													</div>
 													<div class="price">
-									<ul>
-									<li class="new-price" style="color: red;font-size: 150%; font-weight: bold; padding-left: 440px"><?php echo $row['produit_prix'] ; echo "  DT"?></li>
-									</ul>
+													<ul>
+													<li align="right" class="new-price rating"  align="right" style="color: black;font-size: 150%;"><?php echo $row['produit_prix'] ; echo "  DT"?></li>
+													</ul>
 									
 
 								</div>
@@ -367,10 +360,10 @@
 															</div>
 														</div>
 														<h2><a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>"><?php echo $row['produit_nom']?></a></h2>
-														<div class="price">
+														<div class="rating">
 															<ul>
 																<li class="new-price"><?php echo $row['produit_marque']?></li>
-																<li class="new-price" style="color: blue;font-size: 100%; font-weight: bold;padding-left: 170px"><?php echo $row['produit_prix']."  DT"?></li>
+																<li class="new-price"><?php echo $row['produit_prix']."  DT"?></li>
 															</ul>
 														</div>
 													</div>

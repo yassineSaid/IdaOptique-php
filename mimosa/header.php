@@ -36,7 +36,7 @@
 											</li>
 											<li><a href="listeProduits.php?categorie=optique&page=1">Montures de vue</a>
 												<ul class="sub-menu">
-													<li><a href="#">Filtre de prix</a>
+													<li><a>Filtre de prix</a>
 														<ul class="sub-menu-2">
 															<li><a href="listeProduits.php?filtre=1&categorie=optique&page=1">de 0 a 150</a></li>
 															<li><a href="listeProduits.php?filtre=2&categorie=optique&page=1">de 151 a 300</a></li>
@@ -49,7 +49,7 @@
 											</li>
 											<li><a href="listeProduits.php?categorie=solaire&page=1">Monture Solaire</a>
 												<ul class="sub-menu">
-													<li><a href="#">Filtre de prix</a>
+													<li><a>Filtre de prix</a>
 														<ul class="sub-menu-2">
 															<li><a href="listeProduits.php?filtre=1&categorie=solaire&page=1">de 0 a 150</a></li>
 															<li><a href="listeProduits.php?filtre=2&categorie=solaire&page=1">de 151 a 300</a></li>

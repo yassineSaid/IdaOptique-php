@@ -190,7 +190,7 @@
 								</div>
 									<div class="price">
 									<ul>
-									<li class="new-price" style="color: red;font-size: 200%; font-weight: bold;"><?php echo $prix ; echo "  DT"?></li>
+									<li class="new-price" style="color: black;font-size: 200%;"><?php echo $prix ; echo "  DT"?></li>
 									</ul>
 									
 
@@ -227,8 +227,8 @@
 								<div class="tab-menu mb-30 text-center">
 									<ul>
 										<li class="active"><a href="#Description" data-toggle="tab">Description</a></li>
-										<li><a href="#Reviews"  data-toggle="tab">Reviews (0)</a></li>
-										<li><a href="#Tags" data-toggle="tab">Add Tags</a></li>
+										<li><a href="#Reviews"  data-toggle="tab" style="display: none;">Reviews (0)</a></li>
+										<li><a href="#Tags" data-toggle="tab" style="display: none;">Add Tags</a></li>
 									</ul>
 								</div>
 								<!-- tab-menu-end -->
@@ -242,7 +242,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="tab-pane fade" id="Reviews">
+								<div class="tab-pane fade" id="Reviews" style="display: none;">
 									<div class="col-lg-12">
 										<div class="reviews-area">
 											<h3>Reviews</h3>
@@ -270,7 +270,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="tab-pane fade" id="Tags">
+								<div class="tab-pane fade" id="Tags" style="display: none;">
 									<div class="col-lg-12">
 										<div class="tab-description">
 											<p> Custom Tab Content here. <br />
@@ -292,8 +292,8 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="section-title mb-30 text-center">
-								<h2>Related Products</h2>
-								<p> Order online and have your products delivered to your closest store for free </p>
+								<h2>Nos autres produits</h2>
+								<p> Commandez en ligne et ils seront livrés chez vous </p>
 							</div>
 						</div>
 					</div>	
