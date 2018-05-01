@@ -129,7 +129,7 @@
 
                                     ?>
                                     
-                                    <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <table id="datatable-buttons" class="table table-striped table-bordered tableProd" cellspacing="0" width="100%">
 
                                         <thead>
                                         <tr>
@@ -151,18 +151,19 @@
                                         <tbody>
                                             <?php
                                     foreach ($list as $val) 
-                                    {?>
+                                    {
+                                        ?>
                                         <tr>
                                             
-                                            <td> <?php echo $val['produit_id']?> </td>
+                                            <td class="id"> <?php echo $val['produit_id']?> </td>
                                             <td> <?php echo $val['produit_marque']?> </td>
                                             <td> <?php echo $val['produit_categorie']?> </td>
-                                            <td> <?php echo $val['produit_nom']?> </td>
+                                            <td class="nom"> <?php echo $val['produit_nom']?> </td>
                                             <td> <?php echo $val['produit_description']?> </td>
                                             <td> <?php echo $val['produit_forme']?> </td>
                                             <td> <?php echo $val['produit_couleur']?> </td>
                                             <td> <?php echo $val['produit_prix']?> </td>
-                                            <td> <?php echo $val['produit_qte']?> </td>
+                                            <td class="qte"> <?php echo $val['produit_qte']?> </td>
                                             <td> <?php echo $val['produit_date_ajout']?> </td>
                                             <td> <?php echo $val['produit_date_modification']?> </td>
                                             <td> <?php echo "<a href=modifier-produit.php?id=".$val['produit_id'].">"; ?>
@@ -237,10 +238,11 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/plugins/notifyjs/dist/notify-combined.js"></script>
         <script src="assets/js/notification.js"></script>
+        <script src="assets/js/verifStock.js"></script>
 
        
-        
        
 
 

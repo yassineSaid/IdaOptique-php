@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
 	load_unseen_notification();
-	$('.form-control').attr("placeholder", "Rechercher...");
+	$('.app-search :input').attr("placeholder", "Rechercher...");
 });
 function load_unseen_notification(view = '')
 {
