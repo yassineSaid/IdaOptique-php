@@ -24,7 +24,7 @@
 
 
 
-        <div class="account-pages"></div>
+        <div ></div>
         <div class="clearfix"></div>
         <div class="wrapper-page">
             <div class="ex-page-content text-center">
@@ -60,7 +60,7 @@
                                         {
 
                                         ?>
-                <div><img src="https://image.ibb.co/h0KWOc/ida2.png"></div>
+                <div><img src="https://image.ibb.co/h0KWOc/ida2.png" width="150" height="169"></div>
 
                 <h3 class="text-uppercase font-600">Offre Spéciale</h3>
                 <div class="text-error" size= 5px> <?php echo $val['nom']?> </div>
