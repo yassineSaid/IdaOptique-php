@@ -117,10 +117,12 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="founder-description text-center">
-								<h3>Who Are We</h3>
+								<h3>Qui sommes nous</h3>
 								<h1>Bienvenue a IDA OPTIQUE</h1>
 								<img src="img/logo/IDA-OPTIQUE.jpg" alt="banner" />
-								<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum  dolore eu feugiat nulla facilisis <br /> at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla <br /> facilisi.</p>
+								<p>Chez IDA Optique, vous trouverez sans aucun doute les lunettes qui vous conviennent grâce à notre large sélection de montures.﻿
+								<br>
+								Nous serons heureux de vous offrir nos conseils personnalisés afin de choisir le type de verres qui correspond au mieux à vos besoins. Chaque porteur est unique, son équipement aussi. C'est pourquoi chez nous, vous repartirez avec un équipement dont les verres sont adaptés aussi bien à votre correction qu'à la monture choisie. ﻿</p>
 								
 							</div>
 						</div>
@@ -138,7 +140,7 @@
 						<div class="col-lg-12">
 							<div class="section-title mb-30 text-center">
 								<h2>Nos Produits</h2>
-								<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas.</p>
+								<p>Découvrez notre large gamme de lunettes pour hommes et femmes.</p>
 							</div>
 						</div>
 						<div class="col-lg-12">
