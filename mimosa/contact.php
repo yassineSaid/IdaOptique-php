@@ -1,6 +1,6 @@
 <?php include_once('header.php'); 
 
-include_once 'init.php';?>
+?>
 <!doctype html>
 <html class="no-js" lang="en">
     <head>

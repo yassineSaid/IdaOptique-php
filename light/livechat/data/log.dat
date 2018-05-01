@@ -80,3 +80,17 @@ Application path: /code/light/chart-flot.php/css/bootstrap.css
 Application path: /code/light/chart-flot.php?admin
 2018-05-01 05:11:02 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
 2018-05-01 05:11:03 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/livechat/php/app.php?contact
+2018-05-01 22:34:10 mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() on line 677 in C:\wamp64\www\code\light\livechat\php\lib\PHPMailer\class.phpmailer.php
+Application path: /code/light/livechat/php/app.php?contact
+2018-05-01 22:34:10 [error] Could not instantiate mail function.
+Debug information:
+
+
+Stack trace:
+C:\wamp64\www\code\light\livechat\php\service\Mailer.php:57 (Logger:error())
+C:\wamp64\www\code\light\livechat\php\controller\ContactController.php:36 (Mailer:sendMessage())
+C:\wamp64\www\code\light\livechat\php\app\Application.php:155 (ContactController:contactAction())
+C:\wamp64\www\code\light\livechat\php\app\Application.php:79 (Application:runAction())
+C:\wamp64\www\code\light\livechat\php\app.php:26 (Application:run())
+
