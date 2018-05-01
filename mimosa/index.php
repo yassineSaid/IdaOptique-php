@@ -213,6 +213,7 @@
 								<div class="product-active">	
 									<?php 
 										include_once '../core/produitC.php';
+										include_once '../core/visiteurM.php';
                                         $pro= new ProduitManage();
                                         $result=$pro->afficherProduitCategorie("optique",1);
                                         $vis2=new VisiteurManage();
