@@ -34,6 +34,19 @@ if(isset($_POST['view']))
                                 </div>
                             </a>
                         </li>';}
+        else if ($row['type']=="client")
+        {$output .= '<li class="list-group-item '.$statut.'">
+                            <a href="'.$row['link'].'" class="user-list-item">
+                                <div class="icon bg-success">
+                                    <i class="mdi mdi-account"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">'.$row['titre'].'</span>
+                                    <span class="desc">'.$row['contenu'].'</span>
+                                    <span class="time">'.temps_ecoule($row['heure'],"date").'</span>
+                                </div>
+                            </a>
+                        </li>';}
         else
         {$output .= '<li class="list-group-item '.$statut.'">
                             <a href="'.$row['link'].'" class="user-list-item">
