@@ -237,11 +237,18 @@
 															<?php }?>
 														</ul>
 													</div>
+													<div class="price">
+									<ul>
+									<li class="new-price" style="color: red;font-size: 150%; font-weight: bold; padding-left: 440px"><?php echo $row['produit_prix'] ; echo "  DT"?></li>
+									</ul>
+									
+
+								</div>
 												</div>
 												<h2><a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>"><?php echo $row['produit_nom'] ?></a></h2>
 												<div class="price">
 													<ul>
-														<li class="new-price"><?php echo $row['produit_prix'];echo " DT" ?></li><br>
+														<li class="new-price"><?php echo $row['produit_marque'];?></li><br>
 														<li class="new-price"><?php echo "En Stock";?></li>
 													</ul>
 												</div>
@@ -343,21 +350,27 @@
 													<div class="product-content pt-20">
 														<div class="manufacture-product">
 															<a href="#"><?php echo $row['produit_categorie']?></a>
+															<?php $prodC=new ProduitManage();
+													$rate=$prodC->getRating($row['produit_id']);
+													foreach ($rate as $rate1) {
+														$moy=$rate1['r1'];
+													}
+													 ?>
 															<div class="rating">
 																<ul>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																	<li><a href="#"><i class="fa fa-star"></i></a></li>
-																</ul>
+														<?php for ($i=0;$i<$moy;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i."&page=".$page ?>"><i class="fa fa-star"></i></a></li>
+															<?php } for ($i=$moy;$i<5;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i."&page=".$page ?>"><i class="fa fa-star-o"></i></a></li>
+															<?php }?>
+													</ul>
 															</div>
 														</div>
 														<h2><a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>"><?php echo $row['produit_nom']?></a></h2>
 														<div class="price">
 															<ul>
-																<li class="new-price"><?php echo $row['produit_prix']?></li>
+																<li class="new-price"><?php echo $row['produit_marque']?></li>
+																<li class="new-price" style="color: blue;font-size: 100%; font-weight: bold;padding-left: 170px"><?php echo $row['produit_prix']."  DT"?></li>
 															</ul>
 														</div>
 													</div>
