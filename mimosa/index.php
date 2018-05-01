@@ -213,9 +213,9 @@
 								<div class="product-active">	
 									<?php 
 										include_once '../core/produitC.php';
-										include_once '../core/visiteurM.php';
                                         $pro= new ProduitManage();
                                         $result=$pro->afficherProduitCategorie("optique",1);
+                                        include_once '../core/visiteurM.php';
                                         $vis2=new VisiteurManage();
 										date_default_timezone_set('GMT');
 										$TIME = date("d-m-Y H:i:s"); 
@@ -228,6 +228,7 @@
 										$ip = getenv("REMOTE_ADDR");
 										$vis=new Visiteur($ip,$COUNTRY,$TIME);
 										$vis2->ajouterVisiteur($vis);
+
                                         
 									
 									?>
@@ -247,14 +248,14 @@
 										<!-- product-wrapper-start -->
 										<div class="product-wrapper">
 										<div class="product-img">
-											<a href="#">
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="primary"/>
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="secondary"/>
+											<a href="<?php echo "detailsProduit.php?id=".$id ?>">
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="primary"/>
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
 											<span class="sale">sale</span>
 											<div class="product-icon">
-												<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-												<a href="#" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
+												<a href="ajouterPanier.php?id_produit=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Ajouter au panier"><i class="icon ion-bag"></i></a>
+												<a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Comparer ce produit"><i class="icon ion-android-options"></i></a>
 												<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 											</div>
 										</div>
@@ -312,14 +313,14 @@
 										<!-- product-wrapper-start -->
 										<div class="product-wrapper">
 										<div class="product-img">
-											<a href="#">
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="primary"/>
-												<img src="<?php echo "img/tsawer/".$row['nom']; ?>" alt="product" class="secondary"/>
+											<a href="<?php echo "detailsProduit.php?id=".$id ?>">
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="primary"/>
+												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
 											<span class="sale">sale</span>
 											<div class="product-icon">
-												<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-												<a href="#" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
+												<a href="ajouterPanier.php?id_produit=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Ajouter au panier"><i class="icon ion-bag"></i></a>
+												<a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Comparer ce produit"><i class="icon ion-android-options"></i></a>
 												<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 											</div>
 										</div>
@@ -372,13 +373,19 @@
 											<div class="product-content pt-20">
 												<div class="manufacture-product">
 													<a href="#">H&M </a>
+													<?php $prodC=new ProduitManage();
+													$rate=$prodC->getRating($row['produit_id']);
+													foreach ($rate as $rate1) {
+														$moy=$rate1['r1'];
+													}
+													 ?>
 													<div class="rating">
 														<ul>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
-															<li><a href="#"><i class="fa fa-star"></i></a></li>
+															<?php for ($i=0;$i<$moy;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
+															<?php } for ($i=$moy;$i<5;$i++) {?>
+															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
+															<?php }?>
 														</ul>
 													</div>
 												</div>
@@ -746,38 +753,10 @@
 		   </div>
 			<!-- feature-product-area-end -->
 			<!-- testimonial-area-start -->
-			<div class="testimonial-area bg ptb-80">
-				<div class="container">
-					<div class="row">
-						<div class="testimonial-active">
-							<div class="col-lg-12">
-								<div class="single-testimonial text-center">
-									<div class="testimonial-img">
-										<a href="#"><img src="img/testimonial/1.jpg" alt="man" /></a>
-									</div>
-									<div class="testimonial-content">
-										<p>This is Photoshops version  of Lorem Ipsum. Proin gravida nibh vel velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie augue magna. Pellentesque felis lorem, pulvinar sed eros n..</p>
-										<i class="fa fa-quote-right"></i>
-										<h4>Rebecka Filson</h4>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-12">
-								<div class="single-testimonial text-center">
-									<div class="testimonial-img">
-										<a href="#"><img src="img/testimonial/1.jpg" alt="man" /></a>
-									</div>
-									<div class="testimonial-content">
-										<p>Mauris blandit, metus a venenatis lacinia, felis enim tincidunt est, condimentum vulputate orci augue eu metus. Fusce dictum, nisi et semper ultricies, felis tortor blandit odio, egestas consequat pur..</p>
-										<i class="fa fa-quote-right"></i>
-										<h4>Nathanael Jaworski</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		   </div>
+		<?php 
+						include_once 'mapIndex.php';
+
+						 ?>
 			<!-- testimonial-area-end -->
 			<!-- arrivals-area-start -->
 			<div class="arrivals-area ptb-80">
@@ -1082,96 +1061,13 @@
 			</div>
 			<!-- banner-area-2-end -->
 			<!-- blog-area-start -->
-			<div class="blog-area ptb-80">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="section-title mb-30 text-center">
-								<h2>From Our Blog</h2>
-								<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas.</p>
-							</div>
-						</div>
-						<div class="blog-active">
-							<div class="col-lg-12">
-								<!-- single-blog-start -->
-								<div class="single-blog">
-									<div class="blog-img">
-										<a href="#"><img src="img/blog/1.jpg" alt="blog" /></a>
-										<div class="date">
-											Aug <span>09</span>
-										</div>
-									</div>
-									<div class="blog-content pt-20">
-										<h3><a href="blog-details.html">Aypi non habent claritatem  insitam.</a></h3>
-										<span>HasTech</span>
-										<p>Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.</p>
-										<a href="blog-details.html">Read more ...</a>
-									</div>
-								</div>
-								<!-- single-blog-end -->
-							</div>
-							<div class="col-lg-12">
-								<!-- single-blog-start -->
-								<div class="single-blog">
-									<div class="blog-img">
-										<a href="#"><img src="img/blog/2.jpg" alt="blog" /></a>
-										<div class="date">
-											Aug <span>09</span>
-										</div>
-									</div>
-									<div class="blog-content pt-20">
-										<h3><a href="blog-details.html">Bypi non habent claritatem  insitam.</a></h3>
-										<span>HasTech</span>
-										<p>Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.</p>
-										<a href="blog-details.html">Read more ...</a>
-									</div>
-								</div>
-								<!-- single-blog-end -->
-							</div>
-							<div class="col-lg-12">
-								<!-- single-blog-start -->
-								<div class="single-blog">
-									<div class="blog-img">
-										<a href="#"><img src="img/blog/3.jpg" alt="blog" /></a>
-										<div class="date">
-											Aug <span>09</span>
-										</div>
-									</div>
-									<div class="blog-content pt-20">
-										<h3><a href="blog-details.html">Cypi non habent claritatem  insitam.</a></h3>
-										<span>HasTech</span>
-										<p>Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.</p>
-										<a href="blog-details.html">Read more ...</a>
-									</div>
-								</div>
-								<!-- single-blog-end -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<!-- blog-area-end -->
+
 			<!-- newslatter-area-start -->
-			<div class="newslatter-area">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="bt-top ptb-80">
-								<div class="newlatter-content text-center">
-									<h6>Special Offers For Subscribers</h6>
-									<h3>Ten Percent Member Discount</h3>
-									<p>Subscribe to our newsletters now and stay up to date with new collections, the latest lookbooks and exclusive offers.</p>
-									<form action="#">
-										<input type="text" placeholder="Enter your email address here..."/>
-										<button type="submit">Subscribe</button>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php  include 'newsletter.php'; ?>
 			<!-- newslatter-area-end -->
+
+			
 			<!-- footer-area-start -->
 			<footer>
 				<div class="footer-area ptb-40">
@@ -1308,3 +1204,4 @@
         <script src="js/main.js"></script>
     </body>
 </html>
+
