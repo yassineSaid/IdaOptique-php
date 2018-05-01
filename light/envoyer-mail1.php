@@ -3,14 +3,13 @@
 
 // instantiate and use the dompdf class
 
-
   $myfile = fopen("toSend.html", "w") or die("Unable to open file!");
   $url=$_POST['lien'];
   $lines=file($url);
   foreach($lines as $line_num => $line) {
     //$line = htmlentities($line);
     //$line = str_replace("<", "<span><", $line);
-    //$line = str_replace(">", "></span>", $line);
+    $line = str_replace('<button value="confirmer" id="confirmer">Envoyer</button>', '', $line);
     $line = str_replace("img/ida2.png", "https://image.ibb.co/h0KWOc/ida2.png", $line);
     $line = str_replace("Exporter PDF", "", $line);
     fwrite($myfile, $line);
