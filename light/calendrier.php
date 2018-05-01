@@ -65,10 +65,7 @@ $events = $req->fetchAll();
                                 </button>
                             </li>
                             <li class="list-inline-item">
-                               <h4 class="page-title" style="
-   
-    margin-right: 700px;
-">Calendrier</h4>
+                               <h4 class="page-title" style="margin-right: 700px;">Calendrier</h4>
                             </li>
                         </ul>
 
@@ -132,10 +129,7 @@ $events = $req->fetchAll();
                                 <div class="row">
                                     <!-- end col-->
                                     <div class="col-lg-10">
-                                        <div class="card-box" style="
-    
-    margin-left: 200px;
-">
+                                        <div class="card-box" style="margin-left: 200px;">
                                          <?php   include ('agenda.php'); ?>
                                         </div>
                                     </div> <!-- end col -->
@@ -218,77 +212,7 @@ $events = $req->fetchAll();
 
 
             <!-- Right Sidebar -->
-            <div class="side-bar right-bar">
-                <a href="javascript:void(0);" class="right-bar-toggle">
-                    <i class="mdi mdi-close-circle-outline"></i>
-                </a>
-                <h4 class="">Notifications</h4>
-                <div class="notification-list nicescroll">
-                    <ul class="list-group list-no-border user-list">
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">Michael Zenaty</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">2 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-info">
-                                    <i class="mdi mdi-account"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">New Signup</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">5 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-pink">
-                                    <i class="mdi mdi-comment"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">New Message received</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">1 day ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#" class="user-list-item">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-3.jpg" alt="">
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">James Anderson</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">2 days ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-warning">
-                                    <i class="mdi mdi-settings"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">Settings</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">1 day ago</span>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
+            <?php include 'notification-bar.php' ?>
             <!-- /Right-bar -->
 
         </div>
@@ -297,6 +221,7 @@ $events = $req->fetchAll();
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/notification.js"></script>
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/detect.js"></script>

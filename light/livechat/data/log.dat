@@ -32,3 +32,51 @@ Application path: /code/light/livechat/php/app.php?operator-update-typing-status
 2018-04-25 22:33:51 array_keys() expects parameter 1 to be array, boolean given on line 104 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
 2018-04-25 22:33:51 Invalid argument supplied for foreach() on line 104 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
 2018-04-25 22:33:51 Invalid argument supplied for foreach() on line 79 in C:\wamp64\www\code\light\livechat\php\service\Memory.php
+Application path: /code/light/chart-flot.php
+2018-05-01 05:10:11 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:12 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/fonts.css
+2018-05-01 05:10:13 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:13 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/jquery.mCustomScrollbar.css
+2018-05-01 05:10:13 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:13 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/framework.css
+2018-05-01 05:10:13 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:13 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/main.css
+2018-05-01 05:10:13 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:13 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/admin.css
+2018-05-01 05:10:13 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:13 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/bootstrap.css
+2018-05-01 05:10:13 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:13 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php?admin
+2018-05-01 05:10:18 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:18 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php
+2018-05-01 05:10:55 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:55 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/fonts.css
+2018-05-01 05:10:56 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:56 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/jquery.mCustomScrollbar.css
+2018-05-01 05:10:56 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:56 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/framework.css
+2018-05-01 05:10:56 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:56 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/main.css
+2018-05-01 05:10:56 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:56 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/admin.css
+2018-05-01 05:10:56 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:56 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php/css/bootstrap.css
+2018-05-01 05:10:56 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:10:56 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php
+Application path: /code/light/chart-flot.php?admin
+2018-05-01 05:11:02 A session had already been started - ignoring session_start() on line 11 in C:\wamp64\www\code\light\livechat\php\service\Session.php
+2018-05-01 05:11:03 Cannot modify header information - headers already sent by (output started at C:\wamp64\www\code\light\left-bar.php:41) on line 46 in C:\wamp64\www\code\light\livechat\php\lib\Response.php

@@ -51,10 +51,9 @@
     height: 36.5px;
 ">
 						  <option value="">Choisir</option>
-						  <option style="color:#0071c5;" value="#0071c5">&#9724; Chat en Ligne</option>
-			
-						  <option style="color:#008000;" value="#008000">&#9724; Chat Video</option>	
-						  <option style="color:#FF0000;" value="#FF0000">&#9724; Physique</option>
+							<option style="color:#0071c5;" value="#0071c5">&#9724; Chat Video</option>
+							<option style="color:#FFD700;" value="#FFD700">&#9724; Chat en Ligne</option>	
+						    <option style="color:#FF8C00;" value="#FF8C00">&#9724; Physique</option>
 					
 						  
 						</select>
@@ -137,11 +136,9 @@
     height: 36.5px;
 ">
 						   <option value="">Choisir</option>
-						   <option style="color:#0071c5;" value="#0071c5">&#9724; Chat en Ligne</option>
-			
-						  <option style="color:#008000;" value="#008000">&#9724; Chat Video</option>	
-						  <option style="color:#FF0000;" value="#FF0000">&#9724; Physique</option>
-						  
+						   <option style="color:#0071c5;" value="#0071c5">&#9724; Chat Video</option>
+							<option style="color:#FFD700;" value="#FFD700">&#9724; Chat en Ligne</option>	
+						    <option style="color:#FF8C00;" value="#FF8C00">&#9724; Physique</option>
 						</select>
 					</div>
 				  </div>

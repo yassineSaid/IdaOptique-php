@@ -16,7 +16,7 @@
 							<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
 								<!-- logo-area-start -->
 								<div class="logo-area">
-									<a href="index.html"><img src="img/logo/1.png" alt="logo" /></a>
+									<a href="index.html"><img src="img/logo/1.png" width="50" height="50" alt="logo" /></a>
 								</div>
 								<!-- logo-area-end -->
 							</div>
@@ -35,7 +35,7 @@
 												</ul>
 											</li>
 											<li><a href="listeProduits.php?categorie=optique&page=1">Montures de vue</a>
-												<ul class="mega-menu">
+												<ul class="sub-menu">
 													<li><a href="#">Filtre de prix</a>
 														<ul class="sub-menu-2">
 															<li><a href="listeProduits.php?filtre=1&categorie=optique&page=1">de 0 a 150</a></li>
@@ -44,34 +44,11 @@
 															<li><a href="listeProduits.php?filtre=4&categorie=optique&page=1">de 451 a 600</a></li>
 														</ul>
 													</li>
-													<li><a href="#">Phasellus inviv</a>
-														<ul class="sub-menu-2">
-															<li><a href="shop.html">Fusce eurhon</a></li>
-															<li><a href="shop.html">iaculis ipsum</a></li>
-															<li><a href="shop.html">ligula consectet</a></li>
-															<li><a href="shop.html">vestibulum egest</a></li>
-														</ul>
-													</li>
-													<li><a href="#">suscipit mauris</a>
-														<ul class="sub-menu-2">
-															<li><a href="shop.html">Integer rhoncus</a></li>
-															<li><a href="shop.html">ipsum ametus</a></li>
-															<li><a href="shop.html">Morbi vitae</a></li>
-															<li><a href="shop.html">semper vulputate</a></li>
-														</ul>
-													</li>
-													<li><a href="#">viverra lacus</a>
-														<ul class="sub-menu-2">
-															<li><a href="shop.html">Aliquam acsus</a></li>
-															<li><a href="shop.html">Morbi amimi</a></li>
-															<li><a href="shop.html">pretium metus</a></li>
-															<li><a href="shop.html">suscipit felis</a></li>
-														</ul>
-													</li>
+													
 												</ul>
 											</li>
 											<li><a href="listeProduits.php?categorie=solaire&page=1">Monture Solaire</a>
-												<ul class="mega-menu mega-menu-2">
+												<ul class="sub-menu">
 													<li><a href="#">Filtre de prix</a>
 														<ul class="sub-menu-2">
 															<li><a href="listeProduits.php?filtre=1&categorie=solaire&page=1">de 0 a 150</a></li>
@@ -80,57 +57,34 @@
 															<li><a href="listeProduits.php?filtre=4&categorie=solaire&page=1">de 451 a 600</a></li>
 														</ul>
 													</li>
-													<li><a href="#">viverra lacus</a>
-														<ul class="sub-menu-2">
-															<li><a href="shop.html">Aliquam acsus</a></li>
-															<li><a href="shop.html">Morbi amimi</a></li>
-															<li><a href="shop.html">pretium metus</a></li>
-															<li><a href="shop.html">suscipit felis</a></li>
-														</ul>
-													</li>
+													
 												</ul>
 											</li>
-											<li><a href="shop.html">Women</a>
-												<ul class="mega-menu mega-menu-2">
-													<li><a href="#">fermentum grav</a>
-														<ul class="sub-menu-2">
-															<li><a href="shop.html">arcu dignissim</a></li>
-															<li><a href="shop.html">congue quamm</a></li>
-															<li><a href="shop.html">necfer mentuma</a></li>
-															<li><a href="shop.html">ultricies volutpat</a></li>
-														</ul>
-													</li>
-													<li><a href="#">gravida metus</a>
-														<ul class="sub-menu-2">
-															<li><a href="shop.html">acaliquet orci</a></li>
-															<li><a href="shop.html">dignissim placera</a></li>
-															<li><a href="shop.html">risussed trist</a></li>
-															<li><a href="shop.html">Utsuscipit urna</a></li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-											<li><a href="blog.html">Blog</a>
+											
+											<li><a href="forum.php">Blog</a>
 												<ul class="sub-menu">
-													<li><a href="blog.html">blog</a></li>
-													<li><a href="blog-details.html">blog details</a></li>
+													<li><a href="forum.php">blog</a></li>
+													<li><a href="forum-detail.php">blog details</a></li>
 												</ul>
 											</li>
 											<li><a href="#">pages</a>
 												<ul class="sub-menu">
-													<li><a href="shop.html">Shop</a></li>
-													<li><a href="product-details.html">product details</a></li>
-													<li><a href="blog.html">blog</a></li>
-													<li><a href="blog-details.html">blog-details</a></li>
-													<li><a href="login.html">login</a></li>
-													<li><a href="ajout-client1.php">Créer un compte</a></li>
-													<li><a href="contact.php">contact</a></li>
+													<li><a href="listeProduits.php">Shop</a></li>
+													<li><a href="contact.php">Contact</a></li>
 													<li><a href="reclamation-affiche.php">Ajouter Reclamation</a></li>
-													<li><a href="reclamation-affiche1.php">Afficher les Reclamations</a></li>
-													<li><a href="rendez-vous.php">Prendre Un Rendez-vous</a></li>
-													<li><a href="cart.html">cart</a></li>
-													<li><a href="checkout.html">checkout</a></li>
-													<li><a href="wishlist.html">wishlist</a></li>
+													<li><a href="reclamation-affiche1.php">Afficher Reclamations</a></li>
+													<li><a href="rendez-vous.php">Rendez-vous</a></li>
+													<li><a href="afficherPanier.php">Panier</a></li>
+													<?php if (count($_SESSION['panier']['id_produit'])>0) 
+														{
+															?>
+													<li><a href="passerCommande.php">Check-out</a></li> 
+
+													<?php } ?>
+													<?php
+														if(isset($_SESSION['id'])) { ?>
+													<li><a href="afficherFavoris.php">Favoris</a></li>
+													<?php } ?>
 													<li><a href="404.html">404</a></li>
 												</ul>
 											</li>
