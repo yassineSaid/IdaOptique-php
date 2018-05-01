@@ -31,7 +31,7 @@ exit;
    }
     function afficherContact()
   {
-    $sql="SElECT * From contact";
+    $sql="SELECT * From contact ORDER BY id_contact DESC";
     $db = config::getConnexion();
     try{
     $liste=$db->query($sql);
