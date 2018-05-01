@@ -213,18 +213,10 @@
 										<li id="show-cart"><a href="#"><i class="icon ion-drag"></i></a>
 											<div class="shapping-area" id="hide-cart">
 												<div class="single-shapping mb-20">
-													<span>Currency</span>
+													<span>Reclamations</span>
 													<ul>
-														<li><a href="#">€ Euro </a></li>
-														<li><a href="#">£ Pound Sterling</a></li>
-														<li><a href="#">$ US Dollar</a></li>
-													</ul>
-												</div>
-												<div class="single-shapping mb-20">
-													<span>Language</span>
-													<ul>
-														<li><a href="#"><img src="img/flag/1.jpg" alt="flag" />   English</a></li>
-														<li><a href="#"><img src="img/flag/2.jpg" alt="flag" />   French</a></li>
+														<li><a href="reclamation-affiche.php">Ajouter une reclamation</a></li>
+														<li><a href="reclamation-affiche1.php">Mes reclamations</a></li>
 													</ul>
 												</div>
 												<div class="single-shapping">
@@ -235,7 +227,8 @@
 														<li><a href="afficherProfil.php?id=<?php echo $_SESSION['id']?>">Mon compte</a></li>
 														<li><a href="listeCommandes.php">Mes commandes</a></li>
 														<li><a href="afficherLivraison.php">Mes livraisons</a></li>
-														
+														<li><a href="afficherFavoris.php">Mes favoris</a></li>
+														<li><a href="rendez-vous.php">Rendez-vous</a></li>
 														<li><a href="logout-client.php">Déconnexion</a></li>
 														<?php } else { ?>
 														<li><a href="ajout-client.php">Ajouter un compte</a></li>
