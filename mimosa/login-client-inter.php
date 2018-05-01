@@ -93,9 +93,13 @@
 									<?php if(isset($_GET['connect'])){ ?>
 									<p style="color:red">E-mail ou mot de passe incorrect ! </p>
 									<?php } ?>
-									<a href="#">Mot de passe oublié ?</a>
+									<a href="forgot-password.php">Mot de passe oublié ?</a>
 
-									<?php include "google-login/index.php" ?>
+									<?php include "googlelogin/config.php";
+									$url=$gClient->createAuthUrl();
+
+									 ?>
+									 <a href="<?php echo $url; ?>"> gmail </a>
 									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 									<script src="controle.js"></script>
 								</form>
