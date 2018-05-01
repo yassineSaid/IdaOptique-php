@@ -61,8 +61,15 @@
 												</ul>
 											</li>
 											
-											<li><a href="forum.php">Blog</a>
+											
 												
+											</li>
+											<li><li><a href="forum.php">Blog</a>
+												<ul class="sub-menu">
+													<li><a href="post.php">Ajouter un Post</a>
+													</li>
+													
+												</ul>
 											</li>
 											<li>
 												<a href="contact.php">Contactez Nous</a>
