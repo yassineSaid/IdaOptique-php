@@ -12,7 +12,7 @@
 
 									<form  method="post" action="subscribe.php">
 										<input  require type="email" name="subscribe" placeholder="Entrez votre adresse mail ici..."/>
-										<button type="submit">Subscribe</button>
+										<button type="submit">S'abboner</button>
 									</form>
 
 									

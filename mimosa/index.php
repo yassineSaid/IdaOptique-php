@@ -234,14 +234,14 @@
 										<!-- product-wrapper-start -->
 										<div class="product-wrapper">
 										<div class="product-img">
-											<a href="#">
+											<a href="<?php echo "detailsProduit.php?id=".$id ?>">
 												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="primary"/>
 												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
 											<span class="sale">sale</span>
 											<div class="product-icon">
-												<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-												<a href="#" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
+												<a href="ajouterPanier.php?id_produit=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Ajouter au panier"><i class="icon ion-bag"></i></a>
+												<a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Comparer ce produit"><i class="icon ion-android-options"></i></a>
 												<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 											</div>
 										</div>
@@ -299,14 +299,14 @@
 										<!-- product-wrapper-start -->
 										<div class="product-wrapper">
 										<div class="product-img">
-											<a href="#">
+											<a href="<?php echo "detailsProduit.php?id=".$id ?>">
 												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="primary"/>
 												<img src="<?php echo "img/product/".$row['nom']; ?>" alt="product" class="secondary"/>
 											</a>
 											<span class="sale">sale</span>
 											<div class="product-icon">
-												<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-												<a href="#" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
+												<a href="ajouterPanier.php?id_produit=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Ajouter au panier"><i class="icon ion-bag"></i></a>
+												<a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Comparer ce produit"><i class="icon ion-android-options"></i></a>
 												<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 											</div>
 										</div>
@@ -1047,74 +1047,6 @@
 			</div>
 			<!-- banner-area-2-end -->
 			<!-- blog-area-start -->
-			<div class="blog-area ptb-80">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="section-title mb-30 text-center">
-								<h2>From Our Blog</h2>
-								<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas.</p>
-							</div>
-						</div>
-						<div class="blog-active">
-							<div class="col-lg-12">
-								<!-- single-blog-start -->
-								<div class="single-blog">
-									<div class="blog-img">
-										<a href="#"><img src="img/blog/1.jpg" alt="blog" /></a>
-										<div class="date">
-											Aug <span>09</span>
-										</div>
-									</div>
-									<div class="blog-content pt-20">
-										<h3><a href="blog-details.html">Aypi non habent claritatem  insitam.</a></h3>
-										<span>HasTech</span>
-										<p>Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.</p>
-										<a href="blog-details.html">Read more ...</a>
-									</div>
-								</div>
-								<!-- single-blog-end -->
-							</div>
-							<div class="col-lg-12">
-								<!-- single-blog-start -->
-								<div class="single-blog">
-									<div class="blog-img">
-										<a href="#"><img src="img/blog/2.jpg" alt="blog" /></a>
-										<div class="date">
-											Aug <span>09</span>
-										</div>
-									</div>
-									<div class="blog-content pt-20">
-										<h3><a href="blog-details.html">Bypi non habent claritatem  insitam.</a></h3>
-										<span>HasTech</span>
-										<p>Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.</p>
-										<a href="blog-details.html">Read more ...</a>
-									</div>
-								</div>
-								<!-- single-blog-end -->
-							</div>
-							<div class="col-lg-12">
-								<!-- single-blog-start -->
-								<div class="single-blog">
-									<div class="blog-img">
-										<a href="#"><img src="img/blog/3.jpg" alt="blog" /></a>
-										<div class="date">
-											Aug <span>09</span>
-										</div>
-									</div>
-									<div class="blog-content pt-20">
-										<h3><a href="blog-details.html">Cypi non habent claritatem  insitam.</a></h3>
-										<span>HasTech</span>
-										<p>Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.Aypi non habent claritatem  insitam. Aypi non habent claritatem  insitam.</p>
-										<a href="blog-details.html">Read more ...</a>
-									</div>
-								</div>
-								<!-- single-blog-end -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<!-- blog-area-end -->
 
 			<!-- newslatter-area-start -->

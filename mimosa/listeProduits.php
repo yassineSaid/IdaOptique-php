@@ -206,14 +206,12 @@
 										<div class="product-wrapper product-wrapper-3 mb-40">
 											<div class="product-img">
 												<a href="<?php echo "detailsProduit.php?id=".$row['produit_id'] ?>">
-													
 													<img src="<?php echo  "img/product/".$row['nom'] ?>" alt="product" class="primary"/>
 													<img src="<?php echo  "img/product/".$row['nom'] ?>" alt="product" class="secondary"/>
 												</a>
 												<div class="product-icon">
-													<a href="ajouterPanier.php?id_produit=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-													<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-													 <a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>
+													<a href="ajouterPanier.php?id_produit=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Ajouter au panier"><i class="icon ion-bag"></i></a>
+													 <a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Comparer ce produit"><i class="icon ion-android-options"></i></a>
 													<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 												</div>
 											</div>
@@ -329,8 +327,8 @@
 													<img src="<?php echo  "img/product/".$row['nom'] ?>" alt="product" class="secondary"/>
 														</a>
 														<div class="product-icon">
-															<a href="#" data-toggle="tooltip" title="Add to Cart"><i class="icon ion-bag"></i></a>
-															 <a href="" data-toggle="tooltip" title="Compare this Product"><i class="icon ion-android-options"></i></a>	
+															<a href="ajouterPanier.php?id_produit=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Ajouter au panier"><i class="icon ion-bag"></i></a>
+															 <a href="comparateur.php?id=<?php echo $row['produit_id'] ?>" data-toggle="tooltip" title="Comparer ce produit"><i class="icon ion-android-options"></i></a>
 															<a href="#" data-toggle="modal" data-target="#mymodal" title="Quick View"><i class="icon ion-android-open"></i></a>
 														</div>
 													</div>

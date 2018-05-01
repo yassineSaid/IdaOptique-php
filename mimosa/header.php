@@ -16,7 +16,7 @@
 							<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
 								<!-- logo-area-start -->
 								<div class="logo-area">
-									<a href="index.html"><img src="img/logo/1.png" width="50" height="50" alt="logo" /></a>
+									<a href="index.php"><img src="img/logo/1.png" width="50" height="50" alt="logo" /></a>
 								</div>
 								<!-- logo-area-end -->
 							</div>
@@ -107,9 +107,9 @@
 										<li><a href="#" id="show-search"><i class="icon ion-ios-search-strong"></i></a>
 											<div class="search-content" id="hide-search">
 												<div class="search-text">
-													<h1>Search</h1>
+													<h1>Rechercher</h1>
 													<form action="#">
-														<input type="text" placeholder="search"/>
+														<input type="text" placeholder="Rechercher"/>
 														<button class="btn" type="button">
 															<i class="fa fa-search"></i>
 														</button>

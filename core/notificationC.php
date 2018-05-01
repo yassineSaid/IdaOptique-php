@@ -60,5 +60,18 @@ class NotificationC
             die('Erreur: '.$e->getMessage());
         } 
     }
+    function supprimerNotification()
+    {
+        $sql="DELETE FROM notification";
+        $db = config::getConnexion();
+        $req=$db->prepare($sql);
+        try
+        {
+            $req->execute();
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
 }
 ?>
