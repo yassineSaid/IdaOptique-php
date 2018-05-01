@@ -241,8 +241,6 @@
                                                         <td><label class="col-2 col-form-label">ID</label></td>
                                                         <td><div class="col-5">
                                                             <input type="text" class="form-control" value="<?php echo $id?>"
-                                                            name="idproduitM" disabled>
-                                                            <input type="hidden" class="form-control" value="<?php echo $id?>"
                                                             name="idproduitM">
                                                         </div></td>
 
@@ -288,8 +286,7 @@
                                                         
                                                        <td>
                                                         <div class="col-5">
-                                                        <textarea rows="4" cols="54" name="descriptionM"><?php echo $description ?></textarea>
-                                                        
+                                                        <textarea rows="4" cols="54" name="descriptionM" value="<?php echo $description ?>"></textarea>
                                                        </div>
                                                         </td>
 

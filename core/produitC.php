@@ -79,7 +79,7 @@ class ProduitManage
 
 	}
 	function recupererProduit($idp){
-		$sql="SELECT * from produit p,images i where p.produit_id=$idp AND p.produit_id=i.produit_id";
+		$sql="SELECT * from produit p where p.produit_id=$idp";
 		$db=config::getConnexion();
 		try{
 		$liste=$db->query($sql);

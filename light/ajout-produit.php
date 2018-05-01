@@ -127,6 +127,7 @@
 
 
     <body class="fixed-left">
+
         <!-- Begin page -->
         <div id="wrapper">
 
@@ -193,8 +194,7 @@
 
 
             <!-- ========== Left Sidebar Start ========== -->
-           
-<?php include_once 'left-bar.php';?>
+            <?php include_once 'left-bar.php'; ?>
             <!-- Left Sidebar End -->
 
 
@@ -206,64 +206,80 @@
                 <!-- Start content -->
                 <div class="content">
                     <div class="container-fluid">
-                        
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
                                     <h4 class="m-t-0 header-title"><b>Ajouter un Produit</b></h4>
-                                   
-
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="p-20">
-                                                <form enctype="multipart/form-data" name="produit" action="ajouter-produit.php" method="POST" onsubmit="return verif(this)">
+                                                 <form enctype="multipart/form-data" name="produit" action="ajouter-produit.php" method="POST" onsubmit="return verif(this)">
                                                     <?php include_once '../core/produitC.php';
                                                         $n=new produitManage();
                                                         $id=$n->creerIdProduit();
                                                      ?>
+                                                     <tr>
+
                                                         <div class="form-group row">
-                                                        
-                                                        <div class="col-5">
+                                                        <td><label class="col-2 col-form-label">ID</label></td>
+                                                        <td><div class="col-5">
                                                             <input type="text" class="form-control" value="<?php echo $id?>"
                                                             name="idproduit" disabled>
-                                                        </div>
+                                                        </div></td>
 
                                                     </div>
+                                                    </tr>
+                                                   <tr>
                                                      <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Marque</label>
-                                                        <div class="col-5">
+                                                        <td><label class="col-2 col-form-label">Marque</label></td>
+                                                        <td><div class="col-5">
                                                             <input type="text" class="form-control" placeholder="marque"
                                                             name="marque">
+                                                        </div></td>
                                                         </div>
-                                                        </div>
+                                                        </tr>
+                                                        <tr>
                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Categorie</label>
+                                                       <td> <label class="col-2 col-form-label">Categorie</label></td>
                                                         
-                                                            <select name="categorie" size="1" style="width:400px">
+                                                            <td>
+                                                                <div class="col-5">
+                                                                <select name="categorie" size="1" style="width:400px">
                                                               <option name="optique" value="optique">Optique</option>
                                                               <option name="solaire" value="solaire">Solaire</option>
                                                             </select>
+                                                        </div></td>
                                                        
                                                         </div>
+                                                        </tr>
+                                                        <tr>
                                                         <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Nom</label>
-                                                        <div class="col-5">
+                                                        <td><label class="col-2 col-form-label">Nom</label></td>
+                                                        <td><div class="col-5">
                                                             <input type="text" class="form-control" placeholder="nom"
                                                             name="nom">
-                                                        </div>
+                                                        </div></td>
 
                                                     </div>
+                                                    </tr>
 
-                                                    </div>
+                                                    <tr>
                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Description</label>
+                                                        <td><label class="col-2 col-form-label">Description</label></td>
                                                         
-                                                        <textarea rows="4" cols="55" name="description"></textarea>
+                                                       <td>
+                                                        <div class="col-5">
+                                                        <textarea rows="4" cols="54" name="description"></textarea>
+                                                       </div>
+                                                        </td>
 
                                                     </div>
+                                                    </tr>
+                                                    <tr>
                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Forme</label>
-                                                        
+                                                        <td><label class="col-2 col-form-label">Forme</label></td>
+                                                        <td><div class="col-5">
                                                         <select name="forme" size="1" style="width:400px">
                                                               <option name="rectangulaire" value="rectangulaire">Rectangulaire</option>
                                                               <option name="carré" value="carré">Carré</option>
@@ -275,98 +291,92 @@
 
                                                                <option name="Papillon" value="Papillon">Papillon</option>
                                                             </select>
+                                                        </div></td>
 
                                                     </div>
+                                                    </tr>
+                                                    <tr>
                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Couleur</label>
-                                                        <div class="col-5">
+                                                        <td><label class="col-2 col-form-label">Couleur</label></td>
+                                                        <td><div class="col-5">
                                                             <input type="text" class="form-control" placeholder="couleur"
                                                             name="couleur">
-                                                        </div>
+                                                        </div></td>
 
                                                     </div>
+                                                    </tr>
+                                                    <tr>
                                                     <div class="form-group row">
-                                                      <label class="col-2 col-form-label">Prix</label>
-                                                        <div class="col-5">
+                                                      <td><label class="col-2 col-form-label">Prix</label></td>
+                                                        <td><div class="col-5">
                                                             <input type="text" class="form-control" placeholder="prix"
                                                             name="prix">
-                                                        </div>
+                                                        </div></td>
                                                     </div>
-
+                                                    </tr>
+                                                    <tr>
                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Quantite</label>
-                                                        <div class="col-5">
+                                                        <td><label class="col-2 col-form-label">Quantite</label></td>
+                                                       <td> <div class="col-5">
                                                             <input type="text" class="form-control" placeholder="quantite"
                                                             name="quantite">
-                                                        </div>
+                                                        </div></td>
                                                     </div>
                                             
-
+                                                    </tr>
+                                                    <tr>
                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Image1</label>
+                                                        <td><label class="col-2 col-form-label">Image(principal)</label></td>
 
-                                                        <div class="col-5">
+                                                        <td><div class="col-5">
                                                             <input size=50 type="file" class="form-control"
                                                             name="image">
                                                             <div class="col-5">
-                                                            <select name="type1" size="1" style="width:400px">
-                                                              <option name="principal" value="principal">Principal</option>
-                                                              <option name="secondaire" value="secondaire">Secondaire</option>
-                                                            </select>
+                                                            
                                                         </div>
 
-                                                        </div>
+                                                        </div></td>
                                                     </div>
+                                                    </tr>
+                                                    <tr>
                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Image2</label>
+                                                        <label class="col-2 col-form-label">Image(secondaire1)</label>
 
                                                         <div class="col-5">
                                                             <input size=50 type="file" class="form-control"
                                                             name="image2">
                                                             <div class="col-5">
-                                                            <select name="type2" size="1" style="width:400px">
-                                                              <option name="principal" value="principal">Principal</option>
-                                                              <option name="secondaire" value="secondaire" selected="selected">Secondaire</option>
-                                                            </select>
+
                                                         </div>
                                                         </div>
                                                     </div>
+                                                    </tr>
+                                                    <tr>
                                                     <div class="form-group row">
-                                                        <label class="col-2 col-form-label">Image3</label>
+                                                        <label class="col-2 col-form-label">Image(secondaire2)</label>
 
                                                         <div class="col-5">
                                                             <input size=50 type="file" class="form-control"
                                                             name="image3">
                                                             <div class="col-5">
-                                                            <select name="type3" size="1" style="width:400px">
-                                                              <option name="principal" value="principal">Principal</option>
-                                                              <option name="secondaire" value="secondaire" selected="selected">Secondaire</option>
-                                                            </select>
+                                                            
                                                         </div>
                                                         </div>
                                                     </div>
+                                                    </tr>
                                                      
                                                     <p align="center">
                                                         <br>
                                                     <button type="submit" name="valider" class="btn btn-primary">Valider</button>
                                                 </form>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                           
                                     <!-- end row -->
 
                                 </div> <!-- end card-box -->
                             </div><!-- end col -->
                         </div>
-                        <!-- end row -->
-
-
-
-
-
                         
-                        
+
                     </div> <!-- container -->
 
                 </div> <!-- content -->
@@ -384,77 +394,7 @@
 
 
             <!-- Right Sidebar -->
-            <div class="side-bar right-bar">
-                <a href="javascript:void(0);" class="right-bar-toggle">
-                    <i class="mdi mdi-close-circle-outline"></i>
-                </a>
-                <h4 class="">Notifications</h4>
-                <div class="notification-list nicescroll">
-                    <ul class="list-group list-no-border user-list">
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">Michael Zenaty</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">2 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-info">
-                                    <i class="mdi mdi-account"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">New Signup</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">5 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-pink">
-                                    <i class="mdi mdi-comment"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">New Message received</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">1 day ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#" class="user-list-item">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-3.jpg" alt="">
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">James Anderson</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">2 days ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#" class="user-list-item">
-                                <div class="icon bg-warning">
-                                    <i class="mdi mdi-settings"></i>
-                                </div>
-                                <div class="user-desc">
-                                    <span class="name">Settings</span>
-                                    <span class="desc">There are new settings available</span>
-                                    <span class="time">1 day ago</span>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
+             <?php include 'notification-bar.php' ?>
             <!-- /Right-bar -->
 
         </div>
@@ -476,6 +416,8 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/notification.js"></script>
+        
 
     </body>
 </html>
