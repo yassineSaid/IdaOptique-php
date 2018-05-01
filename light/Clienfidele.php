@@ -140,7 +140,7 @@
                                         <?PHP
                                     foreach($listeClient as $row){
                                         ?>
-                                        <option  value="<?PHP echo $row['id_client']; ?>"> <?PHP echo $row['nom'] ,'-',$row['prenom'] ; ?>
+                                        <option  value="<?PHP echo $row['id_client']; ?>"> <?PHP echo $row['nom'] ,'-',$row['prenom'],'-',$row['id_client'] ; ?>
                                         </option>
                                         <?PHP } ?>
                               </select>
