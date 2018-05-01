@@ -123,10 +123,10 @@
 
 													</tr>
 													
-												</tbody>
+												
 												 
 												<?php }  ?>	
-											
+											</tbody>
 									</table>
 												<tfoot>
 													<tr>
@@ -144,7 +144,7 @@
 														</td>
 													</tr>
 												</tfoot>
-											</table>
+										
 										</div>
 									</form>
 								</div>
