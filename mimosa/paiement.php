@@ -52,6 +52,7 @@
 						echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
 					include_once '../entities/commande.php';
 					include_once '../core/commandeC.php';
+					include_once '../core/couponC.php';
 					require_once '/stripe/init.php';
 					if (isset($_POST['app']))
 					{
@@ -81,6 +82,11 @@
 							if ($commC->ajouterPaiement($id_commande,$_POST['total'],$token))
 							{
 								$_SESSION['pourcentage']=0;
+								if(isset($_SESSION['coupon']))
+								{
+									$coupon=new CouponC();
+									$coupon->changervalidite($_SESSION['coupon']);
+								}
 						?><form method="post" action="envoyer-mail.php">
 							<input type="hidden" name="lien" value="<?php echo 'http://localhost/code/mimosa/afficherFacturePdf.php?id_commande='.$id_commande ?>">
 							<input type="hidden" name="destination" value="<?php echo $commC->getEmailClient($_SESSION['id'])?>">
@@ -114,6 +120,11 @@
 								$var2->ajouter_livraison($var);
 							}
 							$_SESSION['pourcentage']=0;
+							if(isset($_SESSION['coupon']))
+								{
+									$coupon=new CouponC();
+									$coupon->changervalidite($_SESSION['coupon']);
+								}
 							?><form method="post" action="envoyer-mail.php">
 							<input type="hidden" name="lien" value="<?php echo 'http://localhost/code/mimosa/afficherFacturePdf.php?id_commande='.$id_commande ?>">
 							<input type="hidden" name="destination" value="<?php echo $commC->getEmailClient($_SESSION['id'])?>">
