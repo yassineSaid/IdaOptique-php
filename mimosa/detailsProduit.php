@@ -53,10 +53,10 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="breadcrumb-content text-center">
-								<h2>product details</h2>
+								<h2>details du produit</h2>
 								<ul>
-									<li><a href="#">Home /</a></li>
-									<li class="active"><a href="#">product details</a></li>
+									<li><a href="#">Accueil /</a></li>
+									<li class="active"><a href="#">details du produit</a></li>
 								</ul>
 							</div>
 						</div>
@@ -87,7 +87,11 @@
                                         $pro= new ProduitManage();
                                         $result=$pro->recupererProduit2($_GET['id']);
                                         
-
+                                        if (isset($_GET['rate'])&&isset($_SESSION['id']))
+				{
+					//$prodC1=new ProduitManage();
+					$rate=$pro->addRating($_GET['id'],$_GET['rate']+1,$_SESSION['id']);
+				}
                                  
 
                                     foreach ($result as $row) 
@@ -101,6 +105,9 @@
 										$categorie=$row['produit_categorie'];
 										$prix=$row['produit_prix'];
 										$quantite=$row['produit_qte'];
+										$couleur=$row['produit_couleur'];
+										$marque=$row['produit_marque'];
+										$forme=$row['produit_forme'];
                                     	?>
                                     
 							
@@ -155,49 +162,41 @@
 									<div class="rating">
 										<ul>
 											<?php for ($i=0;$i<$moy;$i++) {?>
-															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
+															<li><a href="<?php echo "detailsProduit.php?id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
 															<?php } for ($i=$moy;$i<5;$i++) {?>
-															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
+															<li><a href="<?php echo "detailsProduit.php?id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
 															<?php }?>
 										</ul>
 									</div>
 									
 								</div>
-								<div class="price">
-									<ul>
-										<li class="new-price"><?php echo $prix ; echo "  DT"?></li>
-									</ul>
-									
-
-								</div>
+							
 								<div class="name">
-									<ul>
-										<li> Description: <?php echo $description ?></li>
-									</ul>
+									
 									
 								</div>
 							
 								<div class="list-unstyled">
 									<ul>
-										<li>Categorie: <a href="#"><?php echo $categorie ?></a></li>
-										<li>ID-produit: <a href="#"><?php echo $id ?></a></li>
+										<li>Categorie: <a><?php echo $categorie ?></a></li>
+										<li>ID-produit: <a><?php echo $id ?></a></li>
+										<li>Couleur: <a><?php echo $couleur ?></a></li>
+										<li>Marque: <a><?php echo $marque ?></a></li>
+										<li>Forme: <a><?php echo $forme ?></a></li>
 										
 										
 									</ul>
 
 								</div>
+									<div class="price">
+									<ul>
+									<li class="new-price" style="color: red;font-size: 200%; font-weight: bold;"><?php echo $prix ; echo "  DT"?></li>
+									</ul>
+									
 
-								<div class="catagory-select mb-30">
-									<h3>options valables</h3>
-									<form action="#">
-										<label for="#">Select:</label>
-										<select  class="sorter-options" data-role="sorter">
-											<option selected="selected" value="Lowest">Blue</option>
-											<option value="Highest">White</option>
-											<option value="Product">Green</option>
-										</select>
-									</form>
 								</div>
+
+								
 
 								<form action="ajouterPanier.php" method="post">	
 									<div class="quality-button">
@@ -348,9 +347,9 @@
 												<div class="rating">
 													<ul>
 														<?php for ($i=0;$i<$moy;$i++) {?>
-															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
+															<li><a href="<?php echo "detailsProduit.php?id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star"></i></a></li>
 															<?php } for ($i=$moy;$i<5;$i++) {?>
-															<li><a href="<?php echo "listeProduits.php?categorie=".$row['produit_categorie']."&id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
+															<li><a href="<?php echo "detailsProduit.php?id=".$row['produit_id']."&rate=".$i ?>"><i class="fa fa-star-o"></i></a></li>
 															<?php }?>
 													</ul>
 												</div>

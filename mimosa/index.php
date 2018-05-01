@@ -48,6 +48,13 @@
 			</header>
 			<!-- header-area-end -->
 			<!-- slider-area-start -->
+			<?php include_once '../core/produitC.php';
+
+			if (isset($_GET['rate'])&&isset($_SESSION['id']))
+				{
+					$prodC1=new ProduitManage();
+					$rate=$prodC1->addRating($_GET['id'],$_GET['rate']+1,$_SESSION['id']);
+				} ?>
 			<div class="slider-area">
 				<div id="slider">
 					<img src="img/slider/slider1.jpg" alt="slider-img" title="#caption1" />
