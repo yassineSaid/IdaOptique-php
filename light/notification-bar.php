@@ -2,7 +2,7 @@
                 <a href="javascript:void(0);" class="right-bar-toggle">
                     <i class="mdi mdi-close-circle-outline"></i>
                 </a>
-                <a href="index.php" class="right-bar-toggle">
+                <a class="right-bar-toggle" id="supprimer-notif" href="javascript:void(0);">
                     <i class="mdi mdi-comment-remove-outline"></i>
                 </a>
                 <h4 class="">Notifications</h4>

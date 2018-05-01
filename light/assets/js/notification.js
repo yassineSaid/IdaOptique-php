@@ -1,4 +1,8 @@
-$(document).ready(function(){load_unseen_notification();});
+$(document).ready(function()
+{
+	load_unseen_notification();
+	$('.form-control').attr("placeholder", "Rechercher...");
+});
 function load_unseen_notification(view = '')
 {
  $.ajax({
@@ -27,7 +31,24 @@ function updateNotification(view = '')
   }
  });
 }
+function supprimerNotification(view = '')
+{
+	$.ajax({
+  url:"supprimerNotification.php",
+  method:"POST",
+  data:{view:view},
+  dataType:"json",
+  success:function(data)
+  {
+   load_unseen_notification();
+  }
+ });
+}
 $('.right-bar-toggle').click(function()
 {
 	setTimeout(function(){updateNotification();}, 3000);
+});
+$('#supprimer-notif').click(function()
+{
+	supprimerNotification();
 });
