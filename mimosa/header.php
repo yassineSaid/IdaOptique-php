@@ -63,10 +63,11 @@
 											
 											
 												
-											</li>
-											<li><li><a href="forum.php">Blog</a>
+											
+											<li><a href="forum.php">Blog</a>
 												<ul class="sub-menu">
-													<li><a href="post.php">Ajouter un Post</a>
+													<li><a href="post.php">Ajouter un Post</a></li>
+														<li><a href="forum.php">Afficher les Posts</a>
 													</li>
 													
 												</ul>

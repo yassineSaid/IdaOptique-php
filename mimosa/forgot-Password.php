@@ -138,7 +138,7 @@ if(isset($_POST) & !empty($_POST)){
 
 $r= mysqli_fetch_assoc($res);
 $to = $_POST['email'];
-$subject = "Your Recovered Password";
+$subject = "Récupérez votre mot de passe";
  $message='<html>
                   <body>
 
@@ -156,7 +156,7 @@ $subject = "Your Recovered Password";
                         <br>
                         <br>
                         <br>
-                        <font color =#E9383F size= 2px><a href="http://127.0.0.1//code//mimosa/changer-pass.php?id='.$r['id'].'"> Confirmer Mon Compte </a></font>
+                        <font color =#E9383F size= 2px><a href="http://127.0.0.1//code//mimosa/changer-pass.php?id='.$r['id'].'"> Récupérez votre mot de passe </a></font>
                     </div>
                   </body>
                 </html>';
@@ -167,11 +167,11 @@ if(mail($to, $subject, $message, $headers)){
 	//echo "Your Password has been sent to your email http://127.0.0.1//code//mimosa/changer-pass.php?id=".$r['id'];
 }else{
 
-	echo "Failed to Recover your password, try again";
+	echo "Réessayez de nouveau";
 }
 
 	}else{
-		echo "User name does not exist in database";
+		echo "votre mail ne correspond à aucun compte";
 	}
 }
 

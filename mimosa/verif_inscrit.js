@@ -166,6 +166,32 @@ else if($("#telephone").val().match(onlyNumber)==null)
 
 
 }
+function age()
+{
+ var onlyNumber=/^[0-9]*$/gm;
+    var onlyletter=/^[A-Za-z]+$/;
+     $("#span_age").css({"color":"red"});
+
+if($("#age").val()=="")
+{
+   $("#span_age").html("       Champ obligatoire"); 
+      $("#age").css({"background-color": "#ff7f7f"}); 
+}
+else if($("#age").val().match(onlyNumber)==null)
+                {
+                    $("#span_age").html("Que des chiffres !");
+                    $("#age").css({"background-color":"#ff7f7f"});
+              
+               
+                }
+                else
+                {
+  $("#span_age").html("");
+                    $("#age").css({"background-color":"white"});
+                }
+
+
+}
 function fax()
 {
  var onlyNumber=/^[0-9]*$/gm;
@@ -425,6 +451,7 @@ function verif(event)
 
 
 $("#nom").keyup(nom);
+$("#age").keyup(age);
 $("#locality").keyup(locality);
 $("#street_number").keyup(street_number);
 $("#prenom").keyup(prenom);

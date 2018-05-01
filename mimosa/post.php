@@ -1,5 +1,6 @@
 <!doctype html>
-<?php include('header.php'); ?>
+<?php include('header.php'); if(!isset($_SESSION['id'])) { echo "<script type='text/javascript'>document.location.replace('login-client-inter.php');</script>";}?>
+
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">

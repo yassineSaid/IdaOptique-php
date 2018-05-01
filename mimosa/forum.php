@@ -106,10 +106,10 @@
 												$text=$row['post'];
 												$text1=substr($text, 0, 200);
 												echo $text1; ?></p>
-												<a href="forum-detail.php?id=<?php echo$row['id']; ?>">Lire Plus ...</a>
+												<a href="forum-detail.php?id=<?php echo $row['id']; ?>">Lire Plus ...</a>
 												<div class="meta">
-													<a href="#"><i class="fa fa-user"></i>Profile</a>
-													<a href="#"><i class="fa fa-heart-o"></i>2</a>
+													
+													<a href="like-post.php?id=<?php echo $row['id']; ?>"><i class="fa fa-heart-o"></i><?php echo $row['likes']; ?></a>
 												</div>
 											</div>
 										</div>

@@ -241,7 +241,7 @@
                                                                         <span class="teaser">- <?PHP echo /*lenght= 20*/$row['message']; ?></span>
                                                                     </div>
                                                                    <?PHP 
-                                                                   date_default_timezone_set('GMT');
+                                                                 // date_default_timezone_set('GMT');
                                                                         $time= date("d-m-Y H:i:s"); 
                                                                         $timeadd=$row['date_ajout'];
                                                                         $date = date('Y-m-d',strtotime($time));

@@ -84,62 +84,62 @@
 								<div class="billing-fields">
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+											<div class="checkout-form-list">
 													<label>Nom<span>*</span></label>
 													<input type="text" name="livraison_nom" value="<?php echo $row['nom']; ?>"/>
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+											<div class="checkout-form-list">
 													<label>Prénom<span>*</span></label>
 													<input type="text" name="livraison_prenom" value="<?php echo $row['prenom']; ?>" />
 											</div>
 										</div>
 									</div>
-									<div class="single-register">
+									<div class="checkout-form-list">
 											<label>Societe</label>
 											<input type="text" name="livraison_sosciete" value="<?php echo $row['sosciete']; ?>" />
 									</div>
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+											<div class="checkout-form-list">
 													<label>Email <span>*</span></label>
 													<input type="text" name="livraison_email" value="<?php echo $row['email']; ?>" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+											<div class="checkout-form-list">
 													<label>Telephone<span>*</span></label>
 													<input type="text" name="livraison_telephone" value="<?php echo $row['telephone']; ?>" />
 											</div>
 										</div>
 									</div>
-									<div class="single-register">
+									<div class="checkout-form-list">
 										<label>Tunisie<span>*</span></label>
 										<select class="chosen-select" tabindex="1" style="width:100%;" name="livraison_pays" data-placeholder="Default Sorting">
 											<option value="Tunisie">Tunisie </option>
 											
 										</select>
 									</div>
-									<div class="single-register">
+									<div class="checkout-form-list">
 											<label>Addresse<span>*</span></label>
 											<input type="text" name="livraison_adresse1" value="<?php echo $row['adresse1']; ?>" placeholder="Street address"/>
 											<input type="text" name="livraison_adresse2" value="<?php echo $row['adresse2']; ?>" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional"/>
 									</div>
-									<div class="single-register">
+									<div class="checkout-form-list">
 											<label>Ville<span>*</span></label>
 											<input type="text" name="livraison_ville" value="<?php echo $row['ville']; ?>" />
 									</div>
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+											<div class="checkout-form-list">
 												<label>Region<span>*</span></label>
 												<input type="text" name="livraison_region" value="<?php echo $row['region']; ?>" />
 												
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+											<div class="checkout-form-list">
 												
 													<label>Code Postal<span>*</span></label>
 													<input type="text" name="livraison_code_postal" value="<?php echo $row['code_postal']; ?>" />
@@ -147,7 +147,7 @@
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="single-register">
+											<div class="checkout-form-list">
 												
 													<label>Note<span>*</span></label>
 													<textarea type="text" name="livraison_note" value="<?php echo $row['note']; ?>" /></textarea>
@@ -159,8 +159,14 @@
 									</div>
 										
 									
-									<div class="single-register">
-										<button type="submit" name="modif">Modifier</button>
+									<div class="order-button-payment">
+										<button type="submit" name="modif" style="background: #000 none repeat scroll 0 0;
+														  color: #fff;
+														  display: block;
+														  font-weight: 700;
+														  padding: 10px 56px;
+														  text-transform: uppercase;
+														  width: 260px;">Modifier</button>
 										
 									</div>
 								</div>
