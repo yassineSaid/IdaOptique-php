@@ -186,7 +186,7 @@
                                         <?php if($augmentation>=0){ ?>
                                         <div class="widget-detail-2">
                                             <span class="badge badge-success badge-pill pull-left m-t-20"><?php echo $augmentation ?>% <i class="mdi mdi-trending-up"></i> </span>
-                                            <h2 class="mb-0"> <?php echo $ventes['total'] ?> </h2>
+                                            <h2 class="mb-0"> <?php echo number_format($ventes['total'],2) ?> </h2>
                                             <p class="text-muted m-b-25"> DT ce mois</p>
                                         </div>
                                         <div class="progress progress-bar-success-alt progress-sm mb-0">
@@ -199,7 +199,7 @@
                                         <?php } else { ?>
                                         <div class="widget-detail-2">
                                             <span class="badge badge-danger badge-pill pull-left m-t-20"><?php echo $augmentation ?>% <i class="mdi mdi-trending-down"></i> </span>
-                                            <h2 class="mb-0"> <?php echo $ventes['total'] ?> </h2>
+                                            <h2 class="mb-0"> <?php echo number_format($ventes['total'],2) ?> </h2>
                                             <p class="text-muted m-b-25"> DT ce mois</p>
                                         </div>
                                         <div class="progress progress-bar-success-alt progress-sm mb-0">
