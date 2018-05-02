@@ -155,9 +155,16 @@
                                             $monthName = date("F", mktime(0, 0, 0, $month, 10));?>
 											<span><?php echo $monthName." ".$day.", ".$year." at ".$time1; ?></span>
 											<p><?php echo $val2['comment']; ?></p>
-											<div class="reply">
-												<a href="#">Reply</a>
-											</div>
+											
+
+												<div class="user-share">
+													
+													<ul>
+														<li><a href="supprimer-comment.php?id=<?php echo $val2['id']."&id_post=".$_GET['id']; ?>"><i>Supprimer</i></a></li>
+														
+													</ul>
+												</div>
+											
 										</div>
 									</div>
 									<?php } ?>
@@ -222,6 +229,7 @@
 											<span><?php echo $monthName." ".$day.", ".$year; ?></span>
 												
 											</div>
+
 										</div>
 										<?php } ?>
 										<!-- single-post-end -->
