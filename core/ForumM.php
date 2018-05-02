@@ -116,6 +116,16 @@ public function ajouterPost($post)
                  echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum.php\">"; 
 
     }
+     public function supprimerComment($id,$id_post)
+    {
+         $db=config::getConnexion();
+        $sql=$db->prepare("DELETE FROM commentaire WHERE id= $id");
+        if($sql->execute())
+                 echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum-detail.php?id=".$id_post."\">"; 
+            else
+                   echo "<meta http-equiv=\"refresh\" content=\"0;URL=forum-detail.php?id=".$id_post."\">"; 
+
+    }
 public function modifierPost($post,$id_post)
     {
        
